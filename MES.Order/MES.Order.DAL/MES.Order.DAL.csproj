@@ -55,6 +55,7 @@
     <Compile Include="EntityFramework\ProductsOrder.cs" />
     <Compile Include="ProductGroupIDPO.cs" />
     <Compile Include="ProductsInformationPO.cs" />
+    <Compile Include="ProductsOrderPO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\KeyAndNameForCombo.cs" />
   </ItemGroup>

@@ -47,6 +47,8 @@
     <Compile Include="ICustomerAdapter.cs" />
     <Compile Include="IProductGroupIDAdapter.cs" />
     <Compile Include="IProductsInformationAdapter.cs" />
+    <Compile Include="IProductsOrderAdapter.cs" />
+    <Compile Include="ProducstOrderAdapter.cs" />
     <Compile Include="ProductGroupIDAdapter.cs" />
     <Compile Include="ProductInformationAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

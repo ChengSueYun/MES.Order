@@ -60,6 +60,12 @@
     <Compile Include="ProductInformation.Designer.cs">
       <DependentUpon>ProductInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductsOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductsOrder.Designer.cs">
+      <DependentUpon>ProductsOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Customer.resx">
@@ -67,6 +73,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductInformation.resx">
       <DependentUpon>ProductInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsOrder.resx">
+      <DependentUpon>ProductsOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -81,6 +90,7 @@
     </Compile>
     <None Include="Properties\DataSources\MES.Order.DAL.EntityFramework.Custom.datasource" />
     <None Include="Properties\DataSources\MES.Order.DAL.EntityFramework.ProductsInfomation.datasource" />
+    <None Include="Properties\DataSources\MES.Order.DAL.EntityFramework.ProductsOrder.datasource" />
     <None Include="Properties\DataSources\MES.Order.DAL.ViewModel.KeyAndNameForCombo.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

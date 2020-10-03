@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CustomerUCO.cs" />
     <Compile Include="ProductInformationUCO.cs" />
+    <Compile Include="ProductsOrderUCO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

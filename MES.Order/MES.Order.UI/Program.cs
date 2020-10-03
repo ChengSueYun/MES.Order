@@ -13,7 +13,8 @@ namespace MES.Order.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Customer());
+            //Application.Run(new Customer());
+            Application.Run(new ProductsOrder());
 
             //Application.Run(new ProductInformation());
         }
