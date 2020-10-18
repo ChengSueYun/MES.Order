@@ -26,6 +26,8 @@ namespace MES.Order.Adapter
 
         List<KeyAndNameForCombo> DistinctProductName();
 
+        List<ProductsInfomation> GetProdctPrice(string ProductGroupID, string ProductName);
+
         #endregion
     }
 }

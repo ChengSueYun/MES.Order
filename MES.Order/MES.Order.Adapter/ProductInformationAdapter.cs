@@ -38,6 +38,11 @@ namespace MES.Order.Adapter
             return this.productsInformationPo.DistinctProducts();
         }
 
+        public List<ProductsInfomation> GetProdctPrice(string ProductGroupID, string ProductName)
+        {
+            return this.productsInformationPo.GetProdctPrice(ProductGroupID, ProductName);
+        }
+
         public int SaveProductsInfomations(List<ProductsInfomation> insertProductsInfomations)
         {
             return this.productsInformationPo.SaveProductsInfomations(insertProductsInfomations);

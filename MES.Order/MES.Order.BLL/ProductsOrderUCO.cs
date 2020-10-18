@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 using MES.Order.Adapter;
 using MES.Order.DAL.EntityFramework;
@@ -127,6 +128,11 @@ namespace MES.Order.BLL
             var result = this.ipProductsInformationAdapter.DistinctProductName(ProductGroupID);
             AddAllSelectRow(ref result);
             return result;
+        }
+
+        public List<ProductsInfomation> GetProductPrice(string ProductGroupID, string ProductName)
+        {
+            return this.ipProductsInformationAdapter.GetProdctPrice(ProductGroupID, ProductName);
         }
 
         public int SaveOrders(List<ProductsOrder> insertProductsOrders)

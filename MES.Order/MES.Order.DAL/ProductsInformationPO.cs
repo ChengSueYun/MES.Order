@@ -158,6 +158,16 @@ namespace MES.Order.DAL
             }
         }
 
+        public List<ProductsInfomation> GetProdctPrice(string ProductGroupID, string ProductName)
+        {
+            using (var db =
+                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+            {
+                return db.ProductsInfomations
+                         .Where(x => x.ProductGroupID == ProductGroupID && x.ProductName == ProductName).ToList();
+            }
+        }
+
         #endregion
     }
 }
