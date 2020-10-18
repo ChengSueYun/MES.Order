@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.Data.Linq;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
+using THS.Infrastructure.Extensions;
 
 namespace MES.Order.UI
 {
@@ -32,8 +34,8 @@ namespace MES.Order.UI
             this.InitialProductGroupID();
             this.InitialCusomterName();
             this.InitialProductName();
-            this.dateEdit_OrderDateS.DateTime = DateTime.Today;
-            this.dateEdit_OrderDateE.DateTime = DateTime.Today.AddDays(-15);
+            this.dateEdit_OrderDateS.DateTime = DateTime.Today.AddDays(-15);
+            this.dateEdit_OrderDateE.DateTime = DateTime.Today;
         }
 
         private void InitialProductName()
@@ -42,7 +44,6 @@ namespace MES.Order.UI
             this.lookUpEdit_ProductName.Properties.DataSource = result;
             this.lookUpEdit_ProductName.EditValue             = "*ALL";
             this.repository_ProductName.DataSource            = result.Where(x => x.Code != "*ALL").ToList();
-           
         }
 
         private void InitialCusomterName()
@@ -117,8 +118,10 @@ namespace MES.Order.UI
                                                                  areaLookUpEdit.EditValue.ToString());
             var result = this.ProductsOrderUCO.GetCustomerName(areaLookUpEdit.EditValue.ToString())
                              .Where(x => x.Code != "*ALL").ToList();
-            this.gridColumn4.ColumnEdit = repository_CustomerName;
-            this.repository_CustomerName.DataSource  = result;
+            this.gridColumn4.ColumnEdit             = repository_CustomerName;
+            this.repository_CustomerName.DataSource = result;
+
+            this.gridView_AddProductOrder.SetFocusedRowCellValue(gridColumn10, DateTime.Today);
         }
 
         private void repository_ProductGroupID_EditValueChanged(object sender, EventArgs e)
@@ -133,16 +136,77 @@ namespace MES.Order.UI
 
         private void repository_Count_EditValueChanged(object sender, EventArgs e)
         {
-            var countSpinEdit  = sender as SpinEdit;
-            var count          = countSpinEdit.Value;
-            var current        = this.AddproductsOrderBindingSource.Current;
-            var ProductGroupID = ((ProductsOrder) current).ProductGroupID;
-            var productName    = ((ProductsOrder) current).ProductName;
+            var countSpinEdit    = sender as CalcEdit;
+            var count            = countSpinEdit.Value;
+            var current          = this.AddproductsOrderBindingSource.Current;
+            var ProductGroupID   = ((ProductsOrder) current).ProductGroupID;
+            var productName      = ((ProductsOrder) current).ProductName;
             var result           = this.ProductsOrderUCO.GetProductPrice(ProductGroupID, productName).FirstOrDefault();
-            var resultTotalPrice = count * result.Price;
+            var resultTotalPrice = count * result.Price; //總售價
             this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn_Price,      result.Price);
             this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn_TotalPrice, resultTotalPrice);
+
+            var resultTotalCost = count * result.Cost; //總批價
+            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn13, resultTotalCost);
+
+            var totalProfit = resultTotalPrice - resultTotalCost; //總利潤
+            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn14, totalProfit);
         }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.AddproductsOrders =
+                    new
+                        List<ProductsOrder>((IEnumerable<ProductsOrder>) this
+                                                                         .AddproductsOrderBindingSource.List);
+                foreach (ProductsOrder addproductsOrder in this.AddproductsOrders)
+                {
+                    addproductsOrder.SetDefaultValue();
+                }
+
+                var actualSaveCount = this.ProductsOrderUCO.SaveOrders(this.AddproductsOrders);
+                MessageBox.Show("已存檔" + actualSaveCount + "筆資料", "存檔訊息", MessageBoxButtons.OKCancel);
+                this.AddproductsOrderBindingSource.Clear();
+
+                this.productsOrders = this
+                                      .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
+                                                                       DateTime.Today, DateTime.Today)
+                                      .OrderByDescending(x => x.AutoID).ToList();
+                this.gridControl_ProductOrder.DataSource = this.productsOrders;
+            }
+            catch (Exception exception)
+            {
+                throw new Exception("btn_Save_Click 存檔發生錯誤" + exception.Message);
+            }
+        }
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var selectedRows = this.gridView_ProductOrder.GetSelectedRows();
+                var deleteList   = new List<ProductsOrder>();
+                this.productsOrders = this.productsOrders.OrderByDescending(x => x.AutoID).ToList();
+                foreach (var row in selectedRows)
+                {
+                    var deleteRow = new ProductsOrder();
+
+                    deleteRow = this.productsOrders[row];
+                    deleteList.Add(deleteRow);
+                }
+
+                var actualDeleteCount = this.ProductsOrderUCO.DeleteOrders(deleteList);
+                MessageBox.Show("已刪除" + actualDeleteCount + "筆資料", "存檔訊息", MessageBoxButtons.OKCancel);
+                this.btn_Query.PerformClick();
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
+
         #endregion
+
     }
 }

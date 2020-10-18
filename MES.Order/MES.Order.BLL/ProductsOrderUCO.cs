@@ -95,7 +95,7 @@ namespace MES.Order.BLL
         }
 
         public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
-                                   string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
+                                                  string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
         {
             return this.IProductsOrderAdapter.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName,
                                                              orderDateTimeS,
@@ -133,6 +133,11 @@ namespace MES.Order.BLL
         public List<ProductsInfomation> GetProductPrice(string ProductGroupID, string ProductName)
         {
             return this.ipProductsInformationAdapter.GetProdctPrice(ProductGroupID, ProductName);
+        }
+
+        public List<ProductsInfomation> GetProductCost(string ProductGroupID, string ProductName)
+        {
+            return this.ipProductsInformationAdapter.GetProdctCost(ProductGroupID, ProductName);
         }
 
         public int SaveOrders(List<ProductsOrder> insertProductsOrders)

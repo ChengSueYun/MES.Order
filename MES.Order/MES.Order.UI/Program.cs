@@ -11,12 +11,20 @@ namespace MES.Order.UI
         [STAThread]
         private static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Customer());
-            Application.Run(new Order());
+            try
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new ProductInformation());
+                //Application.Run(new Customer());
+                Application.Run(new Order());
+
+                //Application.Run(new ProductInformation());
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

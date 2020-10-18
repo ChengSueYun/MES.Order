@@ -28,6 +28,8 @@ namespace MES.Order.Adapter
 
         List<ProductsInfomation> GetProdctPrice(string ProductGroupID, string ProductName);
 
+        List<ProductsInfomation> GetProdctCost(string ProductGroupID, string ProductName);
+
         #endregion
     }
 }

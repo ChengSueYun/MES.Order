@@ -69,8 +69,9 @@
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repository_ProductName = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repository_Count = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.repositoryItemCalcEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit();
             this.gridColumn_Price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn_TotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -83,6 +84,7 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repository_Count = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.repository_CustomerName = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControl_ProductOrder = new DevExpress.XtraGrid.GridControl();
@@ -131,10 +133,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repository_ProductGroupID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_ProductName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repository_Count)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_OrderDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_OrderDate.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repository_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_CustomerName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).BeginInit();
@@ -160,7 +163,7 @@
             this.groupControl1.LookAndFeel.UseWindowsXPTheme = true;
             this.groupControl1.Margin = new System.Windows.Forms.Padding(4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1283, 203);
+            this.groupControl1.Size = new System.Drawing.Size(1283, 173);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "查詢";
             // 
@@ -200,14 +203,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1275, 160);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1275, 130);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // dateEdit_OrderDateE
             // 
             this.dateEdit_OrderDateE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateEdit_OrderDateE.EditValue = new System.DateTime(2020, 10, 2, 16, 12, 40, 524);
-            this.dateEdit_OrderDateE.Location = new System.Drawing.Point(1061, 56);
+            this.dateEdit_OrderDateE.Location = new System.Drawing.Point(1061, 46);
             this.dateEdit_OrderDateE.Name = "dateEdit_OrderDateE";
             this.dateEdit_OrderDateE.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateEdit_OrderDateE.Properties.Appearance.Options.UseFont = true;
@@ -230,10 +233,10 @@
             this.btn_Export.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_Export.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Export.Image = ((System.Drawing.Image)(resources.GetObject("btn_Export.Image")));
-            this.btn_Export.Location = new System.Drawing.Point(186, 110);
+            this.btn_Export.Location = new System.Drawing.Point(186, 90);
             this.btn_Export.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(174, 46);
+            this.btn_Export.Size = new System.Drawing.Size(174, 36);
             this.btn_Export.TabIndex = 373;
             this.btn_Export.Text = "匯出";
             // 
@@ -249,7 +252,7 @@
             this.label_Area.Location = new System.Drawing.Point(4, 4);
             this.label_Area.Margin = new System.Windows.Forms.Padding(4);
             this.label_Area.Name = "label_Area";
-            this.label_Area.Size = new System.Drawing.Size(174, 45);
+            this.label_Area.Size = new System.Drawing.Size(174, 35);
             this.label_Area.TabIndex = 364;
             this.label_Area.Text = "地區";
             // 
@@ -292,7 +295,7 @@
             this.label_CustomerName.Location = new System.Drawing.Point(368, 4);
             this.label_CustomerName.Margin = new System.Windows.Forms.Padding(4);
             this.label_CustomerName.Name = "label_CustomerName";
-            this.label_CustomerName.Size = new System.Drawing.Size(174, 45);
+            this.label_CustomerName.Size = new System.Drawing.Size(174, 35);
             this.label_CustomerName.TabIndex = 366;
             this.label_CustomerName.Text = "客戶名稱";
             // 
@@ -334,7 +337,7 @@
             this.lbl_ProductGroupID.Location = new System.Drawing.Point(732, 4);
             this.lbl_ProductGroupID.Margin = new System.Windows.Forms.Padding(4);
             this.lbl_ProductGroupID.Name = "lbl_ProductGroupID";
-            this.lbl_ProductGroupID.Size = new System.Drawing.Size(184, 45);
+            this.lbl_ProductGroupID.Size = new System.Drawing.Size(184, 35);
             this.lbl_ProductGroupID.TabIndex = 12;
             this.lbl_ProductGroupID.Text = "廠商名稱";
             // 
@@ -374,10 +377,10 @@
             this.lbl_ProductName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lbl_ProductName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lbl_ProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_ProductName.Location = new System.Drawing.Point(4, 57);
+            this.lbl_ProductName.Location = new System.Drawing.Point(4, 47);
             this.lbl_ProductName.Margin = new System.Windows.Forms.Padding(4);
             this.lbl_ProductName.Name = "lbl_ProductName";
-            this.lbl_ProductName.Size = new System.Drawing.Size(174, 45);
+            this.lbl_ProductName.Size = new System.Drawing.Size(174, 35);
             this.lbl_ProductName.TabIndex = 50;
             this.lbl_ProductName.Text = "產品名稱";
             // 
@@ -385,7 +388,7 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.lookUpEdit_ProductName, 2);
             this.lookUpEdit_ProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lookUpEdit_ProductName.Location = new System.Drawing.Point(185, 56);
+            this.lookUpEdit_ProductName.Location = new System.Drawing.Point(185, 46);
             this.lookUpEdit_ProductName.Name = "lookUpEdit_ProductName";
             this.lookUpEdit_ProductName.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEdit_ProductName.Properties.Appearance.Options.UseFont = true;
@@ -425,7 +428,7 @@
             // 
             this.dateEdit_OrderDateS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateEdit_OrderDateS.EditValue = new System.DateTime(2020, 10, 2, 16, 12, 40, 524);
-            this.dateEdit_OrderDateS.Location = new System.Drawing.Point(731, 56);
+            this.dateEdit_OrderDateS.Location = new System.Drawing.Point(731, 46);
             this.dateEdit_OrderDateS.Name = "dateEdit_OrderDateS";
             this.dateEdit_OrderDateS.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateEdit_OrderDateS.Properties.Appearance.Options.UseFont = true;
@@ -445,10 +448,10 @@
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(924, 57);
+            this.labelControl1.Location = new System.Drawing.Point(924, 47);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(130, 45);
+            this.labelControl1.Size = new System.Drawing.Size(130, 35);
             this.labelControl1.TabIndex = 371;
             this.labelControl1.Text = "~";
             // 
@@ -461,10 +464,10 @@
             this.label_OrderDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.label_OrderDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.label_OrderDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_OrderDate.Location = new System.Drawing.Point(550, 57);
+            this.label_OrderDate.Location = new System.Drawing.Point(550, 47);
             this.label_OrderDate.Margin = new System.Windows.Forms.Padding(4);
             this.label_OrderDate.Name = "label_OrderDate";
-            this.label_OrderDate.Size = new System.Drawing.Size(174, 45);
+            this.label_OrderDate.Size = new System.Drawing.Size(174, 35);
             this.label_OrderDate.TabIndex = 368;
             this.label_OrderDate.Text = "訂貨日期";
             // 
@@ -480,10 +483,10 @@
             this.btn_FocusRow.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_FocusRow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_FocusRow.Image = ((System.Drawing.Image)(resources.GetObject("btn_FocusRow.Image")));
-            this.btn_FocusRow.Location = new System.Drawing.Point(4, 110);
+            this.btn_FocusRow.Location = new System.Drawing.Point(4, 90);
             this.btn_FocusRow.Margin = new System.Windows.Forms.Padding(4);
             this.btn_FocusRow.Name = "btn_FocusRow";
-            this.btn_FocusRow.Size = new System.Drawing.Size(174, 46);
+            this.btn_FocusRow.Size = new System.Drawing.Size(174, 36);
             this.btn_FocusRow.TabIndex = 372;
             this.btn_FocusRow.Text = "鎖定列";
             // 
@@ -502,7 +505,7 @@
             this.btn_Query.Location = new System.Drawing.Point(1062, 4);
             this.btn_Query.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(209, 45);
+            this.btn_Query.Size = new System.Drawing.Size(209, 35);
             this.btn_Query.TabIndex = 363;
             this.btn_Query.Text = "查詢";
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
@@ -519,12 +522,13 @@
             this.btn_Save.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_Save.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Save.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.Image")));
-            this.btn_Save.Location = new System.Drawing.Point(368, 110);
+            this.btn_Save.Location = new System.Drawing.Point(368, 90);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(174, 46);
+            this.btn_Save.Size = new System.Drawing.Size(174, 36);
             this.btn_Save.TabIndex = 53;
             this.btn_Save.Text = "存檔";
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Cancel
             // 
@@ -538,12 +542,13 @@
             this.btn_Cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_Cancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Cancel.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cancel.Image")));
-            this.btn_Cancel.Location = new System.Drawing.Point(550, 110);
+            this.btn_Cancel.Location = new System.Drawing.Point(550, 90);
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(174, 46);
+            this.btn_Cancel.Size = new System.Drawing.Size(174, 36);
             this.btn_Cancel.TabIndex = 31;
             this.btn_Cancel.Text = "刪除";
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // keyAndNameForComboBindingSource
             // 
@@ -552,7 +557,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 203);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 173);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -563,8 +568,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gridControl_ProductOrder);
-            this.splitContainer1.Size = new System.Drawing.Size(1283, 519);
-            this.splitContainer1.SplitterDistance = 186;
+            this.splitContainer1.Size = new System.Drawing.Size(1283, 549);
+            this.splitContainer1.SplitterDistance = 196;
             this.splitContainer1.TabIndex = 8;
             // 
             // groupControl2
@@ -578,7 +583,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1283, 186);
+            this.groupControl2.Size = new System.Drawing.Size(1283, 196);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "新增";
             // 
@@ -596,8 +601,9 @@
             this.repository_OrderDate,
             this.repository_Note1,
             this.repository_ProductName,
-            this.repository_CustomerName});
-            this.gridControl_AddProductOrder.Size = new System.Drawing.Size(1279, 144);
+            this.repository_CustomerName,
+            this.repositoryItemCalcEdit1});
+            this.gridControl_AddProductOrder.Size = new System.Drawing.Size(1279, 154);
             this.gridControl_AddProductOrder.TabIndex = 6;
             this.gridControl_AddProductOrder.UseEmbeddedNavigator = true;
             this.gridControl_AddProductOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -619,6 +625,7 @@
             this.gridColumn_CusomerName,
             this.gridColumn_ProductGroupID,
             this.gridColumn6,
+            this.gridColumn2,
             this.gridColumn7,
             this.gridColumn_Price,
             this.gridColumn_TotalPrice,
@@ -636,7 +643,6 @@
             this.gridView_AddProductOrder.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView_AddProductOrder.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView_AddProductOrder.OptionsSelection.MultiSelect = true;
-            this.gridView_AddProductOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView_AddProductOrder.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView_AddProductOrder.OptionsView.ShowGroupPanel = false;
             // 
@@ -672,7 +678,7 @@
             this.gridColumn_Area.FieldName = "Area";
             this.gridColumn_Area.Name = "gridColumn_Area";
             this.gridColumn_Area.Visible = true;
-            this.gridColumn_Area.VisibleIndex = 1;
+            this.gridColumn_Area.VisibleIndex = 0;
             // 
             // repository_Area
             // 
@@ -719,15 +725,27 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.UnboundType = DevExpress.Data.UnboundColumnType.String;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.VisibleIndex = 1;
             // 
             // gridColumn_CusomerName
             // 
-            this.gridColumn_CusomerName.Caption = "gridColumn_客戶名稱2";
+            this.gridColumn_CusomerName.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 10.8F);
+            this.gridColumn_CusomerName.AppearanceCell.Options.UseFont = true;
+            this.gridColumn_CusomerName.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn_CusomerName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn_CusomerName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn_CusomerName.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn_CusomerName.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn_CusomerName.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn_CusomerName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn_CusomerName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn_CusomerName.Caption = "客戶名稱";
             this.gridColumn_CusomerName.FieldName = "CustomName";
             this.gridColumn_CusomerName.Name = "gridColumn_CusomerName";
+            this.gridColumn_CusomerName.OptionsColumn.AllowFocus = false;
+            this.gridColumn_CusomerName.OptionsColumn.ReadOnly = true;
             this.gridColumn_CusomerName.Visible = true;
-            this.gridColumn_CusomerName.VisibleIndex = 3;
+            this.gridColumn_CusomerName.VisibleIndex = 2;
             // 
             // gridColumn_ProductGroupID
             // 
@@ -746,7 +764,7 @@
             this.gridColumn_ProductGroupID.FieldName = "ProductGroupID";
             this.gridColumn_ProductGroupID.Name = "gridColumn_ProductGroupID";
             this.gridColumn_ProductGroupID.Visible = true;
-            this.gridColumn_ProductGroupID.VisibleIndex = 4;
+            this.gridColumn_ProductGroupID.VisibleIndex = 3;
             // 
             // repository_ProductGroupID
             // 
@@ -777,7 +795,7 @@
             this.gridColumn6.FieldName = "ProductName";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 4;
             // 
             // repository_ProductName
             // 
@@ -798,6 +816,26 @@
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
+            // gridColumn2
+            // 
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 10.8F);
+            this.gridColumn2.AppearanceCell.Options.UseFont = true;
+            this.gridColumn2.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn2.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn2.Caption = "產品";
+            this.gridColumn2.FieldName = "ProductName";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowFocus = false;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 5;
+            // 
             // gridColumn7
             // 
             this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -811,20 +849,19 @@
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridColumn7.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn7.Caption = "數量";
-            this.gridColumn7.ColumnEdit = this.repository_Count;
+            this.gridColumn7.ColumnEdit = this.repositoryItemCalcEdit1;
             this.gridColumn7.FieldName = "Count";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 6;
             // 
-            // repository_Count
+            // repositoryItemCalcEdit1
             // 
-            this.repository_Count.AutoHeight = false;
-            this.repository_Count.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.repositoryItemCalcEdit1.AutoHeight = false;
+            this.repositoryItemCalcEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repository_Count.Name = "repository_Count";
-            this.repository_Count.NullText = "0";
-            this.repository_Count.EditValueChanged += new System.EventHandler(this.repository_Count_EditValueChanged);
+            this.repositoryItemCalcEdit1.Name = "repositoryItemCalcEdit1";
+            this.repositoryItemCalcEdit1.EditValueChanged += new System.EventHandler(this.repository_Count_EditValueChanged);
             // 
             // gridColumn_Price
             // 
@@ -891,7 +928,6 @@
             this.repository_OrderDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repository_OrderDate.Name = "repository_OrderDate";
-            this.repository_OrderDate.NullDate = new System.DateTime(2020, 10, 3, 13, 45, 46, 704);
             // 
             // gridColumn11
             // 
@@ -1010,6 +1046,15 @@
             this.gridColumn17.FieldName = "Note2";
             this.gridColumn17.Name = "gridColumn17";
             // 
+            // repository_Count
+            // 
+            this.repository_Count.AutoHeight = false;
+            this.repository_Count.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repository_Count.Name = "repository_Count";
+            this.repository_Count.NullText = "0";
+            this.repository_Count.EditValueChanged += new System.EventHandler(this.repository_Count_EditValueChanged);
+            // 
             // repository_CustomerName
             // 
             this.repository_CustomerName.AutoHeight = false;
@@ -1035,7 +1080,7 @@
             this.gridControl_ProductOrder.Location = new System.Drawing.Point(0, 0);
             this.gridControl_ProductOrder.MainView = this.gridView_ProductOrder;
             this.gridControl_ProductOrder.Name = "gridControl_ProductOrder";
-            this.gridControl_ProductOrder.Size = new System.Drawing.Size(1283, 329);
+            this.gridControl_ProductOrder.Size = new System.Drawing.Size(1283, 349);
             this.gridControl_ProductOrder.TabIndex = 5;
             this.gridControl_ProductOrder.UseEmbeddedNavigator = true;
             this.gridControl_ProductOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1437,10 +1482,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repository_ProductGroupID)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_ProductName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repository_Count)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCalcEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_OrderDate.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_OrderDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repository_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_CustomerName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).EndInit();
@@ -1527,5 +1573,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn_CusomerName;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repository_CustomerName;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
     }
 }
