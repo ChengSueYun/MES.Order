@@ -12,5 +12,8 @@ namespace MES.Order.Adapter
         int SaveOrder(List<ProductsOrder> insertProductsOrders);
 
         int DeleteOrder(List<ProductsOrder> deletOders);
+
+        int UpdateOrder(List<ProductsOrder> updateOders);
+
     }
 }

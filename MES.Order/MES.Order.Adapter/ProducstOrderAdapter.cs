@@ -40,5 +40,11 @@ namespace MES.Order.Adapter
         {
             return this.productsOrderPo.DeleteOrder(deletOders);
         }
+
+        public int UpdateOrder(List<ProductsOrder> updateOders)
+        {
+            return this.productsOrderPo.UpdateOrder(updateOders);
+
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace MES.Order.UI
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception(e.StackTrace);
             }
         }
     }

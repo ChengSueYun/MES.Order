@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using MES.Order.DAL.EntityFramework;
+using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL
 {
@@ -24,7 +25,7 @@ namespace MES.Order.DAL
 
         private ProductsDbContext _productsDbContext;
 
-        public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
+        public List<ProductsOrder> QueryAllOrders(string Area, string ProductGroupID, string CustomerName,
                                                   string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
         {
             using (var db =
@@ -56,7 +57,7 @@ namespace MES.Order.DAL
 
         public int SaveOrder(List<ProductsOrder> insertProductsOrders)
         {
-           
+
             var result = 0;
 
             foreach (var insertOrder in insertProductsOrders)
@@ -71,20 +72,49 @@ namespace MES.Order.DAL
 
         #endregion
 
-        #region MyRegion
+        #region Delete
 
         public int DeleteOrder(List<ProductsOrder> deletOders)
         {
-            var result = 0;
-
-            foreach (var deletOder in deletOders)
+            try
             {
-                this.productsDbContext.ProductsOrders.Attach(deletOder);
-                this.productsDbContext.Entry(deletOder).State = EntityState.Deleted;
-            }
+                var result = 0;
+                using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
+                {
+                    foreach (var deletOder in deletOders)
+                    {
+                        db.ProductsOrders.Attach(deletOder);
+                        db.Entry(deletOder).State = EntityState.Deleted;
+                    }
 
-            result = this.productsDbContext.SaveChanges();
-            return result;
+                    result = db.Save();
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        #endregion
+
+        #region Update
+
+        public int UpdateOrder(List<ProductsOrder> updateOrders)
+        {
+            var result = 0;
+            using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
+            {
+                foreach (var updateOrder in updateOrders)
+                {
+                    db.ProductsOrders.Attach(updateOrder);
+                    db.Entry(updateOrder).State = EntityState.Modified;
+                }
+
+                result = db.Save();
+                return result;
+            }
         }
 
         #endregion

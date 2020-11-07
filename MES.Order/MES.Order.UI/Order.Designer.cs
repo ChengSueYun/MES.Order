@@ -107,6 +107,8 @@
             this.colUpdateDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -239,6 +241,7 @@
             this.btn_Export.Size = new System.Drawing.Size(174, 36);
             this.btn_Export.TabIndex = 373;
             this.btn_Export.Text = "匯出";
+            this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
             // 
             // label_Area
             // 
@@ -489,6 +492,7 @@
             this.btn_FocusRow.Size = new System.Drawing.Size(174, 36);
             this.btn_FocusRow.TabIndex = 372;
             this.btn_FocusRow.Text = "鎖定列";
+            this.btn_FocusRow.Click += new System.EventHandler(this.btn_FocusRow_Click);
             // 
             // btn_Query
             // 
@@ -1117,6 +1121,7 @@
             this.gridView_ProductOrder.NewItemRowText = "點此新增";
             this.gridView_ProductOrder.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
             this.gridView_ProductOrder.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView_ProductOrder.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView_ProductOrder.OptionsSelection.MultiSelect = true;
             this.gridView_ProductOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView_ProductOrder.OptionsView.ShowGroupPanel = false;
@@ -1445,6 +1450,17 @@
             this.colNote2.Name = "colNote2";
             this.colNote2.OptionsColumn.AllowFocus = false;
             // 
+            // alertControl1
+            // 
+            this.alertControl1.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceCaption.Options.UseFont = true;
+            this.alertControl1.AppearanceText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceText.Options.UseFont = true;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Title = "欲存檔路徑";
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -1575,5 +1591,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCalcEdit repositoryItemCalcEdit1;
+        private DevExpress.XtraBars.Alerter.AlertControl alertControl1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
