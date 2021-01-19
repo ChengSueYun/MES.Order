@@ -17,7 +17,7 @@ namespace MES.Order.UI
                 Application.SetCompatibleTextRenderingDefault(false);
 
                 //Application.Run(new Customer());
-                Application.Run(new Order());
+                Application.Run(new MainForm());
 
                 //Application.Run(new ProductInformation());
             }

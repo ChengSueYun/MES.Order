@@ -10,9 +10,9 @@ using THS.Infrastructure.Extensions;
 
 namespace MES.Order.UI
 {
-    public partial class Customer : Form
+    public partial class Customer : XtraUserControl
     {
-        private List<Custom> Add_Customers = new DetailList<Custom>();
+        private List<Custom> Add_Customers = new List<Custom>();
         private List<Custom> customers     = new List<Custom>();
         private CustomerUCO  customerUCO;
 

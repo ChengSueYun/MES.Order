@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
 
 namespace MES.Order.UI
 {
-    public partial class ProductInformation : Form
+    public partial class ProductInformation : XtraUserControl
     {
         private List<ProductsInfomation> Add_productsInfomations = new List<ProductsInfomation>();
         private ProductInformationUCO    ProductInformationUCO;
