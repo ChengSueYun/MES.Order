@@ -30,90 +30,72 @@ namespace MES.Order.UI
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.windowsUIView1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.WindowsUIView(this.components);
-            this.tileContainer1 = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.TileContainer(this.components);
-            this.OrderTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.orderDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
-            this.CustomerTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.customerDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
-            this.ProductInformationTile = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile(this.components);
-            this.productInformationDocument = new DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
+            this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
+            this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
+            this.document3 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderTile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderDocument)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerTile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDocument)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductInformationTile)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productInformationDocument)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document3)).BeginInit();
             this.SuspendLayout();
             // 
             // documentManager1
             // 
             this.documentManager1.ContainerControl = this;
-            this.documentManager1.View = this.windowsUIView1;
+            this.documentManager1.View = this.tabbedView1;
             this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
-            this.windowsUIView1});
+            this.tabbedView1});
             // 
-            // windowsUIView1
+            // tabbedView1
             // 
-            this.windowsUIView1.ContentContainers.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.IContentContainer[] {
-            this.tileContainer1});
-            this.windowsUIView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
-            this.orderDocument,
-            this.customerDocument,
-            this.productInformationDocument});
-            this.windowsUIView1.Tiles.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BaseTile[] {
-            this.OrderTile,
-            this.CustomerTile,
-            this.ProductInformationTile});
-            this.windowsUIView1.QueryControl += new DevExpress.XtraBars.Docking2010.Views.QueryControlEventHandler(this.windowsUIView1_QueryControl);
+            this.tabbedView1.DocumentGroups.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup[] {
+            this.documentGroup1});
+            this.tabbedView1.DocumentProperties.AllowPin = true;
+            this.tabbedView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
+            this.document1,
+            this.document2,
+            this.document3});
+            dockingContainer1.Element = this.documentGroup1;
+            this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
+            dockingContainer1});
+            this.tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Light;
             // 
-            // tileContainer1
+            // document1
             // 
-            this.tileContainer1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.WindowsUI.BaseTile[] {
-            this.OrderTile,
-            this.CustomerTile,
-            this.ProductInformationTile});
-            this.tileContainer1.Name = "tileContainer1";
+            this.document1.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.document1.Appearance.Header.Options.UseFont = true;
+            this.document1.Caption = "訂單";
+            this.document1.ControlName = "Order";
+            this.document1.ControlTypeName = "MES.Order.UI.Order";
             // 
-            // OrderTile
+            // documentGroup1
             // 
-            this.OrderTile.Document = this.orderDocument;
-            this.OrderTile.Name = "OrderTile";
-            this.OrderTile.Properties.TextShowMode = DevExpress.XtraEditors.TileItemContentShowMode.Always;
+            this.documentGroup1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document[] {
+            this.document1,
+            this.document2,
+            this.document3});
             // 
-            // orderDocument
+            // document2
             // 
-            this.orderDocument.Caption = "訂單";
-            this.orderDocument.ControlName = "Order";
-            this.orderDocument.ControlTypeName = "MES.Order.UI.Order";
+            this.document2.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.document2.Appearance.Header.Options.UseFont = true;
+            this.document2.Caption = "客戶";
+            this.document2.ControlName = "Customer";
+            this.document2.ControlTypeName = "MES.Order.UI.Customer";
             // 
-            // CustomerTile
+            // document3
             // 
-            this.CustomerTile.Document = this.customerDocument;
-            this.tileContainer1.SetID(this.CustomerTile, 1);
-            this.CustomerTile.Name = "CustomerTile";
-            // 
-            // customerDocument
-            // 
-            this.customerDocument.Caption = "客戶";
-            this.customerDocument.ControlName = "Customer";
-            this.customerDocument.ControlTypeName = "MES.Order.UI.Customer";
-            // 
-            // ProductInformationTile
-            // 
-            this.ProductInformationTile.Document = this.productInformationDocument;
-            this.tileContainer1.SetID(this.ProductInformationTile, 2);
-            this.ProductInformationTile.Name = "ProductInformationTile";
-            // 
-            // productInformationDocument
-            // 
-            this.productInformationDocument.Caption = "產品";
-            this.productInformationDocument.ControlName = "ProductInformation";
-            this.productInformationDocument.ControlTypeName = "MES.Order.UI.ProductInformation";
+            this.document3.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.document3.Appearance.Header.Options.UseFont = true;
+            this.document3.Caption = "產品";
+            this.document3.ControlName = "ProductInformation";
+            this.document3.ControlTypeName = "MES.Order.UI.ProductInformation";
             // 
             // MainForm
             // 
@@ -121,20 +103,18 @@ namespace MES.Order.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 939);
+            this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MainForm";
+            this.Text = "小夫妻程式";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.OrderTile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orderDocument)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerTile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customerDocument)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductInformationTile)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productInformationDocument)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,5 +130,10 @@ namespace MES.Order.UI
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document customerDocument;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Tile ProductInformationTile;
         private DevExpress.XtraBars.Docking2010.Views.WindowsUI.Document productInformationDocument;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup documentGroup1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document2;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document3;
     }
 }

@@ -628,6 +628,7 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.tableLayoutPanel2.ColumnCount = 7;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.937402F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.16275F));
@@ -654,8 +655,8 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(2, 41);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.57143F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.42857F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1278, 73);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
@@ -663,9 +664,9 @@
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(1095, 0);
+            this.label7.Location = new System.Drawing.Point(1096, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(180, 36);
+            this.label7.Size = new System.Drawing.Size(176, 24);
             this.label7.TabIndex = 6;
             this.label7.Text = "備註";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -674,9 +675,9 @@
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(996, 0);
+            this.label6.Location = new System.Drawing.Point(996, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 36);
+            this.label6.Size = new System.Drawing.Size(91, 24);
             this.label6.TabIndex = 5;
             this.label6.Text = "總售價";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -685,9 +686,9 @@
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(820, 0);
+            this.label5.Location = new System.Drawing.Point(820, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(170, 36);
+            this.label5.Size = new System.Drawing.Size(167, 24);
             this.label5.TabIndex = 4;
             this.label5.Text = "數量";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -696,9 +697,9 @@
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(479, 0);
+            this.label4.Location = new System.Drawing.Point(482, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(335, 36);
+            this.label4.Size = new System.Drawing.Size(329, 24);
             this.label4.TabIndex = 3;
             this.label4.Text = "產品";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -707,9 +708,9 @@
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(311, 0);
+            this.label3.Location = new System.Drawing.Point(314, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(162, 36);
+            this.label3.Size = new System.Drawing.Size(159, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "廠商";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -719,9 +720,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Location = new System.Drawing.Point(6, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 36);
+            this.label1.Size = new System.Drawing.Size(118, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "地區";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -730,9 +731,9 @@
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(130, 0);
+            this.label2.Location = new System.Drawing.Point(133, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(175, 36);
+            this.label2.Size = new System.Drawing.Size(172, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "客戶名稱";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -741,7 +742,7 @@
             // 
             this.lookUpEdit_addArea.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Area", true));
             this.lookUpEdit_addArea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lookUpEdit_addArea.Location = new System.Drawing.Point(3, 39);
+            this.lookUpEdit_addArea.Location = new System.Drawing.Point(6, 33);
             this.lookUpEdit_addArea.Name = "lookUpEdit_addArea";
             this.lookUpEdit_addArea.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_addArea.Properties.Appearance.Options.UseFont = true;
@@ -751,7 +752,7 @@
             this.lookUpEdit_addArea.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_addArea.Properties.NullText = "";
             this.lookUpEdit_addArea.Properties.ValueMember = "Code";
-            this.lookUpEdit_addArea.Size = new System.Drawing.Size(121, 32);
+            this.lookUpEdit_addArea.Size = new System.Drawing.Size(118, 32);
             this.lookUpEdit_addArea.TabIndex = 7;
             this.lookUpEdit_addArea.EditValueChanged += new System.EventHandler(this.lookUpEdit_addArea_EditValueChanged);
             // 
@@ -764,7 +765,7 @@
             this.LookUpEdit_addCustomerName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "CustomName", true));
             this.LookUpEdit_addCustomerName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LookUpEdit_addCustomerName.EditValue = "";
-            this.LookUpEdit_addCustomerName.Location = new System.Drawing.Point(130, 39);
+            this.LookUpEdit_addCustomerName.Location = new System.Drawing.Point(133, 33);
             this.LookUpEdit_addCustomerName.Name = "LookUpEdit_addCustomerName";
             this.LookUpEdit_addCustomerName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.LookUpEdit_addCustomerName.Properties.Appearance.Options.UseFont = true;
@@ -775,7 +776,7 @@
             this.LookUpEdit_addCustomerName.Properties.NullText = "";
             this.LookUpEdit_addCustomerName.Properties.PopupView = this.gridView3;
             this.LookUpEdit_addCustomerName.Properties.ValueMember = "Code";
-            this.LookUpEdit_addCustomerName.Size = new System.Drawing.Size(175, 32);
+            this.LookUpEdit_addCustomerName.Size = new System.Drawing.Size(172, 32);
             this.LookUpEdit_addCustomerName.TabIndex = 8;
             // 
             // gridView3
@@ -789,7 +790,7 @@
             // 
             this.lookUpEdit_addProductGroupID.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductGroupID", true));
             this.lookUpEdit_addProductGroupID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lookUpEdit_addProductGroupID.Location = new System.Drawing.Point(311, 39);
+            this.lookUpEdit_addProductGroupID.Location = new System.Drawing.Point(314, 33);
             this.lookUpEdit_addProductGroupID.Name = "lookUpEdit_addProductGroupID";
             this.lookUpEdit_addProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_addProductGroupID.Properties.Appearance.Options.UseFont = true;
@@ -799,7 +800,7 @@
             this.lookUpEdit_addProductGroupID.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_addProductGroupID.Properties.NullText = "";
             this.lookUpEdit_addProductGroupID.Properties.ValueMember = "Code";
-            this.lookUpEdit_addProductGroupID.Size = new System.Drawing.Size(162, 32);
+            this.lookUpEdit_addProductGroupID.Size = new System.Drawing.Size(159, 32);
             this.lookUpEdit_addProductGroupID.TabIndex = 9;
             this.lookUpEdit_addProductGroupID.EditValueChanged += new System.EventHandler(this.lookUpEdit_addProductGroupID_EditValueChanged);
             // 
@@ -807,7 +808,7 @@
             // 
             this.LookUpEdit_addProductName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductName", true));
             this.LookUpEdit_addProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LookUpEdit_addProductName.Location = new System.Drawing.Point(479, 39);
+            this.LookUpEdit_addProductName.Location = new System.Drawing.Point(482, 33);
             this.LookUpEdit_addProductName.Name = "LookUpEdit_addProductName";
             this.LookUpEdit_addProductName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.LookUpEdit_addProductName.Properties.Appearance.Options.UseFont = true;
@@ -819,7 +820,7 @@
             this.LookUpEdit_addProductName.Properties.NullText = "";
             this.LookUpEdit_addProductName.Properties.PopupView = this.searchLookUpEdit2View;
             this.LookUpEdit_addProductName.Properties.ValueMember = "Code";
-            this.LookUpEdit_addProductName.Size = new System.Drawing.Size(335, 32);
+            this.LookUpEdit_addProductName.Size = new System.Drawing.Size(329, 32);
             this.LookUpEdit_addProductName.TabIndex = 10;
             this.LookUpEdit_addProductName.EditValueChanged += new System.EventHandler(this.LookUpEdit_addProductName_EditValueChanged);
             // 
@@ -839,14 +840,14 @@
             0,
             0,
             0});
-            this.spinEdit_addCount.Location = new System.Drawing.Point(820, 39);
+            this.spinEdit_addCount.Location = new System.Drawing.Point(820, 33);
             this.spinEdit_addCount.Name = "spinEdit_addCount";
             this.spinEdit_addCount.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.spinEdit_addCount.Properties.Appearance.Options.UseFont = true;
             this.spinEdit_addCount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinEdit_addCount.Properties.NullText = "0";
-            this.spinEdit_addCount.Size = new System.Drawing.Size(170, 32);
+            this.spinEdit_addCount.Size = new System.Drawing.Size(167, 32);
             this.spinEdit_addCount.TabIndex = 11;
             this.spinEdit_addCount.EditValueChanged += new System.EventHandler(this.spinEdit_addCount_EditValueChanged);
             // 
@@ -854,24 +855,26 @@
             // 
             this.textEdit_addTotalPrice.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "TotalPrice", true));
             this.textEdit_addTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEdit_addTotalPrice.EditValue = ((short)(0));
             this.textEdit_addTotalPrice.Enabled = false;
-            this.textEdit_addTotalPrice.Location = new System.Drawing.Point(996, 39);
+            this.textEdit_addTotalPrice.Location = new System.Drawing.Point(996, 33);
             this.textEdit_addTotalPrice.Name = "textEdit_addTotalPrice";
             this.textEdit_addTotalPrice.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.textEdit_addTotalPrice.Properties.Appearance.Options.UseFont = true;
+            this.textEdit_addTotalPrice.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.textEdit_addTotalPrice.Properties.ReadOnly = true;
-            this.textEdit_addTotalPrice.Size = new System.Drawing.Size(93, 32);
+            this.textEdit_addTotalPrice.Size = new System.Drawing.Size(91, 32);
             this.textEdit_addTotalPrice.TabIndex = 12;
             // 
             // textEdit_addNote1
             // 
             this.textEdit_addNote1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Note1", true));
             this.textEdit_addNote1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit_addNote1.Location = new System.Drawing.Point(1095, 39);
+            this.textEdit_addNote1.Location = new System.Drawing.Point(1096, 33);
             this.textEdit_addNote1.Name = "textEdit_addNote1";
             this.textEdit_addNote1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.textEdit_addNote1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit_addNote1.Size = new System.Drawing.Size(180, 32);
+            this.textEdit_addNote1.Size = new System.Drawing.Size(176, 32);
             this.textEdit_addNote1.TabIndex = 13;
             // 
             // gridControl_ProductOrder

@@ -17,22 +17,24 @@ namespace MES.Order.UI
         public MainForm()
         {
             InitializeComponent();
+            // Handling the QueryControl event that will populate all automatically generated Documents
+            this.tabbedView1.QueryControl += tabbedView1_QueryControl;
         }
 
-
-
-        private void windowsUIView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
+        // Assigning a required content for each auto generated Document
+        void tabbedView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
-            var             tempAssembly = Assembly.GetExecutingAssembly();
-            var             FormAssembly = e.Document.ControlTypeName;
-            XtraUserControl Form         = null;
 
-            Form = (XtraUserControl) tempAssembly.CreateInstance(FormAssembly);
-
-            e.Control      = Form;
-            e.Control.Dock = DockStyle.Fill;
-            e.Control.Show();
-            return;
+            if (e.Document == document1)
+                e.Control = new MES.Order.UI.Order();
+            if (e.Document == document2)
+                e.Control = new MES.Order.UI.Customer();
+            if (e.Document == document3)
+                e.Control = new MES.Order.UI.ProductInformation();
+            if (e.Control == null)
+                e.Control = new System.Windows.Forms.Control();
         }
+
+
     }
 }

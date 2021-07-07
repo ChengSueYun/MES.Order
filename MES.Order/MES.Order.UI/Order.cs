@@ -121,8 +121,10 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void lookUpEdit_addArea_EditValueChanged(object sender, EventArgs e)
         {
-            var addArea = this.lookUpEdit_addArea.EditValue.ToString();
-            this.LookUpEdit_addCustomerName.Properties.DataSource = this.ProductsOrderUCO.GetCustomerName(addArea);
+            var addArea             = this.lookUpEdit_addArea.EditValue.ToString();
+            var keyAndNameForCombos = this.ProductsOrderUCO.GetCustomerName(addArea);
+            keyAndNameForCombos.RemoveAt(0);
+            this.LookUpEdit_addCustomerName.Properties.DataSource = keyAndNameForCombos;
         }
 
         /// <summary>
@@ -143,9 +145,11 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void lookUpEdit_addProductGroupID_EditValueChanged(object sender, EventArgs e)
         {
-            var addProductGroupID = this.lookUpEdit_addProductGroupID.EditValue.ToString();
+            var addProductGroupID   = this.lookUpEdit_addProductGroupID.EditValue.ToString();
+            var keyAndNameForCombos = this.ProductsOrderUCO.GetProductName(addProductGroupID);
+            keyAndNameForCombos.RemoveAt(0);
             this.LookUpEdit_addProductName.Properties.DataSource =
-                this.ProductsOrderUCO.GetProductName(addProductGroupID);
+                keyAndNameForCombos;
         }
 
         /// <summary>
