@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
+using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL
 {
@@ -46,18 +47,17 @@ namespace MES.Order.DAL
         public int DeleteCustomers(List<Custom> deleteCustoms)
         {
             var result = 0;
-            foreach (var deleteCustom in deleteCustoms)
+            using (var db = ProductsDbContext.Create(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
-                var filterCustoms = this.ProductsDbContext.Customs.Where(x => x.AutoID == deleteCustom.AutoID).ToList();
-                if (filterCustoms.Count == 1)
+                foreach (var deleteCustom in deleteCustoms)
                 {
-                    this.ProductsDbContext.Customs.Attach(filterCustoms[0]);
-                    this.ProductsDbContext.Entry(filterCustoms[0]).State = EntityState.Deleted;
+                    db.Customs.Attach(deleteCustom);
+                    db.Entry(deleteCustom).State = EntityState.Deleted;
                 }
-            }
 
-            result = this.ProductsDbContext.SaveChanges();
-            return result;
+                result = db.Save();
+                return result;
+            }
         }
 
         #endregion

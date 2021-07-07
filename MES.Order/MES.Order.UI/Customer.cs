@@ -6,15 +6,16 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraSpreadsheet;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
+using MES.Order.DAL.ViewModel;
 using THS.Infrastructure.Extensions;
 
 namespace MES.Order.UI
 {
     public partial class Customer : XtraUserControl
     {
-        private List<Custom> Add_Customers = new List<Custom>();
-        private List<Custom> customers     = new List<Custom>();
-        private CustomerUCO  customerUCO;
+        private List<Custom>             Add_Customers = new List<Custom>();
+        private List<Custom>             customers     = new List<Custom>();
+        private CustomerUCO              customerUCO;
 
         public Customer()
         {
@@ -112,6 +113,7 @@ namespace MES.Order.UI
         {
             try
             {
+
                 this.Add_Customers =
                     new
                         List<Custom>((IEnumerable<Custom>) this
@@ -120,9 +122,8 @@ namespace MES.Order.UI
                 {
                     addCustomer.SetDefaultValue();
                 }
-
                 var actualSaveCount = this.customerUCO.SaveCustomers(this.Add_Customers);
-                MessageBox.Show("已存檔" + actualSaveCount + "筆資料", "存檔訊息", MessageBoxButtons.OKCancel);
+                MessageBox.Show(@"已存檔" + actualSaveCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
                 this.AddcustomBindingSource.Clear();
 
                 this.customers = this.customerUCO.QueryAllCustoms("*ALL", "*ALL")
@@ -131,14 +132,8 @@ namespace MES.Order.UI
             }
             catch (Exception exception)
             {
-                throw exception;
+                throw new Exception(exception.ToString());
             }
-        }
-
-        private void repository_CustomerName_EditValueChanged(object sender, EventArgs e)
-        {
-            var edit = sender as TextEdit;
-            ((Custom) this.AddcustomBindingSource.Current).CustomID = edit.Text;
         }
 
         #endregion

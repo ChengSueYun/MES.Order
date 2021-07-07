@@ -276,12 +276,14 @@ namespace MES.Order.UI
             var Selected    = this.gridView_ProductOrder.GetSelectedRows();
             var CurrentList = this.productsOrderBindingSource.DataSource as List<ProductsOrder>;
             CurrentList = CurrentList.OrderByDescending(x => x.AutoID).ToList();
-            List<ProductsOrder> updateList   = new List<ProductsOrder>();
-            var                 dialogResult = MessageBox.Show(@"是否確認鎖定 " + Selected.Length.ToString() + @"筆資料?", "提醒", MessageBoxButtons.YesNo);
-            if (dialogResult== DialogResult.No)
+            List<ProductsOrder> updateList = new List<ProductsOrder>();
+            var dialogResult = MessageBox.Show(@"是否確認鎖定 " + Selected.Length.ToString() + @"筆資料?", "提醒",
+                                               MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
             {
                 return;
             }
+
             foreach (var item in Selected)
             {
                 CurrentList[item].Address = "Y:" + DateTime.Today.ToSimpleTaiwanCalendar() + " 已取貨";
@@ -291,6 +293,7 @@ namespace MES.Order.UI
                     this.focusOrders.Add(CurrentList[item]);
                 }
 
+                this.FocusbindingSource.DataSource = this.focusOrders;
                 this.gridControl_FocusOrder.RefreshDataSource();
             }
 
@@ -301,6 +304,7 @@ namespace MES.Order.UI
                 alertControl1.Show(this.ParentForm, "鎖定訊息",
                                    "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
             }
+
             this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             this.btn_Query.PerformClick();
         }
@@ -333,6 +337,64 @@ namespace MES.Order.UI
                 this.UpdateproductsOrders.Add(productsOrder);
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
             }
+        }
+
+        private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            if (e.Page.TabIndex == 1)
+            {
+                this.btn_UnFocus.Visible  = true;
+                this.btn_Save.Visible     = false;
+                this.btn_Cancel.Visible   = false;
+                this.btn_FocusRow.Visible = false;
+            }
+            else
+            {
+                this.btn_UnFocus.Visible  = false;
+                this.btn_Save.Visible     = true;
+                this.btn_Cancel.Visible   = true;
+                this.btn_FocusRow.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// 清除鎖定列
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_UnFocus_Click(object sender, EventArgs e)
+        {
+            var Selected    = this.gridView_FocusOrder.GetSelectedRows();
+            var CurrentList = this.FocusbindingSource.DataSource as List<ProductsOrder>;
+            CurrentList = CurrentList.OrderByDescending(x => x.AutoID).ToList();
+            List<ProductsOrder> updateList = new List<ProductsOrder>();
+            var dialogResult = MessageBox.Show(@"是否確認要清除鎖定 " + Selected.Length.ToString() + @"筆資料?", "提醒",
+                                               MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
+            foreach (var item in Selected)
+            {
+                CurrentList[item].Address = "";
+                updateList.Add(CurrentList[item]);
+
+                this.focusOrders.Remove(CurrentList[item]);
+
+                this.gridControl_FocusOrder.RefreshDataSource();
+            }
+
+            this.ProductsOrderUCO.UpdateOrders(updateList);
+
+            foreach (var item in updateList)
+            {
+                alertControl1.Show(this.ParentForm, "鎖定訊息",
+                                   "已解除鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+            }
+
+            this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
+            this.btn_Query.PerformClick();
         }
 
         #endregion

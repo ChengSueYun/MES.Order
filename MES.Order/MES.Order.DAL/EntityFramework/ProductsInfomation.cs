@@ -19,6 +19,19 @@ namespace MES.Order.DAL.EntityFramework
 
         public int? Cost { get; set; }
 
-        public int? Profit { get; set; }
+        private int? _profit;
+
+        public int? Profit
+        {
+            get
+            {
+                if (this.Price!=null & this.Cost!=null)
+                {
+                    this._profit = this.Price.Value - this.Cost.Value;
+                }
+                return this._profit;
+            }
+            set => this._profit = value;
+        }
     }
 }

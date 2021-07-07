@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
+using THS.Infrastructure.Extensions;
 
 namespace MES.Order.UI
 {
@@ -67,25 +68,8 @@ namespace MES.Order.UI
             var pProductGroupID = this.lookUpEdit_ProductGroupID.EditValue.ToString();
             var pProductName = this.lookUpEdit_ProductName.EditValue.ToString();
             this.productsInfomations = this.ProductInformationUCO.QueryProducts(pProductGroupID, pProductName);
-            this.gridControl_ProductInfo.DataSource = this.productsInfomations;
-            this.gridControl_AddProducts.DataSource = this.Add_productsInfomations;
-        }
-
-        private void lookUpEdit_ProductGroupID_EditValueChanged(object sender, EventArgs e)
-        {
-            var pProductGroupID = this.lookUpEdit_ProductGroupID.EditValue.ToString();
-            var result          = this.ProductInformationUCO.DistinctProductName(pProductGroupID);
-            this.lookUpEdit_ProductName.Properties.DataSource = result;
-        }
-
-        //計算利潤
-        private void gridView_AddProducts_CustomUnboundColumnData(object sender,
-                                                                  DevExpress.XtraGrid.Views.Base.
-                                                                      CustomColumnDataEventArgs e)
-        {
-            var current = this.AddproductsInfomationBindingSource.Current;
-            e.Value = ((ProductsInfomation) current).Price - ((ProductsInfomation) current).Cost;
-            ((ProductsInfomation) current).Profit = Convert.ToInt32(e.Value);
+            this.productsInfomationBindingSource.DataSource = this.productsInfomations;
+            this.AddproductsInfomationBindingSource.DataSource = this.Add_productsInfomations;
         }
 
         //存檔
@@ -97,13 +81,18 @@ namespace MES.Order.UI
                     new
                         List<ProductsInfomation>((IEnumerable<ProductsInfomation>) this
                                                      .AddproductsInfomationBindingSource.List);
-                var actualSaveCount = this.ProductInformationUCO.SaveProductsInfomations(this.Add_productsInfomations);
-                MessageBox.Show("已存檔" + actualSaveCount + "筆資料", "存檔訊息", MessageBoxButtons.OKCancel);
-                this.AddproductsInfomationBindingSource.Clear();
+                foreach (var addProductsInfomation in this.Add_productsInfomations)
+                {
+                    addProductsInfomation.SetDefaultValue();
+                }
 
+                var actualSaveCount = this.ProductInformationUCO.SaveProductsInfomations(this.Add_productsInfomations);
+                MessageBox.Show(@"已存檔" + actualSaveCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
+                this.AddproductsInfomationBindingSource.Clear();
+                this.Add_productsInfomations.Clear();
                 this.productsInfomations = this.ProductInformationUCO.QueryProducts("*ALL", "*ALL")
                                                .OrderByDescending(x => x.AutoID).ToList();
-                this.gridControl_ProductInfo.DataSource = this.productsInfomations;
+                this.productsInfomationBindingSource.DataSource = this.productsInfomations;
             }
             catch (Exception exception)
             {
@@ -128,7 +117,7 @@ namespace MES.Order.UI
                 }
 
                 var actualDeleteCount = this.ProductInformationUCO.DeleteProductsInfomations(deleteList);
-                MessageBox.Show("已刪除" + actualDeleteCount + "筆資料", "存檔訊息", MessageBoxButtons.OKCancel);
+                MessageBox.Show(@"已刪除" + actualDeleteCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
                 this.btn_Query.PerformClick();
             }
             catch (Exception exception)

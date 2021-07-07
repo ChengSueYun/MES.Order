@@ -33,7 +33,6 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateEdit_OrderDateE = new DevExpress.XtraEditors.DateEdit();
-            this.btn_Export = new DevExpress.XtraEditors.SimpleButton();
             this.label_Area = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEdit_Area = new DevExpress.XtraEditors.LookUpEdit();
             this.label_CustomerName = new DevExpress.XtraEditors.LabelControl();
@@ -47,14 +46,16 @@
             this.dateEdit_OrderDateS = new DevExpress.XtraEditors.DateEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.label_OrderDate = new DevExpress.XtraEditors.LabelControl();
-            this.btn_FocusRow = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Query = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.lookUpEdit_CustomerName = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btn_FocusRow = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Save = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_UnFocus = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Export = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.keyAndNameForComboBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -76,6 +77,8 @@
             this.spinEdit_addCount = new DevExpress.XtraEditors.SpinEdit();
             this.textEdit_addTotalPrice = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_addNote1 = new DevExpress.XtraEditors.TextEdit();
+            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
+            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl_ProductOrder = new DevExpress.XtraGrid.GridControl();
             this.productsOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_ProductOrder = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -97,13 +100,9 @@
             this.colUpdateDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.FocusbindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
-            this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl_FocusOrder = new DevExpress.XtraGrid.GridControl();
+            this.FocusbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_FocusOrder = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -117,12 +116,14 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -154,16 +155,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit_addCount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_addTotalPrice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_addNote1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
+            this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ProductOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
-            this.xtraTabControl1.SuspendLayout();
-            this.xtraTabPage1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
             this.SuspendLayout();
@@ -215,10 +216,11 @@
             this.tableLayoutPanel1.Controls.Add(this.label_OrderDate, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.btn_Query, 6, 0);
             this.tableLayoutPanel1.Controls.Add(this.lookUpEdit_CustomerName, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btn_FocusRow, 6, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btn_Export, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btn_Save, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btn_Cancel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_FocusRow, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Save, 6, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_UnFocus, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Export, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Cancel, 5, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 38);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -250,26 +252,6 @@
             this.dateEdit_OrderDateE.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.dateEdit_OrderDateE.Size = new System.Drawing.Size(182, 30);
             this.dateEdit_OrderDateE.TabIndex = 374;
-            // 
-            // btn_Export
-            // 
-            this.btn_Export.Appearance.BackColor = System.Drawing.Color.PeachPuff;
-            this.btn_Export.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Export.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_Export.Appearance.ForeColor = System.Drawing.Color.Sienna;
-            this.btn_Export.Appearance.Options.UseBackColor = true;
-            this.btn_Export.Appearance.Options.UseFont = true;
-            this.btn_Export.Appearance.Options.UseForeColor = true;
-            this.btn_Export.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btn_Export.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Export.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Export.ImageOptions.Image")));
-            this.btn_Export.Location = new System.Drawing.Point(893, 114);
-            this.btn_Export.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(188, 44);
-            this.btn_Export.TabIndex = 373;
-            this.btn_Export.Text = "匯出";
-            this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
             // 
             // label_Area
             // 
@@ -509,26 +491,6 @@
             this.label_OrderDate.TabIndex = 368;
             this.label_OrderDate.Text = "訂貨日期";
             // 
-            // btn_FocusRow
-            // 
-            this.btn_FocusRow.Appearance.BackColor = System.Drawing.Color.PeachPuff;
-            this.btn_FocusRow.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_FocusRow.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_FocusRow.Appearance.ForeColor = System.Drawing.Color.Sienna;
-            this.btn_FocusRow.Appearance.Options.UseBackColor = true;
-            this.btn_FocusRow.Appearance.Options.UseFont = true;
-            this.btn_FocusRow.Appearance.Options.UseForeColor = true;
-            this.btn_FocusRow.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btn_FocusRow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_FocusRow.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_FocusRow.ImageOptions.Image")));
-            this.btn_FocusRow.Location = new System.Drawing.Point(1089, 114);
-            this.btn_FocusRow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_FocusRow.Name = "btn_FocusRow";
-            this.btn_FocusRow.Size = new System.Drawing.Size(180, 44);
-            this.btn_FocusRow.TabIndex = 372;
-            this.btn_FocusRow.Text = "鎖定列";
-            this.btn_FocusRow.Click += new System.EventHandler(this.btn_FocusRow_Click);
-            // 
             // btn_Query
             // 
             this.btn_Query.Appearance.BackColor = System.Drawing.Color.PeachPuff;
@@ -548,46 +510,6 @@
             this.btn_Query.TabIndex = 363;
             this.btn_Query.Text = "查詢";
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Appearance.BackColor = System.Drawing.Color.PeachPuff;
-            this.btn_Save.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Save.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_Save.Appearance.ForeColor = System.Drawing.Color.Sienna;
-            this.btn_Save.Appearance.Options.UseBackColor = true;
-            this.btn_Save.Appearance.Options.UseFont = true;
-            this.btn_Save.Appearance.Options.UseForeColor = true;
-            this.btn_Save.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btn_Save.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
-            this.btn_Save.Location = new System.Drawing.Point(186, 114);
-            this.btn_Save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(173, 44);
-            this.btn_Save.TabIndex = 53;
-            this.btn_Save.Text = "存檔";
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
-            // btn_Cancel
-            // 
-            this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.Orange;
-            this.btn_Cancel.Appearance.BackColor2 = System.Drawing.Color.Aquamarine;
-            this.btn_Cancel.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
-            this.btn_Cancel.Appearance.ForeColor = System.Drawing.Color.Sienna;
-            this.btn_Cancel.Appearance.Options.UseBackColor = true;
-            this.btn_Cancel.Appearance.Options.UseFont = true;
-            this.btn_Cancel.Appearance.Options.UseForeColor = true;
-            this.btn_Cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btn_Cancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btn_Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cancel.ImageOptions.Image")));
-            this.btn_Cancel.Location = new System.Drawing.Point(5, 114);
-            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(173, 44);
-            this.btn_Cancel.TabIndex = 31;
-            this.btn_Cancel.Text = "刪除";
-            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // lookUpEdit_CustomerName
             // 
@@ -632,6 +554,107 @@
             // 
             this.gridColumn2.FieldName = "LocalDescription";
             this.gridColumn2.Name = "gridColumn2";
+            // 
+            // btn_FocusRow
+            // 
+            this.btn_FocusRow.Appearance.BackColor = System.Drawing.Color.PeachPuff;
+            this.btn_FocusRow.Appearance.BackColor2 = System.Drawing.Color.Khaki;
+            this.btn_FocusRow.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_FocusRow.Appearance.ForeColor = System.Drawing.Color.Sienna;
+            this.btn_FocusRow.Appearance.Options.UseBackColor = true;
+            this.btn_FocusRow.Appearance.Options.UseFont = true;
+            this.btn_FocusRow.Appearance.Options.UseForeColor = true;
+            this.btn_FocusRow.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btn_FocusRow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_FocusRow.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_FocusRow.ImageOptions.Image")));
+            this.btn_FocusRow.Location = new System.Drawing.Point(5, 114);
+            this.btn_FocusRow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_FocusRow.Name = "btn_FocusRow";
+            this.btn_FocusRow.Size = new System.Drawing.Size(173, 44);
+            this.btn_FocusRow.TabIndex = 372;
+            this.btn_FocusRow.Text = "鎖定列";
+            this.btn_FocusRow.Click += new System.EventHandler(this.btn_FocusRow_Click);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Appearance.BackColor = System.Drawing.Color.PeachPuff;
+            this.btn_Save.Appearance.BackColor2 = System.Drawing.Color.Khaki;
+            this.btn_Save.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Save.Appearance.ForeColor = System.Drawing.Color.Sienna;
+            this.btn_Save.Appearance.Options.UseBackColor = true;
+            this.btn_Save.Appearance.Options.UseFont = true;
+            this.btn_Save.Appearance.Options.UseForeColor = true;
+            this.btn_Save.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btn_Save.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
+            this.btn_Save.Location = new System.Drawing.Point(1089, 114);
+            this.btn_Save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(180, 44);
+            this.btn_Save.TabIndex = 53;
+            this.btn_Save.Text = "存檔";
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // btn_UnFocus
+            // 
+            this.btn_UnFocus.Appearance.BackColor = System.Drawing.Color.PeachPuff;
+            this.btn_UnFocus.Appearance.BackColor2 = System.Drawing.Color.Khaki;
+            this.btn_UnFocus.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_UnFocus.Appearance.ForeColor = System.Drawing.Color.Sienna;
+            this.btn_UnFocus.Appearance.Options.UseBackColor = true;
+            this.btn_UnFocus.Appearance.Options.UseFont = true;
+            this.btn_UnFocus.Appearance.Options.UseForeColor = true;
+            this.btn_UnFocus.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btn_UnFocus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_UnFocus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_UnFocus.ImageOptions.Image")));
+            this.btn_UnFocus.Location = new System.Drawing.Point(367, 114);
+            this.btn_UnFocus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_UnFocus.Name = "btn_UnFocus";
+            this.btn_UnFocus.Size = new System.Drawing.Size(173, 44);
+            this.btn_UnFocus.TabIndex = 377;
+            this.btn_UnFocus.Text = "清除鎖定列";
+            this.btn_UnFocus.Visible = false;
+            this.btn_UnFocus.Click += new System.EventHandler(this.btn_UnFocus_Click);
+            // 
+            // btn_Export
+            // 
+            this.btn_Export.Appearance.BackColor = System.Drawing.Color.PeachPuff;
+            this.btn_Export.Appearance.BackColor2 = System.Drawing.Color.Khaki;
+            this.btn_Export.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Export.Appearance.ForeColor = System.Drawing.Color.Sienna;
+            this.btn_Export.Appearance.Options.UseBackColor = true;
+            this.btn_Export.Appearance.Options.UseFont = true;
+            this.btn_Export.Appearance.Options.UseForeColor = true;
+            this.btn_Export.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btn_Export.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Export.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Export.ImageOptions.Image")));
+            this.btn_Export.Location = new System.Drawing.Point(186, 114);
+            this.btn_Export.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Export.Name = "btn_Export";
+            this.btn_Export.Size = new System.Drawing.Size(173, 44);
+            this.btn_Export.TabIndex = 373;
+            this.btn_Export.Text = "匯出";
+            this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
+            // 
+            // btn_Cancel
+            // 
+            this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.Orange;
+            this.btn_Cancel.Appearance.BackColor2 = System.Drawing.Color.Aquamarine;
+            this.btn_Cancel.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Cancel.Appearance.ForeColor = System.Drawing.Color.Sienna;
+            this.btn_Cancel.Appearance.Options.UseBackColor = true;
+            this.btn_Cancel.Appearance.Options.UseFont = true;
+            this.btn_Cancel.Appearance.Options.UseForeColor = true;
+            this.btn_Cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btn_Cancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cancel.ImageOptions.Image")));
+            this.btn_Cancel.Location = new System.Drawing.Point(893, 114);
+            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(188, 44);
+            this.btn_Cancel.TabIndex = 31;
+            this.btn_Cancel.Text = "刪除";
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // keyAndNameForComboBindingSource
             // 
@@ -923,6 +946,26 @@
             this.textEdit_addNote1.Properties.Appearance.Options.UseFont = true;
             this.textEdit_addNote1.Size = new System.Drawing.Size(176, 32);
             this.textEdit_addNote1.TabIndex = 13;
+            // 
+            // xtraTabControl1
+            // 
+            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
+            this.xtraTabControl1.Name = "xtraTabControl1";
+            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
+            this.xtraTabControl1.Size = new System.Drawing.Size(1282, 540);
+            this.xtraTabControl1.TabIndex = 7;
+            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xtraTabPage1,
+            this.xtraTabPage2});
+            this.xtraTabControl1.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtraTabControl1_SelectedPageChanged);
+            // 
+            // xtraTabPage1
+            // 
+            this.xtraTabPage1.Controls.Add(this.gridControl_ProductOrder);
+            this.xtraTabPage1.Name = "xtraTabPage1";
+            this.xtraTabPage1.Size = new System.Drawing.Size(1275, 504);
+            this.xtraTabPage1.Text = "查詢結果";
             // 
             // gridControl_ProductOrder
             // 
@@ -1362,40 +1405,6 @@
             this.colNote2.OptionsColumn.AllowFocus = false;
             this.colNote2.Width = 86;
             // 
-            // FocusbindingSource
-            // 
-            this.FocusbindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
-            // 
-            // alertControl1
-            // 
-            this.alertControl1.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertControl1.AppearanceCaption.Options.UseFont = true;
-            this.alertControl1.AppearanceText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alertControl1.AppearanceText.Options.UseFont = true;
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.Title = "欲存檔路徑";
-            // 
-            // xtraTabControl1
-            // 
-            this.xtraTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraTabControl1.Name = "xtraTabControl1";
-            this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1282, 540);
-            this.xtraTabControl1.TabIndex = 7;
-            this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtraTabPage1,
-            this.xtraTabPage2});
-            // 
-            // xtraTabPage1
-            // 
-            this.xtraTabPage1.Controls.Add(this.gridControl_ProductOrder);
-            this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1275, 504);
-            this.xtraTabPage1.Text = "查詢結果";
-            // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.gridControl_FocusOrder);
@@ -1421,6 +1430,10 @@
             this.gridControl_FocusOrder.UseEmbeddedNavigator = true;
             this.gridControl_FocusOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_FocusOrder});
+            // 
+            // FocusbindingSource
+            // 
+            this.FocusbindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
             // 
             // gridView_FocusOrder
             // 
@@ -1451,6 +1464,8 @@
             this.gridView_FocusOrder.NewItemRowText = "點此新增";
             this.gridView_FocusOrder.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView_FocusOrder.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridView_FocusOrder.OptionsSelection.MultiSelect = true;
+            this.gridView_FocusOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView_FocusOrder.OptionsView.ShowFooter = true;
             this.gridView_FocusOrder.OptionsView.ShowGroupPanel = false;
             this.gridView_FocusOrder.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -1494,7 +1509,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowFocus = false;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 0;
+            this.gridColumn4.VisibleIndex = 1;
             this.gridColumn4.Width = 64;
             // 
             // gridColumn5
@@ -1536,7 +1551,7 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowFocus = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 1;
+            this.gridColumn6.VisibleIndex = 2;
             this.gridColumn6.Width = 99;
             // 
             // gridColumn7
@@ -1558,7 +1573,7 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowFocus = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 2;
+            this.gridColumn7.VisibleIndex = 3;
             this.gridColumn7.Width = 78;
             // 
             // gridColumn8
@@ -1580,7 +1595,7 @@
             this.gridColumn8.MinWidth = 23;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 3;
+            this.gridColumn8.VisibleIndex = 4;
             this.gridColumn8.Width = 290;
             // 
             // gridColumn9
@@ -1603,7 +1618,7 @@
             this.gridColumn9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "SUM={0:0.##}")});
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 5;
+            this.gridColumn9.VisibleIndex = 6;
             this.gridColumn9.Width = 64;
             // 
             // gridColumn10
@@ -1626,7 +1641,7 @@
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "SUM={0:0.##}")});
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 6;
+            this.gridColumn10.VisibleIndex = 7;
             this.gridColumn10.Width = 61;
             // 
             // gridColumn11
@@ -1649,7 +1664,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "SUM={0:0.##}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 7;
+            this.gridColumn11.VisibleIndex = 8;
             this.gridColumn11.Width = 70;
             // 
             // gridColumn12
@@ -1672,7 +1687,7 @@
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowFocus = false;
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 4;
+            this.gridColumn12.VisibleIndex = 5;
             this.gridColumn12.Width = 91;
             // 
             // gridColumn13
@@ -1711,31 +1726,12 @@
             this.gridColumn14.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn14.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn14.Caption = "是否取貨";
-            this.gridColumn14.ColumnEdit = this.repositoryItemLookUpEdit1;
             this.gridColumn14.FieldName = "Address";
             this.gridColumn14.MinWidth = 23;
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 10;
+            this.gridColumn14.VisibleIndex = 12;
             this.gridColumn14.Width = 89;
-            // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repositoryItemLookUpEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repositoryItemLookUpEdit1.AppearanceDropDown.Options.UseFont = true;
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 140, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.repositoryItemLookUpEdit1.DataSource = this.keyAndNameForComboBindingSource;
-            this.repositoryItemLookUpEdit1.DisplayMember = "LocalDescription";
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.NullText = "";
-            this.repositoryItemLookUpEdit1.ValueMember = "Code";
             // 
             // gridColumn15
             // 
@@ -1757,7 +1753,7 @@
             this.gridColumn15.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalCost", "SUM={0:0.##}")});
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 8;
+            this.gridColumn15.VisibleIndex = 9;
             this.gridColumn15.Width = 70;
             // 
             // gridColumn16
@@ -1780,7 +1776,7 @@
             this.gridColumn16.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalProfit", "SUM={0:0.##}")});
             this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 9;
+            this.gridColumn16.VisibleIndex = 10;
             this.gridColumn16.Width = 77;
             // 
             // gridColumn17
@@ -1837,6 +1833,35 @@
             this.gridColumn19.OptionsColumn.AllowFocus = false;
             this.gridColumn19.Width = 86;
             // 
+            // repositoryItemLookUpEdit1
+            // 
+            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.Appearance.Options.UseFont = true;
+            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.AppearanceDropDown.Options.UseFont = true;
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 140, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.repositoryItemLookUpEdit1.DataSource = this.keyAndNameForComboBindingSource;
+            this.repositoryItemLookUpEdit1.DisplayMember = "LocalDescription";
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.repositoryItemLookUpEdit1.NullText = "";
+            this.repositoryItemLookUpEdit1.ValueMember = "Code";
+            // 
+            // alertControl1
+            // 
+            this.alertControl1.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceCaption.Options.UseFont = true;
+            this.alertControl1.AppearanceText.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceText.Options.UseFont = true;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Title = "欲存檔路徑";
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -1878,16 +1903,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinEdit_addCount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_addTotalPrice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit_addNote1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
+            this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ProductOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
-            this.xtraTabControl1.ResumeLayout(false);
-            this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
             this.ResumeLayout(false);
@@ -1989,5 +2014,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
+        internal DevExpress.XtraEditors.SimpleButton btn_UnFocus;
     }
 }

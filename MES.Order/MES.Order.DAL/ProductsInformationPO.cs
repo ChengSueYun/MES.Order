@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
+using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL
 {
@@ -30,15 +31,17 @@ namespace MES.Order.DAL
         public int DeleteProductsInfomations(List<ProductsInfomation> delProductsInfomations)
         {
             var result = 0;
-
-            foreach (var deleteProducts in delProductsInfomations)
+            using (var db = ProductsDbContext.Create(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
-                this.ProductsDbContext.ProductsInfomations.Attach(deleteProducts);
-                this.ProductsDbContext.Entry(deleteProducts).State = EntityState.Deleted;
-            }
+                foreach (var deleteProducts in delProductsInfomations)
+                {
+                    db.ProductsInfomations.Attach(deleteProducts);
+                    db.Entry(deleteProducts).State = EntityState.Deleted;
+                }
 
-            result = this.ProductsDbContext.SaveChanges();
-            return result;
+                result = db.Save();
+                return result;
+            }
         }
 
         #endregion

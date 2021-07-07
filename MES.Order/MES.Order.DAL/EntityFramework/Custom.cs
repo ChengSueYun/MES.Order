@@ -15,7 +15,7 @@ namespace MES.Order.DAL.EntityFramework
         public string Address { get; set; }
 
         [Column(TypeName = "smalldatetime")]
-        public DateTime UpdateDate { get; set; }
+        public DateTime UpdateDate { get; set; } = DateTime.Today;
 
         [StringLength(50)]
         public string 備註 { get; set; }
@@ -29,7 +29,13 @@ namespace MES.Order.DAL.EntityFramework
         [Key]
         public int AutoID { get; set; }
 
+        private string _customId;
+
         [StringLength(50)]
-        public string CustomID { get; set; }
+        public string CustomID
+        {
+            get => this._customId=this.CustomName;
+            set => this._customId = value;
+        }
     }
 }

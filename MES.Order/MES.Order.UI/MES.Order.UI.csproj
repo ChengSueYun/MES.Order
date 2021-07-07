@@ -136,6 +136,7 @@
     <None Include="Properties\DataSources\MES.Order.DAL.EntityFramework.Custom.datasource" />
     <None Include="Properties\DataSources\MES.Order.DAL.EntityFramework.ProductsInfomation.datasource" />
     <None Include="Properties\DataSources\MES.Order.DAL.EntityFramework.ProductsOrder.datasource" />
+    <None Include="Properties\DataSources\MES.Order.DAL.ViewModel.AddCustomViewModel.datasource" />
     <None Include="Properties\DataSources\MES.Order.DAL.ViewModel.AddOrderViewModel.datasource" />
     <None Include="Properties\DataSources\MES.Order.DAL.ViewModel.KeyAndNameForCombo.datasource" />
     <None Include="Properties\Settings.settings">
