@@ -31,7 +31,9 @@ namespace MES.Order.DAL
                 using (var db =
                     ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
                 {
-                    var result = (from a in db.ProductGroupIDs
+                    var filter = db.ProductGroupIDs
+                                   .ToList();
+                    var result = (from a in filter
                                   select new KeyAndNameForCombo
                                   {
                                       Code             = a.ProductGroupID,

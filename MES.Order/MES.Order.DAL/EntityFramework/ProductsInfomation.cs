@@ -9,7 +9,7 @@ namespace MES.Order.DAL.EntityFramework
         [Key]
         public int AutoID { get; set; }
 
-        [StringLength(40)]
+        [StringLength(70)]
         public string ProductName { get; set; }
 
         public int? Price { get; set; }
