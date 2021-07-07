@@ -31,19 +31,50 @@ namespace MES.Order.UI
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
-            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
+            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.document3 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // documentGroup1
+            // 
+            this.documentGroup1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document[] {
+            this.document1,
+            this.document2,
+            this.document3});
+            // 
+            // document1
+            // 
+            this.document1.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.document1.Appearance.Header.Options.UseFont = true;
+            this.document1.Caption = "訂單";
+            this.document1.ControlName = "Order";
+            this.document1.ControlTypeName = "MES.Order.UI.Order";
+            // 
+            // document2
+            // 
+            this.document2.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.document2.Appearance.Header.Options.UseFont = true;
+            this.document2.Caption = "客戶";
+            this.document2.ControlName = "Customer";
+            this.document2.ControlTypeName = "MES.Order.UI.Customer";
+            // 
+            // document3
+            // 
+            this.document3.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.document3.Appearance.Header.Options.UseFont = true;
+            this.document3.Caption = "產品";
+            this.document3.ControlName = "ProductInformation";
+            this.document3.ControlTypeName = "MES.Order.UI.ProductInformation";
             // 
             // documentManager1
             // 
@@ -64,38 +95,7 @@ namespace MES.Order.UI
             dockingContainer1.Element = this.documentGroup1;
             this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
             dockingContainer1});
-            this.tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Light;
-            // 
-            // document1
-            // 
-            this.document1.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.document1.Appearance.Header.Options.UseFont = true;
-            this.document1.Caption = "訂單";
-            this.document1.ControlName = "Order";
-            this.document1.ControlTypeName = "MES.Order.UI.Order";
-            // 
-            // documentGroup1
-            // 
-            this.documentGroup1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document[] {
-            this.document1,
-            this.document2,
-            this.document3});
-            // 
-            // document2
-            // 
-            this.document2.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.document2.Appearance.Header.Options.UseFont = true;
-            this.document2.Caption = "客戶";
-            this.document2.ControlName = "Customer";
-            this.document2.ControlTypeName = "MES.Order.UI.Customer";
-            // 
-            // document3
-            // 
-            this.document3.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.document3.Appearance.Header.Options.UseFont = true;
-            this.document3.Caption = "產品";
-            this.document3.ControlName = "ProductInformation";
-            this.document3.ControlTypeName = "MES.Order.UI.ProductInformation";
+            this.tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Classic;
             // 
             // MainForm
             // 
@@ -109,12 +109,12 @@ namespace MES.Order.UI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "小夫妻程式";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
 
         }

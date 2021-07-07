@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraPrinting;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
 using THS.Infrastructure.Extensions;
@@ -19,10 +21,9 @@ namespace MES.Order.UI
         private          List<ProductsOrder>      productsOrders = new List<ProductsOrder>();
         private          List<ProductsOrder>      UpdateproductsOrders;
         private          ProductsOrderUCO         ProductsOrderUCO;
-        private readonly WhetherGetStock          whetherGetStock       = new WhetherGetStock();
-        private readonly List<KeyAndNameForCombo> whetherCombos         = new List<KeyAndNameForCombo>();
-        List<string>                              filterProductNameList = new List<string>();
-        List<string>                              filterCustomList      = new List<string>();
+        private readonly WhetherGetStock          whetherGetStock = new WhetherGetStock();
+        private readonly List<KeyAndNameForCombo> whetherCombos   = new List<KeyAndNameForCombo>();
+        List<ProductsOrder>                       focusOrders     = new List<ProductsOrder>();
 
         public Order()
         {
@@ -44,6 +45,7 @@ namespace MES.Order.UI
             this.dateEdit_OrderDateE.DateTime              = DateTime.Today;
             this.addOrderViewModelBindingSource.DataSource = this.addOrderView;
             this.addOrderViewModelBindingSource.AddNew();
+            this.FocusbindingSource.DataSource = this.focusOrders;
         }
 
         private void InitialWhetherStock()
@@ -100,15 +102,16 @@ namespace MES.Order.UI
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
-            var Area = this.lookUpEdit_Area.EditValue.ToString();
+            var Area           = this.lookUpEdit_Area.EditValue.ToString();
             var CusomerName    = this.lookUpEdit_CustomerName.EditValue.ToString();
             var ProductGroupID = this.lookUpEdit_ProductGroupID.EditValue.ToString();
             var ProductName    = this.lookUpEdit_ProductName.EditValue.ToString();
-            var OrderDateS = this.dateEdit_OrderDateS.DateTime;
-            var OrderDateE = this.dateEdit_OrderDateE.DateTime;
+            var OrderDateS     = this.dateEdit_OrderDateS.DateTime;
+            var OrderDateE     = this.dateEdit_OrderDateE.DateTime;
             this.productsOrders =
                 this.ProductsOrderUCO.QueryAllOrders(Area, ProductGroupID, CusomerName, ProductName, OrderDateS,
                                                      OrderDateE);
+
             this.productsOrderBindingSource.DataSource = this.productsOrders;
 
             this.gridView_ProductOrder.BestFitColumns();
@@ -273,15 +276,22 @@ namespace MES.Order.UI
             var Selected    = this.gridView_ProductOrder.GetSelectedRows();
             var CurrentList = this.productsOrderBindingSource.DataSource as List<ProductsOrder>;
             CurrentList = CurrentList.OrderByDescending(x => x.AutoID).ToList();
-            List<ProductsOrder> updateList = new List<ProductsOrder>();
+            List<ProductsOrder> updateList   = new List<ProductsOrder>();
+            var                 dialogResult = MessageBox.Show(@"是否確認鎖定 " + Selected.Length.ToString() + @"筆資料?", "提醒", MessageBoxButtons.YesNo);
+            if (dialogResult== DialogResult.No)
+            {
+                return;
+            }
             foreach (var item in Selected)
             {
                 CurrentList[item].Address = "Y:" + DateTime.Today.ToSimpleTaiwanCalendar() + " 已取貨";
                 updateList.Add(CurrentList[item]);
-                if (this.FocusData.All(x => x.AutoID != CurrentList[item].AutoID))
+                if (this.focusOrders.All(x => x.AutoID != CurrentList[item].AutoID))
                 {
-                    this.FocusData.Add(CurrentList[item]);
+                    this.focusOrders.Add(CurrentList[item]);
                 }
+
+                this.gridControl_FocusOrder.RefreshDataSource();
             }
 
             this.ProductsOrderUCO.UpdateOrders(updateList);
@@ -291,7 +301,7 @@ namespace MES.Order.UI
                 alertControl1.Show(this.ParentForm, "鎖定訊息",
                                    "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
             }
-
+            this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             this.btn_Query.PerformClick();
         }
 
@@ -302,12 +312,7 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_Export_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.Filter   = @"Excel|*.xls|Word|*.docx";
-            saveFileDialog1.FileName = DateTime.Today.ToString("yyyyMMdd") + "拉單";
-            saveFileDialog1.ShowDialog();
-
-            // this.tileView_FocusOrder.ExportToDocx(saveFileDialog1.FileName);
-            Process.Start(saveFileDialog1.FileName);
+            this.gridControl_FocusOrder.ShowPrintPreview();
         }
 
         /// <summary>
@@ -331,24 +336,5 @@ namespace MES.Order.UI
         }
 
         #endregion
-
-        private void toggleSwitch1_Toggled(object sender, EventArgs e)
-        {
-            // if (this.toggleSwitch1.EditValue.ToString() == "True")
-            // {
-            //     gridControl_FocusOrder.Visible     = true;
-            //     FocusData                          = new List<ProductsOrder>();
-            //     this.FocusbindingSource.DataSource = FocusData;
-            // }
-            // else
-            // {
-            //     gridControl_FocusOrder.Visible = false;
-            // }
-        }
-
-        public List<ProductsOrder> FocusData { get; set; }
-
-
-
     }
 }

@@ -17,6 +17,7 @@ namespace MES.Order.UI
         public MainForm()
         {
             InitializeComponent();
+
             // Handling the QueryControl event that will populate all automatically generated Documents
             this.tabbedView1.QueryControl += tabbedView1_QueryControl;
         }
@@ -24,7 +25,6 @@ namespace MES.Order.UI
         // Assigning a required content for each auto generated Document
         void tabbedView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
-
             if (e.Document == document1)
                 e.Control = new MES.Order.UI.Order();
             if (e.Document == document2)
@@ -34,7 +34,5 @@ namespace MES.Order.UI
             if (e.Control == null)
                 e.Control = new System.Windows.Forms.Control();
         }
-
-
     }
 }
