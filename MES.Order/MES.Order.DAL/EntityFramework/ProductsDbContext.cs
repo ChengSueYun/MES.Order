@@ -14,7 +14,7 @@ namespace MES.Order.DAL.EntityFramework
         public virtual DbSet<ProductsInfomation> ProductsInfomations { get; set; }
 
         public virtual DbSet<ProductsOrder> ProductsOrders { get; set; }
-
+        
         public ProductsDbContext()
             : base("name=ProductsDbContext")
         {

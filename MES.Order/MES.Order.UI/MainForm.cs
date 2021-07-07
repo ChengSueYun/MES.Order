@@ -25,12 +25,14 @@ namespace MES.Order.UI
         // Assigning a required content for each auto generated Document
         void tabbedView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {
-            if (e.Document == document1)
+            if (e.Document == this.document1)
                 e.Control = new MES.Order.UI.Order();
-            if (e.Document == document2)
+            if (e.Document == this.document2)
                 e.Control = new MES.Order.UI.Customer();
-            if (e.Document == document3)
+            if (e.Document == this.document3)
                 e.Control = new MES.Order.UI.ProductInformation();
+            if (e.Document == this.chartDataDocument)
+                e.Control = new MES.Order.UI.ChartData();
             if (e.Control == null)
                 e.Control = new System.Windows.Forms.Control();
         }

@@ -29,25 +29,27 @@ namespace MES.Order.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
-            this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
-            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
-            this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
-            this.document3 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup();
+            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
+            this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
+            this.document3 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.chartDataDocument = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).BeginInit();
             this.SuspendLayout();
             // 
             // documentGroup1
             // 
             this.documentGroup1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document[] {
+            this.chartDataDocument,
             this.document1,
             this.document2,
             this.document3});
@@ -90,11 +92,20 @@ namespace MES.Order.UI
             this.tabbedView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
             this.document1,
             this.document2,
-            this.document3});
+            this.document3,
+            this.chartDataDocument});
             dockingContainer1.Element = this.documentGroup1;
             this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
             dockingContainer1});
             this.tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Classic;
+            // 
+            // chartDataDocument
+            // 
+            this.chartDataDocument.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.chartDataDocument.Appearance.Header.Options.UseFont = true;
+            this.chartDataDocument.Caption = "彙總";
+            this.chartDataDocument.ControlName = "ChartData";
+            this.chartDataDocument.ControlTypeName = "MES.Order.UI.ChartData";
             // 
             // MainForm
             // 
@@ -114,6 +125,7 @@ namespace MES.Order.UI
             ((System.ComponentModel.ISupportInitialize)(this.document3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -134,5 +146,6 @@ namespace MES.Order.UI
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document2;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document3;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document chartDataDocument;
     }
 }
