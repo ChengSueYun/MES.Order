@@ -14,17 +14,16 @@ using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
 using THS.Infrastructure.Extensions;
 using System.Data.Entity;
+using MES.Order.DAL.ViewModel;
+using MES.Order.UI.Mappers;
 
 namespace MES.Order.UI
 {
     public partial class Order : XtraUserControl
     {
-        private List<ProductsOrder> AddproductsOrders =
-            new List<ProductsOrder>();
-
-        private List<ProductsOrder> productsOrders = new List<ProductsOrder>();
-        private ProductsOrderUCO    ProductsOrderUCO;
-        GridHitInfo                 downHitInfo = null;
+        private List<AddOrderViewModel> addOrderView   = new List<AddOrderViewModel>();
+        private List<ProductsOrder>     productsOrders = new List<ProductsOrder>();
+        private ProductsOrderUCO        ProductsOrderUCO;
 
         public Order()
         {
@@ -32,8 +31,6 @@ namespace MES.Order.UI
             this.InitialUCO();
             this.InitialControls();
         }
-
-        private Dictionary<ProductsOrder, string> SetPickUpDate = new Dictionary<ProductsOrder, string>();
 
         #region Initial
 
@@ -45,41 +42,40 @@ namespace MES.Order.UI
             this.InitialProductName();
             this.dateEdit_OrderDateS.DateTime = DateTime.Today.AddDays(-15);
             this.dateEdit_OrderDateE.DateTime = DateTime.Today;
+            this.addOrderViewModelBindingSource.DataSource = this.addOrderView;
+            this.addOrderViewModelBindingSource.AddNew();
         }
 
         private void InitialProductName()
         {
             var result = this.ProductsOrderUCO.GetProductName("*ALL");
-            this.lookUpEdit_ProductName.Properties.DataSource = result;
-            this.lookUpEdit_ProductName.EditValue             = "*ALL";
-            this.repository_ProductName.DataSource            = result.Where(x => x.Code != "*ALL").ToList();
+            this.lookUpEdit_ProductName.Properties.DataSource    = result;
+            this.lookUpEdit_ProductName.EditValue                = "*ALL";
+            this.LookUpEdit_addProductName.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
         }
 
         private void InitialCusomterName()
         {
             var result = this.ProductsOrderUCO.GetCustomerName("*ALL");
-            this.lookUpEdit_CustomerName.Properties.DataSource = result;
-            this.lookUpEdit_CustomerName.EditValue             = "*ALL";
-            this.repository_CustomerName.DataSource            = result.Where(x => x.Code != "*ALL").ToList();
-            ;
+            this.lookUpEdit_CustomerName.Properties.DataSource    = result;
+            this.lookUpEdit_CustomerName.EditValue                = "*ALL";
+            this.LookUpEdit_addCustomerName.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
         }
 
         private void InitialProductGroupID()
         {
             var result = this.ProductsOrderUCO.GetProductGroupID();
-            this.lookUpEdit_ProductGroupID.Properties.DataSource = result;
-            this.lookUpEdit_ProductGroupID.EditValue             = "*ALL";
-            this.repository_ProductGroupID.DataSource            = result.Where(x => x.Code != "*ALL").ToList();
-            ;
+            this.lookUpEdit_ProductGroupID.Properties.DataSource    = result;
+            this.lookUpEdit_ProductGroupID.EditValue                = "*ALL";
+            this.lookUpEdit_addProductGroupID.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
         }
 
         private void InitialArea()
         {
             var result = this.ProductsOrderUCO.GetArea();
-            this.lookUpEdit_Area.Properties.DataSource = result;
-            this.lookUpEdit_Area.EditValue             = "*ALL";
-            this.repository_Area.DataSource            = result.Where(x => x.Code != "*ALL").ToList();
-            ;
+            this.lookUpEdit_Area.Properties.DataSource    = result;
+            this.lookUpEdit_Area.EditValue                = "*ALL";
+            this.lookUpEdit_addArea.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
         }
 
         private void InitialUCO()
@@ -105,85 +101,105 @@ namespace MES.Order.UI
                                                      OrderDateE);
             this.productsOrderBindingSource.DataSource = this.productsOrders;
             this.gridView_ProductOrder.BestFitColumns();
-            this.gridView_AddProductOrder.BestFitColumns();
         }
 
+        /// <summary>
+        /// 查詢地區=>變更地區值時，跟著變動客戶
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lookUpEdit_Area_EditValueChanged(object sender, EventArgs e)
         {
             var Area = this.lookUpEdit_Area.EditValue.ToString();
             this.lookUpEdit_CustomerName.Properties.DataSource = this.ProductsOrderUCO.GetCustomerName(Area);
         }
 
+        /// <summary>
+        /// 新增地區=>變更地區值時，跟著變動客戶
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lookUpEdit_addArea_EditValueChanged(object sender, EventArgs e)
+        {
+            var addArea = this.lookUpEdit_addArea.EditValue.ToString();
+            this.LookUpEdit_addCustomerName.Properties.DataSource = this.ProductsOrderUCO.GetCustomerName(addArea);
+        }
+
+        /// <summary>
+        /// 查詢廠商=>變更廠商值時，跟著變動產品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lookUpEdit_ProductGroupID_EditValueChanged(object sender, EventArgs e)
         {
             var ProductGroupID = this.lookUpEdit_ProductGroupID.EditValue.ToString();
             this.lookUpEdit_ProductName.Properties.DataSource = this.ProductsOrderUCO.GetProductName(ProductGroupID);
         }
 
-        private void repository_Area_EditValueChanged(object sender, EventArgs e)
+        /// <summary>
+        /// 新增廠商=>變更廠商值時，跟著變動產品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lookUpEdit_addProductGroupID_EditValueChanged(object sender, EventArgs e)
         {
-            var areaLookUpEdit = sender as LookUpEdit;
-            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn_Area,
-                                                                 areaLookUpEdit.EditValue.ToString());
-            var result = this.ProductsOrderUCO.GetCustomerName(areaLookUpEdit.EditValue.ToString())
-                             .Where(x => x.Code != "*ALL").ToList();
-            this.gridColumn4.ColumnEdit             = repository_CustomerName;
-            this.repository_CustomerName.DataSource = result;
-
-            this.gridView_AddProductOrder.SetFocusedRowCellValue(gridColumn10, DateTime.Today);
+            var addProductGroupID = this.lookUpEdit_addProductGroupID.EditValue.ToString();
+            this.LookUpEdit_addProductName.Properties.DataSource =
+                this.ProductsOrderUCO.GetProductName(addProductGroupID);
         }
 
-        private void repository_ProductGroupID_EditValueChanged(object sender, EventArgs e)
+        /// <summary>
+        /// 新增產品=>變更產品值時，抓取成本、售價等資料
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LookUpEdit_addProductName_EditValueChanged(object sender, EventArgs e)
         {
-            var Productgroupid = sender as LookUpEdit;
-            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn_ProductGroupID,
-                                                                 Productgroupid.EditValue.ToString());
-            var result = this.ProductsOrderUCO.GetProductName(Productgroupid.EditValue.ToString())
-                             .Where(x => x.Code != "*ALL").ToList();
-            this.repository_ProductName.DataSource = result;
-        }
+            var addProductName = this.LookUpEdit_addProductName.EditValue.ToString();
+            if (this.addOrderViewModelBindingSource.Current is AddOrderViewModel addOrderViewModel)
+            {
+                var productsInfomation =
+                    this.ProductsOrderUCO.GetProductPrice(addOrderViewModel.ProductGroupID,
+                                                          addProductName)[0];
+                addOrderViewModel.Price      = productsInfomation.Price.Value;
+                addOrderViewModel.Cost       = productsInfomation.Cost.Value;
+                this.spinEdit_addCount.Value = 0;
 
-        private void repository_Count_EditValueChanged(object sender, EventArgs e)
+            }
+        }
+        /// <summary>
+        /// 新增數量
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void spinEdit_addCount_EditValueChanged(object sender, EventArgs e)
         {
-            var countSpinEdit    = sender as CalcEdit;
-            var count            = countSpinEdit.Value;
-            var current          = this.AddproductsOrderBindingSource.Current;
-            var ProductGroupID   = ((ProductsOrder) current).ProductGroupID;
-            var productName      = ((ProductsOrder) current).ProductName;
-            var result           = this.ProductsOrderUCO.GetProductPrice(ProductGroupID, productName).FirstOrDefault();
-            var resultTotalPrice = count * result.Price; //總售價
-            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn_Price,      result.Price);
-            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn_TotalPrice, resultTotalPrice);
-
-            var resultTotalCost = count * result.Cost; //總批價
-            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn13, resultTotalCost);
-
-            var totalProfit = resultTotalPrice - resultTotalCost; //總利潤
-            this.gridView_AddProductOrder.SetFocusedRowCellValue(this.gridColumn14, totalProfit);
+            var addCount = Convert.ToInt16(this.spinEdit_addCount.Value);
+            if (this.addOrderViewModelBindingSource.Current is AddOrderViewModel addOrderViewModel)
+            {
+                addOrderViewModel.Count = addCount;
+                addOrderViewModel.SetDefaultValue();
+                this.textEdit_addTotalPrice.Text = addOrderViewModel.TotalPrice.ToString();
+            }
         }
-
+      
+        /// <summary>
+        /// 存檔
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Save_Click(object sender, EventArgs e)
         {
             try
             {
-                this.AddproductsOrders =
-                    new
-                        List<ProductsOrder>((IEnumerable<ProductsOrder>) this
-                                                                         .AddproductsOrderBindingSource.List);
-                foreach (ProductsOrder addproductsOrder in this.AddproductsOrders)
-                {
-                    addproductsOrder.SetDefaultValue();
-                }
-
-                var actualSaveCount = this.ProductsOrderUCO.SaveOrders(this.AddproductsOrders);
-                foreach (var item in AddproductsOrders)
+                var saveOrders = new List<ProductsOrder>();
+                DefaultMapper.Map(this.addOrderView, saveOrders);
+                var actualSaveCount = this.ProductsOrderUCO.SaveOrders(saveOrders);
+                foreach (var item in saveOrders)
                 {
                     alertControl1.Show(this.ParentForm, "存檔訊息",
                                        "已存檔 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
                 }
-
-                this.AddproductsOrderBindingSource.Clear();
-
                 this.productsOrders = this
                                       .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
                                                                        DateTime.Today, DateTime.Today)
@@ -192,10 +208,15 @@ namespace MES.Order.UI
             }
             catch (Exception exception)
             {
-                throw new Exception("btn_Save_Click 存檔發生錯誤" + exception.Message);
+                throw new Exception("btn_Save_Click 存檔發生錯誤" + exception);
             }
         }
 
+        /// <summary>
+        /// 刪除
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             try
@@ -222,10 +243,15 @@ namespace MES.Order.UI
             }
             catch (Exception exception)
             {
-                throw exception;
+                throw new Exception("btn_Cancel_Click 刪除發生錯誤" + exception.ToString());
             }
         }
 
+        /// <summary>
+        /// 鎖定列
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_FocusRow_Click(object sender, EventArgs e)
         {
             var Selected    = this.gridView_ProductOrder.GetSelectedRows();
@@ -251,16 +277,22 @@ namespace MES.Order.UI
                                    "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
             }
 
-            gridControl_FocusOrder.RefreshDataSource();
+            // gridControl_FocusOrder.RefreshDataSource();
             this.btn_Query.PerformClick();
         }
 
+        /// <summary>
+        /// 匯出
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Export_Click(object sender, EventArgs e)
         {
             saveFileDialog1.Filter   = @"Excel|*.xls|Word|*.docx";
             saveFileDialog1.FileName = DateTime.Today.ToString("yyyyMMdd") + "拉單";
             saveFileDialog1.ShowDialog();
-            this.tileView_FocusOrder.ExportToDocx(saveFileDialog1.FileName);
+
+            // this.tileView_FocusOrder.ExportToDocx(saveFileDialog1.FileName);
             Process.Start(saveFileDialog1.FileName);
         }
 
@@ -268,18 +300,20 @@ namespace MES.Order.UI
 
         private void toggleSwitch1_Toggled(object sender, EventArgs e)
         {
-            if (this.toggleSwitch1.EditValue.ToString() == "True")
-            {
-                gridControl_FocusOrder.Visible     = true;
-                FocusData                          = new List<ProductsOrder>();
-                this.FocusbindingSource.DataSource = FocusData;
-            }
-            else
-            {
-                gridControl_FocusOrder.Visible = false;
-            }
+            // if (this.toggleSwitch1.EditValue.ToString() == "True")
+            // {
+            //     gridControl_FocusOrder.Visible     = true;
+            //     FocusData                          = new List<ProductsOrder>();
+            //     this.FocusbindingSource.DataSource = FocusData;
+            // }
+            // else
+            // {
+            //     gridControl_FocusOrder.Visible = false;
+            // }
         }
 
         public List<ProductsOrder> FocusData { get; set; }
+
+      
     }
 }

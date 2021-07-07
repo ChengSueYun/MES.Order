@@ -57,6 +57,7 @@
     <Compile Include="ProductsInformationPO.cs" />
     <Compile Include="ProductsOrderPO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\AddOrderViewModel.cs" />
     <Compile Include="ViewModel\KeyAndNameForCombo.cs" />
   </ItemGroup>
   <ItemGroup>

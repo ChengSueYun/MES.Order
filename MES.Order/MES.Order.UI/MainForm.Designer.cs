@@ -83,10 +83,11 @@ namespace MES.Order.UI
             // 
             this.OrderTile.Document = this.orderDocument;
             this.OrderTile.Name = "OrderTile";
+            this.OrderTile.Properties.TextShowMode = DevExpress.XtraEditors.TileItemContentShowMode.Always;
             // 
             // orderDocument
             // 
-            this.orderDocument.Caption = "Order";
+            this.orderDocument.Caption = "訂單";
             this.orderDocument.ControlName = "Order";
             this.orderDocument.ControlTypeName = "MES.Order.UI.Order";
             // 
@@ -98,7 +99,7 @@ namespace MES.Order.UI
             // 
             // customerDocument
             // 
-            this.customerDocument.Caption = "Customer";
+            this.customerDocument.Caption = "客戶";
             this.customerDocument.ControlName = "Customer";
             this.customerDocument.ControlTypeName = "MES.Order.UI.Customer";
             // 
@@ -110,19 +111,21 @@ namespace MES.Order.UI
             // 
             // productInformationDocument
             // 
-            this.productInformationDocument.Caption = "ProductInformation";
+            this.productInformationDocument.Caption = "產品";
             this.productInformationDocument.ControlName = "ProductInformation";
             this.productInformationDocument.ControlTypeName = "MES.Order.UI.ProductInformation";
             // 
             // MainForm
             // 
             this.AllowMdiBar = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 730);
+            this.ClientSize = new System.Drawing.Size(1406, 939);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.windowsUIView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileContainer1)).EndInit();
