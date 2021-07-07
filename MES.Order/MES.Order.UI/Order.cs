@@ -1,29 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
+using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Windows.Forms;
-using DevExpress.Utils.DragDrop;
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid;
-using DevExpress.XtraGrid.Views.Grid;
-using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
 using THS.Infrastructure.Extensions;
-using System.Data.Entity;
 using MES.Order.DAL.ViewModel;
 using MES.Order.UI.Mappers;
+using MES.Order.UI.Module;
 
 namespace MES.Order.UI
 {
     public partial class Order : XtraUserControl
     {
-        private List<AddOrderViewModel> addOrderView   = new List<AddOrderViewModel>();
-        private List<ProductsOrder>     productsOrders = new List<ProductsOrder>();
-        private ProductsOrderUCO        ProductsOrderUCO;
+        private readonly List<AddOrderViewModel>  addOrderView   = new List<AddOrderViewModel>();
+        private          List<ProductsOrder>      productsOrders = new List<ProductsOrder>();
+        private          List<ProductsOrder>      UpdateproductsOrders;
+        private          ProductsOrderUCO         ProductsOrderUCO;
+        private readonly WhetherGetStock          whetherGetStock       = new WhetherGetStock();
+        private readonly List<KeyAndNameForCombo> whetherCombos         = new List<KeyAndNameForCombo>();
+        List<string>                              filterProductNameList = new List<string>();
+        List<string>                              filterCustomList      = new List<string>();
 
         public Order()
         {
@@ -40,17 +39,29 @@ namespace MES.Order.UI
             this.InitialProductGroupID();
             this.InitialCusomterName();
             this.InitialProductName();
-            this.dateEdit_OrderDateS.DateTime = DateTime.Today.AddDays(-15);
-            this.dateEdit_OrderDateE.DateTime = DateTime.Today;
+            this.InitialWhetherStock();
+            this.dateEdit_OrderDateS.DateTime              = DateTime.Today.AddDays(-15);
+            this.dateEdit_OrderDateE.DateTime              = DateTime.Today;
             this.addOrderViewModelBindingSource.DataSource = this.addOrderView;
             this.addOrderViewModelBindingSource.AddNew();
+        }
+
+        private void InitialWhetherStock()
+        {
+            this.whetherGetStock.SetDefaultValue();
+            this.whetherCombos.Add(this.whetherGetStock.Get);
+            this.whetherCombos.Add(this.whetherGetStock.unGet);
+            this.whetherCombos.Add(this.whetherGetStock.AllNone);
+
+            this.repository_WhetherStock.DataSource = this.whetherCombos;
         }
 
         private void InitialProductName()
         {
             var result = this.ProductsOrderUCO.GetProductName("*ALL");
-            this.lookUpEdit_ProductName.Properties.DataSource    = result;
-            this.lookUpEdit_ProductName.EditValue                = "*ALL";
+            this.lookUpEdit_ProductName.Properties.DataSource = result;
+            this.lookUpEdit_ProductName.EditValue             = "*ALL";
+            ;
             this.LookUpEdit_addProductName.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
         }
 
@@ -89,17 +100,17 @@ namespace MES.Order.UI
 
         private void btn_Query_Click(object sender, EventArgs e)
         {
-            var Area           = this.lookUpEdit_Area.EditValue.ToString();
+            var Area = this.lookUpEdit_Area.EditValue.ToString();
             var CusomerName    = this.lookUpEdit_CustomerName.EditValue.ToString();
             var ProductGroupID = this.lookUpEdit_ProductGroupID.EditValue.ToString();
             var ProductName    = this.lookUpEdit_ProductName.EditValue.ToString();
-            var OrderDateS     = this.dateEdit_OrderDateS.DateTime;
-            var OrderDateE     = this.dateEdit_OrderDateE.DateTime;
-
+            var OrderDateS = this.dateEdit_OrderDateS.DateTime;
+            var OrderDateE = this.dateEdit_OrderDateE.DateTime;
             this.productsOrders =
                 this.ProductsOrderUCO.QueryAllOrders(Area, ProductGroupID, CusomerName, ProductName, OrderDateS,
                                                      OrderDateE);
             this.productsOrderBindingSource.DataSource = this.productsOrders;
+
             this.gridView_ProductOrder.BestFitColumns();
         }
 
@@ -168,9 +179,9 @@ namespace MES.Order.UI
                 addOrderViewModel.Price      = productsInfomation.Price.Value;
                 addOrderViewModel.Cost       = productsInfomation.Cost.Value;
                 this.spinEdit_addCount.Value = 0;
-
             }
         }
+
         /// <summary>
         /// 新增數量
         /// </summary>
@@ -186,7 +197,7 @@ namespace MES.Order.UI
                 this.textEdit_addTotalPrice.Text = addOrderViewModel.TotalPrice.ToString();
             }
         }
-      
+
         /// <summary>
         /// 存檔
         /// </summary>
@@ -204,6 +215,7 @@ namespace MES.Order.UI
                     alertControl1.Show(this.ParentForm, "存檔訊息",
                                        "已存檔 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
                 }
+
                 this.productsOrders = this
                                       .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
                                                                        DateTime.Today, DateTime.Today)
@@ -264,8 +276,7 @@ namespace MES.Order.UI
             List<ProductsOrder> updateList = new List<ProductsOrder>();
             foreach (var item in Selected)
             {
-                CurrentList[item].Address = DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() +
-                                            "/"                           + DateTime.Today.Year.ToString() + "已取貨";
+                CurrentList[item].Address = "Y:" + DateTime.Today.ToSimpleTaiwanCalendar() + " 已取貨";
                 updateList.Add(CurrentList[item]);
                 if (this.FocusData.All(x => x.AutoID != CurrentList[item].AutoID))
                 {
@@ -281,7 +292,6 @@ namespace MES.Order.UI
                                    "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
             }
 
-            // gridControl_FocusOrder.RefreshDataSource();
             this.btn_Query.PerformClick();
         }
 
@@ -298,6 +308,26 @@ namespace MES.Order.UI
 
             // this.tileView_FocusOrder.ExportToDocx(saveFileDialog1.FileName);
             Process.Start(saveFileDialog1.FileName);
+        }
+
+        /// <summary>
+        /// 點選是否取貨時，直接update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repository_WhetherStock_EditValueChanged(object sender, EventArgs e)
+        {
+            var textEdit = sender as TextEdit;
+            this.UpdateproductsOrders = new List<ProductsOrder>();
+            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
+            if (textEdit != null & productsOrder != null)
+            {
+                productsOrder.Address    = textEdit.Text;
+                productsOrder.UpdateDate = DateTime.Now;
+                productsOrder.SetDefaultValue();
+                this.UpdateproductsOrders.Add(productsOrder);
+                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+            }
         }
 
         #endregion
@@ -318,6 +348,7 @@ namespace MES.Order.UI
 
         public List<ProductsOrder> FocusData { get; set; }
 
-      
+
+
     }
 }

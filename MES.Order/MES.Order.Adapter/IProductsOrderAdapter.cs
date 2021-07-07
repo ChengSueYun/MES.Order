@@ -8,6 +8,9 @@ namespace MES.Order.Adapter
     {
         List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
                                            string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE);
+        
+        List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, List<string>   CustomerName,
+                                           List<string> ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE);
 
         int SaveOrder(List<ProductsOrder> insertProductsOrders);
 

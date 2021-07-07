@@ -7,7 +7,7 @@ using MES.Order.DAL.EntityFramework;
 
 namespace MES.Order.Adapter
 {
-    public class ProducstOrderAdapter:IProductsOrderAdapter
+    public class ProducstOrderAdapter : IProductsOrderAdapter
     {
         private ProductsOrderPO _productsOrderPo;
 
@@ -15,17 +15,27 @@ namespace MES.Order.Adapter
         {
             get
             {
-                if (this._productsOrderPo==null)
+                if (this._productsOrderPo == null)
                 {
-                    this._productsOrderPo=new ProductsOrderPO();
+                    this._productsOrderPo = new ProductsOrderPO();
                 }
+
                 return this._productsOrderPo;
             }
             set => this._productsOrderPo = value;
         }
 
-        public List<ProductsOrder> QueryAllOrders(string   Area,           string   ProductGroupID, string CustomerName, string ProductName,
+        public List<ProductsOrder> QueryAllOrders(string   Area, string ProductGroupID, string CustomerName,
+                                                  string   ProductName,
                                                   DateTime orderDateTimeS, DateTime orderDateTimeE)
+        {
+            return this.productsOrderPo.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName, orderDateTimeS,
+                                                       orderDateTimeE);
+        }
+
+        public List<ProductsOrder> QueryAllOrders(string       Area, string ProductGroupID, List<string> CustomerName,
+                                                  List<string> ProductName, DateTime orderDateTimeS,
+                                                  DateTime     orderDateTimeE)
         {
             return this.productsOrderPo.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName, orderDateTimeS,
                                                        orderDateTimeE);
@@ -44,7 +54,6 @@ namespace MES.Order.Adapter
         public int UpdateOrder(List<ProductsOrder> updateOders)
         {
             return this.productsOrderPo.UpdateOrder(updateOders);
-
         }
     }
 }

@@ -21,6 +21,14 @@ namespace MES.Order.DAL.ViewModel
         /// </summary>
         public string CustomName { get; set; }
 
+        private string _customId;
+
+        public string CustomID
+        {
+            get => this._customId=this.CustomName;
+            set => this._customId = value;
+        }
+
         private DateTime? _updateDate;
 
         /// <summary>

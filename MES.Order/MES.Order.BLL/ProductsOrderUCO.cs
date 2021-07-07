@@ -10,11 +10,11 @@ namespace MES.Order.BLL
 {
     public class ProductsOrderUCO
     {
-        private IProductsOrderAdapter _IproductsOrderAdapter;
-        private IAreaAdapter _IareaAdapter;
-        private IProductGroupIDAdapter _iproductGroupIdAdapter;
+        private IProductsOrderAdapter       _IproductsOrderAdapter;
+        private IAreaAdapter                _IareaAdapter;
+        private IProductGroupIDAdapter      _iproductGroupIdAdapter;
         private IProductsInformationAdapter _ipProductsInformationAdapter;
-        private ICustomerAdapter _icustomerAdapter;
+        private ICustomerAdapter            _icustomerAdapter;
 
         internal IProductsOrderAdapter IProductsOrderAdapter
         {
@@ -89,18 +89,24 @@ namespace MES.Order.BLL
         private void AddAllSelectRow(ref List<KeyAndNameForCombo> Result)
         {
             var all = new KeyAndNameForCombo();
-            all.Code = "*ALL";
+            all.Code             = "*ALL";
             all.LocalDescription = "全部";
             Result.Insert(0, all);
         }
 
-        public List<ProductsOrder> QueryAllOrders(string Area, string ProductGroupID, string CustomerName,
+        public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
                                                   string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
         {
             return this.IProductsOrderAdapter.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName,
                                                              orderDateTimeS,
                                                              orderDateTimeE);
         }
+
+        public List<ProductsOrder> QueryAllOrders(string       Area, string ProductGroupID, List<string> CustomerName,
+                                                  List<string> ProductName, DateTime orderDateTimeS,
+                                                  DateTime     orderDateTimeE) =>
+            this.IProductsOrderAdapter.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName, orderDateTimeS,
+                                                      orderDateTimeE);
 
         public List<KeyAndNameForCombo> GetArea()
         {
