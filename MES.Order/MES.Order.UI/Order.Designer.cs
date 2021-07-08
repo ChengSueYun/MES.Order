@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -39,7 +40,7 @@
             this.lookUpEdit_ProductGroupID = new DevExpress.XtraEditors.LookUpEdit();
             this.lbl_ProductName = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEdit_ProductName = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.keyAndNameForComboBindingSource = new System.Windows.Forms.BindingSource();
+            this.keyAndNameForComboBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLocalDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -68,7 +69,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lookUpEdit_addArea = new DevExpress.XtraEditors.LookUpEdit();
-            this.addOrderViewModelBindingSource = new System.Windows.Forms.BindingSource();
+            this.addOrderViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LookUpEdit_addCustomerName = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCode1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,7 +85,7 @@
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl_ProductOrder = new DevExpress.XtraGrid.GridControl();
-            this.productsOrderBindingSource = new System.Windows.Forms.BindingSource();
+            this.productsOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_ProductOrder = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colAutoID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colArea = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -108,7 +109,7 @@
             this.colNote2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl_FocusOrder = new DevExpress.XtraGrid.GridControl();
-            this.FocusbindingSource = new System.Windows.Forms.BindingSource();
+            this.FocusbindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView_FocusOrder = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -128,7 +129,7 @@
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl();
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -1608,6 +1609,7 @@
             this.gridView_FocusOrder.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView_FocusOrder.OptionsPrint.AutoWidth = false;
             this.gridView_FocusOrder.OptionsPrint.PrintGroupFooter = false;
+            this.gridView_FocusOrder.OptionsSelection.CheckBoxSelectorField = "Note3";
             this.gridView_FocusOrder.OptionsSelection.MultiSelect = true;
             this.gridView_FocusOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView_FocusOrder.OptionsSelection.ShowCheckBoxSelectorInPrintExport = DevExpress.Utils.DefaultBoolean.False;

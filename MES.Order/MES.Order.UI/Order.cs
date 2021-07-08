@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
@@ -363,9 +364,14 @@ namespace MES.Order.UI
             var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
             if (updateOrders == updateList.Count)
             {
-                MessageBox.Show(@"已鎖定 " + updateOrders + @"筆資料", @"鎖定訊息",
-                                MessageBoxButtons.YesNo);
+                var stringBuilder = new StringBuilder();
+                foreach (var item in updateList)
+                {
+                    stringBuilder.AppendLine(item.CustomName + @":" + item.ProductName);
+                }
 
+                MessageBox.Show(@"已經[鎖定]的名單=>" + Environment.NewLine + stringBuilder, @"提醒",
+                                MessageBoxButtons.YesNo);
                 this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             }
             else
@@ -442,10 +448,11 @@ namespace MES.Order.UI
                 productsOrder.UpdateDate = DateTime.Now;
                 var productsInfomations =
                     this.ProductsOrderUCO.GetProductPrice(productsOrder.ProductGroupID, productsOrder.ProductName);
-                if (productsInfomations.Count==0)
+                if (productsInfomations.Count == 0)
                 {
                     throw new Exception("在編輯數量的時候，查詢此產品時未找到此" + productsOrder.ProductName + "的相關資料!");
                 }
+
                 productsOrder.TotalPrice  = (int) spinEdit.Value * productsInfomations[0].Price;
                 productsOrder.TotalCost   = (int) spinEdit.Value * productsInfomations[0].Cost;
                 productsOrder.TotalProfit = (int) spinEdit.Value * productsInfomations[0].Profit;
@@ -484,23 +491,22 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_UnFocus_Click(object sender, EventArgs e)
         {
-            var Selected    = this.gridView_FocusOrder.GetSelectedRows();
-            var CurrentList = this.FocusbindingSource.DataSource as List<ProductsOrder>;
-            CurrentList = CurrentList.OrderByDescending(x => x.AutoID).ToList();
-            List<ProductsOrder> updateList = new List<ProductsOrder>();
-            var dialogResult = MessageBox.Show(@"是否確認要清除鎖定 " + Selected.Length.ToString() + @"筆資料?", "提醒",
+            var                 CurrentList = this.FocusbindingSource.DataSource as List<ProductsOrder>;
+            var                 checkedList = CurrentList.Where(x => x.Note3 == "True").ToList();
+            List<ProductsOrder> updateList  = new List<ProductsOrder>();
+            var dialogResult = MessageBox.Show(@"是否確認要清除鎖定 " + checkedList.Count + @"筆資料?", "提醒",
                                                MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
             {
                 return;
             }
 
-            foreach (var item in Selected)
+            foreach (var item in checkedList)
             {
-                CurrentList[item].Address = "";
-                updateList.Add(CurrentList[item]);
-
-                this.focusOrders.Remove(CurrentList[item]);
+                item.Address = @"";
+                item.Note3   = @"";
+                updateList.Add(item);
+                this.focusOrders.Remove(item);
 
                 this.gridControl_FocusOrder.RefreshDataSource();
             }
@@ -508,15 +514,14 @@ namespace MES.Order.UI
             var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
             if (updateOrders == updateList.Count)
             {
-                MessageBox.Show(@"已解除鎖定 " + updateOrders + @"筆資料", @"鎖定訊息",
+                var stringBuilder = new StringBuilder();
+                foreach (var item in updateList)
+                {
+                    stringBuilder.AppendLine(item.CustomName + @":" + item.ProductName);
+                }
+
+                MessageBox.Show(@"已經[解除鎖定]的名單=>" + Environment.NewLine + stringBuilder, @"提醒",
                                 MessageBoxButtons.YesNo);
-
-                // foreach (var item in updateList)
-                // {
-                //     this.alertControl1.Show(this.ParentForm, "鎖定訊息",
-                //                             "已解除鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
-                // }
-
                 this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             }
             else
