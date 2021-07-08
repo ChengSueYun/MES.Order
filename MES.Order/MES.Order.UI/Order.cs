@@ -46,7 +46,6 @@ namespace MES.Order.UI
             this.InitialProductGroupID();
             this.InitialCusomterName();
             this.InitialProductName();
-            this.InitialWhetherStock();
         }
 
         #region Initial
@@ -410,6 +409,26 @@ namespace MES.Order.UI
             }
         }
 
+        /// <summary>
+        /// 新增備註的值改變時，自動Update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repository_Note_EditValueChanged(object sender, EventArgs e)
+        {
+            var textEdit = sender as TextEdit;
+            this.UpdateproductsOrders = new List<ProductsOrder>();
+            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
+            if (textEdit != null & productsOrder != null)
+            {
+                productsOrder.Note1    = textEdit.Text;
+                productsOrder.UpdateDate = DateTime.Now;
+                productsOrder.SetDefaultValue();
+                this.UpdateproductsOrders.Add(productsOrder);
+                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+            }
+        }
+        
         private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
             if (e.Page.TabIndex == 1)
@@ -509,6 +528,12 @@ namespace MES.Order.UI
             }
         }
 
+
         #endregion
+
+        private void toggleSwitch_GroupColumn_Toggled(object sender, EventArgs e)
+        {
+
+        }
     }
 }

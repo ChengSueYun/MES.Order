@@ -96,6 +96,7 @@
             this.colTotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repository_Note = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repository_WhetherStock = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.colTotalCost = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -127,6 +128,7 @@
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toggleSwitch_GroupColumn = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -164,12 +166,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ProductOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_GroupColumn.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -226,6 +230,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btn_UnFocus, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.btn_Export, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btn_Cancel, 5, 2);
+            this.tableLayoutPanel1.Controls.Add(this.toggleSwitch_GroupColumn, 3, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 38);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -1043,7 +1048,8 @@
             this.gridControl_ProductOrder.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gridControl_ProductOrder.Name = "gridControl_ProductOrder";
             this.gridControl_ProductOrder.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repository_WhetherStock});
+            this.repository_WhetherStock,
+            this.repository_Note});
             this.gridControl_ProductOrder.Size = new System.Drawing.Size(1275, 530);
             this.gridControl_ProductOrder.TabIndex = 6;
             this.gridControl_ProductOrder.UseEmbeddedNavigator = true;
@@ -1337,13 +1343,23 @@
             this.colNote1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.colNote1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colNote1.Caption = "備註";
+            this.colNote1.ColumnEdit = this.repository_Note;
             this.colNote1.FieldName = "Note1";
             this.colNote1.MinWidth = 23;
             this.colNote1.Name = "colNote1";
-            this.colNote1.OptionsColumn.AllowFocus = false;
             this.colNote1.Visible = true;
             this.colNote1.VisibleIndex = 11;
             this.colNote1.Width = 120;
+            // 
+            // repository_Note
+            // 
+            this.repository_Note.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_Note.Appearance.Options.UseFont = true;
+            this.repository_Note.AppearanceFocused.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_Note.AppearanceFocused.Options.UseFont = true;
+            this.repository_Note.AutoHeight = false;
+            this.repository_Note.Name = "repository_Note";
+            this.repository_Note.EditValueChanged += new System.EventHandler(this.repository_Note_EditValueChanged);
             // 
             // colAddress
             // 
@@ -1561,6 +1577,7 @@
             this.gridView_FocusOrder.OptionsPrint.PrintGroupFooter = false;
             this.gridView_FocusOrder.OptionsSelection.MultiSelect = true;
             this.gridView_FocusOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView_FocusOrder.OptionsSelection.ShowCheckBoxSelectorInPrintExport = DevExpress.Utils.DefaultBoolean.False;
             this.gridView_FocusOrder.OptionsView.ColumnAutoWidth = false;
             this.gridView_FocusOrder.OptionsView.ShowFooter = true;
             this.gridView_FocusOrder.OptionsView.ShowGroupPanel = false;
@@ -1668,8 +1685,6 @@
             this.gridColumn7.MinWidth = 23;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowFocus = false;
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 3;
             this.gridColumn7.Width = 78;
             // 
             // gridColumn8
@@ -1691,7 +1706,7 @@
             this.gridColumn8.MinWidth = 23;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 4;
+            this.gridColumn8.VisibleIndex = 3;
             this.gridColumn8.Width = 290;
             // 
             // gridColumn9
@@ -1714,7 +1729,7 @@
             this.gridColumn9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "SUM={0:0.##}")});
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 6;
+            this.gridColumn9.VisibleIndex = 4;
             this.gridColumn9.Width = 64;
             // 
             // gridColumn10
@@ -1737,7 +1752,7 @@
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "SUM={0:0.##}")});
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 7;
+            this.gridColumn10.VisibleIndex = 5;
             this.gridColumn10.Width = 61;
             // 
             // gridColumn11
@@ -1760,7 +1775,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "SUM={0:0.##}")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 8;
+            this.gridColumn11.VisibleIndex = 6;
             this.gridColumn11.Width = 70;
             // 
             // gridColumn12
@@ -1782,8 +1797,6 @@
             this.gridColumn12.MinWidth = 23;
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowFocus = false;
-            this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 5;
             this.gridColumn12.Width = 91;
             // 
             // gridColumn13
@@ -1805,7 +1818,7 @@
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowFocus = false;
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 11;
+            this.gridColumn13.VisibleIndex = 7;
             this.gridColumn13.Width = 123;
             // 
             // gridColumn14
@@ -1825,8 +1838,9 @@
             this.gridColumn14.FieldName = "Address";
             this.gridColumn14.MinWidth = 23;
             this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 12;
+            this.gridColumn14.VisibleIndex = 8;
             this.gridColumn14.Width = 89;
             // 
             // gridColumn15
@@ -1848,8 +1862,6 @@
             this.gridColumn15.OptionsColumn.AllowFocus = false;
             this.gridColumn15.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalCost", "SUM={0:0.##}")});
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 9;
             this.gridColumn15.Width = 70;
             // 
             // gridColumn16
@@ -1871,8 +1883,6 @@
             this.gridColumn16.OptionsColumn.AllowFocus = false;
             this.gridColumn16.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalProfit", "SUM={0:0.##}")});
-            this.gridColumn16.Visible = true;
-            this.gridColumn16.VisibleIndex = 10;
             this.gridColumn16.Width = 77;
             // 
             // gridColumn17
@@ -1958,6 +1968,22 @@
             // 
             this.saveFileDialog1.Title = "欲存檔路徑";
             // 
+            // toggleSwitch_GroupColumn
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.toggleSwitch_GroupColumn, 2);
+            this.toggleSwitch_GroupColumn.Location = new System.Drawing.Point(554, 86);
+            this.toggleSwitch_GroupColumn.Name = "toggleSwitch_GroupColumn";
+            this.toggleSwitch_GroupColumn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.toggleSwitch_GroupColumn.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseFont = true;
+            this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseForeColor = true;
+            this.toggleSwitch_GroupColumn.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.toggleSwitch_GroupColumn.Properties.OffText = "取消群組支數";
+            this.toggleSwitch_GroupColumn.Properties.OnText = "群組支數";
+            this.toggleSwitch_GroupColumn.Size = new System.Drawing.Size(220, 34);
+            this.toggleSwitch_GroupColumn.TabIndex = 378;
+            this.toggleSwitch_GroupColumn.Toggled += new System.EventHandler(this.toggleSwitch_GroupColumn_Toggled);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -2008,12 +2034,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ProductOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_GroupColumn.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2118,5 +2146,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLocalDescription1;
         private DevExpress.XtraGrid.Columns.GridColumn colCode2;
         private DevExpress.XtraGrid.Columns.GridColumn colLocalDescription2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repository_Note;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitch_GroupColumn;
     }
 }
