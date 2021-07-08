@@ -33,6 +33,10 @@ namespace MES.Order.Adapter
             return this.customerPo.QueryAllCustoms(pArea, pCustomName);
         }
 
+        public string QuerySpecifcName(string pCustomName) {
+            return this.customerPo.QuerySpecifcName(pCustomName);
+        }
+
         public List<Custom> QueryAll()
         {
             return this.customerPo.QueryAll();

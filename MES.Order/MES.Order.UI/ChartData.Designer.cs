@@ -30,17 +30,17 @@ namespace MES.Order.UI
         private void InitializeComponent()
         {
             this.pivotGridControl1 = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.productsOrdersBindingSource = new System.Windows.Forms.BindingSource();
             this.fieldArea1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldCustomName1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldCount1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pivotGridField1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldOrderDate1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldProductGroupID1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldPrice1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldTotalPrice1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldTotalCost1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldTotalProfit1 = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.productsOrdersBindingSource = new System.Windows.Forms.BindingSource();
-            this.pivotGridField1 = new DevExpress.XtraPivotGrid.PivotGridField();
             ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrdersBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -62,10 +62,16 @@ namespace MES.Order.UI
             this.fieldTotalProfit1});
             this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
             this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.OptionsDataField.RowHeaderWidth = 300;
             this.pivotGridControl1.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
+            this.pivotGridControl1.OptionsView.RowTreeWidth = 300;
             this.pivotGridControl1.OptionsView.ShowColumnGrandTotalHeader = false;
             this.pivotGridControl1.Size = new System.Drawing.Size(1200, 708);
             this.pivotGridControl1.TabIndex = 0;
+            // 
+            // productsOrdersBindingSource
+            // 
+            this.productsOrdersBindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
             // 
             // fieldArea1
             // 
@@ -129,6 +135,30 @@ namespace MES.Order.UI
             this.fieldCount1.Caption = "訂購數量";
             this.fieldCount1.FieldName = "Count";
             this.fieldCount1.Name = "fieldCount1";
+            // 
+            // pivotGridField1
+            // 
+            this.pivotGridField1.Appearance.Cell.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
+            this.pivotGridField1.Appearance.Cell.Options.UseFont = true;
+            this.pivotGridField1.Appearance.CellGrandTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
+            this.pivotGridField1.Appearance.CellGrandTotal.Options.UseFont = true;
+            this.pivotGridField1.Appearance.CellTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
+            this.pivotGridField1.Appearance.CellTotal.Options.UseFont = true;
+            this.pivotGridField1.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
+            this.pivotGridField1.Appearance.Header.Options.UseFont = true;
+            this.pivotGridField1.Appearance.Value.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
+            this.pivotGridField1.Appearance.Value.Options.UseFont = true;
+            this.pivotGridField1.Appearance.ValueGrandTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
+            this.pivotGridField1.Appearance.ValueGrandTotal.Options.UseFont = true;
+            this.pivotGridField1.Appearance.ValueTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
+            this.pivotGridField1.Appearance.ValueTotal.Options.UseFont = true;
+            this.pivotGridField1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.pivotGridField1.AreaIndex = 0;
+            this.pivotGridField1.Caption = "訂購年";
+            this.pivotGridField1.FieldName = "OrderDate";
+            this.pivotGridField1.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.DateYear;
+            this.pivotGridField1.Name = "pivotGridField1";
+            this.pivotGridField1.UnboundFieldName = "pivotGridField1";
             // 
             // fieldOrderDate1
             // 
@@ -226,7 +256,7 @@ namespace MES.Order.UI
             this.fieldTotalPrice1.Appearance.ValueTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
             this.fieldTotalPrice1.Appearance.ValueTotal.Options.UseFont = true;
             this.fieldTotalPrice1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldTotalPrice1.AreaIndex = 1;
+            this.fieldTotalPrice1.AreaIndex = 0;
             this.fieldTotalPrice1.Caption = "總售價";
             this.fieldTotalPrice1.CellFormat.FormatString = "N0";
             this.fieldTotalPrice1.CellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -258,7 +288,7 @@ namespace MES.Order.UI
             this.fieldTotalCost1.Appearance.ValueTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
             this.fieldTotalCost1.Appearance.ValueTotal.Options.UseFont = true;
             this.fieldTotalCost1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldTotalCost1.AreaIndex = 2;
+            this.fieldTotalCost1.AreaIndex = 1;
             this.fieldTotalCost1.Caption = "總批價";
             this.fieldTotalCost1.CellFormat.FormatString = "N0";
             this.fieldTotalCost1.CellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -290,7 +320,7 @@ namespace MES.Order.UI
             this.fieldTotalProfit1.Appearance.ValueTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
             this.fieldTotalProfit1.Appearance.ValueTotal.Options.UseFont = true;
             this.fieldTotalProfit1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldTotalProfit1.AreaIndex = 3;
+            this.fieldTotalProfit1.AreaIndex = 2;
             this.fieldTotalProfit1.Caption = "總利潤";
             this.fieldTotalProfit1.CellFormat.FormatString = "N0";
             this.fieldTotalProfit1.CellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -304,34 +334,6 @@ namespace MES.Order.UI
             this.fieldTotalProfit1.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.fieldTotalProfit1.ValueFormat.FormatString = "N0";
             this.fieldTotalProfit1.ValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            // 
-            // productsOrdersBindingSource
-            // 
-            this.productsOrdersBindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
-            // 
-            // pivotGridField1
-            // 
-            this.pivotGridField1.Appearance.Cell.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
-            this.pivotGridField1.Appearance.Cell.Options.UseFont = true;
-            this.pivotGridField1.Appearance.CellGrandTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
-            this.pivotGridField1.Appearance.CellGrandTotal.Options.UseFont = true;
-            this.pivotGridField1.Appearance.CellTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
-            this.pivotGridField1.Appearance.CellTotal.Options.UseFont = true;
-            this.pivotGridField1.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
-            this.pivotGridField1.Appearance.Header.Options.UseFont = true;
-            this.pivotGridField1.Appearance.Value.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
-            this.pivotGridField1.Appearance.Value.Options.UseFont = true;
-            this.pivotGridField1.Appearance.ValueGrandTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
-            this.pivotGridField1.Appearance.ValueGrandTotal.Options.UseFont = true;
-            this.pivotGridField1.Appearance.ValueTotal.Font = new System.Drawing.Font("Microsoft JhengHei", 10F, System.Drawing.FontStyle.Bold);
-            this.pivotGridField1.Appearance.ValueTotal.Options.UseFont = true;
-            this.pivotGridField1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.pivotGridField1.AreaIndex = 0;
-            this.pivotGridField1.Caption = "訂購年";
-            this.pivotGridField1.FieldName = "OrderDate";
-            this.pivotGridField1.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.DateYear;
-            this.pivotGridField1.Name = "pivotGridField1";
-            this.pivotGridField1.UnboundFieldName = "pivotGridField1";
             // 
             // ChartData
             // 

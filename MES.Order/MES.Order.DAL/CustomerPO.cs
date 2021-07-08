@@ -53,6 +53,7 @@ namespace MES.Order.DAL
                     db.Customs.Attach(deleteCustom);
                     db.Entry(deleteCustom).State = EntityState.Deleted;
                 }
+
                 var result = db.Save();
                 return result;
             }
@@ -125,6 +126,17 @@ namespace MES.Order.DAL
                 ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
                 return db.Customs.ToList();
+            }
+        }
+
+        public string QuerySpecifcName(string pCustomName)
+        {
+            using (var db =
+                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+            {
+                var result = db.Customs.Where(x => x.CustomName == pCustomName).AsNoTracking();
+
+                return result.Select(x => x.Address).FirstOrDefault();
             }
         }
 

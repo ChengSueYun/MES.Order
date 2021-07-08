@@ -24,6 +24,7 @@ namespace MES.Order.UI
         private readonly WhetherGetStock          whetherGetStock = new WhetherGetStock();
         private readonly List<KeyAndNameForCombo> whetherCombos   = new List<KeyAndNameForCombo>();
         List<ProductsOrder>                       focusOrders     = new List<ProductsOrder>();
+        private string                            queryArea;
 
         public Order()
         {
@@ -68,9 +69,8 @@ namespace MES.Order.UI
         private void InitialProductName()
         {
             var result = this.ProductsOrderUCO.GetProductName("*ALL");
-            this.lookUpEdit_ProductName.Properties.DataSource = result;
-            this.lookUpEdit_ProductName.EditValue             = "*ALL";
-            ;
+            this.lookUpEdit_ProductName.Properties.DataSource    = result;
+            this.lookUpEdit_ProductName.EditValue                = "*ALL";
             this.LookUpEdit_addProductName.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
         }
 
@@ -95,7 +95,9 @@ namespace MES.Order.UI
             var result = this.ProductsOrderUCO.GetArea();
             this.lookUpEdit_Area.Properties.DataSource    = result;
             this.lookUpEdit_Area.EditValue                = "*ALL";
-            this.lookUpEdit_addArea.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
+            this.lookUpEdit_addArea.Properties.DataSource = result;
+
+            // this.lookUpEdit_addArea.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
         }
 
         private void InitialUCO()
@@ -117,11 +119,12 @@ namespace MES.Order.UI
             var OrderDateE     = this.dateEdit_OrderDateE.DateTime;
             this.productsOrders =
                 this.ProductsOrderUCO.QueryAllOrders(Area, ProductGroupID, CusomerName, ProductName, OrderDateS,
-                                                     OrderDateE);
+                                                     OrderDateE).OrderByDescending(x => x.AutoID).ToList();
 
             this.productsOrderBindingSource.DataSource = this.productsOrders;
-
             this.gridView_ProductOrder.BestFitColumns();
+            this.gridView_FocusOrder.BestFitColumns();
+
         }
 
         /// <summary>
@@ -144,8 +147,31 @@ namespace MES.Order.UI
         {
             var addArea             = this.lookUpEdit_addArea.EditValue.ToString();
             var keyAndNameForCombos = this.ProductsOrderUCO.GetCustomerName(addArea);
-            keyAndNameForCombos.RemoveAt(0);
-            this.LookUpEdit_addCustomerName.Properties.DataSource = keyAndNameForCombos;
+            if (!string.IsNullOrWhiteSpace(this.queryArea))
+            {
+                // this.lookUpEdit_addArea.EditValue = this.queryArea;
+                this.addOrderView[0].Area         = this.queryArea;
+            }
+            else
+            {
+                this.LookUpEdit_addCustomerName.Properties.DataSource = keyAndNameForCombos;
+            }
+        }
+
+        /// <summary>
+        /// 新增客戶=>變更客戶值時，跟著變動地區
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LookUpEdit_addCustomerName_EditValueChanged(object sender, EventArgs e)
+        {
+            var addCustomer = this.LookUpEdit_addCustomerName.EditValue.ToString();
+            if (!string.IsNullOrWhiteSpace(addCustomer))
+            {
+                this.queryArea                    = this.ProductsOrderUCO.QuerySpecifcName(addCustomer);
+                // this.lookUpEdit_addArea.EditValue = this.queryArea;
+                this.addOrderView[0].Area         = this.queryArea;
+            }
         }
 
         /// <summary>
@@ -241,6 +267,7 @@ namespace MES.Order.UI
                                                                    DateTime.Today, DateTime.Today)
                                   .OrderByDescending(x => x.AutoID).ToList();
             this.productsOrderBindingSource.DataSource = this.productsOrders;
+            this.textEdit_addNote1.Text                   = "";
         }
 
         /// <summary>
@@ -253,6 +280,13 @@ namespace MES.Order.UI
             var selectedRows = this.gridView_ProductOrder.GetSelectedRows();
             var deleteList   = new List<ProductsOrder>();
             this.productsOrders = this.productsOrders.OrderByDescending(x => x.AutoID).ToList();
+            var dialogResult = MessageBox.Show(@"是否確認刪除 " + selectedRows.Length.ToString() + @"筆資料?", @"提醒",
+                                               MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.No)
+            {
+                return;
+            }
+
             foreach (var row in selectedRows)
             {
                 var deleteRow = new ProductsOrder();
@@ -264,12 +298,15 @@ namespace MES.Order.UI
             var actualDeleteCount = this.ProductsOrderUCO.DeleteOrders(deleteList);
             if (actualDeleteCount == deleteList.Count)
             {
-                foreach (var item in deleteList)
-                {
-                    this.alertControl1.Show(this.ParentForm, "刪除訊息",
-                                            "已刪除 " + Environment.NewLine + item.CustomName + ":" +
-                                            item.ProductName);
-                }
+                MessageBox.Show(@"已刪除 " + actualDeleteCount + @"筆資料", @"刪除訊息",
+                                MessageBoxButtons.YesNo);
+
+                // foreach (var item in deleteList)
+                // {
+                //     this.alertControl1.Show(this.ParentForm, "刪除訊息",
+                //                             "已刪除 " + Environment.NewLine + item.CustomName + ":" +
+                //                             item.ProductName);
+                // }
             }
             else
             {
@@ -313,11 +350,13 @@ namespace MES.Order.UI
             var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
             if (updateOrders == updateList.Count)
             {
-                foreach (var item in updateList)
-                {
-                    this.alertControl1.Show(this.ParentForm, "鎖定訊息",
-                                            "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
-                }
+                MessageBox.Show(@"已鎖定 " + updateOrders + @"筆資料", @"鎖定訊息",
+                                MessageBoxButtons.YesNo);
+                // foreach (var item in updateList)
+                // {
+                //     this.alertControl1.Show(this.ParentForm, "鎖定訊息",
+                //                             "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                // }
 
                 this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             }
@@ -364,16 +403,20 @@ namespace MES.Order.UI
             if (e.Page.TabIndex == 1)
             {
                 this.btn_UnFocus.Visible  = true;
+                this.btn_UnFocus.Enabled  = true;
                 this.btn_Save.Visible     = false;
                 this.btn_Cancel.Visible   = false;
                 this.btn_FocusRow.Visible = false;
+                this.btn_FocusRow.Enabled = false;
             }
             else
             {
                 this.btn_UnFocus.Visible  = false;
+                this.btn_UnFocus.Enabled  = false;
                 this.btn_Save.Visible     = true;
                 this.btn_Cancel.Visible   = true;
                 this.btn_FocusRow.Visible = true;
+                this.btn_FocusRow.Enabled = true;
             }
         }
 
@@ -408,11 +451,13 @@ namespace MES.Order.UI
             var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
             if (updateOrders == updateList.Count)
             {
-                foreach (var item in updateList)
-                {
-                    this.alertControl1.Show(this.ParentForm, "鎖定訊息",
-                                            "已解除鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
-                }
+                MessageBox.Show(@"已解除鎖定 " + updateOrders + @"筆資料", @"鎖定訊息",
+                                MessageBoxButtons.YesNo);
+                // foreach (var item in updateList)
+                // {
+                //     this.alertControl1.Show(this.ParentForm, "鎖定訊息",
+                //                             "已解除鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                // }
 
                 this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             }
@@ -422,6 +467,33 @@ namespace MES.Order.UI
             }
 
             this.btn_Query.PerformClick();
+        }
+
+        /// <summary>
+        /// 熱鍵:鎖定列F1、清除鎖定列F2、存檔F5、刪除F3
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Order_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F5:
+                    this.btn_Save.PerformClick();
+                    break;
+                case Keys.F1:
+                    this.btn_FocusRow.PerformClick();
+                    break;
+                case Keys.F3:
+                    this.btn_Cancel.PerformClick();
+                    break;
+                case Keys.F2:
+                    this.btn_UnFocus.PerformClick();
+                    break;
+                case Keys.Enter:
+                    this.btn_Query.PerformClick();
+                    break;
+            }
         }
 
         #endregion

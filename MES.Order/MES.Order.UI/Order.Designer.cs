@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -40,6 +39,7 @@
             this.lookUpEdit_ProductGroupID = new DevExpress.XtraEditors.LookUpEdit();
             this.lbl_ProductName = new DevExpress.XtraEditors.LabelControl();
             this.lookUpEdit_ProductName = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.keyAndNameForComboBindingSource = new System.Windows.Forms.BindingSource();
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colCode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLocalDescription = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,7 +56,6 @@
             this.btn_UnFocus = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Export = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
-            this.keyAndNameForComboBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -68,19 +67,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lookUpEdit_addArea = new DevExpress.XtraEditors.LookUpEdit();
-            this.addOrderViewModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.addOrderViewModelBindingSource = new System.Windows.Forms.BindingSource();
             this.LookUpEdit_addCustomerName = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCode1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLocalDescription1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lookUpEdit_addProductGroupID = new DevExpress.XtraEditors.LookUpEdit();
             this.LookUpEdit_addProductName = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.searchLookUpEdit2View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colCode2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLocalDescription2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.spinEdit_addCount = new DevExpress.XtraEditors.SpinEdit();
             this.textEdit_addTotalPrice = new DevExpress.XtraEditors.TextEdit();
             this.textEdit_addNote1 = new DevExpress.XtraEditors.TextEdit();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl_ProductOrder = new DevExpress.XtraGrid.GridControl();
-            this.productsOrderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productsOrderBindingSource = new System.Windows.Forms.BindingSource();
             this.gridView_ProductOrder = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colAutoID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colArea = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -102,7 +105,7 @@
             this.colNote2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.gridControl_FocusOrder = new DevExpress.XtraGrid.GridControl();
-            this.FocusbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FocusbindingSource = new System.Windows.Forms.BindingSource();
             this.gridView_FocusOrder = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -122,7 +125,7 @@
             this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
+            this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -132,12 +135,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_Area.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_ProductGroupID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_ProductName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyAndNameForComboBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_OrderDateS.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_OrderDateS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_CustomerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyAndNameForComboBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -173,10 +176,12 @@
             // 
             this.groupControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.groupControl1.Appearance.BackColor2 = System.Drawing.Color.White;
+            this.groupControl1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.Appearance.Options.UseBackColor = true;
+            this.groupControl1.Appearance.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.BackColor = System.Drawing.Color.White;
             this.groupControl1.AppearanceCaption.BackColor2 = System.Drawing.Color.White;
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.AppearanceCaption.Options.UseBackColor = true;
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
@@ -187,7 +192,7 @@
             this.groupControl1.LookAndFeel.UseWindowsXPTheme = true;
             this.groupControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(1282, 207);
+            this.groupControl1.Size = new System.Drawing.Size(1282, 177);
             this.groupControl1.TabIndex = 5;
             this.groupControl1.Text = "查詢";
             // 
@@ -198,8 +203,8 @@
             this.tableLayoutPanel1.ColumnCount = 7;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.54403F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.91509F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.87284F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46311F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.4427F));
@@ -227,20 +232,20 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.0303F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.87879F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1274, 164);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1274, 134);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // dateEdit_OrderDateE
             // 
             this.dateEdit_OrderDateE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateEdit_OrderDateE.EditValue = new System.DateTime(2020, 10, 2, 16, 12, 40, 524);
-            this.dateEdit_OrderDateE.Location = new System.Drawing.Point(1088, 67);
+            this.dateEdit_OrderDateE.Location = new System.Drawing.Point(1090, 49);
             this.dateEdit_OrderDateE.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dateEdit_OrderDateE.Name = "dateEdit_OrderDateE";
-            this.dateEdit_OrderDateE.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEdit_OrderDateE.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.dateEdit_OrderDateE.Properties.Appearance.Options.UseFont = true;
             this.dateEdit_OrderDateE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -250,12 +255,13 @@
             this.dateEdit_OrderDateE.Properties.SelectionMode = DevExpress.XtraEditors.Repository.CalendarSelectionMode.Multiple;
             this.dateEdit_OrderDateE.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dateEdit_OrderDateE.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateEdit_OrderDateE.Size = new System.Drawing.Size(182, 30);
+            this.dateEdit_OrderDateE.Size = new System.Drawing.Size(180, 28);
             this.dateEdit_OrderDateE.TabIndex = 374;
+            this.dateEdit_OrderDateE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // label_Area
             // 
-            this.label_Area.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label_Area.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label_Area.Appearance.ForeColor = System.Drawing.Color.Black;
             this.label_Area.Appearance.Options.UseFont = true;
             this.label_Area.Appearance.Options.UseForeColor = true;
@@ -268,18 +274,18 @@
             this.label_Area.Location = new System.Drawing.Point(5, 6);
             this.label_Area.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label_Area.Name = "label_Area";
-            this.label_Area.Size = new System.Drawing.Size(173, 44);
+            this.label_Area.Size = new System.Drawing.Size(174, 34);
             this.label_Area.TabIndex = 364;
             this.label_Area.Text = "地區";
             // 
             // lookUpEdit_Area
             // 
             this.lookUpEdit_Area.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUpEdit_Area.Location = new System.Drawing.Point(186, 13);
+            this.lookUpEdit_Area.Location = new System.Drawing.Point(187, 8);
             this.lookUpEdit_Area.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lookUpEdit_Area.Name = "lookUpEdit_Area";
             this.lookUpEdit_Area.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.lookUpEdit_Area.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_Area.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_Area.Properties.Appearance.Options.UseBackColor = true;
             this.lookUpEdit_Area.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_Area.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -288,20 +294,20 @@
             this.lookUpEdit_Area.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lookUpEdit_Area.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "敘述")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "敘述", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpEdit_Area.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_Area.Properties.MaxLength = 8;
             this.lookUpEdit_Area.Properties.NullText = "";
-            this.lookUpEdit_Area.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lookUpEdit_Area.Properties.ValueMember = "Code";
-            this.lookUpEdit_Area.Size = new System.Drawing.Size(173, 30);
+            this.lookUpEdit_Area.Size = new System.Drawing.Size(174, 30);
             this.lookUpEdit_Area.TabIndex = 365;
             this.lookUpEdit_Area.TabStop = false;
             this.lookUpEdit_Area.EditValueChanged += new System.EventHandler(this.lookUpEdit_Area_EditValueChanged);
+            this.lookUpEdit_Area.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // label_CustomerName
             // 
-            this.label_CustomerName.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label_CustomerName.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label_CustomerName.Appearance.ForeColor = System.Drawing.Color.Black;
             this.label_CustomerName.Appearance.Options.UseFont = true;
             this.label_CustomerName.Appearance.Options.UseForeColor = true;
@@ -311,16 +317,16 @@
             this.label_CustomerName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.label_CustomerName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.label_CustomerName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_CustomerName.Location = new System.Drawing.Point(367, 6);
+            this.label_CustomerName.Location = new System.Drawing.Point(369, 6);
             this.label_CustomerName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label_CustomerName.Name = "label_CustomerName";
-            this.label_CustomerName.Size = new System.Drawing.Size(173, 44);
+            this.label_CustomerName.Size = new System.Drawing.Size(177, 34);
             this.label_CustomerName.TabIndex = 366;
             this.label_CustomerName.Text = "客戶名稱";
             // 
             // lbl_ProductGroupID
             // 
-            this.lbl_ProductGroupID.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_ProductGroupID.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lbl_ProductGroupID.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lbl_ProductGroupID.Appearance.Options.UseFont = true;
             this.lbl_ProductGroupID.Appearance.Options.UseForeColor = true;
@@ -330,21 +336,21 @@
             this.lbl_ProductGroupID.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lbl_ProductGroupID.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lbl_ProductGroupID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_ProductGroupID.Location = new System.Drawing.Point(729, 6);
+            this.lbl_ProductGroupID.Location = new System.Drawing.Point(731, 6);
             this.lbl_ProductGroupID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbl_ProductGroupID.Name = "lbl_ProductGroupID";
-            this.lbl_ProductGroupID.Size = new System.Drawing.Size(156, 44);
+            this.lbl_ProductGroupID.Size = new System.Drawing.Size(156, 34);
             this.lbl_ProductGroupID.TabIndex = 12;
             this.lbl_ProductGroupID.Text = "廠商名稱";
             // 
             // lookUpEdit_ProductGroupID
             // 
             this.lookUpEdit_ProductGroupID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUpEdit_ProductGroupID.Location = new System.Drawing.Point(893, 13);
+            this.lookUpEdit_ProductGroupID.Location = new System.Drawing.Point(895, 8);
             this.lookUpEdit_ProductGroupID.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lookUpEdit_ProductGroupID.Name = "lookUpEdit_ProductGroupID";
             this.lookUpEdit_ProductGroupID.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.lookUpEdit_ProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_ProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_ProductGroupID.Properties.Appearance.Options.UseBackColor = true;
             this.lookUpEdit_ProductGroupID.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_ProductGroupID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -353,20 +359,20 @@
             this.lookUpEdit_ProductGroupID.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.lookUpEdit_ProductGroupID.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "代號"),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "敘述")});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "敘述", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpEdit_ProductGroupID.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_ProductGroupID.Properties.MaxLength = 8;
             this.lookUpEdit_ProductGroupID.Properties.NullText = "";
-            this.lookUpEdit_ProductGroupID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lookUpEdit_ProductGroupID.Properties.ValueMember = "Code";
             this.lookUpEdit_ProductGroupID.Size = new System.Drawing.Size(188, 30);
             this.lookUpEdit_ProductGroupID.TabIndex = 360;
             this.lookUpEdit_ProductGroupID.TabStop = false;
             this.lookUpEdit_ProductGroupID.EditValueChanged += new System.EventHandler(this.lookUpEdit_ProductGroupID_EditValueChanged);
+            this.lookUpEdit_ProductGroupID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // lbl_ProductName
             // 
-            this.lbl_ProductName.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lbl_ProductName.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lbl_ProductName.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lbl_ProductName.Appearance.Options.UseFont = true;
             this.lbl_ProductName.Appearance.Options.UseForeColor = true;
@@ -376,10 +382,10 @@
             this.lbl_ProductName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lbl_ProductName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lbl_ProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_ProductName.Location = new System.Drawing.Point(5, 60);
+            this.lbl_ProductName.Location = new System.Drawing.Point(5, 50);
             this.lbl_ProductName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lbl_ProductName.Name = "lbl_ProductName";
-            this.lbl_ProductName.Size = new System.Drawing.Size(173, 44);
+            this.lbl_ProductName.Size = new System.Drawing.Size(174, 27);
             this.lbl_ProductName.TabIndex = 50;
             this.lbl_ProductName.Text = "產品名稱";
             // 
@@ -387,20 +393,26 @@
             // 
             this.lookUpEdit_ProductName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.SetColumnSpan(this.lookUpEdit_ProductName, 2);
-            this.lookUpEdit_ProductName.Location = new System.Drawing.Point(185, 68);
+            this.lookUpEdit_ProductName.Location = new System.Drawing.Point(186, 49);
             this.lookUpEdit_ProductName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lookUpEdit_ProductName.Name = "lookUpEdit_ProductName";
-            this.lookUpEdit_ProductName.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit_ProductName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_ProductName.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_ProductName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lookUpEdit_ProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit_ProductName.Properties.DataSource = this.keyAndNameForComboBindingSource;
             this.lookUpEdit_ProductName.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_ProductName.Properties.NullText = "";
             this.lookUpEdit_ProductName.Properties.PopupView = this.searchLookUpEdit1View;
             this.lookUpEdit_ProductName.Properties.ValueMember = "Code";
-            this.lookUpEdit_ProductName.Size = new System.Drawing.Size(356, 28);
+            this.lookUpEdit_ProductName.Size = new System.Drawing.Size(361, 30);
             this.lookUpEdit_ProductName.TabIndex = 362;
+            this.lookUpEdit_ProductName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
+            // 
+            // keyAndNameForComboBindingSource
+            // 
+            this.keyAndNameForComboBindingSource.DataSource = typeof(MES.Order.DAL.ViewModel.KeyAndNameForCombo);
             // 
             // searchLookUpEdit1View
             // 
@@ -432,10 +444,10 @@
             // 
             this.dateEdit_OrderDateS.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateEdit_OrderDateS.EditValue = new System.DateTime(2020, 10, 2, 16, 12, 40, 524);
-            this.dateEdit_OrderDateS.Location = new System.Drawing.Point(728, 67);
+            this.dateEdit_OrderDateS.Location = new System.Drawing.Point(730, 49);
             this.dateEdit_OrderDateS.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.dateEdit_OrderDateS.Name = "dateEdit_OrderDateS";
-            this.dateEdit_OrderDateS.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateEdit_OrderDateS.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.dateEdit_OrderDateS.Properties.Appearance.Options.UseFont = true;
             this.dateEdit_OrderDateS.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -450,12 +462,13 @@
             this.dateEdit_OrderDateS.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             this.dateEdit_OrderDateS.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.dateEdit_OrderDateS.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.dateEdit_OrderDateS.Size = new System.Drawing.Size(158, 30);
+            this.dateEdit_OrderDateS.Size = new System.Drawing.Size(158, 28);
             this.dateEdit_OrderDateS.TabIndex = 369;
+            this.dateEdit_OrderDateS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
@@ -465,16 +478,16 @@
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelControl1.Location = new System.Drawing.Point(893, 60);
+            this.labelControl1.Location = new System.Drawing.Point(895, 50);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(188, 44);
+            this.labelControl1.Size = new System.Drawing.Size(188, 27);
             this.labelControl1.TabIndex = 371;
             this.labelControl1.Text = "~";
             // 
             // label_OrderDate
             // 
-            this.label_OrderDate.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label_OrderDate.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label_OrderDate.Appearance.ForeColor = System.Drawing.Color.Black;
             this.label_OrderDate.Appearance.Options.UseFont = true;
             this.label_OrderDate.Appearance.Options.UseForeColor = true;
@@ -484,10 +497,10 @@
             this.label_OrderDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.label_OrderDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.label_OrderDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_OrderDate.Location = new System.Drawing.Point(548, 60);
+            this.label_OrderDate.Location = new System.Drawing.Point(554, 50);
             this.label_OrderDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.label_OrderDate.Name = "label_OrderDate";
-            this.label_OrderDate.Size = new System.Drawing.Size(173, 44);
+            this.label_OrderDate.Size = new System.Drawing.Size(169, 27);
             this.label_OrderDate.TabIndex = 368;
             this.label_OrderDate.Text = "訂貨日期";
             // 
@@ -495,7 +508,7 @@
             // 
             this.btn_Query.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_Query.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Query.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Query.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_Query.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Query.Appearance.Options.UseBackColor = true;
             this.btn_Query.Appearance.Options.UseFont = true;
@@ -503,21 +516,21 @@
             this.btn_Query.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_Query.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Query.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Query.ImageOptions.Image")));
-            this.btn_Query.Location = new System.Drawing.Point(1089, 6);
+            this.btn_Query.Location = new System.Drawing.Point(1091, 6);
             this.btn_Query.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Size = new System.Drawing.Size(180, 44);
-            this.btn_Query.TabIndex = 363;
-            this.btn_Query.Text = "查詢";
+            this.btn_Query.Size = new System.Drawing.Size(178, 34);
+            this.btn_Query.TabIndex = 31;
+            this.btn_Query.Text = "查詢(Enter)";
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
             // 
             // lookUpEdit_CustomerName
             // 
             this.lookUpEdit_CustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lookUpEdit_CustomerName.Location = new System.Drawing.Point(547, 14);
+            this.lookUpEdit_CustomerName.Location = new System.Drawing.Point(553, 8);
             this.lookUpEdit_CustomerName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lookUpEdit_CustomerName.Name = "lookUpEdit_CustomerName";
-            this.lookUpEdit_CustomerName.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lookUpEdit_CustomerName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_CustomerName.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_CustomerName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lookUpEdit_CustomerName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -525,9 +538,11 @@
             this.lookUpEdit_CustomerName.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_CustomerName.Properties.NullText = "";
             this.lookUpEdit_CustomerName.Properties.PopupView = this.gridView1;
+            this.lookUpEdit_CustomerName.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.ContentWidth;
             this.lookUpEdit_CustomerName.Properties.ValueMember = "Code";
-            this.lookUpEdit_CustomerName.Size = new System.Drawing.Size(175, 28);
+            this.lookUpEdit_CustomerName.Size = new System.Drawing.Size(171, 30);
             this.lookUpEdit_CustomerName.TabIndex = 376;
+            this.lookUpEdit_CustomerName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // gridView1
             // 
@@ -559,7 +574,7 @@
             // 
             this.btn_FocusRow.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_FocusRow.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_FocusRow.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_FocusRow.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_FocusRow.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_FocusRow.Appearance.Options.UseBackColor = true;
             this.btn_FocusRow.Appearance.Options.UseFont = true;
@@ -567,19 +582,19 @@
             this.btn_FocusRow.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_FocusRow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_FocusRow.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_FocusRow.ImageOptions.Image")));
-            this.btn_FocusRow.Location = new System.Drawing.Point(5, 114);
+            this.btn_FocusRow.Location = new System.Drawing.Point(5, 87);
             this.btn_FocusRow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_FocusRow.Name = "btn_FocusRow";
-            this.btn_FocusRow.Size = new System.Drawing.Size(173, 44);
+            this.btn_FocusRow.Size = new System.Drawing.Size(174, 41);
             this.btn_FocusRow.TabIndex = 372;
-            this.btn_FocusRow.Text = "鎖定列";
+            this.btn_FocusRow.Text = "鎖定列(F1)";
             this.btn_FocusRow.Click += new System.EventHandler(this.btn_FocusRow_Click);
             // 
             // btn_Save
             // 
             this.btn_Save.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_Save.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Save.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Save.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_Save.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Save.Appearance.Options.UseBackColor = true;
             this.btn_Save.Appearance.Options.UseFont = true;
@@ -587,19 +602,19 @@
             this.btn_Save.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_Save.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
-            this.btn_Save.Location = new System.Drawing.Point(1089, 114);
+            this.btn_Save.Location = new System.Drawing.Point(1091, 87);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(180, 44);
+            this.btn_Save.Size = new System.Drawing.Size(178, 41);
             this.btn_Save.TabIndex = 53;
-            this.btn_Save.Text = "存檔";
+            this.btn_Save.Text = "存檔(F5)";
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_UnFocus
             // 
             this.btn_UnFocus.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_UnFocus.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_UnFocus.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_UnFocus.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_UnFocus.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_UnFocus.Appearance.Options.UseBackColor = true;
             this.btn_UnFocus.Appearance.Options.UseFont = true;
@@ -607,12 +622,12 @@
             this.btn_UnFocus.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_UnFocus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_UnFocus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_UnFocus.ImageOptions.Image")));
-            this.btn_UnFocus.Location = new System.Drawing.Point(367, 114);
+            this.btn_UnFocus.Location = new System.Drawing.Point(369, 87);
             this.btn_UnFocus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_UnFocus.Name = "btn_UnFocus";
-            this.btn_UnFocus.Size = new System.Drawing.Size(173, 44);
+            this.btn_UnFocus.Size = new System.Drawing.Size(177, 41);
             this.btn_UnFocus.TabIndex = 377;
-            this.btn_UnFocus.Text = "清除鎖定列";
+            this.btn_UnFocus.Text = "清除鎖定列(F2)";
             this.btn_UnFocus.Visible = false;
             this.btn_UnFocus.Click += new System.EventHandler(this.btn_UnFocus_Click);
             // 
@@ -620,7 +635,7 @@
             // 
             this.btn_Export.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_Export.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Export.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Export.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_Export.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Export.Appearance.Options.UseBackColor = true;
             this.btn_Export.Appearance.Options.UseFont = true;
@@ -628,10 +643,10 @@
             this.btn_Export.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_Export.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Export.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Export.ImageOptions.Image")));
-            this.btn_Export.Location = new System.Drawing.Point(186, 114);
+            this.btn_Export.Location = new System.Drawing.Point(187, 87);
             this.btn_Export.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Export.Name = "btn_Export";
-            this.btn_Export.Size = new System.Drawing.Size(173, 44);
+            this.btn_Export.Size = new System.Drawing.Size(174, 41);
             this.btn_Export.TabIndex = 373;
             this.btn_Export.Text = "匯出";
             this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
@@ -640,7 +655,7 @@
             // 
             this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.Orange;
             this.btn_Cancel.Appearance.BackColor2 = System.Drawing.Color.Aquamarine;
-            this.btn_Cancel.Appearance.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btn_Cancel.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_Cancel.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Cancel.Appearance.Options.UseBackColor = true;
             this.btn_Cancel.Appearance.Options.UseFont = true;
@@ -648,22 +663,18 @@
             this.btn_Cancel.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btn_Cancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cancel.ImageOptions.Image")));
-            this.btn_Cancel.Location = new System.Drawing.Point(893, 114);
+            this.btn_Cancel.Location = new System.Drawing.Point(895, 87);
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_Cancel.Name = "btn_Cancel";
-            this.btn_Cancel.Size = new System.Drawing.Size(188, 44);
+            this.btn_Cancel.Size = new System.Drawing.Size(188, 41);
             this.btn_Cancel.TabIndex = 31;
-            this.btn_Cancel.Text = "刪除";
+            this.btn_Cancel.Text = "刪除(F3)";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
-            // 
-            // keyAndNameForComboBindingSource
-            // 
-            this.keyAndNameForComboBindingSource.DataSource = typeof(MES.Order.DAL.ViewModel.KeyAndNameForCombo);
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 207);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 177);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -675,23 +686,26 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.xtraTabControl1);
-            this.splitContainer1.Size = new System.Drawing.Size(1282, 660);
-            this.splitContainer1.SplitterDistance = 116;
+            this.splitContainer1.Size = new System.Drawing.Size(1282, 690);
+            this.splitContainer1.SplitterDistance = 120;
             this.splitContainer1.TabIndex = 8;
             // 
             // groupControl2
             // 
             this.groupControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.groupControl2.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl2.Appearance.Options.UseBackColor = true;
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupControl2.Appearance.Options.UseFont = true;
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
+            this.groupControl2.AutoSize = true;
             this.groupControl2.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl2.CaptionImageOptions.Image")));
             this.groupControl2.Controls.Add(this.tableLayoutPanel2);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(1282, 116);
+            this.groupControl2.Size = new System.Drawing.Size(1282, 120);
             this.groupControl2.TabIndex = 7;
             this.groupControl2.Text = "新增";
             // 
@@ -727,16 +741,16 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 38.57143F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.42857F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1278, 73);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1278, 77);
             this.tableLayoutPanel2.TabIndex = 7;
             // 
             // label7
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label7.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(1096, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(176, 24);
+            this.label7.Size = new System.Drawing.Size(176, 26);
             this.label7.TabIndex = 6;
             this.label7.Text = "備註";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -744,10 +758,10 @@
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label6.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.Location = new System.Drawing.Point(996, 3);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 24);
+            this.label6.Size = new System.Drawing.Size(91, 26);
             this.label6.TabIndex = 5;
             this.label6.Text = "總售價";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -755,10 +769,10 @@
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(820, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(167, 24);
+            this.label5.Size = new System.Drawing.Size(167, 26);
             this.label5.TabIndex = 4;
             this.label5.Text = "數量";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -766,10 +780,10 @@
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(482, 3);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(329, 24);
+            this.label4.Size = new System.Drawing.Size(329, 26);
             this.label4.TabIndex = 3;
             this.label4.Text = "產品";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -777,10 +791,10 @@
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(314, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(159, 24);
+            this.label3.Size = new System.Drawing.Size(159, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "廠商";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -789,10 +803,10 @@
             // 
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(6, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 24);
+            this.label1.Size = new System.Drawing.Size(118, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "地區";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -800,10 +814,10 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(133, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 24);
+            this.label2.Size = new System.Drawing.Size(172, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "客戶名稱";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -812,19 +826,23 @@
             // 
             this.lookUpEdit_addArea.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Area", true));
             this.lookUpEdit_addArea.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lookUpEdit_addArea.Location = new System.Drawing.Point(6, 33);
+            this.lookUpEdit_addArea.Location = new System.Drawing.Point(6, 35);
             this.lookUpEdit_addArea.Name = "lookUpEdit_addArea";
-            this.lookUpEdit_addArea.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_addArea.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_addArea.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_addArea.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit_addArea.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 73, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 177, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpEdit_addArea.Properties.DataSource = this.keyAndNameForComboBindingSource;
             this.lookUpEdit_addArea.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_addArea.Properties.NullText = "";
             this.lookUpEdit_addArea.Properties.ValueMember = "Code";
-            this.lookUpEdit_addArea.Size = new System.Drawing.Size(118, 32);
+            this.lookUpEdit_addArea.Size = new System.Drawing.Size(118, 28);
             this.lookUpEdit_addArea.TabIndex = 7;
             this.lookUpEdit_addArea.EditValueChanged += new System.EventHandler(this.lookUpEdit_addArea_EditValueChanged);
+            this.lookUpEdit_addArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // addOrderViewModelBindingSource
             // 
@@ -835,9 +853,9 @@
             this.LookUpEdit_addCustomerName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "CustomName", true));
             this.LookUpEdit_addCustomerName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LookUpEdit_addCustomerName.EditValue = "";
-            this.LookUpEdit_addCustomerName.Location = new System.Drawing.Point(133, 33);
+            this.LookUpEdit_addCustomerName.Location = new System.Drawing.Point(133, 35);
             this.LookUpEdit_addCustomerName.Name = "LookUpEdit_addCustomerName";
-            this.LookUpEdit_addCustomerName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.LookUpEdit_addCustomerName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.LookUpEdit_addCustomerName.Properties.Appearance.Options.UseFont = true;
             this.LookUpEdit_addCustomerName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -846,41 +864,62 @@
             this.LookUpEdit_addCustomerName.Properties.NullText = "";
             this.LookUpEdit_addCustomerName.Properties.PopupView = this.gridView3;
             this.LookUpEdit_addCustomerName.Properties.ValueMember = "Code";
-            this.LookUpEdit_addCustomerName.Size = new System.Drawing.Size(172, 32);
+            this.LookUpEdit_addCustomerName.Size = new System.Drawing.Size(172, 28);
             this.LookUpEdit_addCustomerName.TabIndex = 8;
+            this.LookUpEdit_addCustomerName.EditValueChanged += new System.EventHandler(this.LookUpEdit_addCustomerName_EditValueChanged);
+            this.LookUpEdit_addCustomerName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // gridView3
             // 
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCode1,
+            this.colLocalDescription1});
             this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
             // 
+            // colCode1
+            // 
+            this.colCode1.FieldName = "Code";
+            this.colCode1.Name = "colCode1";
+            this.colCode1.Visible = true;
+            this.colCode1.VisibleIndex = 0;
+            // 
+            // colLocalDescription1
+            // 
+            this.colLocalDescription1.FieldName = "LocalDescription";
+            this.colLocalDescription1.Name = "colLocalDescription1";
+            // 
             // lookUpEdit_addProductGroupID
             // 
             this.lookUpEdit_addProductGroupID.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductGroupID", true));
             this.lookUpEdit_addProductGroupID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lookUpEdit_addProductGroupID.Location = new System.Drawing.Point(314, 33);
+            this.lookUpEdit_addProductGroupID.Location = new System.Drawing.Point(314, 35);
             this.lookUpEdit_addProductGroupID.Name = "lookUpEdit_addProductGroupID";
-            this.lookUpEdit_addProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_addProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_addProductGroupID.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_addProductGroupID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit_addProductGroupID.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 73, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 177, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpEdit_addProductGroupID.Properties.DataSource = this.keyAndNameForComboBindingSource;
             this.lookUpEdit_addProductGroupID.Properties.DisplayMember = "LocalDescription";
             this.lookUpEdit_addProductGroupID.Properties.NullText = "";
             this.lookUpEdit_addProductGroupID.Properties.ValueMember = "Code";
-            this.lookUpEdit_addProductGroupID.Size = new System.Drawing.Size(159, 32);
+            this.lookUpEdit_addProductGroupID.Size = new System.Drawing.Size(159, 28);
             this.lookUpEdit_addProductGroupID.TabIndex = 9;
             this.lookUpEdit_addProductGroupID.EditValueChanged += new System.EventHandler(this.lookUpEdit_addProductGroupID_EditValueChanged);
+            this.lookUpEdit_addProductGroupID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // LookUpEdit_addProductName
             // 
             this.LookUpEdit_addProductName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductName", true));
             this.LookUpEdit_addProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LookUpEdit_addProductName.Location = new System.Drawing.Point(482, 33);
+            this.LookUpEdit_addProductName.Location = new System.Drawing.Point(482, 35);
             this.LookUpEdit_addProductName.Name = "LookUpEdit_addProductName";
-            this.LookUpEdit_addProductName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.LookUpEdit_addProductName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.LookUpEdit_addProductName.Properties.Appearance.Options.UseFont = true;
             this.LookUpEdit_addProductName.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
             this.LookUpEdit_addProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -890,16 +929,32 @@
             this.LookUpEdit_addProductName.Properties.NullText = "";
             this.LookUpEdit_addProductName.Properties.PopupView = this.searchLookUpEdit2View;
             this.LookUpEdit_addProductName.Properties.ValueMember = "Code";
-            this.LookUpEdit_addProductName.Size = new System.Drawing.Size(329, 32);
+            this.LookUpEdit_addProductName.Size = new System.Drawing.Size(329, 28);
             this.LookUpEdit_addProductName.TabIndex = 10;
             this.LookUpEdit_addProductName.EditValueChanged += new System.EventHandler(this.LookUpEdit_addProductName_EditValueChanged);
+            this.LookUpEdit_addProductName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // searchLookUpEdit2View
             // 
+            this.searchLookUpEdit2View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCode2,
+            this.colLocalDescription2});
             this.searchLookUpEdit2View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.searchLookUpEdit2View.Name = "searchLookUpEdit2View";
             this.searchLookUpEdit2View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.searchLookUpEdit2View.OptionsView.ShowGroupPanel = false;
+            // 
+            // colCode2
+            // 
+            this.colCode2.FieldName = "Code";
+            this.colCode2.Name = "colCode2";
+            this.colCode2.Visible = true;
+            this.colCode2.VisibleIndex = 0;
+            // 
+            // colLocalDescription2
+            // 
+            this.colLocalDescription2.FieldName = "LocalDescription";
+            this.colLocalDescription2.Name = "colLocalDescription2";
             // 
             // spinEdit_addCount
             // 
@@ -910,16 +965,17 @@
             0,
             0,
             0});
-            this.spinEdit_addCount.Location = new System.Drawing.Point(820, 33);
+            this.spinEdit_addCount.Location = new System.Drawing.Point(820, 35);
             this.spinEdit_addCount.Name = "spinEdit_addCount";
-            this.spinEdit_addCount.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.spinEdit_addCount.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.spinEdit_addCount.Properties.Appearance.Options.UseFont = true;
             this.spinEdit_addCount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinEdit_addCount.Properties.NullText = "0";
-            this.spinEdit_addCount.Size = new System.Drawing.Size(167, 32);
+            this.spinEdit_addCount.Size = new System.Drawing.Size(167, 28);
             this.spinEdit_addCount.TabIndex = 11;
             this.spinEdit_addCount.EditValueChanged += new System.EventHandler(this.spinEdit_addCount_EditValueChanged);
+            this.spinEdit_addCount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // textEdit_addTotalPrice
             // 
@@ -927,25 +983,26 @@
             this.textEdit_addTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textEdit_addTotalPrice.EditValue = ((short)(0));
             this.textEdit_addTotalPrice.Enabled = false;
-            this.textEdit_addTotalPrice.Location = new System.Drawing.Point(996, 33);
+            this.textEdit_addTotalPrice.Location = new System.Drawing.Point(996, 35);
             this.textEdit_addTotalPrice.Name = "textEdit_addTotalPrice";
-            this.textEdit_addTotalPrice.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.textEdit_addTotalPrice.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.textEdit_addTotalPrice.Properties.Appearance.Options.UseFont = true;
             this.textEdit_addTotalPrice.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.textEdit_addTotalPrice.Properties.ReadOnly = true;
-            this.textEdit_addTotalPrice.Size = new System.Drawing.Size(91, 32);
+            this.textEdit_addTotalPrice.Size = new System.Drawing.Size(91, 28);
             this.textEdit_addTotalPrice.TabIndex = 12;
             // 
             // textEdit_addNote1
             // 
             this.textEdit_addNote1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Note1", true));
             this.textEdit_addNote1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEdit_addNote1.Location = new System.Drawing.Point(1096, 33);
+            this.textEdit_addNote1.Location = new System.Drawing.Point(1096, 35);
             this.textEdit_addNote1.Name = "textEdit_addNote1";
-            this.textEdit_addNote1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.textEdit_addNote1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.textEdit_addNote1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit_addNote1.Size = new System.Drawing.Size(176, 32);
+            this.textEdit_addNote1.Size = new System.Drawing.Size(176, 28);
             this.textEdit_addNote1.TabIndex = 13;
+            this.textEdit_addNote1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // xtraTabControl1
             // 
@@ -953,7 +1010,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(1282, 540);
+            this.xtraTabControl1.Size = new System.Drawing.Size(1282, 566);
             this.xtraTabControl1.TabIndex = 7;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -964,7 +1021,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl_ProductOrder);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(1275, 504);
+            this.xtraTabPage1.Size = new System.Drawing.Size(1275, 530);
             this.xtraTabPage1.Text = "查詢結果";
             // 
             // gridControl_ProductOrder
@@ -980,11 +1037,12 @@
             this.gridControl_ProductOrder.Name = "gridControl_ProductOrder";
             this.gridControl_ProductOrder.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repository_WhetherStock});
-            this.gridControl_ProductOrder.Size = new System.Drawing.Size(1275, 504);
+            this.gridControl_ProductOrder.Size = new System.Drawing.Size(1275, 530);
             this.gridControl_ProductOrder.TabIndex = 6;
             this.gridControl_ProductOrder.UseEmbeddedNavigator = true;
             this.gridControl_ProductOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_ProductOrder});
+            this.gridControl_ProductOrder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // productsOrderBindingSource
             // 
@@ -1020,21 +1078,24 @@
             this.gridView_ProductOrder.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView_ProductOrder.OptionsSelection.MultiSelect = true;
             this.gridView_ProductOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView_ProductOrder.OptionsView.ColumnAutoWidth = false;
             this.gridView_ProductOrder.OptionsView.ShowFooter = true;
             this.gridView_ProductOrder.OptionsView.ShowGroupPanel = false;
             // 
             // colAutoID
             // 
-            this.colAutoID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colAutoID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colAutoID.AppearanceCell.Options.UseFont = true;
             this.colAutoID.AppearanceCell.Options.UseTextOptions = true;
             this.colAutoID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colAutoID.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colAutoID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colAutoID.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colAutoID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colAutoID.AppearanceHeader.Options.UseFont = true;
             this.colAutoID.AppearanceHeader.Options.UseTextOptions = true;
             this.colAutoID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colAutoID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colAutoID.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colAutoID.FieldName = "AutoID";
             this.colAutoID.MinWidth = 23;
             this.colAutoID.Name = "colAutoID";
@@ -1043,17 +1104,18 @@
             // 
             // colArea
             // 
-            this.colArea.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colArea.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colArea.AppearanceCell.Options.UseFont = true;
             this.colArea.AppearanceCell.Options.UseTextOptions = true;
             this.colArea.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colArea.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colArea.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colArea.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colArea.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.colArea.AppearanceHeader.Options.UseFont = true;
             this.colArea.AppearanceHeader.Options.UseTextOptions = true;
             this.colArea.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.colArea.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colArea.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colArea.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colArea.Caption = "地區";
             this.colArea.FieldName = "Area";
             this.colArea.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -1062,20 +1124,21 @@
             this.colArea.OptionsColumn.AllowFocus = false;
             this.colArea.Visible = true;
             this.colArea.VisibleIndex = 1;
-            this.colArea.Width = 64;
             // 
             // colCustomID
             // 
-            this.colCustomID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colCustomID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomID.AppearanceCell.Options.UseFont = true;
             this.colCustomID.AppearanceCell.Options.UseTextOptions = true;
             this.colCustomID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colCustomID.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colCustomID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colCustomID.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colCustomID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomID.AppearanceHeader.Options.UseFont = true;
             this.colCustomID.AppearanceHeader.Options.UseTextOptions = true;
             this.colCustomID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colCustomID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colCustomID.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colCustomID.Caption = "客戶代號";
             this.colCustomID.FieldName = "CustomID";
             this.colCustomID.MinWidth = 23;
@@ -1085,83 +1148,88 @@
             // 
             // colCustomName
             // 
-            this.colCustomName.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colCustomName.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomName.AppearanceCell.Options.UseFont = true;
             this.colCustomName.AppearanceCell.Options.UseTextOptions = true;
             this.colCustomName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCustomName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colCustomName.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colCustomName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colCustomName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomName.AppearanceHeader.Options.UseFont = true;
             this.colCustomName.AppearanceHeader.Options.UseTextOptions = true;
             this.colCustomName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.colCustomName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colCustomName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colCustomName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colCustomName.Caption = "客戶名稱";
             this.colCustomName.FieldName = "CustomName";
             this.colCustomName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colCustomName.MinWidth = 23;
             this.colCustomName.Name = "colCustomName";
             this.colCustomName.OptionsColumn.AllowFocus = false;
+            this.colCustomName.OptionsColumn.FixedWidth = true;
             this.colCustomName.Visible = true;
             this.colCustomName.VisibleIndex = 2;
-            this.colCustomName.Width = 99;
+            this.colCustomName.Width = 153;
             // 
             // colProductGroupID
             // 
-            this.colProductGroupID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colProductGroupID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colProductGroupID.AppearanceCell.Options.UseFont = true;
             this.colProductGroupID.AppearanceCell.Options.UseTextOptions = true;
-            this.colProductGroupID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colProductGroupID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colProductGroupID.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colProductGroupID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colProductGroupID.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colProductGroupID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colProductGroupID.AppearanceHeader.Options.UseFont = true;
             this.colProductGroupID.AppearanceHeader.Options.UseTextOptions = true;
-            this.colProductGroupID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colProductGroupID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colProductGroupID.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colProductGroupID.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colProductGroupID.Caption = "廠商";
             this.colProductGroupID.FieldName = "ProductGroupID";
             this.colProductGroupID.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colProductGroupID.MinWidth = 23;
             this.colProductGroupID.Name = "colProductGroupID";
             this.colProductGroupID.OptionsColumn.AllowFocus = false;
-            this.colProductGroupID.Visible = true;
-            this.colProductGroupID.VisibleIndex = 3;
-            this.colProductGroupID.Width = 78;
+            this.colProductGroupID.Width = 62;
             // 
             // colProductName
             // 
-            this.colProductName.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colProductName.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colProductName.AppearanceCell.Options.UseFont = true;
             this.colProductName.AppearanceCell.Options.UseTextOptions = true;
             this.colProductName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colProductName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colProductName.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colProductName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colProductName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colProductName.AppearanceHeader.Options.UseFont = true;
             this.colProductName.AppearanceHeader.Options.UseTextOptions = true;
             this.colProductName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.colProductName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colProductName.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colProductName.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colProductName.Caption = "產品";
             this.colProductName.FieldName = "ProductName";
             this.colProductName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colProductName.MinWidth = 23;
             this.colProductName.Name = "colProductName";
             this.colProductName.Visible = true;
-            this.colProductName.VisibleIndex = 4;
-            this.colProductName.Width = 290;
+            this.colProductName.VisibleIndex = 3;
+            this.colProductName.Width = 254;
             // 
             // colCount
             // 
-            this.colCount.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colCount.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colCount.AppearanceCell.Options.UseFont = true;
             this.colCount.AppearanceCell.Options.UseTextOptions = true;
             this.colCount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colCount.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colCount.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colCount.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colCount.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colCount.AppearanceHeader.Options.UseFont = true;
             this.colCount.AppearanceHeader.Options.UseTextOptions = true;
-            this.colCount.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colCount.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colCount.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colCount.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colCount.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colCount.Caption = "數量";
             this.colCount.FieldName = "Count";
             this.colCount.MinWidth = 23;
@@ -1170,21 +1238,23 @@
             this.colCount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "{0:N0}")});
             this.colCount.Visible = true;
-            this.colCount.VisibleIndex = 6;
-            this.colCount.Width = 64;
+            this.colCount.VisibleIndex = 5;
+            this.colCount.Width = 73;
             // 
             // colPrice
             // 
-            this.colPrice.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colPrice.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colPrice.AppearanceCell.Options.UseFont = true;
             this.colPrice.AppearanceCell.Options.UseTextOptions = true;
             this.colPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colPrice.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colPrice.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colPrice.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colPrice.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colPrice.AppearanceHeader.Options.UseFont = true;
             this.colPrice.AppearanceHeader.Options.UseTextOptions = true;
-            this.colPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colPrice.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colPrice.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colPrice.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colPrice.Caption = "售價";
             this.colPrice.FieldName = "Price";
             this.colPrice.MinWidth = 23;
@@ -1193,21 +1263,23 @@
             this.colPrice.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "{0:N0}")});
             this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 7;
-            this.colPrice.Width = 61;
+            this.colPrice.VisibleIndex = 6;
+            this.colPrice.Width = 68;
             // 
             // colTotalPrice
             // 
-            this.colTotalPrice.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colTotalPrice.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalPrice.AppearanceCell.Options.UseFont = true;
             this.colTotalPrice.AppearanceCell.Options.UseTextOptions = true;
             this.colTotalPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotalPrice.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colTotalPrice.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colTotalPrice.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colTotalPrice.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalPrice.AppearanceHeader.Options.UseFont = true;
             this.colTotalPrice.AppearanceHeader.Options.UseTextOptions = true;
-            this.colTotalPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colTotalPrice.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTotalPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTotalPrice.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colTotalPrice.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colTotalPrice.Caption = "總售價";
             this.colTotalPrice.FieldName = "TotalPrice";
             this.colTotalPrice.MinWidth = 23;
@@ -1216,22 +1288,23 @@
             this.colTotalPrice.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "{0:N0}")});
             this.colTotalPrice.Visible = true;
-            this.colTotalPrice.VisibleIndex = 8;
-            this.colTotalPrice.Width = 70;
+            this.colTotalPrice.VisibleIndex = 7;
+            this.colTotalPrice.Width = 81;
             // 
             // colOrderDate
             // 
-            this.colOrderDate.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colOrderDate.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colOrderDate.AppearanceCell.Options.UseFont = true;
             this.colOrderDate.AppearanceCell.Options.UseTextOptions = true;
             this.colOrderDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colOrderDate.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colOrderDate.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colOrderDate.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colOrderDate.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colOrderDate.AppearanceHeader.Options.UseFont = true;
             this.colOrderDate.AppearanceHeader.Options.UseTextOptions = true;
             this.colOrderDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.colOrderDate.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colOrderDate.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colOrderDate.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colOrderDate.Caption = "訂購日期";
             this.colOrderDate.FieldName = "OrderDate";
             this.colOrderDate.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -1239,52 +1312,54 @@
             this.colOrderDate.Name = "colOrderDate";
             this.colOrderDate.OptionsColumn.AllowFocus = false;
             this.colOrderDate.Visible = true;
-            this.colOrderDate.VisibleIndex = 5;
+            this.colOrderDate.VisibleIndex = 4;
             this.colOrderDate.Width = 91;
             // 
             // colNote1
             // 
-            this.colNote1.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colNote1.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colNote1.AppearanceCell.Options.UseFont = true;
             this.colNote1.AppearanceCell.Options.UseTextOptions = true;
             this.colNote1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colNote1.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colNote1.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colNote1.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colNote1.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colNote1.AppearanceHeader.Options.UseFont = true;
             this.colNote1.AppearanceHeader.Options.UseTextOptions = true;
             this.colNote1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.colNote1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colNote1.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colNote1.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colNote1.Caption = "備註";
             this.colNote1.FieldName = "Note1";
             this.colNote1.MinWidth = 23;
             this.colNote1.Name = "colNote1";
             this.colNote1.OptionsColumn.AllowFocus = false;
             this.colNote1.Visible = true;
-            this.colNote1.VisibleIndex = 12;
-            this.colNote1.Width = 123;
+            this.colNote1.VisibleIndex = 11;
+            this.colNote1.Width = 120;
             // 
             // colAddress
             // 
-            this.colAddress.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colAddress.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colAddress.AppearanceCell.Options.UseFont = true;
             this.colAddress.AppearanceCell.Options.UseTextOptions = true;
             this.colAddress.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAddress.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colAddress.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colAddress.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colAddress.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colAddress.AppearanceHeader.Options.UseFont = true;
             this.colAddress.AppearanceHeader.Options.UseTextOptions = true;
             this.colAddress.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.colAddress.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colAddress.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colAddress.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colAddress.Caption = "是否取貨";
             this.colAddress.ColumnEdit = this.repository_WhetherStock;
             this.colAddress.FieldName = "Address";
             this.colAddress.MinWidth = 23;
             this.colAddress.Name = "colAddress";
             this.colAddress.Visible = true;
-            this.colAddress.VisibleIndex = 11;
-            this.colAddress.Width = 89;
+            this.colAddress.VisibleIndex = 10;
+            this.colAddress.Width = 134;
             // 
             // repository_WhetherStock
             // 
@@ -1307,16 +1382,18 @@
             // 
             // colTotalCost
             // 
-            this.colTotalCost.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colTotalCost.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalCost.AppearanceCell.Options.UseFont = true;
             this.colTotalCost.AppearanceCell.Options.UseTextOptions = true;
             this.colTotalCost.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotalCost.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colTotalCost.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colTotalCost.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colTotalCost.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalCost.AppearanceHeader.Options.UseFont = true;
             this.colTotalCost.AppearanceHeader.Options.UseTextOptions = true;
-            this.colTotalCost.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colTotalCost.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTotalCost.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTotalCost.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colTotalCost.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colTotalCost.Caption = "總批價";
             this.colTotalCost.FieldName = "TotalCost";
             this.colTotalCost.MinWidth = 23;
@@ -1325,21 +1402,23 @@
             this.colTotalCost.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalCost", "{0:N0}")});
             this.colTotalCost.Visible = true;
-            this.colTotalCost.VisibleIndex = 9;
-            this.colTotalCost.Width = 70;
+            this.colTotalCost.VisibleIndex = 8;
+            this.colTotalCost.Width = 81;
             // 
             // colTotalProfit
             // 
-            this.colTotalProfit.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colTotalProfit.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalProfit.AppearanceCell.Options.UseFont = true;
             this.colTotalProfit.AppearanceCell.Options.UseTextOptions = true;
             this.colTotalProfit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotalProfit.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colTotalProfit.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colTotalProfit.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colTotalProfit.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalProfit.AppearanceHeader.Options.UseFont = true;
             this.colTotalProfit.AppearanceHeader.Options.UseTextOptions = true;
-            this.colTotalProfit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.colTotalProfit.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colTotalProfit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTotalProfit.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colTotalProfit.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colTotalProfit.Caption = "總利潤";
             this.colTotalProfit.FieldName = "TotalProfit";
             this.colTotalProfit.MinWidth = 23;
@@ -1348,21 +1427,23 @@
             this.colTotalProfit.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalProfit", "{0:N0}")});
             this.colTotalProfit.Visible = true;
-            this.colTotalProfit.VisibleIndex = 10;
-            this.colTotalProfit.Width = 77;
+            this.colTotalProfit.VisibleIndex = 9;
+            this.colTotalProfit.Width = 94;
             // 
             // colUpdateDate
             // 
-            this.colUpdateDate.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colUpdateDate.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colUpdateDate.AppearanceCell.Options.UseFont = true;
             this.colUpdateDate.AppearanceCell.Options.UseTextOptions = true;
             this.colUpdateDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colUpdateDate.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colUpdateDate.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colUpdateDate.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colUpdateDate.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colUpdateDate.AppearanceHeader.Options.UseFont = true;
             this.colUpdateDate.AppearanceHeader.Options.UseTextOptions = true;
             this.colUpdateDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colUpdateDate.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colUpdateDate.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colUpdateDate.FieldName = "UpdateDate";
             this.colUpdateDate.MinWidth = 23;
             this.colUpdateDate.Name = "colUpdateDate";
@@ -1371,16 +1452,18 @@
             // 
             // colNote3
             // 
-            this.colNote3.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colNote3.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colNote3.AppearanceCell.Options.UseFont = true;
             this.colNote3.AppearanceCell.Options.UseTextOptions = true;
             this.colNote3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNote3.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colNote3.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colNote3.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colNote3.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colNote3.AppearanceHeader.Options.UseFont = true;
             this.colNote3.AppearanceHeader.Options.UseTextOptions = true;
             this.colNote3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNote3.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colNote3.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colNote3.FieldName = "Note3";
             this.colNote3.MinWidth = 23;
             this.colNote3.Name = "colNote3";
@@ -1389,16 +1472,18 @@
             // 
             // colNote2
             // 
-            this.colNote2.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colNote2.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colNote2.AppearanceCell.Options.UseFont = true;
             this.colNote2.AppearanceCell.Options.UseTextOptions = true;
             this.colNote2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNote2.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.colNote2.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.colNote2.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colNote2.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.colNote2.AppearanceHeader.Options.UseFont = true;
             this.colNote2.AppearanceHeader.Options.UseTextOptions = true;
             this.colNote2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNote2.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.colNote2.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colNote2.FieldName = "Note2";
             this.colNote2.MinWidth = 23;
             this.colNote2.Name = "colNote2";
@@ -1409,7 +1494,7 @@
             // 
             this.xtraTabPage2.Controls.Add(this.gridControl_FocusOrder);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1275, 504);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1275, 530);
             this.xtraTabPage2.Text = "拉單";
             // 
             // gridControl_FocusOrder
@@ -1425,7 +1510,7 @@
             this.gridControl_FocusOrder.Name = "gridControl_FocusOrder";
             this.gridControl_FocusOrder.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
-            this.gridControl_FocusOrder.Size = new System.Drawing.Size(1275, 504);
+            this.gridControl_FocusOrder.Size = new System.Drawing.Size(1275, 530);
             this.gridControl_FocusOrder.TabIndex = 7;
             this.gridControl_FocusOrder.UseEmbeddedNavigator = true;
             this.gridControl_FocusOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1466,6 +1551,7 @@
             this.gridView_FocusOrder.OptionsNavigation.AutoFocusNewRow = true;
             this.gridView_FocusOrder.OptionsSelection.MultiSelect = true;
             this.gridView_FocusOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView_FocusOrder.OptionsView.ColumnAutoWidth = false;
             this.gridView_FocusOrder.OptionsView.ShowFooter = true;
             this.gridView_FocusOrder.OptionsView.ShowGroupPanel = false;
             this.gridView_FocusOrder.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -1871,6 +1957,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Order";
             this.Size = new System.Drawing.Size(1282, 867);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1880,13 +1967,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_Area.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_ProductGroupID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_ProductName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keyAndNameForComboBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_OrderDateS.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_OrderDateS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_CustomerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.keyAndNameForComboBindingSource)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
@@ -2015,5 +2103,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
         internal DevExpress.XtraEditors.SimpleButton btn_UnFocus;
+        private DevExpress.XtraGrid.Columns.GridColumn colCode1;
+        private DevExpress.XtraGrid.Columns.GridColumn colLocalDescription1;
+        private DevExpress.XtraGrid.Columns.GridColumn colCode2;
+        private DevExpress.XtraGrid.Columns.GridColumn colLocalDescription2;
     }
 }

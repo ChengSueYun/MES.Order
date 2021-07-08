@@ -13,6 +13,8 @@ namespace MES.Order.Adapter
         List<Custom> QueryAll();
 
         List<Custom> QueryAllCustoms(string pArea, string pCustomName);
+        string QuerySpecifcName(string pCustomName);
+
 
         int SaveCustomers(List<Custom> insertCustoms);
     }

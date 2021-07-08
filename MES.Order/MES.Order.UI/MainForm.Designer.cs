@@ -31,19 +31,19 @@ namespace MES.Order.UI
         {
             DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup();
+            this.chartDataDocument = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
             this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
             this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
             this.document3 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
-            this.chartDataDocument = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).BeginInit();
             this.SuspendLayout();
             // 
             // documentGroup1
@@ -53,6 +53,14 @@ namespace MES.Order.UI
             this.document1,
             this.document2,
             this.document3});
+            // 
+            // chartDataDocument
+            // 
+            this.chartDataDocument.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.chartDataDocument.Appearance.Header.Options.UseFont = true;
+            this.chartDataDocument.Caption = "彙總";
+            this.chartDataDocument.ControlName = "ChartData";
+            this.chartDataDocument.ControlTypeName = "MES.Order.UI.ChartData";
             // 
             // document1
             // 
@@ -89,6 +97,7 @@ namespace MES.Order.UI
             // 
             this.tabbedView1.DocumentGroups.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup[] {
             this.documentGroup1});
+            this.tabbedView1.DocumentProperties.AllowClose = false;
             this.tabbedView1.Documents.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseDocument[] {
             this.document1,
             this.document2,
@@ -98,14 +107,6 @@ namespace MES.Order.UI
             this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
             dockingContainer1});
             this.tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Classic;
-            // 
-            // chartDataDocument
-            // 
-            this.chartDataDocument.Appearance.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.chartDataDocument.Appearance.Header.Options.UseFont = true;
-            this.chartDataDocument.Caption = "彙總";
-            this.chartDataDocument.ControlName = "ChartData";
-            this.chartDataDocument.ControlTypeName = "MES.Order.UI.ChartData";
             // 
             // MainForm
             // 
@@ -120,12 +121,12 @@ namespace MES.Order.UI
             this.Text = "小夫妻程式";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).EndInit();
             this.ResumeLayout(false);
 
         }
