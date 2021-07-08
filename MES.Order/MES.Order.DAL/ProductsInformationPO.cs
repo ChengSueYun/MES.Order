@@ -133,8 +133,14 @@ namespace MES.Order.DAL
             using (var db =
                 ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
-                return db.ProductsInfomations
-                         .Where(x => x.ProductGroupID == ProductGroupID && x.ProductName == ProductName).ToList();
+                var filter = db.ProductsInfomations.ToList();
+                if (string.IsNullOrWhiteSpace(ProductGroupID) == false && ProductGroupID != "*ALL")
+                {
+                    filter = filter.Where(x => x.ProductGroupID == ProductGroupID).ToList();
+                }
+
+                var result = filter.Where(x => x.ProductName == ProductName).ToList();
+                return result;
             }
         }
 

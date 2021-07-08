@@ -81,17 +81,14 @@ namespace MES.Order.UI
             this.lookUpEdit_ProductName.Properties.DataSource    = result;
             this.lookUpEdit_ProductName.EditValue                = "*ALL";
             this.LookUpEdit_addProductName.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
-
         }
 
         private void InitialCusomterName()
         {
             var result = this.ProductsOrderUCO.GetCustomerName("*ALL");
-            this.lookUpEdit_CustomerName.Properties.DataSource    = result;
-            this.lookUpEdit_CustomerName.EditValue                = "*ALL";
-            // this.LookUpEdit_addCustomerName.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
+            this.lookUpEdit_CustomerName.Properties.DataSource = result;
+            this.lookUpEdit_CustomerName.EditValue             = "*ALL";
             this.LookUpEdit_addCustomerName.Properties.DataSource = result;
-
         }
 
         private void InitialProductGroupID()
@@ -99,7 +96,7 @@ namespace MES.Order.UI
             var result = this.ProductsOrderUCO.GetProductGroupID();
             this.lookUpEdit_ProductGroupID.Properties.DataSource    = result;
             this.lookUpEdit_ProductGroupID.EditValue                = "*ALL";
-            this.lookUpEdit_addProductGroupID.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
+            this.lookUpEdit_addProductGroupID.Properties.DataSource = result;
         }
 
         private void InitialArea()
@@ -171,11 +168,11 @@ namespace MES.Order.UI
             var addCustomer = this.LookUpEdit_addCustomerName.EditValue.ToString();
             if (!string.IsNullOrWhiteSpace(addCustomer))
             {
-                this.queryArea       = this.ProductsOrderUCO.QuerySpecifcName(addCustomer);
-                addOrderView[0].Area = this.queryArea;
-                if (!string.IsNullOrWhiteSpace(this.queryArea))
+                this.queryArea = this.ProductsOrderUCO.QuerySpecifcName(addCustomer);
+                if (!string.IsNullOrWhiteSpace(this.queryArea) & this.addOrderView.Count > 0)
                 {
-                    this.lookUpEdit_addArea.EditValue = this.queryArea;
+                    this.addOrderView[0].Area         = this.queryArea;
+                    // this.lookUpEdit_addArea.EditValue = this.queryArea;
                 }
             }
         }
@@ -217,9 +214,14 @@ namespace MES.Order.UI
             {
                 var productsInfomation =
                     this.ProductsOrderUCO.GetProductPrice(addOrderViewModel.ProductGroupID,
-                                                          addProductName)[0];
-                addOrderViewModel.Price      = productsInfomation.Price;
-                addOrderViewModel.Cost       = productsInfomation.Cost;
+                                                          addProductName);
+                if (productsInfomation.Count > 0)
+                {
+                    addOrderViewModel.ProductGroupID = productsInfomation[0].ProductGroupID;
+                    addOrderViewModel.Price          = productsInfomation[0].Price;
+                    addOrderViewModel.Cost           = productsInfomation[0].Cost;
+                }
+
                 this.spinEdit_addCount.Value = 0;
             }
         }
@@ -269,6 +271,7 @@ namespace MES.Order.UI
             }
 
             this.addOrderView.Clear();
+            this.addOrderViewModelBindingSource.AddNew();
             this.productsOrders = this
                                   .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
                                                                    DateTime.Today, DateTime.Today)
@@ -320,6 +323,7 @@ namespace MES.Order.UI
                 throw new Exception("btn_Cancel_Click 刪除發生錯誤");
             }
 
+            deleteList.Clear();
             this.btn_Query.PerformClick();
         }
 

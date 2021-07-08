@@ -523,6 +523,7 @@
             this.btn_Query.TabIndex = 31;
             this.btn_Query.Text = "查詢(Enter)";
             this.btn_Query.Click += new System.EventHandler(this.btn_Query_Click);
+            this.btn_Query.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // lookUpEdit_CustomerName
             // 
@@ -589,6 +590,7 @@
             this.btn_FocusRow.TabIndex = 372;
             this.btn_FocusRow.Text = "鎖定列(F1)";
             this.btn_FocusRow.Click += new System.EventHandler(this.btn_FocusRow_Click);
+            this.btn_FocusRow.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // btn_Save
             // 
@@ -609,6 +611,7 @@
             this.btn_Save.TabIndex = 53;
             this.btn_Save.Text = "存檔(F5)";
             this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            this.btn_Save.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // btn_UnFocus
             // 
@@ -630,6 +633,7 @@
             this.btn_UnFocus.Text = "清除鎖定列(F2)";
             this.btn_UnFocus.Visible = false;
             this.btn_UnFocus.Click += new System.EventHandler(this.btn_UnFocus_Click);
+            this.btn_UnFocus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // btn_Export
             // 
@@ -650,6 +654,7 @@
             this.btn_Export.TabIndex = 373;
             this.btn_Export.Text = "匯出";
             this.btn_Export.Click += new System.EventHandler(this.btn_Export_Click);
+            this.btn_Export.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // btn_Cancel
             // 
@@ -670,6 +675,7 @@
             this.btn_Cancel.TabIndex = 31;
             this.btn_Cancel.Text = "刪除(F3)";
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
+            this.btn_Cancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // splitContainer1
             // 
@@ -823,7 +829,7 @@
             // 
             // lookUpEdit_addArea
             // 
-            this.lookUpEdit_addArea.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Area", true));
+            this.lookUpEdit_addArea.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Area", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lookUpEdit_addArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lookUpEdit_addArea.Location = new System.Drawing.Point(3, 32);
             this.lookUpEdit_addArea.Name = "lookUpEdit_addArea";
@@ -849,7 +855,7 @@
             // 
             // LookUpEdit_addCustomerName
             // 
-            this.LookUpEdit_addCustomerName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "CustomName", true));
+            this.LookUpEdit_addCustomerName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "CustomName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LookUpEdit_addCustomerName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LookUpEdit_addCustomerName.EditValue = "";
             this.LookUpEdit_addCustomerName.Location = new System.Drawing.Point(130, 32);
@@ -892,7 +898,7 @@
             // 
             // lookUpEdit_addProductGroupID
             // 
-            this.lookUpEdit_addProductGroupID.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductGroupID", true));
+            this.lookUpEdit_addProductGroupID.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductGroupID", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lookUpEdit_addProductGroupID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lookUpEdit_addProductGroupID.Location = new System.Drawing.Point(311, 32);
             this.lookUpEdit_addProductGroupID.Name = "lookUpEdit_addProductGroupID";
@@ -914,7 +920,7 @@
             // 
             // LookUpEdit_addProductName
             // 
-            this.LookUpEdit_addProductName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductName", true));
+            this.LookUpEdit_addProductName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "ProductName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LookUpEdit_addProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LookUpEdit_addProductName.Location = new System.Drawing.Point(479, 32);
             this.LookUpEdit_addProductName.Name = "LookUpEdit_addProductName";
@@ -957,7 +963,7 @@
             // 
             // spinEdit_addCount
             // 
-            this.spinEdit_addCount.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Count", true));
+            this.spinEdit_addCount.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Count", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.spinEdit_addCount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.spinEdit_addCount.EditValue = new decimal(new int[] {
             0,
@@ -978,7 +984,7 @@
             // 
             // textEdit_addTotalPrice
             // 
-            this.textEdit_addTotalPrice.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "TotalPrice", true));
+            this.textEdit_addTotalPrice.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "TotalPrice", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textEdit_addTotalPrice.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textEdit_addTotalPrice.EditValue = ((short)(0));
             this.textEdit_addTotalPrice.Enabled = false;
@@ -993,8 +999,10 @@
             // 
             // textEdit_addNote1
             // 
-            this.textEdit_addNote1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Note1", true));
+            this.textEdit_addNote1.CausesValidation = false;
+            this.textEdit_addNote1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.addOrderViewModelBindingSource, "Note1", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.textEdit_addNote1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEdit_addNote1.EditValue = "";
             this.textEdit_addNote1.Location = new System.Drawing.Point(1095, 32);
             this.textEdit_addNote1.Name = "textEdit_addNote1";
             this.textEdit_addNote1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
@@ -1514,6 +1522,7 @@
             this.gridControl_FocusOrder.UseEmbeddedNavigator = true;
             this.gridControl_FocusOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_FocusOrder});
+            this.gridControl_FocusOrder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
             // FocusbindingSource
             // 
@@ -1548,6 +1557,8 @@
             this.gridView_FocusOrder.NewItemRowText = "點此新增";
             this.gridView_FocusOrder.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
             this.gridView_FocusOrder.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridView_FocusOrder.OptionsPrint.AutoWidth = false;
+            this.gridView_FocusOrder.OptionsPrint.PrintGroupFooter = false;
             this.gridView_FocusOrder.OptionsSelection.MultiSelect = true;
             this.gridView_FocusOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView_FocusOrder.OptionsView.ColumnAutoWidth = false;
