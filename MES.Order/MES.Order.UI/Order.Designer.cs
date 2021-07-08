@@ -56,6 +56,7 @@
             this.btn_UnFocus = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Export = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
+            this.toggleSwitch_GroupColumn = new DevExpress.XtraEditors.ToggleSwitch();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -128,7 +129,6 @@
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toggleSwitch_GroupColumn = new DevExpress.XtraEditors.ToggleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -143,6 +143,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_OrderDateS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_CustomerName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_GroupColumn.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -173,7 +174,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_GroupColumn.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -682,6 +682,22 @@
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             this.btn_Cancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
+            // toggleSwitch_GroupColumn
+            // 
+            this.tableLayoutPanel1.SetColumnSpan(this.toggleSwitch_GroupColumn, 2);
+            this.toggleSwitch_GroupColumn.Location = new System.Drawing.Point(554, 86);
+            this.toggleSwitch_GroupColumn.Name = "toggleSwitch_GroupColumn";
+            this.toggleSwitch_GroupColumn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.toggleSwitch_GroupColumn.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseFont = true;
+            this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseForeColor = true;
+            this.toggleSwitch_GroupColumn.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.toggleSwitch_GroupColumn.Properties.OffText = "取消群組支數";
+            this.toggleSwitch_GroupColumn.Properties.OnText = "群組支數";
+            this.toggleSwitch_GroupColumn.Size = new System.Drawing.Size(220, 30);
+            this.toggleSwitch_GroupColumn.TabIndex = 378;
+            this.toggleSwitch_GroupColumn.Toggled += new System.EventHandler(this.toggleSwitch_GroupColumn_Toggled);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1086,6 +1102,9 @@
             this.gridView_ProductOrder.DetailHeight = 450;
             this.gridView_ProductOrder.FixedLineWidth = 3;
             this.gridView_ProductOrder.GridControl = this.gridControl_ProductOrder;
+            this.gridView_ProductOrder.GroupFormat = "{0}:{1} ,{2}";
+            this.gridView_ProductOrder.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", null, "數量: {0:0.##}")});
             this.gridView_ProductOrder.Name = "gridView_ProductOrder";
             this.gridView_ProductOrder.NewItemRowText = "點此新增";
             this.gridView_ProductOrder.OptionsNavigation.AutoFocusNewRow = true;
@@ -1094,6 +1113,8 @@
             this.gridView_ProductOrder.OptionsView.ColumnAutoWidth = false;
             this.gridView_ProductOrder.OptionsView.ShowFooter = true;
             this.gridView_ProductOrder.OptionsView.ShowGroupPanel = false;
+            this.gridView_ProductOrder.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colArea, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colAutoID
             // 
@@ -1135,6 +1156,8 @@
             this.colArea.MinWidth = 23;
             this.colArea.Name = "colArea";
             this.colArea.OptionsColumn.AllowFocus = false;
+            this.colArea.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "SUM={0:0.##}")});
             this.colArea.Visible = true;
             this.colArea.VisibleIndex = 1;
             // 
@@ -1248,11 +1271,9 @@
             this.colCount.MinWidth = 23;
             this.colCount.Name = "colCount";
             this.colCount.OptionsColumn.AllowFocus = false;
-            this.colCount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "{0:N0}")});
             this.colCount.Visible = true;
-            this.colCount.VisibleIndex = 5;
-            this.colCount.Width = 73;
+            this.colCount.VisibleIndex = 6;
+            this.colCount.Width = 189;
             // 
             // colPrice
             // 
@@ -1276,7 +1297,7 @@
             this.colPrice.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "{0:N0}")});
             this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 6;
+            this.colPrice.VisibleIndex = 5;
             this.colPrice.Width = 68;
             // 
             // colTotalPrice
@@ -1968,22 +1989,6 @@
             // 
             this.saveFileDialog1.Title = "欲存檔路徑";
             // 
-            // toggleSwitch_GroupColumn
-            // 
-            this.tableLayoutPanel1.SetColumnSpan(this.toggleSwitch_GroupColumn, 2);
-            this.toggleSwitch_GroupColumn.Location = new System.Drawing.Point(554, 86);
-            this.toggleSwitch_GroupColumn.Name = "toggleSwitch_GroupColumn";
-            this.toggleSwitch_GroupColumn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.toggleSwitch_GroupColumn.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseFont = true;
-            this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseForeColor = true;
-            this.toggleSwitch_GroupColumn.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.toggleSwitch_GroupColumn.Properties.OffText = "取消群組支數";
-            this.toggleSwitch_GroupColumn.Properties.OnText = "群組支數";
-            this.toggleSwitch_GroupColumn.Size = new System.Drawing.Size(220, 34);
-            this.toggleSwitch_GroupColumn.TabIndex = 378;
-            this.toggleSwitch_GroupColumn.Toggled += new System.EventHandler(this.toggleSwitch_GroupColumn_Toggled);
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -2010,6 +2015,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit_OrderDateS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit_CustomerName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_GroupColumn.Properties)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -2041,7 +2047,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitch_GroupColumn.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

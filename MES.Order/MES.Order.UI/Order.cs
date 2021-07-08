@@ -533,7 +533,16 @@ namespace MES.Order.UI
 
         private void toggleSwitch_GroupColumn_Toggled(object sender, EventArgs e)
         {
-
+            if (this.toggleSwitch_GroupColumn.IsOn)
+            {
+                this.colArea.GroupIndex = 0;
+            }
+            else
+            {
+                this.colArea.GroupIndex = -1;
+            }
+            this.gridView_ProductOrder.BestFitColumns();
         }
+
     }
 }
