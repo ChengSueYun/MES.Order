@@ -40,9 +40,14 @@ namespace MES.Order.UI
             }
         }
 
+        private void Order_Enter(object sender, EventArgs e)
+        {
+            this.InitialControls();
+        }
+
         #region Initial
 
-        private void InitialControls()
+        public void InitialControls()
         {
             this.InitialArea();
             this.InitialProductGroupID();
@@ -124,7 +129,6 @@ namespace MES.Order.UI
             this.productsOrderBindingSource.DataSource = this.productsOrders;
             this.gridView_ProductOrder.BestFitColumns();
             this.gridView_FocusOrder.BestFitColumns();
-
         }
 
         /// <summary>
@@ -150,7 +154,7 @@ namespace MES.Order.UI
             if (!string.IsNullOrWhiteSpace(this.queryArea))
             {
                 // this.lookUpEdit_addArea.EditValue = this.queryArea;
-                this.addOrderView[0].Area         = this.queryArea;
+                this.addOrderView[0].Area = this.queryArea;
             }
             else
             {
@@ -168,9 +172,10 @@ namespace MES.Order.UI
             var addCustomer = this.LookUpEdit_addCustomerName.EditValue.ToString();
             if (!string.IsNullOrWhiteSpace(addCustomer))
             {
-                this.queryArea                    = this.ProductsOrderUCO.QuerySpecifcName(addCustomer);
+                this.queryArea = this.ProductsOrderUCO.QuerySpecifcName(addCustomer);
+
                 // this.lookUpEdit_addArea.EditValue = this.queryArea;
-                this.addOrderView[0].Area         = this.queryArea;
+                this.addOrderView[0].Area = this.queryArea;
             }
         }
 
@@ -267,7 +272,7 @@ namespace MES.Order.UI
                                                                    DateTime.Today, DateTime.Today)
                                   .OrderByDescending(x => x.AutoID).ToList();
             this.productsOrderBindingSource.DataSource = this.productsOrders;
-            this.textEdit_addNote1.Text                   = "";
+            this.textEdit_addNote1.Text                = "";
         }
 
         /// <summary>
@@ -352,6 +357,7 @@ namespace MES.Order.UI
             {
                 MessageBox.Show(@"已鎖定 " + updateOrders + @"筆資料", @"鎖定訊息",
                                 MessageBoxButtons.YesNo);
+
                 // foreach (var item in updateList)
                 // {
                 //     this.alertControl1.Show(this.ParentForm, "鎖定訊息",
@@ -453,6 +459,7 @@ namespace MES.Order.UI
             {
                 MessageBox.Show(@"已解除鎖定 " + updateOrders + @"筆資料", @"鎖定訊息",
                                 MessageBoxButtons.YesNo);
+
                 // foreach (var item in updateList)
                 // {
                 //     this.alertControl1.Show(this.ParentForm, "鎖定訊息",

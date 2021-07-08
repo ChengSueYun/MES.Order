@@ -36,5 +36,11 @@ namespace MES.Order.UI
             if (e.Control == null)
                 e.Control = new System.Windows.Forms.Control();
         }
+
+        private void document1_IsSelectedChanged(object sender, DevExpress.XtraBars.Docking2010.Views.DocumentEventArgs e)
+        {
+            // if (e.Document == this.document1)
+            //     new MES.Order.UI.Order().InitialControls();
+        }
     }
 }
