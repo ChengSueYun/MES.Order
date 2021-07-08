@@ -10,7 +10,6 @@ namespace MES.Order.DAL.EntityFramework
         [StringLength(50)]
         public string CustomName { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string Address { get; set; }
 

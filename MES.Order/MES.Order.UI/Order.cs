@@ -28,8 +28,15 @@ namespace MES.Order.UI
         public Order()
         {
             this.InitializeComponent();
-            this.InitialUCO();
-            this.InitialControls();
+            try
+            {
+                this.InitialUCO();
+                this.InitialControls();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         #region Initial
@@ -179,8 +186,8 @@ namespace MES.Order.UI
                 var productsInfomation =
                     this.ProductsOrderUCO.GetProductPrice(addOrderViewModel.ProductGroupID,
                                                           addProductName)[0];
-                addOrderViewModel.Price      = productsInfomation.Price.Value;
-                addOrderViewModel.Cost       = productsInfomation.Cost.Value;
+                addOrderViewModel.Price      = productsInfomation.Price;
+                addOrderViewModel.Cost       = productsInfomation.Cost;
                 this.spinEdit_addCount.Value = 0;
             }
         }
@@ -208,27 +215,32 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            try
+            var saveOrders = new List<ProductsOrder>();
+            DefaultMapper.Map(this.addOrderView, saveOrders);
+            foreach (var productsOrder in saveOrders)
             {
-                var saveOrders = new List<ProductsOrder>();
-                DefaultMapper.Map(this.addOrderView, saveOrders);
-                var actualSaveCount = this.ProductsOrderUCO.SaveOrders(saveOrders);
+                productsOrder.SetDefaultValue();
+            }
+
+            var actualSaveCount = this.ProductsOrderUCO.SaveOrders(saveOrders);
+            if (actualSaveCount == saveOrders.Count)
+            {
                 foreach (var item in saveOrders)
                 {
-                    alertControl1.Show(this.ParentForm, "存檔訊息",
-                                       "已存檔 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                    this.alertControl1.Show(this.ParentForm, "存檔訊息",
+                                            "已存檔 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
                 }
-
-                this.productsOrders = this
-                                      .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
-                                                                       DateTime.Today, DateTime.Today)
-                                      .OrderByDescending(x => x.AutoID).ToList();
-                this.productsOrderBindingSource.DataSource = this.productsOrders;
             }
-            catch (Exception exception)
+            else
             {
-                throw new Exception("btn_Save_Click 存檔發生錯誤" + exception);
+                throw new Exception("btn_Save_Click 存檔發生錯誤");
             }
+
+            this.productsOrders = this
+                                  .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
+                                                                   DateTime.Today, DateTime.Today)
+                                  .OrderByDescending(x => x.AutoID).ToList();
+            this.productsOrderBindingSource.DataSource = this.productsOrders;
         }
 
         /// <summary>
@@ -238,32 +250,33 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            try
+            var selectedRows = this.gridView_ProductOrder.GetSelectedRows();
+            var deleteList   = new List<ProductsOrder>();
+            this.productsOrders = this.productsOrders.OrderByDescending(x => x.AutoID).ToList();
+            foreach (var row in selectedRows)
             {
-                var selectedRows = this.gridView_ProductOrder.GetSelectedRows();
-                var deleteList   = new List<ProductsOrder>();
-                this.productsOrders = this.productsOrders.OrderByDescending(x => x.AutoID).ToList();
-                foreach (var row in selectedRows)
-                {
-                    var deleteRow = new ProductsOrder();
+                var deleteRow = new ProductsOrder();
 
-                    deleteRow = this.productsOrders[row];
-                    deleteList.Add(deleteRow);
-                }
+                deleteRow = this.productsOrders[row];
+                deleteList.Add(deleteRow);
+            }
 
-                var actualDeleteCount = this.ProductsOrderUCO.DeleteOrders(deleteList);
+            var actualDeleteCount = this.ProductsOrderUCO.DeleteOrders(deleteList);
+            if (actualDeleteCount == deleteList.Count)
+            {
                 foreach (var item in deleteList)
                 {
-                    alertControl1.Show(this.ParentForm, "刪除訊息",
-                                       "已刪除 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                    this.alertControl1.Show(this.ParentForm, "刪除訊息",
+                                            "已刪除 " + Environment.NewLine + item.CustomName + ":" +
+                                            item.ProductName);
                 }
-
-                this.btn_Query.PerformClick();
             }
-            catch (Exception exception)
+            else
             {
-                throw new Exception("btn_Cancel_Click 刪除發生錯誤" + exception.ToString());
+                throw new Exception("btn_Cancel_Click 刪除發生錯誤");
             }
+
+            this.btn_Query.PerformClick();
         }
 
         /// <summary>
@@ -297,15 +310,22 @@ namespace MES.Order.UI
                 this.gridControl_FocusOrder.RefreshDataSource();
             }
 
-            this.ProductsOrderUCO.UpdateOrders(updateList);
-
-            foreach (var item in updateList)
+            var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
+            if (updateOrders == updateList.Count)
             {
-                alertControl1.Show(this.ParentForm, "鎖定訊息",
-                                   "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                foreach (var item in updateList)
+                {
+                    this.alertControl1.Show(this.ParentForm, "鎖定訊息",
+                                            "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                }
+
+                this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
+            }
+            else
+            {
+                throw new Exception("btn_FocusRow_Click 鎖定列發生錯誤");
             }
 
-            this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             this.btn_Query.PerformClick();
         }
 
@@ -385,15 +405,22 @@ namespace MES.Order.UI
                 this.gridControl_FocusOrder.RefreshDataSource();
             }
 
-            this.ProductsOrderUCO.UpdateOrders(updateList);
-
-            foreach (var item in updateList)
+            var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
+            if (updateOrders == updateList.Count)
             {
-                alertControl1.Show(this.ParentForm, "鎖定訊息",
-                                   "已解除鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                foreach (var item in updateList)
+                {
+                    this.alertControl1.Show(this.ParentForm, "鎖定訊息",
+                                            "已解除鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
+                }
+
+                this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
+            }
+            else
+            {
+                throw new Exception("btn_UnFocus_Click 清除鎖定列發生錯誤");
             }
 
-            this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             this.btn_Query.PerformClick();
         }
 

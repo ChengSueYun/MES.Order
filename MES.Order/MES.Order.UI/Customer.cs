@@ -13,9 +13,9 @@ namespace MES.Order.UI
 {
     public partial class Customer : XtraUserControl
     {
-        private List<Custom>             Add_Customers = new List<Custom>();
-        private List<Custom>             customers     = new List<Custom>();
-        private CustomerUCO              customerUCO;
+        private List<Custom> Add_Customers = new List<Custom>();
+        private List<Custom> customers     = new List<Custom>();
+        private CustomerUCO  customerUCO;
 
         public Customer()
         {
@@ -25,9 +25,9 @@ namespace MES.Order.UI
                 this.InitialUCO();
                 this.InitialControls();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw e;
+                throw new Exception(ex.ToString());
             }
         }
 
@@ -85,55 +85,56 @@ namespace MES.Order.UI
         //Delete
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            try
+            var selectedRows = this.gridView_Customer.GetSelectedRows();
+            var deleteList   = new List<Custom>();
+            this.customers = this.customers.OrderByDescending(x => x.AutoID).ToList();
+            foreach (var row in selectedRows)
             {
-                var selectedRows = this.gridView_Customer.GetSelectedRows();
-                var deleteList   = new List<Custom>();
-                this.customers = this.customers.OrderByDescending(x => x.AutoID).ToList();
-                foreach (var row in selectedRows)
-                {
-                    var deleteRow = new Custom();
+                var deleteRow = new Custom();
 
-                    deleteRow = this.customers[row];
-                    deleteList.Add(deleteRow);
-                }
+                deleteRow = this.customers[row];
+                deleteList.Add(deleteRow);
+            }
 
-                var actualDeleteCount = this.customerUCO.DeleteCustomers(deleteList);
-                MessageBox.Show("已刪除" + actualDeleteCount + "筆資料", "存檔訊息", MessageBoxButtons.OKCancel);
+            var actualDeleteCount = this.customerUCO.DeleteCustomers(deleteList);
+            if (actualDeleteCount == deleteList.Count)
+            {
+                MessageBox.Show(@"已刪除" + actualDeleteCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
                 this.btn_Query.PerformClick();
             }
-            catch (Exception exception)
+            else
             {
-                throw exception;
+                throw new Exception("btn_Cancel_Click 刪除發生錯誤!");
             }
         }
 
         //Save
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            try
+            this.Add_Customers =
+                new
+                    List<Custom>((IEnumerable<Custom>) this
+                                                       .AddcustomBindingSource.List);
+            foreach (var addCustomer in this.Add_Customers)
             {
+                addCustomer.SetDefaultValue();
+            }
 
-                this.Add_Customers =
-                    new
-                        List<Custom>((IEnumerable<Custom>) this
-                                                           .AddcustomBindingSource.List);
-                foreach (var addCustomer in this.Add_Customers)
-                {
-                    addCustomer.SetDefaultValue();
-                }
-                var actualSaveCount = this.customerUCO.SaveCustomers(this.Add_Customers);
+            var actualSaveCount = this.customerUCO.SaveCustomers(this.Add_Customers);
+            if (actualSaveCount == this.Add_Customers.Count)
+            {
                 MessageBox.Show(@"已存檔" + actualSaveCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
-                this.AddcustomBindingSource.Clear();
-
-                this.customers = this.customerUCO.QueryAllCustoms("*ALL", "*ALL")
-                                     .OrderByDescending(x => x.AutoID).ToList();
-                this.gridControl_Customer.DataSource = this.customers;
             }
-            catch (Exception exception)
+            else
             {
-                throw new Exception(exception.ToString());
+                throw new Exception("btn_Save_Click 儲存發生錯誤!");
             }
+
+            this.AddcustomBindingSource.Clear();
+
+            this.customers = this.customerUCO.QueryAllCustoms("*ALL", "*ALL")
+                                 .OrderByDescending(x => x.AutoID).ToList();
+            this.gridControl_Customer.DataSource = this.customers;
         }
 
         #endregion

@@ -87,14 +87,13 @@ namespace MES.Order.DAL
         {
 
             var result = 0;
-
-            foreach (var insertOrder in insertProductsOrders)
+            using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
             {
-                this.productsDbContext.ProductsOrders.Attach(insertOrder);
-                this.productsDbContext.Entry(insertOrder).State = EntityState.Added;
+                db.ProductsOrders.AddRange(insertProductsOrders);
+                result = db.Save();
             }
 
-            result = this.productsDbContext.SaveChanges();
+            
             return result;
         }
 
@@ -104,25 +103,18 @@ namespace MES.Order.DAL
 
         public int DeleteOrder(List<ProductsOrder> deletOders)
         {
-            try
-            {
-                var result = 0;
-                using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
+            using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
                 {
+                   
                     foreach (var deletOder in deletOders)
                     {
                         db.ProductsOrders.Attach(deletOder);
                         db.Entry(deletOder).State = EntityState.Deleted;
                     }
-
-                    result = db.Save();
+                    var result = db.Save();
                     return result;
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+          
         }
 
         #endregion
@@ -131,7 +123,6 @@ namespace MES.Order.DAL
 
         public int UpdateOrder(List<ProductsOrder> updateOrders)
         {
-            var result = 0;
             using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
             {
                 foreach (var updateOrder in updateOrders)
@@ -140,7 +131,7 @@ namespace MES.Order.DAL
                     db.Entry(updateOrder).State = EntityState.Modified;
                 }
 
-                result = db.Save();
+                var result = db.Save();
                 return result;
             }
         }

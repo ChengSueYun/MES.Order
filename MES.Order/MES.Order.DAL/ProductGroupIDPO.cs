@@ -26,26 +26,19 @@ namespace MES.Order.DAL
 
         public List<KeyAndNameForCombo> QueryAllProductsGroupID()
         {
-            try
+            using (var db =
+                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
-                using (var db =
-                    ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-                {
-                    var filter = db.ProductGroupIDs
-                                   .ToList();
-                    var result = (from a in filter
-                                  select new KeyAndNameForCombo
-                                  {
-                                      Code             = a.ProductGroupID,
-                                      LocalDescription = a.ProductGroupName
-                                  }).Distinct().ToList();
+                var filter = db.ProductGroupIDs
+                               .ToList();
+                var result = (from a in filter
+                              select new KeyAndNameForCombo
+                              {
+                                  Code             = a.ProductGroupID,
+                                  LocalDescription = a.ProductGroupName
+                              }).Distinct().ToList();
 
-                    return result;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+                return result;
             }
         }
     }

@@ -38,7 +38,7 @@ namespace MES.Order.UI
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception(ex.ToString());
             }
         }
 
@@ -75,55 +75,58 @@ namespace MES.Order.UI
         //存檔
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            try
+            this.Add_productsInfomations =
+                new
+                    List<ProductsInfomation>((IEnumerable<ProductsInfomation>) this
+                                                                               .AddproductsInfomationBindingSource
+                                                                               .List);
+            foreach (var addProductsInfomation in this.Add_productsInfomations)
             {
-                this.Add_productsInfomations =
-                    new
-                        List<ProductsInfomation>((IEnumerable<ProductsInfomation>) this
-                                                     .AddproductsInfomationBindingSource.List);
-                foreach (var addProductsInfomation in this.Add_productsInfomations)
-                {
-                    addProductsInfomation.SetDefaultValue();
-                }
+                addProductsInfomation.SetDefaultValue();
+            }
 
-                var actualSaveCount = this.ProductInformationUCO.SaveProductsInfomations(this.Add_productsInfomations);
-                MessageBox.Show(@"已存檔" + actualSaveCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
-                this.AddproductsInfomationBindingSource.Clear();
-                this.Add_productsInfomations.Clear();
-                this.productsInfomations = this.ProductInformationUCO.QueryProducts("*ALL", "*ALL")
-                                               .OrderByDescending(x => x.AutoID).ToList();
-                this.productsInfomationBindingSource.DataSource = this.productsInfomations;
-            }
-            catch (Exception exception)
+            var actualSaveCount = this.ProductInformationUCO.SaveProductsInfomations(this.Add_productsInfomations);
+            if (actualSaveCount == this.Add_productsInfomations.Count)
             {
-                throw exception;
+                MessageBox.Show(@"已存檔" + actualSaveCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
             }
+            else
+            {
+                throw new Exception(@"btn_Save_Click 儲存發生錯誤!");
+            }
+
+            this.AddproductsInfomationBindingSource.Clear();
+            this.Add_productsInfomations.Clear();
+            this.productsInfomations = this.ProductInformationUCO.QueryProducts("*ALL", "*ALL")
+                                           .OrderByDescending(x => x.AutoID).ToList();
+            this.productsInfomationBindingSource.DataSource = this.productsInfomations;
         }
 
         //刪除
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            try
+            var selectedRows = this.gridView_ProductInfo.GetSelectedRows();
+            var deleteList   = new List<ProductsInfomation>();
+            this.productsInfomations = this.productsInfomations.OrderByDescending(x => x.AutoID).ToList();
+            foreach (var row in selectedRows)
             {
-                var selectedRows = this.gridView_ProductInfo.GetSelectedRows();
-                var deleteList   = new List<ProductsInfomation>();
-                this.productsInfomations = this.productsInfomations.OrderByDescending(x => x.AutoID).ToList();
-                foreach (var row in selectedRows)
-                {
-                    var deleteRow = new ProductsInfomation();
+                var deleteRow = new ProductsInfomation();
 
-                    deleteRow = this.productsInfomations[row];
-                    deleteList.Add(deleteRow);
-                }
+                deleteRow = this.productsInfomations[row];
+                deleteList.Add(deleteRow);
+            }
 
-                var actualDeleteCount = this.ProductInformationUCO.DeleteProductsInfomations(deleteList);
+            var actualDeleteCount = this.ProductInformationUCO.DeleteProductsInfomations(deleteList);
+            if (actualDeleteCount == deleteList.Count)
+            {
                 MessageBox.Show(@"已刪除" + actualDeleteCount + @"筆資料", @"存檔訊息", MessageBoxButtons.OKCancel);
-                this.btn_Query.PerformClick();
             }
-            catch (Exception exception)
+            else
             {
-                throw exception;
+                throw new Exception(@"btn_Cancel_Click 刪除發生錯誤!");
             }
+
+            this.btn_Query.PerformClick();
         }
 
         #endregion

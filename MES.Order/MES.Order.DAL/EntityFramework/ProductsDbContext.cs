@@ -61,69 +61,7 @@ namespace MES.Order.DAL.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Areas>()
-                        .Property(e => e.Area)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<Areas>()
-                        .Property(e => e.AreaName)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsGroupID>()
-                        .Property(e => e.ProductGroupID)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsGroupID>()
-                        .Property(e => e.ProductGroupName)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsInfomation>()
-                        .Property(e => e.ProductName)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsInfomation>()
-                        .Property(e => e.ProductGroupID)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.Area)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.CustomID)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.CustomName)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.Address)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.ProductGroupID)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.ProductName)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.Price)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.Note3)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.Note2)
-                        .IsUnicode(false);
-
-            modelBuilder.Entity<ProductsOrder>()
-                        .Property(e => e.Note1)
-                        .IsUnicode(false);
+           
         }
     }
 }

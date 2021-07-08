@@ -275,6 +275,7 @@
             // lookUpEdit_ProductName
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.lookUpEdit_ProductName, 2);
+            this.lookUpEdit_ProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lookUpEdit_ProductName.Location = new System.Drawing.Point(611, 5);
             this.lookUpEdit_ProductName.Name = "lookUpEdit_ProductName";
             this.lookUpEdit_ProductName.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

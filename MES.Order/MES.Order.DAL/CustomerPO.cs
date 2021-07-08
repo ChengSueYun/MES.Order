@@ -46,7 +46,6 @@ namespace MES.Order.DAL
 
         public int DeleteCustomers(List<Custom> deleteCustoms)
         {
-            var result = 0;
             using (var db = ProductsDbContext.Create(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
                 foreach (var deleteCustom in deleteCustoms)
@@ -54,8 +53,7 @@ namespace MES.Order.DAL
                     db.Customs.Attach(deleteCustom);
                     db.Entry(deleteCustom).State = EntityState.Deleted;
                 }
-
-                result = db.Save();
+                var result = db.Save();
                 return result;
             }
         }
@@ -66,17 +64,12 @@ namespace MES.Order.DAL
 
         public int SaveCustomers(List<Custom> insertCustoms)
         {
-            var result = 0;
-
-            foreach (var insertCustom in insertCustoms)
+            using (var db = ProductsDbContext.Create(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
-                insertCustom.UpdateDate = this.Now;
-                this.ProductsDbContext.Customs.Attach(insertCustom);
-                this.ProductsDbContext.Entry(insertCustom).State = EntityState.Added;
+                db.Customs.AddRange(insertCustoms);
+                var result = db.Save();
+                return result;
             }
-
-            result = this.ProductsDbContext.SaveChanges();
-            return result;
         }
 
         #endregion
@@ -85,30 +78,23 @@ namespace MES.Order.DAL
 
         public List<KeyAndNameForCombo> DistinctCustomer(string pArea)
         {
-            try
+            using (var db =
+                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
-                using (var db =
-                    ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+                var filter = db.Customs
+                               .ToList();
+                if (string.IsNullOrWhiteSpace(pArea) == false && pArea != "*ALL")
                 {
-                    var filter = db.Customs
-                                   .ToList();
-                    if (string.IsNullOrWhiteSpace(pArea) == false && pArea != "*ALL")
-                    {
-                        filter = filter.Where(x => x.Address == pArea).ToList();
-                    }
-
-                    var result = (from a in filter
-                                  select new KeyAndNameForCombo
-                                  {
-                                      Code             = a.CustomID,
-                                      LocalDescription = a.CustomName
-                                  }).Distinct().ToList();
-                    return result;
+                    filter = filter.Where(x => x.Address == pArea).ToList();
                 }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
+
+                var result = (from a in filter
+                              select new KeyAndNameForCombo
+                              {
+                                  Code             = a.CustomID,
+                                  LocalDescription = a.CustomName
+                              }).Distinct().ToList();
+                return result;
             }
         }
 

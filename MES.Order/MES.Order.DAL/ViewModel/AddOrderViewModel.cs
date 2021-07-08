@@ -88,7 +88,7 @@ namespace MES.Order.DAL.ViewModel
         /// </summary>
         public int TotalPrice
         {
-            get => this._totalPrice = this.Count * Convert.ToInt16(this.Price);
+            get => this._totalPrice = this.Count * this.Price;
             set => this._totalPrice = value;
         }
 
