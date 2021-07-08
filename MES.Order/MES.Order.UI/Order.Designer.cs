@@ -93,6 +93,7 @@
             this.colProductGroupID = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductName = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colCount = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repository_Count = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
             this.colPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalPrice = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colOrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -167,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ProductOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repository_Count)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
@@ -684,7 +686,7 @@
             // 
             // toggleSwitch_GroupColumn
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.toggleSwitch_GroupColumn, 2);
+            this.toggleSwitch_GroupColumn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toggleSwitch_GroupColumn.Location = new System.Drawing.Point(554, 86);
             this.toggleSwitch_GroupColumn.Name = "toggleSwitch_GroupColumn";
             this.toggleSwitch_GroupColumn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
@@ -694,7 +696,7 @@
             this.toggleSwitch_GroupColumn.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.toggleSwitch_GroupColumn.Properties.OffText = "取消群組支數";
             this.toggleSwitch_GroupColumn.Properties.OnText = "群組支數";
-            this.toggleSwitch_GroupColumn.Size = new System.Drawing.Size(220, 30);
+            this.toggleSwitch_GroupColumn.Size = new System.Drawing.Size(169, 43);
             this.toggleSwitch_GroupColumn.TabIndex = 378;
             this.toggleSwitch_GroupColumn.Toggled += new System.EventHandler(this.toggleSwitch_GroupColumn_Toggled);
             // 
@@ -1065,7 +1067,8 @@
             this.gridControl_ProductOrder.Name = "gridControl_ProductOrder";
             this.gridControl_ProductOrder.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repository_WhetherStock,
-            this.repository_Note});
+            this.repository_Note,
+            this.repository_Count});
             this.gridControl_ProductOrder.Size = new System.Drawing.Size(1275, 530);
             this.gridControl_ProductOrder.TabIndex = 6;
             this.gridControl_ProductOrder.UseEmbeddedNavigator = true;
@@ -1107,9 +1110,10 @@
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", null, "數量: {0:0.##}")});
             this.gridView_ProductOrder.Name = "gridView_ProductOrder";
             this.gridView_ProductOrder.NewItemRowText = "點此新增";
-            this.gridView_ProductOrder.OptionsNavigation.AutoFocusNewRow = true;
+            this.gridView_ProductOrder.OptionsSelection.CheckBoxSelectorField = "Note3";
             this.gridView_ProductOrder.OptionsSelection.MultiSelect = true;
             this.gridView_ProductOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView_ProductOrder.OptionsSelection.ResetSelectionClickOutsideCheckboxSelector = true;
             this.gridView_ProductOrder.OptionsView.ColumnAutoWidth = false;
             this.gridView_ProductOrder.OptionsView.ShowFooter = true;
             this.gridView_ProductOrder.OptionsView.ShowGroupPanel = false;
@@ -1201,7 +1205,6 @@
             this.colCustomName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colCustomName.MinWidth = 23;
             this.colCustomName.Name = "colCustomName";
-            this.colCustomName.OptionsColumn.AllowFocus = false;
             this.colCustomName.OptionsColumn.FixedWidth = true;
             this.colCustomName.Visible = true;
             this.colCustomName.VisibleIndex = 2;
@@ -1267,13 +1270,21 @@
             this.colCount.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.colCount.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colCount.Caption = "數量";
+            this.colCount.ColumnEdit = this.repository_Count;
             this.colCount.FieldName = "Count";
             this.colCount.MinWidth = 23;
             this.colCount.Name = "colCount";
-            this.colCount.OptionsColumn.AllowFocus = false;
             this.colCount.Visible = true;
             this.colCount.VisibleIndex = 6;
             this.colCount.Width = 189;
+            // 
+            // repository_Count
+            // 
+            this.repository_Count.AutoHeight = false;
+            this.repository_Count.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repository_Count.Name = "repository_Count";
+            this.repository_Count.EditValueChanged += new System.EventHandler(this.repository_Count_EditValueChanged);
             // 
             // colPrice
             // 
@@ -1290,6 +1301,7 @@
             this.colPrice.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.colPrice.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.colPrice.Caption = "售價";
+            this.colPrice.ColumnEdit = this.repository_Count;
             this.colPrice.FieldName = "Price";
             this.colPrice.MinWidth = 23;
             this.colPrice.Name = "colPrice";
@@ -2040,6 +2052,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_ProductOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_ProductOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repository_Count)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
@@ -2153,5 +2166,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colLocalDescription2;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repository_Note;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch_GroupColumn;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repository_Count;
     }
 }

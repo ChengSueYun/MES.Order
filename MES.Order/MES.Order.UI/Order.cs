@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
@@ -85,8 +86,8 @@ namespace MES.Order.UI
         private void InitialCusomterName()
         {
             var result = this.ProductsOrderUCO.GetCustomerName("*ALL");
-            this.lookUpEdit_CustomerName.Properties.DataSource = result;
-            this.lookUpEdit_CustomerName.EditValue             = "*ALL";
+            this.lookUpEdit_CustomerName.Properties.DataSource    = result;
+            this.lookUpEdit_CustomerName.EditValue                = "*ALL";
             this.LookUpEdit_addCustomerName.Properties.DataSource = result;
         }
 
@@ -125,6 +126,7 @@ namespace MES.Order.UI
             var ProductName    = this.lookUpEdit_ProductName.EditValue.ToString();
             var OrderDateS     = this.dateEdit_OrderDateS.DateTime;
             var OrderDateE     = this.dateEdit_OrderDateE.DateTime;
+
             this.productsOrders =
                 this.ProductsOrderUCO.QueryAllOrders(Area, ProductGroupID, CusomerName, ProductName, OrderDateS,
                                                      OrderDateE).OrderByDescending(x => x.AutoID).ToList();
@@ -170,7 +172,8 @@ namespace MES.Order.UI
                 this.queryArea = this.ProductsOrderUCO.QuerySpecifcName(addCustomer);
                 if (!string.IsNullOrWhiteSpace(this.queryArea) & this.addOrderView.Count > 0)
                 {
-                    this.addOrderView[0].Area         = this.queryArea;
+                    this.addOrderView[0].Area = this.queryArea;
+
                     // this.lookUpEdit_addArea.EditValue = this.queryArea;
                 }
             }
@@ -269,8 +272,8 @@ namespace MES.Order.UI
                 throw new Exception("btn_Save_Click 存檔發生錯誤");
             }
 
-            this.addOrderView.Clear();
-            this.addOrderViewModelBindingSource.AddNew();
+            // this.addOrderView.Clear();
+            // this.addOrderViewModelBindingSource.AddNew();
             this.productsOrders = this
                                   .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
                                                                    DateTime.Today, DateTime.Today)
@@ -333,24 +336,24 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_FocusRow_Click(object sender, EventArgs e)
         {
-            var Selected    = this.gridView_ProductOrder.GetSelectedRows();
-            var CurrentList = this.productsOrderBindingSource.DataSource as List<ProductsOrder>;
-            CurrentList = CurrentList.OrderByDescending(x => x.AutoID).ToList();
-            List<ProductsOrder> updateList = new List<ProductsOrder>();
-            var dialogResult = MessageBox.Show(@"是否確認鎖定 " + Selected.Length.ToString() + @"筆資料?", "提醒",
+            var                 CurrentList = this.productsOrderBindingSource.DataSource as List<ProductsOrder>;
+            var                 checkedList = CurrentList.Where(x => x.Note3 == "True").ToList();
+            List<ProductsOrder> updateList  = new List<ProductsOrder>();
+            var dialogResult = MessageBox.Show(@"是否確認鎖定 " + checkedList.Count + @"筆資料?", @"提醒",
                                                MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
             {
                 return;
             }
 
-            foreach (var item in Selected)
+            foreach (var item in checkedList)
             {
-                CurrentList[item].Address = "Y:" + DateTime.Today.ToSimpleTaiwanCalendar() + " 已取貨";
-                updateList.Add(CurrentList[item]);
-                if (this.focusOrders.All(x => x.AutoID != CurrentList[item].AutoID))
+                item.Address = @"Y:" + DateTime.Today.ToSimpleTaiwanCalendar() + @" 已取貨";
+                item.Note3   = "";
+                updateList.Add(item);
+                if (this.focusOrders.All(x => x.AutoID != item.AutoID))
                 {
-                    this.focusOrders.Add(CurrentList[item]);
+                    this.focusOrders.Add(item);
                 }
 
                 this.FocusbindingSource.DataSource = this.focusOrders;
@@ -362,12 +365,6 @@ namespace MES.Order.UI
             {
                 MessageBox.Show(@"已鎖定 " + updateOrders + @"筆資料", @"鎖定訊息",
                                 MessageBoxButtons.YesNo);
-
-                // foreach (var item in updateList)
-                // {
-                //     this.alertControl1.Show(this.ParentForm, "鎖定訊息",
-                //                             "已鎖定 " + Environment.NewLine + item.CustomName + ":" + item.ProductName);
-                // }
 
                 this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             }
@@ -410,7 +407,7 @@ namespace MES.Order.UI
         }
 
         /// <summary>
-        /// 新增備註的值改變時，自動Update
+        /// 點選備註的值改變時，自動Update
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -421,14 +418,43 @@ namespace MES.Order.UI
             var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
             if (textEdit != null & productsOrder != null)
             {
-                productsOrder.Note1    = textEdit.Text;
+                productsOrder.Note1      = textEdit.Text;
                 productsOrder.UpdateDate = DateTime.Now;
                 productsOrder.SetDefaultValue();
                 this.UpdateproductsOrders.Add(productsOrder);
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
             }
         }
-        
+
+        /// <summary>
+        /// 點選數量的值改變時，自動Update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repository_Count_EditValueChanged(object sender, EventArgs e)
+        {
+            var spinEdit = sender as SpinEdit;
+            this.UpdateproductsOrders = new List<ProductsOrder>();
+            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
+            if (spinEdit != null & productsOrder != null)
+            {
+                productsOrder.Count      = (int) spinEdit.Value;
+                productsOrder.UpdateDate = DateTime.Now;
+                var productsInfomations =
+                    this.ProductsOrderUCO.GetProductPrice(productsOrder.ProductGroupID, productsOrder.ProductName);
+                if (productsInfomations.Count==0)
+                {
+                    throw new Exception("在編輯數量的時候，查詢此產品時未找到此" + productsOrder.ProductName + "的相關資料!");
+                }
+                productsOrder.TotalPrice  = (int) spinEdit.Value * productsInfomations[0].Price;
+                productsOrder.TotalCost   = (int) spinEdit.Value * productsInfomations[0].Cost;
+                productsOrder.TotalProfit = (int) spinEdit.Value * productsInfomations[0].Profit;
+                productsOrder.SetDefaultValue();
+                this.UpdateproductsOrders.Add(productsOrder);
+                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+            }
+        }
+
         private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
             if (e.Page.TabIndex == 1)
@@ -528,7 +554,6 @@ namespace MES.Order.UI
             }
         }
 
-
         #endregion
 
         private void toggleSwitch_GroupColumn_Toggled(object sender, EventArgs e)
@@ -541,8 +566,8 @@ namespace MES.Order.UI
             {
                 this.colArea.GroupIndex = -1;
             }
+
             this.gridView_ProductOrder.BestFitColumns();
         }
-
     }
 }

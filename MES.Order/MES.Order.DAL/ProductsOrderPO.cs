@@ -25,7 +25,7 @@ namespace MES.Order.DAL
 
         private ProductsDbContext _productsDbContext;
 
-        public List<ProductsOrder> QueryAllOrders(string Area, string ProductGroupID, string CustomerName,
+        public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
                                                   string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
         {
             using (var db =
@@ -52,9 +52,10 @@ namespace MES.Order.DAL
                 return result;
             }
         }
-        
-        public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, List<string>   CustomerName,
-                                                  List<string> ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
+
+        public List<ProductsOrder> QueryAllOrders(string       Area, string ProductGroupID, List<string> CustomerName,
+                                                  List<string> ProductName, DateTime orderDateTimeS,
+                                                  DateTime     orderDateTimeE)
         {
             using (var db =
                 ProductsDbContext.CreateAndOpen(this.productsDbContext.Database.Connection.ConnectionString))
@@ -69,11 +70,11 @@ namespace MES.Order.DAL
 
                     result = result.Where(x => x.ProductGroupID == ProductGroupID).ToList();
 
-                if (!CustomerName.Contains("*ALL") & CustomerName.Count>0)
+                if (!CustomerName.Contains("*ALL") & CustomerName.Count > 0)
 
                     result = result.Where(x => CustomerName.Contains(x.CustomName)).ToList();
 
-                if (!ProductName.Contains("*ALL")& ProductName.Count>0)
+                if (!ProductName.Contains("*ALL") & ProductName.Count > 0)
 
                     result = result.Where(x => ProductName.Contains(x.ProductName)).ToList();
 
@@ -85,7 +86,6 @@ namespace MES.Order.DAL
 
         public int SaveOrder(List<ProductsOrder> insertProductsOrders)
         {
-
             var result = 0;
             using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
             {
@@ -93,7 +93,6 @@ namespace MES.Order.DAL
                 result = db.Save();
             }
 
-            
             return result;
         }
 
@@ -104,17 +103,16 @@ namespace MES.Order.DAL
         public int DeleteOrder(List<ProductsOrder> deletOders)
         {
             using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
+            {
+                foreach (var deletOder in deletOders)
                 {
-                   
-                    foreach (var deletOder in deletOders)
-                    {
-                        db.ProductsOrders.Attach(deletOder);
-                        db.Entry(deletOder).State = EntityState.Deleted;
-                    }
-                    var result = db.Save();
-                    return result;
+                    db.ProductsOrders.Attach(deletOder);
+                    db.Entry(deletOder).State = EntityState.Deleted;
                 }
-          
+
+                var result = db.Save();
+                return result;
+            }
         }
 
         #endregion

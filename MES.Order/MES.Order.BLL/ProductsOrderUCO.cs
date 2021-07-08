@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Xml;
 using MES.Order.Adapter;
 using MES.Order.DAL.EntityFramework;
@@ -121,6 +122,7 @@ namespace MES.Order.BLL
             AddAllSelectRow(ref result);
             return result;
         }
+
         public string QuerySpecifcName(string pCustomName) => this._icustomerAdapter.QuerySpecifcName(pCustomName);
 
         public List<KeyAndNameForCombo> GetCustomerName(string Area)
