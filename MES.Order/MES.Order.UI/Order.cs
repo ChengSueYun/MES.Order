@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using DevExpress.DataProcessing;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
 using DevExpress.XtraPrinting;
 using MES.Order.BLL;
@@ -174,8 +176,6 @@ namespace MES.Order.UI
                 if (!string.IsNullOrWhiteSpace(this.queryArea) & this.addOrderView.Count > 0)
                 {
                     this.addOrderView[0].Area = this.queryArea;
-
-                    // this.lookUpEdit_addArea.EditValue = this.queryArea;
                 }
             }
         }
@@ -273,8 +273,6 @@ namespace MES.Order.UI
                 throw new Exception("btn_Save_Click 存檔發生錯誤");
             }
 
-            // this.addOrderView.Clear();
-            // this.addOrderViewModelBindingSource.AddNew();
             this.productsOrders = this
                                   .ProductsOrderUCO.QueryAllOrders("*ALL", "*ALL", "*ALL", "*ALL",
                                                                    DateTime.Today, DateTime.Today)
@@ -290,43 +288,43 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            var selectedRows = this.gridView_ProductOrder.GetSelectedRows();
-            var deleteList   = new List<ProductsOrder>();
-            this.productsOrders = this.productsOrders.OrderByDescending(x => x.AutoID).ToList();
-            var dialogResult = MessageBox.Show(@"是否確認刪除 " + selectedRows.Length.ToString() + @"筆資料?", @"提醒",
+            var CurrentList = this.productsOrderBindingSource.DataSource as List<ProductsOrder>;
+            var checkedList = CurrentList.Where(x => x.Note3 == "True").ToList();
+            var deleteList  = new List<ProductsOrder>();
+            var dialogResult = MessageBox.Show(@"是否確認刪除 " + checkedList.Count + @"筆資料?", @"提醒",
                                                MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
             {
                 return;
             }
 
-            foreach (var row in selectedRows)
+            foreach (var row in checkedList)
             {
-                var deleteRow = new ProductsOrder();
-
-                deleteRow = this.productsOrders[row];
-                deleteList.Add(deleteRow);
+                deleteList.Add(row);
+                this.focusOrders.Remove(x => x.AutoID == row.AutoID);
             }
+
+            this.FocusbindingSource.DataSource = this.focusOrders;
+            this.gridControl_FocusOrder.RefreshDataSource();
+            this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
 
             var actualDeleteCount = this.ProductsOrderUCO.DeleteOrders(deleteList);
             if (actualDeleteCount == deleteList.Count)
             {
-                MessageBox.Show(@"已刪除 " + actualDeleteCount + @"筆資料", @"刪除訊息",
-                                MessageBoxButtons.YesNo);
+                var stringBuilder = new StringBuilder();
+                foreach (var item in deleteList)
+                {
+                    stringBuilder.AppendLine(item.CustomName + @":" + item.ProductName);
+                }
 
-                // foreach (var item in deleteList)
-                // {
-                //     this.alertControl1.Show(this.ParentForm, "刪除訊息",
-                //                             "已刪除 " + Environment.NewLine + item.CustomName + ":" +
-                //                             item.ProductName);
-                // }
+                MessageBox.Show(@"已經[刪除]的名單=>" + Environment.NewLine + stringBuilder, @"提醒",
+                                MessageBoxButtons.YesNo);
             }
             else
             {
                 throw new Exception("btn_Cancel_Click 刪除發生錯誤");
             }
 
-            deleteList.Clear();
             this.btn_Query.PerformClick();
         }
 
@@ -347,38 +345,30 @@ namespace MES.Order.UI
                 return;
             }
 
-            foreach (var item in checkedList)
+            //已有"是否取貨"的資料
+            var haveData = checkedList
+                           .Where(x => x.Address.Contains(@"已取貨"))
+                           .ToList();
+
+            //還沒有"是否取貨"的資料
+            var noData = checkedList.Where(x => string.IsNullOrEmpty(x.Address)).ToList();
+
+            foreach (var item in haveData)
             {
-                item.Address = @"Y:" + DateTime.Today.ToSimpleTaiwanCalendar() + @" 已取貨";
-                item.Note3   = "";
+                this.focusOrders.AddOrReplace(x => x.AutoID == item.AutoID, item);
+            }
+
+            foreach (var item in noData)
+            {
+                item.Address = this.whetherGetStock.Get.Code;
                 updateList.Add(item);
-                if (this.focusOrders.All(x => x.AutoID != item.AutoID))
-                {
-                    this.focusOrders.Add(item);
-                }
-
-                this.FocusbindingSource.DataSource = this.focusOrders;
-                this.gridControl_FocusOrder.RefreshDataSource();
+                this.focusOrders.AddOrReplace(x => x.AutoID == item.AutoID, item);
             }
 
-            var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
-            if (updateOrders == updateList.Count)
-            {
-                var stringBuilder = new StringBuilder();
-                foreach (var item in updateList)
-                {
-                    stringBuilder.AppendLine(item.CustomName + @":" + item.ProductName);
-                }
-
-                MessageBox.Show(@"已經[鎖定]的名單=>" + Environment.NewLine + stringBuilder, @"提醒",
-                                MessageBoxButtons.YesNo);
-                this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
-            }
-            else
-            {
-                throw new Exception("btn_FocusRow_Click 鎖定列發生錯誤");
-            }
-
+            this.FocusbindingSource.DataSource = this.focusOrders;
+            this.gridControl_FocusOrder.RefreshDataSource();
+            this.ProductsOrderUCO.UpdateOrders(updateList);
+            this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             this.btn_Query.PerformClick();
         }
 
@@ -409,6 +399,10 @@ namespace MES.Order.UI
                 productsOrder.SetDefaultValue();
                 this.UpdateproductsOrders.Add(productsOrder);
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+
+                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
+                this.FocusbindingSource.DataSource = this.focusOrders;
+                this.gridControl_FocusOrder.RefreshDataSource();
             }
         }
 
@@ -429,6 +423,10 @@ namespace MES.Order.UI
                 productsOrder.SetDefaultValue();
                 this.UpdateproductsOrders.Add(productsOrder);
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+
+                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
+                this.FocusbindingSource.DataSource = this.focusOrders;
+                this.gridControl_FocusOrder.RefreshDataSource();
             }
         }
 
@@ -459,9 +457,18 @@ namespace MES.Order.UI
                 productsOrder.SetDefaultValue();
                 this.UpdateproductsOrders.Add(productsOrder);
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+
+                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
+                this.FocusbindingSource.DataSource = this.focusOrders;
+                this.gridControl_FocusOrder.RefreshDataSource();
             }
         }
 
+        /// <summary>
+        /// 頁籤改變時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xtraTabControl1_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
         {
             if (e.Page.TabIndex == 1)
@@ -504,7 +511,6 @@ namespace MES.Order.UI
             foreach (var item in checkedList)
             {
                 item.Address = @"";
-                item.Note3   = @"";
                 updateList.Add(item);
                 this.focusOrders.Remove(item);
 
@@ -559,8 +565,11 @@ namespace MES.Order.UI
             }
         }
 
-        #endregion
-
+        /// <summary>
+        /// 是否要群組計算數量
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toggleSwitch_GroupColumn_Toggled(object sender, EventArgs e)
         {
             if (this.toggleSwitch_GroupColumn.IsOn)
@@ -574,5 +583,7 @@ namespace MES.Order.UI
 
             this.gridView_ProductOrder.BestFitColumns();
         }
+
+        #endregion
     }
 }

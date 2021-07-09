@@ -89,6 +89,7 @@ namespace MES.Order.DAL
             var result = 0;
             using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
             {
+                insertProductsOrders.ForEach(x=>x.Note3="");
                 db.ProductsOrders.AddRange(insertProductsOrders);
                 result = db.Save();
             }
@@ -106,6 +107,7 @@ namespace MES.Order.DAL
             {
                 foreach (var deletOder in deletOders)
                 {
+                    deletOder.Note3 = "";
                     db.ProductsOrders.Attach(deletOder);
                     db.Entry(deletOder).State = EntityState.Deleted;
                 }
@@ -125,6 +127,7 @@ namespace MES.Order.DAL
             {
                 foreach (var updateOrder in updateOrders)
                 {
+                    updateOrder.Note3 = "";
                     db.ProductsOrders.Attach(updateOrder);
                     db.Entry(updateOrder).State = EntityState.Modified;
                 }

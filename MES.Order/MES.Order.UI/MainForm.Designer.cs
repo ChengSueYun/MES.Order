@@ -29,14 +29,16 @@ namespace MES.Order.UI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
-            this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup();
-            this.chartDataDocument = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
-            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
-            this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
-            this.document3 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document();
-            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager();
-            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView();
+            this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
+            this.chartDataDocument = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
+            this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
+            this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
+            this.document3 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
@@ -109,12 +111,21 @@ namespace MES.Order.UI
             dockingContainer1});
             this.tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Classic;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(466, 12);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton1.TabIndex = 1;
+            this.simpleButton1.Text = "simpleButton1";
+            // 
             // MainForm
             // 
             this.AllowMdiBar = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 939);
+            this.Controls.Add(this.simpleButton1);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
@@ -149,5 +160,6 @@ namespace MES.Order.UI
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document2;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document3;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document chartDataDocument;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

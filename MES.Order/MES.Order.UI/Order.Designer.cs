@@ -100,8 +100,9 @@
             this.colOrderDate = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repository_Note = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSetAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repository_WhetherStock = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.colAddress = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalCost = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTotalProfit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUpdateDate = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1097,6 +1098,7 @@
             this.colTotalPrice,
             this.colOrderDate,
             this.colNote1,
+            this.colSetAddress,
             this.colAddress,
             this.colTotalCost,
             this.colTotalProfit,
@@ -1161,8 +1163,6 @@
             this.colArea.MinWidth = 23;
             this.colArea.Name = "colArea";
             this.colArea.OptionsColumn.AllowFocus = false;
-            this.colArea.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "SUM={0:0.##}")});
             this.colArea.Visible = true;
             this.colArea.VisibleIndex = 1;
             // 
@@ -1252,9 +1252,10 @@
             this.colProductName.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colProductName.MinWidth = 23;
             this.colProductName.Name = "colProductName";
+            this.colProductName.OptionsColumn.FixedWidth = true;
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 3;
-            this.colProductName.Width = 254;
+            this.colProductName.Width = 231;
             // 
             // colCount
             // 
@@ -1276,8 +1277,8 @@
             this.colCount.MinWidth = 23;
             this.colCount.Name = "colCount";
             this.colCount.Visible = true;
-            this.colCount.VisibleIndex = 6;
-            this.colCount.Width = 189;
+            this.colCount.VisibleIndex = 7;
+            this.colCount.Width = 113;
             // 
             // repository_Count
             // 
@@ -1310,7 +1311,7 @@
             this.colPrice.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "{0:N0}")});
             this.colPrice.Visible = true;
-            this.colPrice.VisibleIndex = 5;
+            this.colPrice.VisibleIndex = 6;
             this.colPrice.Width = 68;
             // 
             // colTotalPrice
@@ -1335,7 +1336,7 @@
             this.colTotalPrice.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "{0:N0}")});
             this.colTotalPrice.Visible = true;
-            this.colTotalPrice.VisibleIndex = 7;
+            this.colTotalPrice.VisibleIndex = 8;
             this.colTotalPrice.Width = 81;
             // 
             // colOrderDate
@@ -1382,7 +1383,7 @@
             this.colNote1.MinWidth = 23;
             this.colNote1.Name = "colNote1";
             this.colNote1.Visible = true;
-            this.colNote1.VisibleIndex = 11;
+            this.colNote1.VisibleIndex = 12;
             this.colNote1.Width = 120;
             // 
             // repository_Note
@@ -1394,6 +1395,46 @@
             this.repository_Note.AutoHeight = false;
             this.repository_Note.Name = "repository_Note";
             this.repository_Note.EditValueChanged += new System.EventHandler(this.repository_Note_EditValueChanged);
+            // 
+            // colSetAddress
+            // 
+            this.colSetAddress.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colSetAddress.AppearanceCell.Options.UseFont = true;
+            this.colSetAddress.AppearanceCell.Options.UseTextOptions = true;
+            this.colSetAddress.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colSetAddress.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colSetAddress.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colSetAddress.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colSetAddress.AppearanceHeader.Options.UseFont = true;
+            this.colSetAddress.AppearanceHeader.Options.UseTextOptions = true;
+            this.colSetAddress.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.colSetAddress.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.colSetAddress.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.colSetAddress.Caption = "是否取貨";
+            this.colSetAddress.ColumnEdit = this.repository_WhetherStock;
+            this.colSetAddress.MinWidth = 25;
+            this.colSetAddress.Name = "colSetAddress";
+            this.colSetAddress.Visible = true;
+            this.colSetAddress.VisibleIndex = 10;
+            this.colSetAddress.Width = 94;
+            // 
+            // repository_WhetherStock
+            // 
+            this.repository_WhetherStock.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_WhetherStock.Appearance.Options.UseFont = true;
+            this.repository_WhetherStock.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_WhetherStock.AppearanceDropDown.Options.UseFont = true;
+            this.repository_WhetherStock.AutoHeight = false;
+            this.repository_WhetherStock.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repository_WhetherStock.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 140, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.repository_WhetherStock.DisplayMember = "LocalDescription";
+            this.repository_WhetherStock.Name = "repository_WhetherStock";
+            this.repository_WhetherStock.NullText = "";
+            this.repository_WhetherStock.ValueMember = "Code";
+            this.repository_WhetherStock.EditValueChanged += new System.EventHandler(this.repository_WhetherStock_EditValueChanged);
             // 
             // colAddress
             // 
@@ -1409,33 +1450,14 @@
             this.colAddress.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAddress.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.colAddress.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colAddress.Caption = "是否取貨";
-            this.colAddress.ColumnEdit = this.repository_WhetherStock;
+            this.colAddress.Caption = "取貨";
             this.colAddress.FieldName = "Address";
+            this.colAddress.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.colAddress.MinWidth = 23;
             this.colAddress.Name = "colAddress";
             this.colAddress.Visible = true;
-            this.colAddress.VisibleIndex = 10;
+            this.colAddress.VisibleIndex = 5;
             this.colAddress.Width = 134;
-            // 
-            // repository_WhetherStock
-            // 
-            this.repository_WhetherStock.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repository_WhetherStock.Appearance.Options.UseFont = true;
-            this.repository_WhetherStock.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repository_WhetherStock.AppearanceDropDown.Options.UseFont = true;
-            this.repository_WhetherStock.AutoHeight = false;
-            this.repository_WhetherStock.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repository_WhetherStock.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 140, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.repository_WhetherStock.DataSource = this.keyAndNameForComboBindingSource;
-            this.repository_WhetherStock.DisplayMember = "LocalDescription";
-            this.repository_WhetherStock.Name = "repository_WhetherStock";
-            this.repository_WhetherStock.NullText = "";
-            this.repository_WhetherStock.ValueMember = "Code";
-            this.repository_WhetherStock.EditValueChanged += new System.EventHandler(this.repository_WhetherStock_EditValueChanged);
             // 
             // colTotalCost
             // 
@@ -1459,7 +1481,7 @@
             this.colTotalCost.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalCost", "{0:N0}")});
             this.colTotalCost.Visible = true;
-            this.colTotalCost.VisibleIndex = 8;
+            this.colTotalCost.VisibleIndex = 9;
             this.colTotalCost.Width = 81;
             // 
             // colTotalProfit
@@ -1484,7 +1506,7 @@
             this.colTotalProfit.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalProfit", "{0:N0}")});
             this.colTotalProfit.Visible = true;
-            this.colTotalProfit.VisibleIndex = 9;
+            this.colTotalProfit.VisibleIndex = 11;
             this.colTotalProfit.Width = 94;
             // 
             // colUpdateDate
@@ -2168,5 +2190,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repository_Note;
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch_GroupColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repository_Count;
+        private DevExpress.XtraGrid.Columns.GridColumn colSetAddress;
     }
 }
