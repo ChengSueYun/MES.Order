@@ -79,65 +79,48 @@ namespace MES.Order.DAL
 
         public List<KeyAndNameForCombo> DistinctCustomer(string pArea)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+            var filter = this.ProductsDbContext.Customs.ToListAsync().Result;
+            if (string.IsNullOrWhiteSpace(pArea) == false && pArea != "*ALL")
             {
-                var filter = db.Customs
-                               .ToList();
-                if (string.IsNullOrWhiteSpace(pArea) == false && pArea != "*ALL")
-                {
-                    filter = filter.Where(x => x.Address == pArea).ToList();
-                }
-
-                var result = (from a in filter
-                              select new KeyAndNameForCombo
-                              {
-                                  Code             = a.CustomName,
-                                  LocalDescription = a.Address
-                              }).Distinct().ToList();
-                return result;
+                filter = filter.Where(x => x.Address == pArea).ToList();
             }
+
+            var result = (from a in filter
+                          select new KeyAndNameForCombo
+                          {
+                              Code             = a.CustomName,
+                              LocalDescription = a.Address
+                          }).Distinct().ToList();
+            return result;
         }
 
         public List<Custom> QueryAllCustoms(string pArea, string pCustomName)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+            var result = this.ProductsDbContext.Customs.ToListAsync().Result;
+
+            if (string.IsNullOrWhiteSpace(pArea) == false && pArea != "*ALL")
             {
-                var result = db.Customs
-                               .ToList();
-                if (string.IsNullOrWhiteSpace(pArea) == false && pArea != "*ALL")
-                {
-                    result = result.Where(x => x.Address == pArea).ToList();
-                }
-
-                if (string.IsNullOrWhiteSpace(pCustomName) == false && pCustomName != "*ALL")
-                {
-                    result = result.Where(x => x.CustomName == pCustomName).ToList();
-                }
-
-                return result;
+                result = result.Where(x => x.Address == pArea).ToList();
             }
+
+            if (string.IsNullOrWhiteSpace(pCustomName) == false && pCustomName != "*ALL")
+            {
+                result = result.Where(x => x.CustomName == pCustomName).ToList();
+            }
+
+            return result;
         }
 
         public List<Custom> QueryAll()
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                return db.Customs.ToList();
-            }
+            return this.ProductsDbContext.Customs.ToListAsync().Result;
         }
 
         public string QuerySpecifcName(string pCustomName)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                var result = db.Customs.Where(x => x.CustomName == pCustomName).AsNoTracking();
+            var result = this.ProductsDbContext.Customs.Where(x => x.CustomName == pCustomName).ToListAsync().Result;
 
-                return result.Select(x => x.Address).FirstOrDefault();
-            }
+            return result.Select(x => x.Address).FirstOrDefault();
         }
 
         #endregion

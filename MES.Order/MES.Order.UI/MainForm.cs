@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using MES.Order.DAL.EntityFramework;
 
 namespace MES.Order.UI
 {
@@ -20,8 +22,15 @@ namespace MES.Order.UI
 
             // Handling the QueryControl event that will populate all automatically generated Documents
             this.tabbedView1.QueryControl += tabbedView1_QueryControl;
+            // var task1 = Task.Run(this.LoadAsync);
         }
-
+        private void LoadAsync()
+        {
+            var dbContext = new ProductsDbContext();
+            dbContext.Areas.Load();
+            dbContext.ProductGroupIDs.Load();
+            dbContext.ProductsInfomations.Load();
+        }
         // Assigning a required content for each auto generated Document
         void tabbedView1_QueryControl(object sender, DevExpress.XtraBars.Docking2010.Views.QueryControlEventArgs e)
         {

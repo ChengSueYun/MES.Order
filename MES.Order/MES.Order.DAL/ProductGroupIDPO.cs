@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
@@ -26,20 +27,15 @@ namespace MES.Order.DAL
 
         public List<KeyAndNameForCombo> QueryAllProductsGroupID()
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                var filter = db.ProductGroupIDs
-                               .ToList();
-                var result = (from a in filter
-                              select new KeyAndNameForCombo
-                              {
-                                  Code             = a.ProductGroupID,
-                                  LocalDescription = a.ProductGroupName
-                              }).Distinct().ToList();
+            var filter    = this.ProductsDbContext.ProductGroupIDs.ToListAsync().Result;
+            var result = (from a in filter
+                          select new KeyAndNameForCombo
+                          {
+                              Code             = a.ProductGroupID,
+                              LocalDescription = a.ProductGroupName
+                          }).Distinct().ToList();
 
-                return result;
-            }
+            return result;
         }
     }
 }

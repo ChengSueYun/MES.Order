@@ -37,6 +37,7 @@ namespace MES.Order.DAL
                     db.ProductsInfomations.Attach(delProductsInfomation);
                     db.Entry(delProductsInfomation).State = EntityState.Deleted;
                 }
+
                 var result = db.Save();
                 return result;
             }
@@ -50,7 +51,6 @@ namespace MES.Order.DAL
         {
             using (var db = ProductsDbContext.Create(this.ProductsDbContext.Database.Connection.ConnectionString))
             {
-
                 db.ProductsInfomations.AddRange(insertProductsInfomations);
                 var result = db.Save();
                 return result;
@@ -63,97 +63,72 @@ namespace MES.Order.DAL
 
         public List<KeyAndNameForCombo> DistinctProducts()
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                return (from a in db.ProductsInfomations
-                        select new KeyAndNameForCombo
-                        {
-                            Code             = a.ProductName,
-                            LocalDescription = a.ProductName
-                        }).Distinct().ToList();
-            }
+            return (from a in this.ProductsDbContext.ProductsInfomations
+                    select new KeyAndNameForCombo
+                    {
+                        Code             = a.ProductName,
+                        LocalDescription = a.ProductName
+                    }).Distinct().ToList();
         }
 
         public List<ProductsInfomation> QueryAllProducts(string productGroupId, string productName)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+            var result = this.ProductsDbContext.ProductsInfomations.ToListAsync().Result;
+            if (string.IsNullOrWhiteSpace(productGroupId) == false && productGroupId != "*ALL")
             {
-                var result = db.ProductsInfomations
-                               .ToList();
-                if (string.IsNullOrWhiteSpace(productGroupId) == false && productGroupId != "*ALL")
-                {
-                    result = result.Where(x => x.ProductGroupID == productGroupId).ToList();
-                }
-
-                if (string.IsNullOrWhiteSpace(productName) == false && productName != "*ALL")
-                {
-                    result = result.Where(x => x.ProductName == productName).ToList();
-                }
-
-                return result;
+                result = result.Where(x => x.ProductGroupID == productGroupId).ToList();
             }
+
+            if (string.IsNullOrWhiteSpace(productName) == false && productName != "*ALL")
+            {
+                result = result.Where(x => x.ProductName == productName).ToList();
+            }
+
+            return result;
         }
 
         public List<KeyAndNameForCombo> DistinctProductName(string productGroupId)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+            var filter = this.ProductsDbContext.ProductsInfomations.ToListAsync().Result;
+            if (string.IsNullOrWhiteSpace(productGroupId) == false && productGroupId != "*ALL")
             {
-                var filter = db.ProductsInfomations
-                               .ToList();
-                if (string.IsNullOrWhiteSpace(productGroupId) == false && productGroupId != "*ALL")
-                {
-                    filter = filter.Where(x => x.ProductGroupID == productGroupId).ToList();
-                }
-
-                var result = (from a in filter
-                              select new KeyAndNameForCombo
-                              {
-                                  Code             = a.ProductName,
-                                  LocalDescription = a.ProductGroupID
-                              }).Distinct().ToList();
-                return result;
+                filter = filter.Where(x => x.ProductGroupID == productGroupId).ToList();
             }
+
+            var result = (from a in filter
+                          select new KeyAndNameForCombo
+                          {
+                              Code             = a.ProductName,
+                              LocalDescription = a.ProductGroupID
+                          }).Distinct().ToList();
+            return result;
         }
 
         public List<ProductsInfomation> QueryAll()
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                return db.ProductsInfomations
-                         .ToList();
-            }
+            return this.ProductsDbContext.ProductsInfomations.ToListAsync().Result;
         }
 
         public List<ProductsInfomation> GetProdctPrice(string ProductGroupID, string ProductName)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
+            var filter = this.ProductsDbContext.ProductsInfomations.ToListAsync().Result;
+            if (string.IsNullOrWhiteSpace(ProductGroupID) == false && ProductGroupID != "*ALL")
             {
-                var filter = db.ProductsInfomations.ToList();
-                if (string.IsNullOrWhiteSpace(ProductGroupID) == false && ProductGroupID != "*ALL")
-                {
-                    filter = filter.Where(x => x.ProductGroupID == ProductGroupID).ToList();
-                }
-                if (string.IsNullOrWhiteSpace(ProductName) == false && ProductName != "*ALL")
-                {
-                    filter = filter.Where(x => x.ProductName == ProductName).ToList();
-                }
-                return filter;
+                filter = filter.Where(x => x.ProductGroupID == ProductGroupID).ToList();
             }
+
+            if (string.IsNullOrWhiteSpace(ProductName) == false && ProductName != "*ALL")
+            {
+                filter = filter.Where(x => x.ProductName == ProductName).ToList();
+            }
+
+            return filter;
         }
 
         public List<ProductsInfomation> GetProdctCost(string ProductGroupID, string ProductName)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                return db.ProductsInfomations
-                         .Where(x => x.ProductGroupID == ProductGroupID && x.ProductName == ProductName).ToList();
-            }
+            return this.ProductsDbContext.ProductsInfomations
+                       .Where(x => x.ProductGroupID == ProductGroupID && x.ProductName == ProductName).ToListAsync().Result;
         }
 
         #endregion

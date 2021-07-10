@@ -54,6 +54,7 @@ namespace MES.Order.UI
             this.InitialProductGroupID();
             this.InitialCusomterName();
             this.InitialProductName();
+            this.InitialProductInformation();
         }
 
         #region Initial
@@ -66,7 +67,7 @@ namespace MES.Order.UI
             this.InitialProductName();
             this.InitialWhetherStock();
             this.InitialProductInformation();
-            this.dateEdit_OrderDateS.DateTime              = DateTime.Today.AddDays(-3);
+            this.dateEdit_OrderDateS.DateTime              = DateTime.Today;
             this.dateEdit_OrderDateE.DateTime              = DateTime.Today;
             this.addOrderViewModelBindingSource.DataSource = this.addOrderView;
             this.addOrderViewModelBindingSource.AddNew();
@@ -157,7 +158,6 @@ namespace MES.Order.UI
 
             this.productsOrderBindingSource.DataSource = this.productsOrders;
             this.gridView_ProductOrder.BestFitColumns();
-            this.gridView_FocusOrder.BestFitColumns();
         }
 
         /// <summary>
@@ -219,7 +219,6 @@ namespace MES.Order.UI
                 this.focusOrders.Remove(x => x.AutoID == row.AutoID);
             }
 
-            this.gridControl_FocusOrder.RefreshDataSource();
             this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
 
             var actualDeleteCount = this.ProductsOrderUCO.DeleteOrders(deleteList);
@@ -279,7 +278,6 @@ namespace MES.Order.UI
                 this.focusOrders.AddOrReplace(x => x.AutoID == item.AutoID, item);
             }
 
-            this.gridControl_FocusOrder.RefreshDataSource();
             this.pivotGrid_FocusOrder.RefreshData();
             this.ProductsOrderUCO.UpdateOrders(updateList);
             this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
@@ -347,7 +345,7 @@ namespace MES.Order.UI
                 updateList.Add(item);
                 this.focusOrders.Remove(item);
 
-                this.gridControl_FocusOrder.RefreshDataSource();
+                this.pivotGrid_FocusOrder.RefreshData();
             }
 
             var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
@@ -456,8 +454,17 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void lookUpEdit_addArea_EditValueChanged(object sender, EventArgs e)
         {
-            var addArea = this.lookUpEdit_addArea.EditValue.ToString();
-            var result  = this.mCustomerList.Where(x => x.LocalDescription == addArea).ToList();
+            var                      addArea = this.lookUpEdit_addArea.EditValue.ToString();
+            List<KeyAndNameForCombo> result;
+            if (addArea == @"*ALL")
+            {
+                result = this.mCustomerList;
+            }
+            else
+            {
+                result = this.mCustomerList.Where(x => x.LocalDescription == addArea).ToList();
+            }
+
             this.LookUpEdit_addCustomerName.Properties.DataSource = result;
         }
 
@@ -483,8 +490,17 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void lookUpEdit_addProductGroupID_EditValueChanged(object sender, EventArgs e)
         {
-            var addProductGroupID = this.lookUpEdit_addProductGroupID.EditValue.ToString();
-            var result            = this.mProductList.Where(x => x.LocalDescription == addProductGroupID).ToList();
+            var                      addProductGroupID = this.lookUpEdit_addProductGroupID.EditValue.ToString();
+            List<KeyAndNameForCombo> result;
+            if (addProductGroupID == @"*ALL")
+            {
+                result = this.mProductList;
+            }
+            else
+            {
+                result = this.mProductList.Where(x => x.LocalDescription == addProductGroupID).ToList();
+            }
+
             this.LookUpEdit_addProductName.Properties.DataSource = result;
         }
 
@@ -549,7 +565,7 @@ namespace MES.Order.UI
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
 
                 this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
-                this.gridControl_FocusOrder.RefreshDataSource();
+                this.pivotGrid_FocusOrder.RefreshData();
             }
         }
 
@@ -572,7 +588,7 @@ namespace MES.Order.UI
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
 
                 this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
-                this.gridControl_FocusOrder.RefreshDataSource();
+                this.pivotGrid_FocusOrder.RefreshData();
             }
         }
 
@@ -590,13 +606,18 @@ namespace MES.Order.UI
             {
                 productsOrder.Count      = (int) spinEdit.Value;
                 productsOrder.UpdateDate = DateTime.Now;
-                var productsInfomations =
-                    this.ProductsOrderUCO.GetProductPrice(productsOrder.ProductGroupID, productsOrder.ProductName);
+
+                // var productsInfomations =
+                //     this.ProductsOrderUCO.GetProductPrice(productsOrder.ProductGroupID, productsOrder.ProductName);
+                var productsInfomations = this.mProductsInfomation
+                                              .Where(x => x.ProductGroupID == productsOrder.ProductGroupID &
+                                                          x.ProductName    == productsOrder.ProductName).ToList();
                 if (productsInfomations.Count == 0)
                 {
                     throw new Exception("在編輯數量的時候，查詢此產品時未找到此" + productsOrder.ProductName + "的相關資料!");
                 }
 
+                productsOrder.Price       = productsInfomations[0].Price;
                 productsOrder.TotalPrice  = (int) spinEdit.Value * productsInfomations[0].Price;
                 productsOrder.TotalCost   = (int) spinEdit.Value * productsInfomations[0].Cost;
                 productsOrder.TotalProfit = (int) spinEdit.Value * productsInfomations[0].Profit;
@@ -605,7 +626,7 @@ namespace MES.Order.UI
                 this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
 
                 this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
-                this.gridControl_FocusOrder.RefreshDataSource();
+                this.pivotGrid_FocusOrder.RefreshData();
             }
         }
 

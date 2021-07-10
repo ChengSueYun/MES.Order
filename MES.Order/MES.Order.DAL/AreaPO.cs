@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
@@ -25,20 +26,14 @@ namespace MES.Order.DAL
 
         public List<KeyAndNameForCombo> GetArea()
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                var filter = db.Areas
-                               .ToList();
-
-                var result = (from a in filter
-                              select new KeyAndNameForCombo
-                              {
-                                  Code             = a.AreaName,
-                                  LocalDescription = a.AreaName
-                              }).Distinct().ToList();
-                return result;
-            }
+            var filter = this.ProductsDbContext.Areas.ToListAsync().Result;
+            var result = (from a in filter
+                          select new KeyAndNameForCombo
+                          {
+                              Code             = a.AreaName,
+                              LocalDescription = a.AreaName
+                          }).Distinct().ToList();
+            return result;
         }
     }
 }

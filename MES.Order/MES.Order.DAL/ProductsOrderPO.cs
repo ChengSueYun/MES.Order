@@ -28,58 +28,50 @@ namespace MES.Order.DAL
         public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
                                                   string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.productsDbContext.Database.Connection.ConnectionString))
-            {
-                var result = db.ProductsOrders.Where(x => x.OrderDate >= orderDateTimeS &&
-                                                          x.OrderDate <= orderDateTimeE).ToList();
-                if (Area != "*ALL")
+            var result = this.productsDbContext.ProductsOrders.Where(x => x.OrderDate >= orderDateTimeS &&
+                                                                          x.OrderDate <= orderDateTimeE);
+            if (Area != "*ALL")
 
-                    result = result.Where(x => x.Area == Area).ToList();
+                result = result.Where(x => x.Area == Area);
 
-                if (ProductGroupID != "*ALL")
+            if (ProductGroupID != "*ALL")
 
-                    result = result.Where(x => x.ProductGroupID == ProductGroupID).ToList();
+                result = result.Where(x => x.ProductGroupID == ProductGroupID);
 
-                if (CustomerName != "*ALL")
+            if (CustomerName != "*ALL")
 
-                    result = result.Where(x => x.CustomName == CustomerName).ToList();
+                result = result.Where(x => x.CustomName == CustomerName);
 
-                if (ProductName != "*ALL")
+            if (ProductName != "*ALL")
 
-                    result = result.Where(x => x.ProductName == ProductName).ToList();
+                result = result.Where(x => x.ProductName == ProductName);
 
-                return result;
-            }
+            return result.ToListAsync().Result;
         }
 
         public List<ProductsOrder> QueryAllOrders(string       Area, string ProductGroupID, List<string> CustomerName,
                                                   List<string> ProductName, DateTime orderDateTimeS,
                                                   DateTime     orderDateTimeE)
         {
-            using (var db =
-                ProductsDbContext.CreateAndOpen(this.productsDbContext.Database.Connection.ConnectionString))
-            {
-                var result = db.ProductsOrders.Where(x => x.OrderDate >= orderDateTimeS &&
-                                                          x.OrderDate <= orderDateTimeE).ToList();
-                if (Area != "*ALL")
+            var result = this.productsDbContext.ProductsOrders.Where(x => x.OrderDate >= orderDateTimeS &&
+                                                                          x.OrderDate <= orderDateTimeE);
+            if (Area != "*ALL")
 
-                    result = result.Where(x => x.Area == Area).ToList();
+                result = result.Where(x => x.Area == Area);
 
-                if (ProductGroupID != "*ALL")
+            if (ProductGroupID != "*ALL")
 
-                    result = result.Where(x => x.ProductGroupID == ProductGroupID).ToList();
+                result = result.Where(x => x.ProductGroupID == ProductGroupID);
 
-                if (!CustomerName.Contains("*ALL") & CustomerName.Count > 0)
+            if (!CustomerName.Contains("*ALL") & CustomerName.Count > 0)
 
-                    result = result.Where(x => CustomerName.Contains(x.CustomName)).ToList();
+                result = result.Where(x => CustomerName.Contains(x.CustomName));
 
-                if (!ProductName.Contains("*ALL") & ProductName.Count > 0)
+            if (!ProductName.Contains("*ALL") & ProductName.Count > 0)
 
-                    result = result.Where(x => ProductName.Contains(x.ProductName)).ToList();
+                result = result.Where(x => ProductName.Contains(x.ProductName));
 
-                return result;
-            }
+            return result.ToListAsync().Result;
         }
 
         #region Save
@@ -89,7 +81,7 @@ namespace MES.Order.DAL
             var result = 0;
             using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
             {
-                insertProductsOrders.ForEach(x=>x.Note3="");
+                insertProductsOrders.ForEach(x => x.Note3 = "");
                 db.ProductsOrders.AddRange(insertProductsOrders);
                 result = db.Save();
             }
