@@ -112,7 +112,7 @@ namespace MES.Order.DAL
                               select new KeyAndNameForCombo
                               {
                                   Code             = a.ProductName,
-                                  LocalDescription = a.ProductName
+                                  LocalDescription = a.ProductGroupID
                               }).Distinct().ToList();
                 return result;
             }
@@ -138,9 +138,11 @@ namespace MES.Order.DAL
                 {
                     filter = filter.Where(x => x.ProductGroupID == ProductGroupID).ToList();
                 }
-
-                var result = filter.Where(x => x.ProductName == ProductName).ToList();
-                return result;
+                if (string.IsNullOrWhiteSpace(ProductName) == false && ProductName != "*ALL")
+                {
+                    filter = filter.Where(x => x.ProductName == ProductName).ToList();
+                }
+                return filter;
             }
         }
 

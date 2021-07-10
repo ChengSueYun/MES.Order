@@ -21,14 +21,18 @@ namespace MES.Order.UI
 {
     public partial class Order : XtraUserControl
     {
-        private readonly List<AddOrderViewModel>  addOrderView   = new List<AddOrderViewModel>();
-        private          List<ProductsOrder>      productsOrders = new List<ProductsOrder>();
-        private          List<ProductsOrder>      UpdateproductsOrders;
-        private          ProductsOrderUCO         ProductsOrderUCO;
+        private readonly List<AddOrderViewModel>  addOrderView    = new List<AddOrderViewModel>();
         private readonly WhetherGetStock          whetherGetStock = new WhetherGetStock();
         private readonly List<KeyAndNameForCombo> whetherCombos   = new List<KeyAndNameForCombo>();
-        List<ProductsOrder>                       focusOrders     = new List<ProductsOrder>();
-        private string                            queryArea;
+        private readonly List<ProductsOrder>      focusOrders     = new List<ProductsOrder>();
+        private          List<ProductsOrder>      productsOrders  = new List<ProductsOrder>();
+        private          List<ProductsOrder>      UpdateproductsOrders;
+        private          ProductsOrderUCO         ProductsOrderUCO;
+        private          List<KeyAndNameForCombo> mProductList;
+        private          List<KeyAndNameForCombo> mCustomerList;
+        private          List<KeyAndNameForCombo> mVerdorList;
+        private          List<KeyAndNameForCombo> mAreaList;
+        private          List<ProductsInfomation> mProductsInfomation;
 
         public Order()
         {
@@ -61,7 +65,8 @@ namespace MES.Order.UI
             this.InitialCusomterName();
             this.InitialProductName();
             this.InitialWhetherStock();
-            this.dateEdit_OrderDateS.DateTime              = DateTime.Today.AddDays(-15);
+            this.InitialProductInformation();
+            this.dateEdit_OrderDateS.DateTime              = DateTime.Today.AddDays(-3);
             this.dateEdit_OrderDateE.DateTime              = DateTime.Today;
             this.addOrderViewModelBindingSource.DataSource = this.addOrderView;
             this.addOrderViewModelBindingSource.AddNew();
@@ -78,49 +83,65 @@ namespace MES.Order.UI
             this.repository_WhetherStock.DataSource = this.whetherCombos;
         }
 
+        private void InitialProductInformation()
+        {
+            this.mProductsInfomation = this.ProductsOrderUCO.GetProductPrice(@"*ALL", @"*ALL");
+        }
+
         private void InitialProductName()
         {
-            var result = this.ProductsOrderUCO.GetProductName("*ALL");
-            this.lookUpEdit_ProductName.Properties.DataSource    = result;
-            this.lookUpEdit_ProductName.EditValue                = "*ALL";
-            this.LookUpEdit_addProductName.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
+            this.mProductList                                 = this.ProductsOrderUCO.GetProductName("*ALL");
+            this.lookUpEdit_ProductName.Properties.DataSource = this.mProductList;
+            this.LookUpEdit_addProductName.Properties.DataSource =
+                this.mProductList.Where(x => x.Code != "*ALL").ToList();
+            this.lookUpEdit_ProductName.EditValue = @"*ALL";
         }
 
         private void InitialCusomterName()
         {
-            var result = this.ProductsOrderUCO.GetCustomerName("*ALL");
-            this.lookUpEdit_CustomerName.Properties.DataSource    = result;
-            this.lookUpEdit_CustomerName.EditValue                = "*ALL";
-            this.LookUpEdit_addCustomerName.Properties.DataSource = result;
+            this.mCustomerList                                    = this.ProductsOrderUCO.GetCustomerName("*ALL");
+            this.lookUpEdit_CustomerName.Properties.DataSource    = this.mCustomerList;
+            this.LookUpEdit_addCustomerName.Properties.DataSource = this.mCustomerList;
+            this.lookUpEdit_CustomerName.EditValue                = @"*ALL";
         }
 
         private void InitialProductGroupID()
         {
-            var result = this.ProductsOrderUCO.GetProductGroupID();
-            this.lookUpEdit_ProductGroupID.Properties.DataSource    = result;
-            this.lookUpEdit_ProductGroupID.EditValue                = "*ALL";
-            this.lookUpEdit_addProductGroupID.Properties.DataSource = result;
+            this.mVerdorList                                        = this.ProductsOrderUCO.GetProductGroupID();
+            this.lookUpEdit_ProductGroupID.Properties.DataSource    = this.mVerdorList;
+            this.lookUpEdit_addProductGroupID.Properties.DataSource = this.mVerdorList;
+            this.lookUpEdit_ProductGroupID.EditValue                = @"*ALL";
+            this.lookUpEdit_addProductGroupID.EditValue             = @"*ALL";
         }
 
         private void InitialArea()
         {
-            var result = this.ProductsOrderUCO.GetArea();
-            this.lookUpEdit_Area.Properties.DataSource    = result;
-            this.lookUpEdit_Area.EditValue                = "*ALL";
-            this.lookUpEdit_addArea.Properties.DataSource = result;
-
-            // this.lookUpEdit_addArea.Properties.DataSource = result.Where(x => x.Code != "*ALL").ToList();
+            this.mAreaList                                = this.ProductsOrderUCO.GetArea();
+            this.lookUpEdit_Area.Properties.DataSource    = this.mAreaList;
+            this.lookUpEdit_addArea.Properties.DataSource = this.mAreaList;
+            this.lookUpEdit_Area.EditValue                = @"*ALL";
+            this.lookUpEdit_addArea.EditValue             = @"*ALL";
         }
 
         private void InitialUCO()
         {
-            this.ProductsOrderUCO = new ProductsOrderUCO();
+            this.ProductsOrderUCO    = new ProductsOrderUCO();
+            this.mProductList        = new List<KeyAndNameForCombo>();
+            this.mCustomerList       = new List<KeyAndNameForCombo>();
+            this.mVerdorList         = new List<KeyAndNameForCombo>();
+            this.mAreaList           = new List<KeyAndNameForCombo>();
+            this.mProductsInfomation = new List<ProductsInfomation>();
         }
 
         #endregion
 
         #region Button Event
 
+        /// <summary>
+        /// 查詢
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Query_Click(object sender, EventArgs e)
         {
             var Area           = this.lookUpEdit_Area.EditValue.ToString();
@@ -137,112 +158,6 @@ namespace MES.Order.UI
             this.productsOrderBindingSource.DataSource = this.productsOrders;
             this.gridView_ProductOrder.BestFitColumns();
             this.gridView_FocusOrder.BestFitColumns();
-        }
-
-        /// <summary>
-        /// 查詢地區=>變更地區值時，跟著變動客戶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lookUpEdit_Area_EditValueChanged(object sender, EventArgs e)
-        {
-            var Area = this.lookUpEdit_Area.EditValue.ToString();
-            this.lookUpEdit_CustomerName.Properties.DataSource = this.ProductsOrderUCO.GetCustomerName(Area);
-        }
-
-        /// <summary>
-        /// 新增地區=>變更地區值時，跟著變動客戶
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lookUpEdit_addArea_EditValueChanged(object sender, EventArgs e)
-        {
-            var addArea             = this.lookUpEdit_addArea.EditValue.ToString();
-            var keyAndNameForCombos = this.ProductsOrderUCO.GetCustomerName(addArea);
-            this.LookUpEdit_addCustomerName.Properties.DataSource = keyAndNameForCombos;
-        }
-
-        /// <summary>
-        /// 新增客戶=>變更客戶值時，跟著變動地區
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LookUpEdit_addCustomerName_EditValueChanged(object sender, EventArgs e)
-        {
-            var addCustomer = this.LookUpEdit_addCustomerName.EditValue.ToString();
-            if (!string.IsNullOrWhiteSpace(addCustomer))
-            {
-                this.queryArea = this.ProductsOrderUCO.QuerySpecifcName(addCustomer);
-                if (!string.IsNullOrWhiteSpace(this.queryArea) & this.addOrderView.Count > 0)
-                {
-                    this.addOrderView[0].Area = this.queryArea;
-                }
-            }
-        }
-
-        /// <summary>
-        /// 查詢廠商=>變更廠商值時，跟著變動產品
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lookUpEdit_ProductGroupID_EditValueChanged(object sender, EventArgs e)
-        {
-            var ProductGroupID = this.lookUpEdit_ProductGroupID.EditValue.ToString();
-            this.lookUpEdit_ProductName.Properties.DataSource = this.ProductsOrderUCO.GetProductName(ProductGroupID);
-        }
-
-        /// <summary>
-        /// 新增廠商=>變更廠商值時，跟著變動產品
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lookUpEdit_addProductGroupID_EditValueChanged(object sender, EventArgs e)
-        {
-            var addProductGroupID   = this.lookUpEdit_addProductGroupID.EditValue.ToString();
-            var keyAndNameForCombos = this.ProductsOrderUCO.GetProductName(addProductGroupID);
-            keyAndNameForCombos.RemoveAt(0);
-            this.LookUpEdit_addProductName.Properties.DataSource =
-                keyAndNameForCombos;
-        }
-
-        /// <summary>
-        /// 新增產品=>變更產品值時，抓取成本、售價等資料
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void LookUpEdit_addProductName_EditValueChanged(object sender, EventArgs e)
-        {
-            var addProductName = this.LookUpEdit_addProductName.EditValue.ToString();
-            if (this.addOrderViewModelBindingSource.Current is AddOrderViewModel addOrderViewModel)
-            {
-                var productsInfomation =
-                    this.ProductsOrderUCO.GetProductPrice(addOrderViewModel.ProductGroupID,
-                                                          addProductName);
-                if (productsInfomation.Count > 0)
-                {
-                    addOrderViewModel.ProductGroupID = productsInfomation[0].ProductGroupID;
-                    addOrderViewModel.Price          = productsInfomation[0].Price;
-                    addOrderViewModel.Cost           = productsInfomation[0].Cost;
-                }
-
-                this.spinEdit_addCount.Value = 0;
-            }
-        }
-
-        /// <summary>
-        /// 新增數量
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void spinEdit_addCount_EditValueChanged(object sender, EventArgs e)
-        {
-            var addCount = Convert.ToInt16(this.spinEdit_addCount.Value);
-            if (this.addOrderViewModelBindingSource.Current is AddOrderViewModel addOrderViewModel)
-            {
-                addOrderViewModel.Count = addCount;
-                addOrderViewModel.SetDefaultValue();
-                this.textEdit_addTotalPrice.Text = addOrderViewModel.TotalPrice.ToString();
-            }
         }
 
         /// <summary>
@@ -304,7 +219,6 @@ namespace MES.Order.UI
                 this.focusOrders.Remove(x => x.AutoID == row.AutoID);
             }
 
-            this.FocusbindingSource.DataSource = this.focusOrders;
             this.gridControl_FocusOrder.RefreshDataSource();
             this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
 
@@ -365,8 +279,8 @@ namespace MES.Order.UI
                 this.focusOrders.AddOrReplace(x => x.AutoID == item.AutoID, item);
             }
 
-            this.FocusbindingSource.DataSource = this.focusOrders;
             this.gridControl_FocusOrder.RefreshDataSource();
+            this.pivotGrid_FocusOrder.RefreshData();
             this.ProductsOrderUCO.UpdateOrders(updateList);
             this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             this.btn_Query.PerformClick();
@@ -379,89 +293,8 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_Export_Click(object sender, EventArgs e)
         {
-            this.gridControl_FocusOrder.ShowPrintPreview();
-        }
-
-        /// <summary>
-        /// 點選是否取貨時，直接update
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void repository_WhetherStock_EditValueChanged(object sender, EventArgs e)
-        {
-            var textEdit = sender as TextEdit;
-            this.UpdateproductsOrders = new List<ProductsOrder>();
-            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
-            if (textEdit != null & productsOrder != null)
-            {
-                productsOrder.Address    = textEdit.Text;
-                productsOrder.UpdateDate = DateTime.Now;
-                productsOrder.SetDefaultValue();
-                this.UpdateproductsOrders.Add(productsOrder);
-                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
-
-                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
-                this.FocusbindingSource.DataSource = this.focusOrders;
-                this.gridControl_FocusOrder.RefreshDataSource();
-            }
-        }
-
-        /// <summary>
-        /// 點選備註的值改變時，自動Update
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void repository_Note_EditValueChanged(object sender, EventArgs e)
-        {
-            var textEdit = sender as TextEdit;
-            this.UpdateproductsOrders = new List<ProductsOrder>();
-            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
-            if (textEdit != null & productsOrder != null)
-            {
-                productsOrder.Note1      = textEdit.Text;
-                productsOrder.UpdateDate = DateTime.Now;
-                productsOrder.SetDefaultValue();
-                this.UpdateproductsOrders.Add(productsOrder);
-                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
-
-                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
-                this.FocusbindingSource.DataSource = this.focusOrders;
-                this.gridControl_FocusOrder.RefreshDataSource();
-            }
-        }
-
-        /// <summary>
-        /// 點選數量的值改變時，自動Update
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void repository_Count_EditValueChanged(object sender, EventArgs e)
-        {
-            var spinEdit = sender as SpinEdit;
-            this.UpdateproductsOrders = new List<ProductsOrder>();
-            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
-            if (spinEdit != null & productsOrder != null)
-            {
-                productsOrder.Count      = (int) spinEdit.Value;
-                productsOrder.UpdateDate = DateTime.Now;
-                var productsInfomations =
-                    this.ProductsOrderUCO.GetProductPrice(productsOrder.ProductGroupID, productsOrder.ProductName);
-                if (productsInfomations.Count == 0)
-                {
-                    throw new Exception("在編輯數量的時候，查詢此產品時未找到此" + productsOrder.ProductName + "的相關資料!");
-                }
-
-                productsOrder.TotalPrice  = (int) spinEdit.Value * productsInfomations[0].Price;
-                productsOrder.TotalCost   = (int) spinEdit.Value * productsInfomations[0].Cost;
-                productsOrder.TotalProfit = (int) spinEdit.Value * productsInfomations[0].Profit;
-                productsOrder.SetDefaultValue();
-                this.UpdateproductsOrders.Add(productsOrder);
-                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
-
-                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
-                this.FocusbindingSource.DataSource = this.focusOrders;
-                this.gridControl_FocusOrder.RefreshDataSource();
-            }
+            // this.gridControl_FocusOrder.ShowPrintPreview();
+            this.pivotGrid_FocusOrder.ShowPrintPreview();
         }
 
         /// <summary>
@@ -582,6 +415,198 @@ namespace MES.Order.UI
             }
 
             this.gridView_ProductOrder.BestFitColumns();
+        }
+
+        #endregion
+
+        #region About Query Event
+
+        /// <summary>
+        /// 查詢地區=>變更地區值時，跟著變動客戶
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lookUpEdit_Area_EditValueChanged(object sender, EventArgs e)
+        {
+            var Area   = this.lookUpEdit_Area.EditValue.ToString();
+            var result = this.mCustomerList.Where(x => x.LocalDescription == Area).ToList();
+            this.lookUpEdit_CustomerName.Properties.DataSource = result;
+        }
+
+        /// <summary>
+        /// 查詢廠商=>變更廠商值時，跟著變動產品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lookUpEdit_ProductGroupID_EditValueChanged(object sender, EventArgs e)
+        {
+            var ProductGroupID = this.lookUpEdit_ProductGroupID.EditValue.ToString();
+            var result         = this.mProductList.Where(x => x.LocalDescription == ProductGroupID).ToList();
+            this.lookUpEdit_ProductName.Properties.DataSource = result;
+        }
+
+        #endregion
+
+        #region About Add Event
+
+        /// <summary>
+        /// 新增地區=>變更地區值時，跟著變動客戶
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lookUpEdit_addArea_EditValueChanged(object sender, EventArgs e)
+        {
+            var addArea = this.lookUpEdit_addArea.EditValue.ToString();
+            var result  = this.mCustomerList.Where(x => x.LocalDescription == addArea).ToList();
+            this.LookUpEdit_addCustomerName.Properties.DataSource = result;
+        }
+
+        /// <summary>
+        /// 新增客戶=>變更客戶值時，跟著變動地區
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LookUpEdit_addCustomerName_EditValueChanged(object sender, EventArgs e)
+        {
+            var addCustomer = this.LookUpEdit_addCustomerName.EditValue.ToString();
+            if (!string.IsNullOrWhiteSpace(addCustomer))
+            {
+                var selectedDataRow = this.LookUpEdit_addCustomerName.GetSelectedDataRow() as KeyAndNameForCombo;
+                this.addOrderView[0].Area = selectedDataRow?.LocalDescription;
+            }
+        }
+
+        /// <summary>
+        /// 新增廠商=>變更廠商值時，跟著變動產品
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void lookUpEdit_addProductGroupID_EditValueChanged(object sender, EventArgs e)
+        {
+            var addProductGroupID = this.lookUpEdit_addProductGroupID.EditValue.ToString();
+            var result            = this.mProductList.Where(x => x.LocalDescription == addProductGroupID).ToList();
+            this.LookUpEdit_addProductName.Properties.DataSource = result;
+        }
+
+        /// <summary>
+        /// 新增產品=>變更產品值時，抓取成本、售價等資料
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LookUpEdit_addProductName_EditValueChanged(object sender, EventArgs e)
+        {
+            var addProductName = this.LookUpEdit_addProductName.EditValue.ToString();
+            if (this.addOrderViewModelBindingSource.Current is AddOrderViewModel addOrderViewModel)
+            {
+                var result = this.mProductsInfomation.FirstOrDefault(x => x.ProductName == addProductName);
+                if (result != null)
+                {
+                    addOrderViewModel.ProductGroupID = result.ProductGroupID;
+                    addOrderViewModel.Price          = result.Price;
+                    addOrderViewModel.Cost           = result.Cost;
+                }
+
+                this.spinEdit_addCount.Value = 0;
+            }
+        }
+
+        /// <summary>
+        /// 新增數量
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void spinEdit_addCount_EditValueChanged(object sender, EventArgs e)
+        {
+            var addCount = Convert.ToInt16(this.spinEdit_addCount.Value);
+            if (this.addOrderViewModelBindingSource.Current is AddOrderViewModel addOrderViewModel)
+            {
+                addOrderViewModel.Count = addCount;
+                addOrderViewModel.SetDefaultValue();
+                this.textEdit_addTotalPrice.Text = addOrderViewModel.TotalPrice.ToString();
+            }
+        }
+
+        #endregion
+
+        #region About Update Event
+
+        /// <summary>
+        /// 點選是否取貨時，直接update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repository_WhetherStock_EditValueChanged(object sender, EventArgs e)
+        {
+            var textEdit = sender as TextEdit;
+            this.UpdateproductsOrders = new List<ProductsOrder>();
+            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
+            if (textEdit != null & productsOrder != null)
+            {
+                productsOrder.Address    = textEdit.Text;
+                productsOrder.UpdateDate = DateTime.Now;
+                productsOrder.SetDefaultValue();
+                this.UpdateproductsOrders.Add(productsOrder);
+                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+
+                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
+                this.gridControl_FocusOrder.RefreshDataSource();
+            }
+        }
+
+        /// <summary>
+        /// 點選備註的值改變時，自動Update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repository_Note_EditValueChanged(object sender, EventArgs e)
+        {
+            var textEdit = sender as TextEdit;
+            this.UpdateproductsOrders = new List<ProductsOrder>();
+            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
+            if (textEdit != null & productsOrder != null)
+            {
+                productsOrder.Note1      = textEdit.Text;
+                productsOrder.UpdateDate = DateTime.Now;
+                productsOrder.SetDefaultValue();
+                this.UpdateproductsOrders.Add(productsOrder);
+                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+
+                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
+                this.gridControl_FocusOrder.RefreshDataSource();
+            }
+        }
+
+        /// <summary>
+        /// 點選數量的值改變時，自動Update
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void repository_Count_EditValueChanged(object sender, EventArgs e)
+        {
+            var spinEdit = sender as SpinEdit;
+            this.UpdateproductsOrders = new List<ProductsOrder>();
+            var productsOrder = this.productsOrderBindingSource.Current as ProductsOrder;
+            if (spinEdit != null & productsOrder != null)
+            {
+                productsOrder.Count      = (int) spinEdit.Value;
+                productsOrder.UpdateDate = DateTime.Now;
+                var productsInfomations =
+                    this.ProductsOrderUCO.GetProductPrice(productsOrder.ProductGroupID, productsOrder.ProductName);
+                if (productsInfomations.Count == 0)
+                {
+                    throw new Exception("在編輯數量的時候，查詢此產品時未找到此" + productsOrder.ProductName + "的相關資料!");
+                }
+
+                productsOrder.TotalPrice  = (int) spinEdit.Value * productsInfomations[0].Price;
+                productsOrder.TotalCost   = (int) spinEdit.Value * productsInfomations[0].Cost;
+                productsOrder.TotalProfit = (int) spinEdit.Value * productsInfomations[0].Profit;
+                productsOrder.SetDefaultValue();
+                this.UpdateproductsOrders.Add(productsOrder);
+                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+
+                this.focusOrders.AddOrReplace(x => x.AutoID == productsOrder.AutoID, productsOrder);
+                this.gridControl_FocusOrder.RefreshDataSource();
+            }
         }
 
         #endregion

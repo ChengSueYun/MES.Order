@@ -132,6 +132,16 @@
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.pivotGrid_FocusOrder = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.fieldNote1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldCustomName = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldArea = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldPrice = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldProductName = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldTotalCost = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldTotalPrice = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldTotalProfit = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldCount = new DevExpress.XtraPivotGrid.PivotGridField();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -178,6 +188,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -304,7 +315,7 @@
             this.lookUpEdit_Area.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "代號"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "敘述", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lookUpEdit_Area.Properties.DisplayMember = "LocalDescription";
+            this.lookUpEdit_Area.Properties.DisplayMember = "Code";
             this.lookUpEdit_Area.Properties.MaxLength = 8;
             this.lookUpEdit_Area.Properties.NullText = "";
             this.lookUpEdit_Area.Properties.ValueMember = "Code";
@@ -369,7 +380,7 @@
             this.lookUpEdit_ProductGroupID.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "代號"),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "敘述", 20, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Default, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.lookUpEdit_ProductGroupID.Properties.DisplayMember = "LocalDescription";
+            this.lookUpEdit_ProductGroupID.Properties.DisplayMember = "Code";
             this.lookUpEdit_ProductGroupID.Properties.MaxLength = 8;
             this.lookUpEdit_ProductGroupID.Properties.NullText = "";
             this.lookUpEdit_ProductGroupID.Properties.ValueMember = "Code";
@@ -411,7 +422,7 @@
             this.lookUpEdit_ProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit_ProductName.Properties.DataSource = this.keyAndNameForComboBindingSource;
-            this.lookUpEdit_ProductName.Properties.DisplayMember = "LocalDescription";
+            this.lookUpEdit_ProductName.Properties.DisplayMember = "Code";
             this.lookUpEdit_ProductName.Properties.NullText = "";
             this.lookUpEdit_ProductName.Properties.PopupView = this.searchLookUpEdit1View;
             this.lookUpEdit_ProductName.Properties.ValueMember = "Code";
@@ -545,7 +556,7 @@
             this.lookUpEdit_CustomerName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lookUpEdit_CustomerName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEdit_CustomerName.Properties.DisplayMember = "LocalDescription";
+            this.lookUpEdit_CustomerName.Properties.DisplayMember = "Code";
             this.lookUpEdit_CustomerName.Properties.NullText = "";
             this.lookUpEdit_CustomerName.Properties.PopupView = this.gridView1;
             this.lookUpEdit_CustomerName.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.ContentWidth;
@@ -866,7 +877,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 73, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 177, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpEdit_addArea.Properties.DataSource = this.keyAndNameForComboBindingSource;
-            this.lookUpEdit_addArea.Properties.DisplayMember = "LocalDescription";
+            this.lookUpEdit_addArea.Properties.DisplayMember = "Code";
             this.lookUpEdit_addArea.Properties.NullText = "";
             this.lookUpEdit_addArea.Properties.ValueMember = "Code";
             this.lookUpEdit_addArea.Size = new System.Drawing.Size(121, 28);
@@ -890,7 +901,7 @@
             this.LookUpEdit_addCustomerName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.LookUpEdit_addCustomerName.Properties.DataSource = this.keyAndNameForComboBindingSource;
-            this.LookUpEdit_addCustomerName.Properties.DisplayMember = "LocalDescription";
+            this.LookUpEdit_addCustomerName.Properties.DisplayMember = "Code";
             this.LookUpEdit_addCustomerName.Properties.NullText = "";
             this.LookUpEdit_addCustomerName.Properties.PopupView = this.gridView3;
             this.LookUpEdit_addCustomerName.Properties.ValueMember = "Code";
@@ -935,7 +946,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 73, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 177, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.lookUpEdit_addProductGroupID.Properties.DataSource = this.keyAndNameForComboBindingSource;
-            this.lookUpEdit_addProductGroupID.Properties.DisplayMember = "LocalDescription";
+            this.lookUpEdit_addProductGroupID.Properties.DisplayMember = "Code";
             this.lookUpEdit_addProductGroupID.Properties.NullText = "";
             this.lookUpEdit_addProductGroupID.Properties.ValueMember = "Code";
             this.lookUpEdit_addProductGroupID.Size = new System.Drawing.Size(162, 28);
@@ -955,7 +966,7 @@
             this.LookUpEdit_addProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.LookUpEdit_addProductName.Properties.DataSource = this.keyAndNameForComboBindingSource;
-            this.LookUpEdit_addProductName.Properties.DisplayMember = "LocalDescription";
+            this.LookUpEdit_addProductName.Properties.DisplayMember = "Code";
             this.LookUpEdit_addProductName.Properties.NullText = "";
             this.LookUpEdit_addProductName.Properties.PopupView = this.searchLookUpEdit2View;
             this.LookUpEdit_addProductName.Properties.ValueMember = "Code";
@@ -1571,6 +1582,7 @@
             // 
             // xtraTabPage2
             // 
+            this.xtraTabPage2.Controls.Add(this.pivotGrid_FocusOrder);
             this.xtraTabPage2.Controls.Add(this.gridControl_FocusOrder);
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(1275, 530);
@@ -1581,7 +1593,6 @@
             this.gridControl_FocusOrder.AllowDrop = true;
             this.gridControl_FocusOrder.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             this.gridControl_FocusOrder.DataSource = this.FocusbindingSource;
-            this.gridControl_FocusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridControl_FocusOrder.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.gridControl_FocusOrder.Location = new System.Drawing.Point(0, 0);
             this.gridControl_FocusOrder.MainView = this.gridView_FocusOrder;
@@ -1589,7 +1600,7 @@
             this.gridControl_FocusOrder.Name = "gridControl_FocusOrder";
             this.gridControl_FocusOrder.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1});
-            this.gridControl_FocusOrder.Size = new System.Drawing.Size(1275, 530);
+            this.gridControl_FocusOrder.Size = new System.Drawing.Size(502, 530);
             this.gridControl_FocusOrder.TabIndex = 7;
             this.gridControl_FocusOrder.UseEmbeddedNavigator = true;
             this.gridControl_FocusOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -2024,6 +2035,148 @@
             // 
             this.saveFileDialog1.Title = "欲存檔路徑";
             // 
+            // pivotGrid_FocusOrder
+            // 
+            this.pivotGrid_FocusOrder.AppearancePrint.Cell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.CustomTotalCell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldHeader.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValue.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.ForeColor = System.Drawing.Color.Red;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseForeColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueTotal.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.ForeColor = System.Drawing.Color.Red;
+            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseForeColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.Lines.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.TotalCell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.pivotGrid_FocusOrder.DataSource = this.FocusbindingSource;
+            this.pivotGrid_FocusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pivotGrid_FocusOrder.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
+            this.fieldNote1,
+            this.fieldCustomName,
+            this.fieldArea,
+            this.fieldPrice,
+            this.fieldProductName,
+            this.fieldTotalCost,
+            this.fieldTotalPrice,
+            this.fieldTotalProfit,
+            this.fieldCount});
+            this.pivotGrid_FocusOrder.Location = new System.Drawing.Point(0, 0);
+            this.pivotGrid_FocusOrder.Name = "pivotGrid_FocusOrder";
+            this.pivotGrid_FocusOrder.OptionsBehavior.BestFitConsiderCustomAppearance = true;
+            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowCustomTotals = true;
+            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowGrandTotals = true;
+            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowTotals = true;
+            this.pivotGrid_FocusOrder.OptionsDataField.AreaIndex = 0;
+            this.pivotGrid_FocusOrder.OptionsDataField.RowHeaderWidth = 300;
+            this.pivotGrid_FocusOrder.OptionsOLAP.SortByCustomFieldValueDisplayText = true;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintUnusedFilterFields = false;
+            this.pivotGrid_FocusOrder.OptionsPrint.UsePrintAppearance = true;
+            this.pivotGrid_FocusOrder.OptionsView.ShowColumnGrandTotalHeader = false;
+            this.pivotGrid_FocusOrder.OptionsView.ShowRowGrandTotalHeader = false;
+            this.pivotGrid_FocusOrder.OptionsView.ShowTotalsForSingleValues = true;
+            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(1275, 530);
+            this.pivotGrid_FocusOrder.TabIndex = 8;
+            // 
+            // fieldNote1
+            // 
+            this.fieldNote1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldNote1.AreaIndex = 2;
+            this.fieldNote1.Caption = "備註";
+            this.fieldNote1.FieldName = "Note1";
+            this.fieldNote1.Name = "fieldNote1";
+            this.fieldNote1.Width = 200;
+            // 
+            // fieldCustomName
+            // 
+            this.fieldCustomName.Appearance.CellTotal.ForeColor = System.Drawing.Color.Red;
+            this.fieldCustomName.Appearance.CellTotal.Options.UseForeColor = true;
+            this.fieldCustomName.Appearance.CellTotal.Options.UseTextOptions = true;
+            this.fieldCustomName.Appearance.CellTotal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.fieldCustomName.Appearance.ValueTotal.ForeColor = System.Drawing.Color.Red;
+            this.fieldCustomName.Appearance.ValueTotal.Options.UseForeColor = true;
+            this.fieldCustomName.Appearance.ValueTotal.Options.UseTextOptions = true;
+            this.fieldCustomName.Appearance.ValueTotal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.fieldCustomName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldCustomName.AreaIndex = 0;
+            this.fieldCustomName.Caption = "客戶";
+            this.fieldCustomName.FieldName = "CustomName";
+            this.fieldCustomName.MinWidth = 30;
+            this.fieldCustomName.Name = "fieldCustomName";
+            this.fieldCustomName.Options.ShowGrandTotal = false;
+            this.fieldCustomName.SortMode = DevExpress.XtraPivotGrid.PivotSortMode.Custom;
+            this.fieldCustomName.TotalCellFormat.FormatString = "\"合計\"0";
+            this.fieldCustomName.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.fieldCustomName.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldCustomName.Width = 200;
+            // 
+            // fieldArea
+            // 
+            this.fieldArea.AreaIndex = 0;
+            this.fieldArea.Caption = "地區";
+            this.fieldArea.FieldName = "Area";
+            this.fieldArea.Name = "fieldArea";
+            // 
+            // fieldPrice
+            // 
+            this.fieldPrice.AreaIndex = 3;
+            this.fieldPrice.Caption = "售價";
+            this.fieldPrice.FieldName = "Price";
+            this.fieldPrice.Name = "fieldPrice";
+            // 
+            // fieldProductName
+            // 
+            this.fieldProductName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldProductName.AreaIndex = 1;
+            this.fieldProductName.Caption = "產品";
+            this.fieldProductName.FieldName = "ProductName";
+            this.fieldProductName.GrandTotalText = "合計";
+            this.fieldProductName.MinWidth = 100;
+            this.fieldProductName.Name = "fieldProductName";
+            this.fieldProductName.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None;
+            this.fieldProductName.Width = 300;
+            // 
+            // fieldTotalCost
+            // 
+            this.fieldTotalCost.AreaIndex = 1;
+            this.fieldTotalCost.Caption = "總批價";
+            this.fieldTotalCost.FieldName = "TotalCost";
+            this.fieldTotalCost.Name = "fieldTotalCost";
+            // 
+            // fieldTotalPrice
+            // 
+            this.fieldTotalPrice.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldTotalPrice.AreaIndex = 1;
+            this.fieldTotalPrice.Caption = "總售價";
+            this.fieldTotalPrice.FieldName = "TotalPrice";
+            this.fieldTotalPrice.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.fieldTotalPrice.Name = "fieldTotalPrice";
+            this.fieldTotalPrice.TotalCellFormat.FormatString = "\"$\"0";
+            this.fieldTotalPrice.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            // 
+            // fieldTotalProfit
+            // 
+            this.fieldTotalProfit.AreaIndex = 2;
+            this.fieldTotalProfit.Caption = "總利潤";
+            this.fieldTotalProfit.FieldName = "TotalProfit";
+            this.fieldTotalProfit.Name = "fieldTotalProfit";
+            // 
+            // fieldCount
+            // 
+            this.fieldCount.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldCount.AreaIndex = 0;
+            this.fieldCount.Caption = "數量";
+            this.fieldCount.CellFormat.FormatString = "\"+\"0";
+            this.fieldCount.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.fieldCount.FieldName = "Count";
+            this.fieldCount.GrandTotalText = "\"\"";
+            this.fieldCount.Name = "fieldCount";
+            this.fieldCount.Options.ShowTotals = false;
+            this.fieldCount.Options.ShowValues = false;
+            this.fieldCount.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.CustomTotals;
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -2083,6 +2236,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2191,5 +2345,15 @@
         private DevExpress.XtraEditors.ToggleSwitch toggleSwitch_GroupColumn;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit repository_Count;
         private DevExpress.XtraGrid.Columns.GridColumn colSetAddress;
+        private DevExpress.XtraPivotGrid.PivotGridControl pivotGrid_FocusOrder;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldNote1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldCustomName;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldArea;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldPrice;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldProductName;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldTotalCost;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldTotalPrice;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldTotalProfit;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldCount;
     }
 }

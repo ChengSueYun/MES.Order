@@ -29,8 +29,9 @@ namespace MES.Order.UI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pivotGridControl1 = new DevExpress.XtraPivotGrid.PivotGridControl();
-            this.productsOrdersBindingSource = new System.Windows.Forms.BindingSource();
+            this.productsOrdersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fieldArea1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldCustomName1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldCount1 = new DevExpress.XtraPivotGrid.PivotGridField();
@@ -47,6 +48,7 @@ namespace MES.Order.UI
             // 
             // pivotGridControl1
             // 
+            this.pivotGridControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.pivotGridControl1.DataSource = this.productsOrdersBindingSource;
             this.pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pivotGridControl1.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
@@ -62,6 +64,8 @@ namespace MES.Order.UI
             this.fieldTotalProfit1});
             this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
             this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.OptionsBehavior.UseAsyncMode = true;
+            this.pivotGridControl1.OptionsChartDataSource.FieldValuesProvideMode = DevExpress.XtraPivotGrid.PivotChartFieldValuesProvideMode.DisplayText;
             this.pivotGridControl1.OptionsDataField.RowHeaderWidth = 300;
             this.pivotGridControl1.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.pivotGridControl1.OptionsView.RowTreeWidth = 300;

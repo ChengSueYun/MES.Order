@@ -92,8 +92,8 @@ namespace MES.Order.DAL
                 var result = (from a in filter
                               select new KeyAndNameForCombo
                               {
-                                  Code             = a.CustomID,
-                                  LocalDescription = a.CustomName
+                                  Code             = a.CustomName,
+                                  LocalDescription = a.Address
                               }).Distinct().ToList();
                 return result;
             }
