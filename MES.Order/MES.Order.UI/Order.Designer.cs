@@ -886,6 +886,7 @@
             this.LookUpEdit_addCustomerName.TabIndex = 8;
             this.LookUpEdit_addCustomerName.EditValueChanged += new System.EventHandler(this.LookUpEdit_addCustomerName_EditValueChanged);
             this.LookUpEdit_addCustomerName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
+            this.LookUpEdit_addCustomerName.Leave += new System.EventHandler(this.LookUpEdit_addCustomerName_Leave);
             // 
             // gridView3
             // 
@@ -951,6 +952,7 @@
             this.LookUpEdit_addProductName.TabIndex = 10;
             this.LookUpEdit_addProductName.EditValueChanged += new System.EventHandler(this.LookUpEdit_addProductName_EditValueChanged);
             this.LookUpEdit_addProductName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
+            this.LookUpEdit_addProductName.Leave += new System.EventHandler(this.LookUpEdit_addProductName_Leave);
             // 
             // searchLookUpEdit2View
             // 

@@ -483,6 +483,11 @@ namespace MES.Order.UI
             }
         }
 
+        private void LookUpEdit_addCustomerName_Leave(object sender, EventArgs e)
+        {
+            this.LookUpEdit_addCustomerName.Properties.DataSource = this.mCustomerList;
+        }
+
         /// <summary>
         /// 新增廠商=>變更廠商值時，跟著變動產品
         /// </summary>
@@ -520,10 +525,16 @@ namespace MES.Order.UI
                     addOrderViewModel.ProductGroupID = result.ProductGroupID;
                     addOrderViewModel.Price          = result.Price;
                     addOrderViewModel.Cost           = result.Cost;
+                    addOrderViewModel.ProductName    = addProductName;
                 }
 
                 this.spinEdit_addCount.Value = 0;
             }
+        }
+
+        private void LookUpEdit_addProductName_Leave(object sender, EventArgs e)
+        {
+            this.LookUpEdit_addProductName.Properties.DataSource = this.mProductList;
         }
 
         /// <summary>
