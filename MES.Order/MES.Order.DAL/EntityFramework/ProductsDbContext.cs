@@ -38,7 +38,7 @@ namespace MES.Order.DAL.EntityFramework
 
         public static ProductsDbContext Create(string connectionStringName)
         {
-            var dbContext = new ProductsDbContext(connectionStringName);
+            var dbContext = new ProductsDbContext("ProductsDbContext");
 
             dbContext.Configuration.AutoDetectChangesEnabled = false;
             dbContext.Configuration.LazyLoadingEnabled       = false;

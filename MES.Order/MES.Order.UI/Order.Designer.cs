@@ -1151,6 +1151,7 @@
             this.colArea.OptionsColumn.AllowFocus = false;
             this.colArea.Visible = true;
             this.colArea.VisibleIndex = 1;
+            this.colArea.Width = 61;
             // 
             // colCustomID
             // 
@@ -1241,7 +1242,7 @@
             this.colProductName.OptionsColumn.FixedWidth = true;
             this.colProductName.Visible = true;
             this.colProductName.VisibleIndex = 3;
-            this.colProductName.Width = 231;
+            this.colProductName.Width = 264;
             // 
             // colCount
             // 
