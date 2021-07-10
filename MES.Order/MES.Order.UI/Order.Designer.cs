@@ -109,8 +109,18 @@
             this.colNote3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.gridControl_FocusOrder = new DevExpress.XtraGrid.GridControl();
+            this.pivotGrid_FocusOrder = new DevExpress.XtraPivotGrid.PivotGridControl();
             this.FocusbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fieldNote1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldCustomName = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldArea = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldPrice = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldProductName = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldTotalCost = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldTotalPrice = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldTotalProfit = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldCount = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.gridControl_FocusOrder = new DevExpress.XtraGrid.GridControl();
             this.gridView_FocusOrder = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -132,16 +142,6 @@
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.pivotGrid_FocusOrder = new DevExpress.XtraPivotGrid.PivotGridControl();
-            this.fieldNote1 = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldCustomName = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldArea = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldPrice = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldProductName = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldTotalCost = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldTotalPrice = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldTotalProfit = new DevExpress.XtraPivotGrid.PivotGridField();
-            this.fieldCount = new DevExpress.XtraPivotGrid.PivotGridField();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -184,11 +184,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -1588,6 +1588,152 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(1275, 530);
             this.xtraTabPage2.Text = "拉單";
             // 
+            // pivotGrid_FocusOrder
+            // 
+            this.pivotGrid_FocusOrder.AppearancePrint.Cell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.CustomTotalCell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldHeader.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValue.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.ForeColor = System.Drawing.Color.Red;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseForeColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueTotal.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.ForeColor = System.Drawing.Color.Red;
+            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseForeColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.Lines.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.AppearancePrint.TotalCell.Options.UseBorderColor = true;
+            this.pivotGrid_FocusOrder.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.pivotGrid_FocusOrder.DataSource = this.FocusbindingSource;
+            this.pivotGrid_FocusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pivotGrid_FocusOrder.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
+            this.fieldNote1,
+            this.fieldCustomName,
+            this.fieldArea,
+            this.fieldPrice,
+            this.fieldProductName,
+            this.fieldTotalCost,
+            this.fieldTotalPrice,
+            this.fieldTotalProfit,
+            this.fieldCount});
+            this.pivotGrid_FocusOrder.Location = new System.Drawing.Point(0, 0);
+            this.pivotGrid_FocusOrder.Name = "pivotGrid_FocusOrder";
+            this.pivotGrid_FocusOrder.OptionsBehavior.BestFitConsiderCustomAppearance = true;
+            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowCustomTotals = true;
+            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowGrandTotals = true;
+            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowTotals = true;
+            this.pivotGrid_FocusOrder.OptionsDataField.AreaIndex = 0;
+            this.pivotGrid_FocusOrder.OptionsDataField.RowHeaderWidth = 300;
+            this.pivotGrid_FocusOrder.OptionsOLAP.SortByCustomFieldValueDisplayText = true;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintUnusedFilterFields = false;
+            this.pivotGrid_FocusOrder.OptionsPrint.UsePrintAppearance = true;
+            this.pivotGrid_FocusOrder.OptionsView.ShowColumnGrandTotalHeader = false;
+            this.pivotGrid_FocusOrder.OptionsView.ShowRowGrandTotalHeader = false;
+            this.pivotGrid_FocusOrder.OptionsView.ShowTotalsForSingleValues = true;
+            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(1275, 530);
+            this.pivotGrid_FocusOrder.TabIndex = 8;
+            // 
+            // FocusbindingSource
+            // 
+            this.FocusbindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
+            // 
+            // fieldNote1
+            // 
+            this.fieldNote1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldNote1.AreaIndex = 2;
+            this.fieldNote1.Caption = "備註";
+            this.fieldNote1.FieldName = "Note1";
+            this.fieldNote1.Name = "fieldNote1";
+            this.fieldNote1.Width = 200;
+            // 
+            // fieldCustomName
+            // 
+            this.fieldCustomName.Appearance.CellTotal.ForeColor = System.Drawing.Color.Red;
+            this.fieldCustomName.Appearance.CellTotal.Options.UseForeColor = true;
+            this.fieldCustomName.Appearance.CellTotal.Options.UseTextOptions = true;
+            this.fieldCustomName.Appearance.CellTotal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.fieldCustomName.Appearance.ValueTotal.ForeColor = System.Drawing.Color.Red;
+            this.fieldCustomName.Appearance.ValueTotal.Options.UseForeColor = true;
+            this.fieldCustomName.Appearance.ValueTotal.Options.UseTextOptions = true;
+            this.fieldCustomName.Appearance.ValueTotal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.fieldCustomName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldCustomName.AreaIndex = 0;
+            this.fieldCustomName.Caption = "客戶";
+            this.fieldCustomName.FieldName = "CustomName";
+            this.fieldCustomName.MinWidth = 30;
+            this.fieldCustomName.Name = "fieldCustomName";
+            this.fieldCustomName.Options.ShowGrandTotal = false;
+            this.fieldCustomName.SortMode = DevExpress.XtraPivotGrid.PivotSortMode.Custom;
+            this.fieldCustomName.TotalCellFormat.FormatString = "\"合計\"0";
+            this.fieldCustomName.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.fieldCustomName.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldCustomName.Width = 200;
+            // 
+            // fieldArea
+            // 
+            this.fieldArea.AreaIndex = 0;
+            this.fieldArea.Caption = "地區";
+            this.fieldArea.FieldName = "Area";
+            this.fieldArea.Name = "fieldArea";
+            // 
+            // fieldPrice
+            // 
+            this.fieldPrice.AreaIndex = 3;
+            this.fieldPrice.Caption = "售價";
+            this.fieldPrice.FieldName = "Price";
+            this.fieldPrice.Name = "fieldPrice";
+            // 
+            // fieldProductName
+            // 
+            this.fieldProductName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldProductName.AreaIndex = 1;
+            this.fieldProductName.Caption = "產品";
+            this.fieldProductName.FieldName = "ProductName";
+            this.fieldProductName.GrandTotalText = "合計";
+            this.fieldProductName.MinWidth = 100;
+            this.fieldProductName.Name = "fieldProductName";
+            this.fieldProductName.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None;
+            this.fieldProductName.Width = 300;
+            // 
+            // fieldTotalCost
+            // 
+            this.fieldTotalCost.AreaIndex = 1;
+            this.fieldTotalCost.Caption = "總批價";
+            this.fieldTotalCost.FieldName = "TotalCost";
+            this.fieldTotalCost.Name = "fieldTotalCost";
+            // 
+            // fieldTotalPrice
+            // 
+            this.fieldTotalPrice.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldTotalPrice.AreaIndex = 1;
+            this.fieldTotalPrice.Caption = "總售價";
+            this.fieldTotalPrice.FieldName = "TotalPrice";
+            this.fieldTotalPrice.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.fieldTotalPrice.Name = "fieldTotalPrice";
+            this.fieldTotalPrice.TotalCellFormat.FormatString = "\"$\"0";
+            this.fieldTotalPrice.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            // 
+            // fieldTotalProfit
+            // 
+            this.fieldTotalProfit.AreaIndex = 2;
+            this.fieldTotalProfit.Caption = "總利潤";
+            this.fieldTotalProfit.FieldName = "TotalProfit";
+            this.fieldTotalProfit.Name = "fieldTotalProfit";
+            // 
+            // fieldCount
+            // 
+            this.fieldCount.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldCount.AreaIndex = 0;
+            this.fieldCount.Caption = "數量";
+            this.fieldCount.CellFormat.FormatString = "\"+\"0";
+            this.fieldCount.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.fieldCount.FieldName = "Count";
+            this.fieldCount.GrandTotalText = "\"\"";
+            this.fieldCount.Name = "fieldCount";
+            this.fieldCount.Options.ShowTotals = false;
+            this.fieldCount.Options.ShowValues = false;
+            this.fieldCount.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.CustomTotals;
+            // 
             // gridControl_FocusOrder
             // 
             this.gridControl_FocusOrder.AllowDrop = true;
@@ -1606,10 +1752,6 @@
             this.gridControl_FocusOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_FocusOrder});
             this.gridControl_FocusOrder.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
-            // 
-            // FocusbindingSource
-            // 
-            this.FocusbindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
             // 
             // gridView_FocusOrder
             // 
@@ -2035,148 +2177,6 @@
             // 
             this.saveFileDialog1.Title = "欲存檔路徑";
             // 
-            // pivotGrid_FocusOrder
-            // 
-            this.pivotGrid_FocusOrder.AppearancePrint.Cell.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.CustomTotalCell.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.FieldHeader.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.FieldValue.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.ForeColor = System.Drawing.Color.Red;
-            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseForeColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.FieldValueTotal.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.ForeColor = System.Drawing.Color.Red;
-            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseForeColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.Lines.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.TotalCell.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.pivotGrid_FocusOrder.DataSource = this.FocusbindingSource;
-            this.pivotGrid_FocusOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pivotGrid_FocusOrder.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
-            this.fieldNote1,
-            this.fieldCustomName,
-            this.fieldArea,
-            this.fieldPrice,
-            this.fieldProductName,
-            this.fieldTotalCost,
-            this.fieldTotalPrice,
-            this.fieldTotalProfit,
-            this.fieldCount});
-            this.pivotGrid_FocusOrder.Location = new System.Drawing.Point(0, 0);
-            this.pivotGrid_FocusOrder.Name = "pivotGrid_FocusOrder";
-            this.pivotGrid_FocusOrder.OptionsBehavior.BestFitConsiderCustomAppearance = true;
-            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowCustomTotals = true;
-            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowGrandTotals = true;
-            this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowTotals = true;
-            this.pivotGrid_FocusOrder.OptionsDataField.AreaIndex = 0;
-            this.pivotGrid_FocusOrder.OptionsDataField.RowHeaderWidth = 300;
-            this.pivotGrid_FocusOrder.OptionsOLAP.SortByCustomFieldValueDisplayText = true;
-            this.pivotGrid_FocusOrder.OptionsPrint.PrintUnusedFilterFields = false;
-            this.pivotGrid_FocusOrder.OptionsPrint.UsePrintAppearance = true;
-            this.pivotGrid_FocusOrder.OptionsView.ShowColumnGrandTotalHeader = false;
-            this.pivotGrid_FocusOrder.OptionsView.ShowRowGrandTotalHeader = false;
-            this.pivotGrid_FocusOrder.OptionsView.ShowTotalsForSingleValues = true;
-            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(1275, 530);
-            this.pivotGrid_FocusOrder.TabIndex = 8;
-            // 
-            // fieldNote1
-            // 
-            this.fieldNote1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.fieldNote1.AreaIndex = 2;
-            this.fieldNote1.Caption = "備註";
-            this.fieldNote1.FieldName = "Note1";
-            this.fieldNote1.Name = "fieldNote1";
-            this.fieldNote1.Width = 200;
-            // 
-            // fieldCustomName
-            // 
-            this.fieldCustomName.Appearance.CellTotal.ForeColor = System.Drawing.Color.Red;
-            this.fieldCustomName.Appearance.CellTotal.Options.UseForeColor = true;
-            this.fieldCustomName.Appearance.CellTotal.Options.UseTextOptions = true;
-            this.fieldCustomName.Appearance.CellTotal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.fieldCustomName.Appearance.ValueTotal.ForeColor = System.Drawing.Color.Red;
-            this.fieldCustomName.Appearance.ValueTotal.Options.UseForeColor = true;
-            this.fieldCustomName.Appearance.ValueTotal.Options.UseTextOptions = true;
-            this.fieldCustomName.Appearance.ValueTotal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.fieldCustomName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.fieldCustomName.AreaIndex = 0;
-            this.fieldCustomName.Caption = "客戶";
-            this.fieldCustomName.FieldName = "CustomName";
-            this.fieldCustomName.MinWidth = 30;
-            this.fieldCustomName.Name = "fieldCustomName";
-            this.fieldCustomName.Options.ShowGrandTotal = false;
-            this.fieldCustomName.SortMode = DevExpress.XtraPivotGrid.PivotSortMode.Custom;
-            this.fieldCustomName.TotalCellFormat.FormatString = "\"合計\"0";
-            this.fieldCustomName.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldCustomName.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.fieldCustomName.Width = 200;
-            // 
-            // fieldArea
-            // 
-            this.fieldArea.AreaIndex = 0;
-            this.fieldArea.Caption = "地區";
-            this.fieldArea.FieldName = "Area";
-            this.fieldArea.Name = "fieldArea";
-            // 
-            // fieldPrice
-            // 
-            this.fieldPrice.AreaIndex = 3;
-            this.fieldPrice.Caption = "售價";
-            this.fieldPrice.FieldName = "Price";
-            this.fieldPrice.Name = "fieldPrice";
-            // 
-            // fieldProductName
-            // 
-            this.fieldProductName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.fieldProductName.AreaIndex = 1;
-            this.fieldProductName.Caption = "產品";
-            this.fieldProductName.FieldName = "ProductName";
-            this.fieldProductName.GrandTotalText = "合計";
-            this.fieldProductName.MinWidth = 100;
-            this.fieldProductName.Name = "fieldProductName";
-            this.fieldProductName.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None;
-            this.fieldProductName.Width = 300;
-            // 
-            // fieldTotalCost
-            // 
-            this.fieldTotalCost.AreaIndex = 1;
-            this.fieldTotalCost.Caption = "總批價";
-            this.fieldTotalCost.FieldName = "TotalCost";
-            this.fieldTotalCost.Name = "fieldTotalCost";
-            // 
-            // fieldTotalPrice
-            // 
-            this.fieldTotalPrice.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldTotalPrice.AreaIndex = 1;
-            this.fieldTotalPrice.Caption = "總售價";
-            this.fieldTotalPrice.FieldName = "TotalPrice";
-            this.fieldTotalPrice.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldTotalPrice.Name = "fieldTotalPrice";
-            this.fieldTotalPrice.TotalCellFormat.FormatString = "\"$\"0";
-            this.fieldTotalPrice.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            // 
-            // fieldTotalProfit
-            // 
-            this.fieldTotalProfit.AreaIndex = 2;
-            this.fieldTotalProfit.Caption = "總利潤";
-            this.fieldTotalProfit.FieldName = "TotalProfit";
-            this.fieldTotalProfit.Name = "fieldTotalProfit";
-            // 
-            // fieldCount
-            // 
-            this.fieldCount.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
-            this.fieldCount.AreaIndex = 0;
-            this.fieldCount.Caption = "數量";
-            this.fieldCount.CellFormat.FormatString = "\"+\"0";
-            this.fieldCount.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldCount.FieldName = "Count";
-            this.fieldCount.GrandTotalText = "\"\"";
-            this.fieldCount.Name = "fieldCount";
-            this.fieldCount.Options.ShowTotals = false;
-            this.fieldCount.Options.ShowValues = false;
-            this.fieldCount.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.CustomTotals;
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -2232,11 +2232,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_FocusOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).EndInit();
             this.ResumeLayout(false);
 
         }
