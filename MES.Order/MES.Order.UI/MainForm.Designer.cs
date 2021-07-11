@@ -71,7 +71,7 @@ namespace MES.Order.UI
             this.document1.Caption = "訂單";
             this.document1.ControlName = "Order";
             this.document1.ControlTypeName = "MES.Order.UI.Order";
-            this.document1.IsSelectedChanged += new DevExpress.XtraBars.Docking2010.Views.DocumentEventHandler(this.document1_IsSelectedChanged);
+         
             // 
             // document2
             // 

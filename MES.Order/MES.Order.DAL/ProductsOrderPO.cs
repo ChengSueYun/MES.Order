@@ -25,6 +25,8 @@ namespace MES.Order.DAL
 
         private ProductsDbContext _productsDbContext;
 
+        #region Query
+
         public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
                                                   string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
         {
@@ -74,17 +76,15 @@ namespace MES.Order.DAL
             return result.ToListAsync().Result;
         }
 
+        #endregion
+
         #region Save
 
         public int SaveOrder(List<ProductsOrder> insertProductsOrders)
         {
-            var result = 0;
-            using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
-            {
-                insertProductsOrders.ForEach(x => x.Note3 = "");
-                db.ProductsOrders.AddRange(insertProductsOrders);
-                result = db.Save();
-            }
+            insertProductsOrders.ForEach(x => x.Note3 = "");
+            this.productsDbContext.ProductsOrders.AddRange(insertProductsOrders);
+            var result = this.productsDbContext.SaveChangesAsync().Result;
 
             return result;
         }
@@ -95,18 +95,15 @@ namespace MES.Order.DAL
 
         public int DeleteOrder(List<ProductsOrder> deletOders)
         {
-            using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
+            foreach (var deletOder in deletOders)
             {
-                foreach (var deletOder in deletOders)
-                {
-                    deletOder.Note3 = "";
-                    db.ProductsOrders.Attach(deletOder);
-                    db.Entry(deletOder).State = EntityState.Deleted;
-                }
-
-                var result = db.Save();
-                return result;
+                deletOder.Note3 = "";
+                this.productsDbContext.ProductsOrders.Attach(deletOder);
+                this.productsDbContext.Entry(deletOder).State = EntityState.Deleted;
             }
+
+            var result = this.productsDbContext.SaveChangesAsync().Result;
+            return result;
         }
 
         #endregion
@@ -115,18 +112,15 @@ namespace MES.Order.DAL
 
         public int UpdateOrder(List<ProductsOrder> updateOrders)
         {
-            using (var db = ProductsDbContext.Create(this.productsDbContext.Database.Connection.ConnectionString))
+            foreach (var updateOrder in updateOrders)
             {
-                foreach (var updateOrder in updateOrders)
-                {
-                    updateOrder.Note3 = "";
-                    db.ProductsOrders.Attach(updateOrder);
-                    db.Entry(updateOrder).State = EntityState.Modified;
-                }
-
-                var result = db.Save();
-                return result;
+                updateOrder.Note3 = "";
+                this.productsDbContext.ProductsOrders.Attach(updateOrder);
+                this.productsDbContext.Entry(updateOrder).State = EntityState.Modified;
             }
+
+            var result = this.productsDbContext.SaveChangesAsync().Result;
+            return result;
         }
 
         #endregion

@@ -57,6 +57,7 @@
             this.btn_UnFocus = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Export = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Cancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Update = new DevExpress.XtraEditors.SimpleButton();
             this.toggleSwitch_GroupColumn = new DevExpress.XtraEditors.ToggleSwitch();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -120,6 +121,7 @@
             this.fieldTotalPrice = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldTotalProfit = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldCount = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldAddress = new DevExpress.XtraPivotGrid.PivotGridField();
             this.alertControl1 = new DevExpress.XtraBars.Alerter.AlertControl(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
@@ -182,6 +184,7 @@
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
             this.groupControl1.Controls.Add(this.tableLayoutPanel1);
+            this.groupControl1.Controls.Add(this.toggleSwitch_GroupColumn);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -222,7 +225,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btn_UnFocus, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.btn_Export, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.btn_Cancel, 5, 2);
-            this.tableLayoutPanel1.Controls.Add(this.toggleSwitch_GroupColumn, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btn_Update, 4, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 38);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -674,10 +677,28 @@
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             this.btn_Cancel.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
             // 
+            // btn_Update
+            // 
+            this.btn_Update.Appearance.BackColor = System.Drawing.Color.PeachPuff;
+            this.btn_Update.Appearance.BackColor2 = System.Drawing.Color.LightSkyBlue;
+            this.btn_Update.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_Update.Appearance.ForeColor = System.Drawing.Color.Sienna;
+            this.btn_Update.Appearance.Options.UseBackColor = true;
+            this.btn_Update.Appearance.Options.UseFont = true;
+            this.btn_Update.Appearance.Options.UseForeColor = true;
+            this.btn_Update.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btn_Update.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Update.ImageOptions.Image")));
+            this.btn_Update.Location = new System.Drawing.Point(731, 87);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(156, 41);
+            this.btn_Update.TabIndex = 379;
+            this.btn_Update.Text = "批次更新";
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
+            // 
             // toggleSwitch_GroupColumn
             // 
-            this.toggleSwitch_GroupColumn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toggleSwitch_GroupColumn.Location = new System.Drawing.Point(554, 86);
+            this.toggleSwitch_GroupColumn.Location = new System.Drawing.Point(91, 7);
             this.toggleSwitch_GroupColumn.Name = "toggleSwitch_GroupColumn";
             this.toggleSwitch_GroupColumn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.toggleSwitch_GroupColumn.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
@@ -686,7 +707,7 @@
             this.toggleSwitch_GroupColumn.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.toggleSwitch_GroupColumn.Properties.OffText = "取消群組支數";
             this.toggleSwitch_GroupColumn.Properties.OnText = "群組支數";
-            this.toggleSwitch_GroupColumn.Size = new System.Drawing.Size(169, 43);
+            this.toggleSwitch_GroupColumn.Size = new System.Drawing.Size(216, 30);
             this.toggleSwitch_GroupColumn.TabIndex = 378;
             this.toggleSwitch_GroupColumn.Toggled += new System.EventHandler(this.toggleSwitch_GroupColumn_Toggled);
             // 
@@ -1567,6 +1588,8 @@
             // 
             // pivotGrid_FocusOrder
             // 
+            this.pivotGrid_FocusOrder.Appearance.TotalCell.ForeColor = System.Drawing.Color.Red;
+            this.pivotGrid_FocusOrder.Appearance.TotalCell.Options.UseForeColor = true;
             this.pivotGrid_FocusOrder.AppearancePrint.Cell.Options.UseBorderColor = true;
             this.pivotGrid_FocusOrder.AppearancePrint.CustomTotalCell.Options.UseBorderColor = true;
             this.pivotGrid_FocusOrder.AppearancePrint.FieldHeader.Options.UseBorderColor = true;
@@ -1575,9 +1598,7 @@
             this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseBorderColor = true;
             this.pivotGrid_FocusOrder.AppearancePrint.FieldValueGrandTotal.Options.UseForeColor = true;
             this.pivotGrid_FocusOrder.AppearancePrint.FieldValueTotal.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.ForeColor = System.Drawing.Color.Red;
             this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseBorderColor = true;
-            this.pivotGrid_FocusOrder.AppearancePrint.GrandTotalCell.Options.UseForeColor = true;
             this.pivotGrid_FocusOrder.AppearancePrint.Lines.Options.UseBorderColor = true;
             this.pivotGrid_FocusOrder.AppearancePrint.TotalCell.Options.UseBorderColor = true;
             this.pivotGrid_FocusOrder.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -1592,7 +1613,8 @@
             this.fieldTotalCost,
             this.fieldTotalPrice,
             this.fieldTotalProfit,
-            this.fieldCount});
+            this.fieldCount,
+            this.fieldAddress});
             this.pivotGrid_FocusOrder.Location = new System.Drawing.Point(0, 0);
             this.pivotGrid_FocusOrder.Name = "pivotGrid_FocusOrder";
             this.pivotGrid_FocusOrder.OptionsBehavior.BestFitConsiderCustomAppearance = true;
@@ -1602,7 +1624,13 @@
             this.pivotGrid_FocusOrder.OptionsDataField.AreaIndex = 0;
             this.pivotGrid_FocusOrder.OptionsDataField.RowHeaderWidth = 300;
             this.pivotGrid_FocusOrder.OptionsOLAP.SortByCustomFieldValueDisplayText = true;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintColumnHeaders = DevExpress.Utils.DefaultBoolean.True;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintDataHeaders = DevExpress.Utils.DefaultBoolean.True;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintFilterHeaders = DevExpress.Utils.DefaultBoolean.True;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintHorzLines = DevExpress.Utils.DefaultBoolean.True;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintRowHeaders = DevExpress.Utils.DefaultBoolean.True;
             this.pivotGrid_FocusOrder.OptionsPrint.PrintUnusedFilterFields = false;
+            this.pivotGrid_FocusOrder.OptionsPrint.PrintVertLines = DevExpress.Utils.DefaultBoolean.True;
             this.pivotGrid_FocusOrder.OptionsPrint.UsePrintAppearance = true;
             this.pivotGrid_FocusOrder.OptionsView.ShowColumnGrandTotalHeader = false;
             this.pivotGrid_FocusOrder.OptionsView.ShowRowGrandTotalHeader = false;
@@ -1710,6 +1738,15 @@
             this.fieldCount.Options.ShowTotals = false;
             this.fieldCount.Options.ShowValues = false;
             this.fieldCount.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.CustomTotals;
+            // 
+            // fieldAddress
+            // 
+            this.fieldAddress.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldAddress.AreaIndex = 3;
+            this.fieldAddress.Caption = "是否取貨";
+            this.fieldAddress.FieldName = "Address";
+            this.fieldAddress.Name = "fieldAddress";
+            this.fieldAddress.Width = 150;
             // 
             // alertControl1
             // 
@@ -1877,5 +1914,7 @@
         private DevExpress.XtraPivotGrid.PivotGridField fieldTotalPrice;
         private DevExpress.XtraPivotGrid.PivotGridField fieldTotalProfit;
         private DevExpress.XtraPivotGrid.PivotGridField fieldCount;
+        internal DevExpress.XtraEditors.SimpleButton btn_Update;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldAddress;
     }
 }

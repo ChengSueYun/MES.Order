@@ -30,17 +30,14 @@ namespace MES.Order.DAL
 
         public int DeleteProductsInfomations(List<ProductsInfomation> delProductsInfomations)
         {
-            using (var db = ProductsDbContext.Create(this.ProductsDbContext.Database.Connection.ConnectionString))
+            foreach (var delProductsInfomation in delProductsInfomations)
             {
-                foreach (var delProductsInfomation in delProductsInfomations)
-                {
-                    db.ProductsInfomations.Attach(delProductsInfomation);
-                    db.Entry(delProductsInfomation).State = EntityState.Deleted;
-                }
-
-                var result = db.Save();
-                return result;
+                this.ProductsDbContext.ProductsInfomations.Attach(delProductsInfomation);
+                this.ProductsDbContext.Entry(delProductsInfomation).State = EntityState.Deleted;
             }
+
+            var result = this.ProductsDbContext.SaveChangesAsync().Result;
+            return result;
         }
 
         #endregion
@@ -49,12 +46,9 @@ namespace MES.Order.DAL
 
         public int SaveProductsInfomations(List<ProductsInfomation> insertProductsInfomations)
         {
-            using (var db = ProductsDbContext.Create(this.ProductsDbContext.Database.Connection.ConnectionString))
-            {
-                db.ProductsInfomations.AddRange(insertProductsInfomations);
-                var result = db.Save();
-                return result;
-            }
+            this.ProductsDbContext.ProductsInfomations.AddRange(insertProductsInfomations);
+            var result = this.ProductsDbContext.SaveChangesAsync().Result;
+            return result;
         }
 
         #endregion
@@ -128,7 +122,8 @@ namespace MES.Order.DAL
         public List<ProductsInfomation> GetProdctCost(string ProductGroupID, string ProductName)
         {
             return this.ProductsDbContext.ProductsInfomations
-                       .Where(x => x.ProductGroupID == ProductGroupID && x.ProductName == ProductName).ToListAsync().Result;
+                       .Where(x => x.ProductGroupID == ProductGroupID && x.ProductName == ProductName).ToListAsync()
+                       .Result;
         }
 
         #endregion

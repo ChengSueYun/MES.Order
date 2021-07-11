@@ -50,8 +50,8 @@ namespace MES.Order.UI
 
         private void Order_Enter(object sender, EventArgs e)
         {
-            this.InitialArea();
-            this.InitialProductGroupID();
+            // this.InitialArea();
+            // this.InitialProductGroupID();
             this.InitialCusomterName();
             this.InitialProductName();
             this.InitialProductInformation();
@@ -61,14 +61,14 @@ namespace MES.Order.UI
 
         public void InitialControls()
         {
+            this.dateEdit_OrderDateS.DateTime = DateTime.Today;
+            this.dateEdit_OrderDateE.DateTime = DateTime.Today;
             this.InitialArea();
             this.InitialProductGroupID();
             this.InitialCusomterName();
             this.InitialProductName();
             this.InitialWhetherStock();
             this.InitialProductInformation();
-            this.dateEdit_OrderDateS.DateTime              = DateTime.Today;
-            this.dateEdit_OrderDateE.DateTime              = DateTime.Today;
             this.addOrderViewModelBindingSource.DataSource = this.addOrderView;
             this.addOrderViewModelBindingSource.AddNew();
             this.FocusbindingSource.DataSource = this.focusOrders;
@@ -413,6 +413,47 @@ namespace MES.Order.UI
             }
 
             this.gridView_ProductOrder.BestFitColumns();
+        }
+
+        /// <summary>
+        /// 批次更新
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            string pWetherStock = @"";
+            this.UpdateproductsOrders = new List<ProductsOrder>();
+            var productsOrder = this.productsOrderBindingSource.DataSource as List<ProductsOrder>;
+            var checkedList   = productsOrder.Where(x => x.Note3 == "True").ToList();
+
+            var dialogResult = MessageBox.Show(@"若要批次更新成[未取貨]，請點選[是]" + Environment.NewLine + @"若要批次更新成[ ]，請點選[否]"
+                                               + Environment.NewLine  + @"若都不要更新，請點選[取消]", @"提醒",
+                                               MessageBoxButtons.YesNoCancel);
+            if (dialogResult == DialogResult.Yes)
+            {
+                pWetherStock = this.whetherGetStock.unGet.LocalDescription;
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                pWetherStock = this.whetherGetStock.AllNone.LocalDescription;
+            }
+            else if (dialogResult == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            foreach (var order in checkedList)
+            {
+                order.Address    = pWetherStock;
+                order.UpdateDate = DateTime.Now;
+                order.SetDefaultValue();
+                this.UpdateproductsOrders.Add(order);
+                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+                this.focusOrders.AddOrReplace(x => x.AutoID == order.AutoID, order);
+                this.pivotGrid_FocusOrder.RefreshData();
+            }
+            btn_Query.PerformClick();
         }
 
         #endregion
