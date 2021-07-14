@@ -26,5 +26,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.COMMIT_SECRET }}       
-          publish_branch: deploy # <- 遠端 repo 的目標分支
           publish_dir: ./public # <- 指定編譯後的成品放置的資料夾
