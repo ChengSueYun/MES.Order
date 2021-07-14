@@ -1,22 +1,42 @@
-name: Build Web App
- 
-on: [push]
- 
+name: deploy gh-pages
+on:
+  push:
+    branches:
+      - master
 jobs:
   build:
- 
-    runs-on: windows-latest
- 
+    name: Build and deploy gh-pages
+    env:
+      MY_SECRET   : ${{secrets.commit_secret}}
+      USER_NAME   : SueYun
+      USER_EMAIL  : githubaction@fake.com
+      PUBLISH_DIR : ./dist
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
     steps:
     - uses: actions/checkout@v1
-      name: Checkout Code
-
- 
-    - name: Build and Publish Web App
-      run: msbuild MES.Order.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
- 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v1.0.0
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
-        name: published_webapp
-        path: https://chengsueyun.github.io/DepartmentStore/Publish
+        node-version: ${{ matrix.node-version }}
+    - name: npm install
+      run: |
+        npm install
+    - name: npm run build
+      run: |
+        npm run gulp m
+        npm run build
+    - name: Commit files
+      run: |
+        cd $PUBLISH_DIR
+        git init
+        git config --local user.name $USER_NAME
+        git config --local user.email $USER_EMAIL
+        git status
+        git remote add origin https://chengsueyun.github.io/DepartmentStore/
+        git checkout -b gh-pages
+        git add --all
+        git commit -m "https://chengsueyun.github.io/DepartmentStore/"
+        git push origin gh-pages -f
