@@ -27,3 +27,4 @@ jobs:
         with:
           github_token: ${{ secrets.COMMIT_SECRET }}       
           publish_dir: ./public # <- 指定編譯後的成品放置的資料夾
+          publish_branch: master # <- 遠端 repo 的目標分支
