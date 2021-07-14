@@ -18,12 +18,7 @@ jobs:
         node-version: [10.x]
     steps:
     - uses: actions/checkout@v1
-    
-      # Install the .NET Core workload
-    - name: Install .NET Framework
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 4.7.2
+  
         
     - name: npm install
       run: |
