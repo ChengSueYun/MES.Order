@@ -12,9 +12,7 @@ jobs:
       name: Checkout Code
      
     - name: Setup MSBuild Path
-      uses: microsoft/setup-msbuild@v1.0.2
-      with:
-        vswhere-path: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin'
+      run: C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe
         
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
