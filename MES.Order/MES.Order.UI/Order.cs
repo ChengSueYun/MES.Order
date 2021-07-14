@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
@@ -260,7 +261,7 @@ namespace MES.Order.UI
 
             //已有"是否取貨"的資料
             var haveData = checkedList
-                           .Where(x => x.Address.Contains(@"已取貨"))
+                           .Where(x => x.Address.Contains(@"取貨"))
                            .ToList();
 
             //還沒有"是否取貨"的資料
@@ -268,6 +269,7 @@ namespace MES.Order.UI
 
             foreach (var item in haveData)
             {
+                item.Note3 = @"";
                 this.focusOrders.AddOrReplace(x => x.AutoID == item.AutoID, item);
             }
 
@@ -279,6 +281,7 @@ namespace MES.Order.UI
             }
 
             this.pivotGrid_FocusOrder.RefreshData();
+            this.gridView_Focus.RefreshData();
             this.ProductsOrderUCO.UpdateOrders(updateList);
             this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
             this.btn_Query.PerformClick();
@@ -329,9 +332,9 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_UnFocus_Click(object sender, EventArgs e)
         {
-            var                 CurrentList = this.FocusbindingSource.DataSource as List<ProductsOrder>;
-            var                 checkedList = CurrentList.Where(x => x.Note3 == "True").ToList();
-            List<ProductsOrder> updateList  = new List<ProductsOrder>();
+            var                 CurrentList                 = this.FocusbindingSource.DataSource as List<ProductsOrder>;
+            var                 checkedList                 = CurrentList.Where(x => x.Note3 == "True").ToList();
+            List<ProductsOrder> updateList                  = new List<ProductsOrder>();
             var dialogResult = MessageBox.Show(@"是否確認要清除鎖定 " + checkedList.Count + @"筆資料?", "提醒",
                                                MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
@@ -346,6 +349,7 @@ namespace MES.Order.UI
                 this.focusOrders.Remove(item);
 
                 this.pivotGrid_FocusOrder.RefreshData();
+                this.gridView_Focus.RefreshData();
             }
 
             var updateOrders = this.ProductsOrderUCO.UpdateOrders(updateList);
@@ -683,5 +687,6 @@ namespace MES.Order.UI
         }
 
         #endregion
+
     }
 }
