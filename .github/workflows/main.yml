@@ -18,7 +18,7 @@ jobs:
         with:
           hugo-version: '0.64.1'
 
-      - name: Build
+    - name: Build
         run: hugo --minify
 
       - name: Deploy
