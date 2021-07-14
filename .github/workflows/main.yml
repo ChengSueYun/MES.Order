@@ -25,7 +25,6 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.COMMIT_SECRET }}
-          external_repository: chengsueyun.github.io/MES.Order/ # <- 改成你自己的 user github page
+          github_token: ${{ secrets.COMMIT_SECRET }}       
           publish_branch: master # <- 遠端 repo 的目標分支
           publish_dir: ./public # <- 指定編譯後的成品放置的資料夾
