@@ -10,10 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       name: Checkout Code
+
      
-    - name: Setup MSBuild Path
-      run: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\MSBuild.exe'
-        
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
       
