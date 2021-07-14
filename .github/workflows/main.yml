@@ -1,42 +1,30 @@
-name: deploy gh-pages
+name: Hugo Build and Deploy
+
 on:
   push:
     branches:
       - master
+
 jobs:
-  build:
-    name: Build and deploy gh-pages
-    env:
-      MY_SECRET   : ${{secrets.commit_secret}}
-      USER_NAME   : SueYun
-      USER_EMAIL  : githubaction@fake.com
-      PUBLISH_DIR : ./dist
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x]
+  build-deploy:
+    runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm install
-      run: |
-        npm install
-    - name: npm run build
-      run: |
-        npm run gulp m
-        npm run build
-    - name: Commit files
-      run: |
-        cd $PUBLISH_DIR
-        git init
-        git config --local user.name $USER_NAME
-        git config --local user.email $USER_EMAIL
-        git status
-        git remote add origin https://chengsueyun.github.io/DepartmentStore/
-        git checkout -b gh-pages
-        git add --all
-        git commit -m "https://chengsueyun.github.io/DepartmentStore/"
-        git push origin gh-pages -f
+      - uses: actions/checkout@v1  # v2 does not have submodules option now
+        with:
+          submodules: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.64.1'
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.COMMIT_SECRET }}
+          external_repository: chengsueyun.github.io # <- 改成你自己的 user github page
+          publish_dir: ./public # <- 指定編譯後的成品放置的資料夾
+          publish_branch: master # <- 遠端 repo 的目標分支
