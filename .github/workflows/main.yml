@@ -11,13 +11,6 @@ jobs:
     - uses: actions/checkout@v1
       name: Checkout Code
 
-     
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1.0.2
-      
-
-    - name: Restore NuGet Packages
-      run: nuget restore MES.Order.sln
  
     - name: Build and Publish Web App
       run: msbuild MES.Order.sln /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
