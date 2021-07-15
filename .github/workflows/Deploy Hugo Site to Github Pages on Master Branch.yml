@@ -3,15 +3,15 @@ name: Deploy Hugo Site to Github Pages on Master Branch
 on:
   push:
     branches:
-      - master
+       master
 
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v1  # v2 does not have submodules option now
-       # with:
-       #   submodules: true
+        with:
+          submodules: true
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -29,5 +29,5 @@ jobs:
           external_repository: ChengSueYun/chengsueyun.github.io # Pages 远程仓库 
           publish_dir: ""
           keep_files: false # remove existing files
-          publish_branch: master  # deploying branch
+          publish_branch: stable  # deploying branch
           commit_message: ${{ github.event.head_commit.message }}
