@@ -21,7 +21,7 @@ jobs:
       Solution_Name: MES.Order.UI.sln  # Replace with your solution name, i.e. MyWpfApp.sln.
       Wap_Project_Directory: MES.Order.Package    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: MES.Order.Package/MES.Order.Package.wapproj                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-      DOTNET_ROOT: C:\Users\s03csy\AppData\Local\Microsoft\dotnet
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -42,6 +42,7 @@ jobs:
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
       env:
+        DOTNET_ROOT: C:\Users\s03csy\AppData\Local\Microsoft\dotnet
         Configuration: ${{ matrix.configuration }}
 
     # Decode the base 64 encoded pfx and save the Signing_Certificate
