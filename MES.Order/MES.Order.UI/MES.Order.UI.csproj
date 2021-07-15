@@ -29,8 +29,7 @@
     <ProductName>小夫妻程式</ProductName>
     <PublisherName>SueYun</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <WebPage>default.html</WebPage>
-    <AutorunEnabled>true</AutorunEnabled>
+    <WebPage>chengsueyun.github.io.html</WebPage>
     <TrustUrlParameters>true</TrustUrlParameters>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.1</ApplicationVersion>
