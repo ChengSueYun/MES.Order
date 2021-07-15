@@ -1,6 +1,8 @@
 name: composite
 on:
-  workflow_dispatch:
+  push:
+    branches:
+       -master
 
 env:
   deploy_powershell_script:  "D:\\github-deploy-ps.ps1"
