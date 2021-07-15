@@ -1,28 +1,23 @@
-name: Hugo Build and Deploy
-
-
+name: Build and Deploy
 on:
-  push:
+ push:
     branches:
-       -master
-  
+       main
 jobs:
-  build-deploy:
-    runs-on: ubuntu-18.04
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1  # v2 does not have submodules option now
-        with:
-          submodules: false
- 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.64.1'
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          deploy_key: ${{ secrets.COMMIT_SECRET }}
-          external_repository: chengsueyun.github.io # <- 改成你自己的 user github page
-          publish_dir: ./public # <- 指定編譯後的成品放置的資料夾
-          publish_branch: stable # <- 遠端 repo 的目標分支
+          branch: gh-pages # The branch the action should deploy to.
+          folder: site
+          ssh-key: ${{ secrets.COMMIT_SECRET }}
