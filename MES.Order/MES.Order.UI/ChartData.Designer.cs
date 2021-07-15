@@ -63,6 +63,7 @@ namespace MES.Order.UI
             this.fieldTotalCost1,
             this.fieldTotalProfit1});
             this.pivotGridControl1.Location = new System.Drawing.Point(0, 0);
+            this.pivotGridControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pivotGridControl1.Name = "pivotGridControl1";
             this.pivotGridControl1.OptionsBehavior.UseAsyncMode = true;
             this.pivotGridControl1.OptionsChartDataSource.FieldValuesProvideMode = DevExpress.XtraPivotGrid.PivotChartFieldValuesProvideMode.DisplayText;
@@ -70,7 +71,7 @@ namespace MES.Order.UI
             this.pivotGridControl1.OptionsView.HeaderFilterButtonShowMode = DevExpress.XtraEditors.Controls.FilterButtonShowMode.Button;
             this.pivotGridControl1.OptionsView.RowTreeWidth = 300;
             this.pivotGridControl1.OptionsView.ShowColumnGrandTotalHeader = false;
-            this.pivotGridControl1.Size = new System.Drawing.Size(1200, 708);
+            this.pivotGridControl1.Size = new System.Drawing.Size(900, 566);
             this.pivotGridControl1.TabIndex = 0;
             // 
             // productsOrdersBindingSource
@@ -96,7 +97,9 @@ namespace MES.Order.UI
             this.fieldArea1.AreaIndex = 0;
             this.fieldArea1.Caption = "地區";
             this.fieldArea1.FieldName = "Area";
+            this.fieldArea1.MinWidth = 15;
             this.fieldArea1.Name = "fieldArea1";
+            this.fieldArea1.Width = 75;
             // 
             // fieldCustomName1
             // 
@@ -117,7 +120,9 @@ namespace MES.Order.UI
             this.fieldCustomName1.AreaIndex = 1;
             this.fieldCustomName1.Caption = "客戶";
             this.fieldCustomName1.FieldName = "CustomName";
+            this.fieldCustomName1.MinWidth = 15;
             this.fieldCustomName1.Name = "fieldCustomName1";
+            this.fieldCustomName1.Width = 75;
             // 
             // fieldCount1
             // 
@@ -138,7 +143,9 @@ namespace MES.Order.UI
             this.fieldCount1.AreaIndex = 3;
             this.fieldCount1.Caption = "訂購數量";
             this.fieldCount1.FieldName = "Count";
+            this.fieldCount1.MinWidth = 15;
             this.fieldCount1.Name = "fieldCount1";
+            this.fieldCount1.Width = 75;
             // 
             // pivotGridField1
             // 
@@ -161,8 +168,10 @@ namespace MES.Order.UI
             this.pivotGridField1.Caption = "訂購年";
             this.pivotGridField1.FieldName = "OrderDate";
             this.pivotGridField1.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.DateYear;
+            this.pivotGridField1.MinWidth = 15;
             this.pivotGridField1.Name = "pivotGridField1";
             this.pivotGridField1.UnboundFieldName = "pivotGridField1";
+            this.pivotGridField1.Width = 75;
             // 
             // fieldOrderDate1
             // 
@@ -185,9 +194,11 @@ namespace MES.Order.UI
             this.fieldOrderDate1.Caption = "訂購月";
             this.fieldOrderDate1.FieldName = "OrderDate";
             this.fieldOrderDate1.GroupInterval = DevExpress.XtraPivotGrid.PivotGroupInterval.DateMonth;
+            this.fieldOrderDate1.MinWidth = 15;
             this.fieldOrderDate1.Name = "fieldOrderDate1";
             this.fieldOrderDate1.UnboundFieldName = "fieldOrderDate1";
             this.fieldOrderDate1.UseNativeFormat = DevExpress.Utils.DefaultBoolean.True;
+            this.fieldOrderDate1.Width = 75;
             // 
             // fieldProductGroupID1
             // 
@@ -208,7 +219,9 @@ namespace MES.Order.UI
             this.fieldProductGroupID1.AreaIndex = 2;
             this.fieldProductGroupID1.Caption = "廠商";
             this.fieldProductGroupID1.FieldName = "ProductGroupID";
+            this.fieldProductGroupID1.MinWidth = 15;
             this.fieldProductGroupID1.Name = "fieldProductGroupID1";
+            this.fieldProductGroupID1.Width = 75;
             // 
             // fieldPrice1
             // 
@@ -234,6 +247,7 @@ namespace MES.Order.UI
             this.fieldPrice1.FieldName = "Price";
             this.fieldPrice1.GrandTotalCellFormat.FormatString = "N0";
             this.fieldPrice1.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldPrice1.MinWidth = 15;
             this.fieldPrice1.Name = "fieldPrice1";
             this.fieldPrice1.TotalCellFormat.FormatString = "N0";
             this.fieldPrice1.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -242,6 +256,7 @@ namespace MES.Order.UI
             this.fieldPrice1.ValueFormat.FormatString = "N0";
             this.fieldPrice1.ValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.fieldPrice1.Visible = false;
+            this.fieldPrice1.Width = 75;
             // 
             // fieldTotalPrice1
             // 
@@ -267,6 +282,7 @@ namespace MES.Order.UI
             this.fieldTotalPrice1.FieldName = "TotalPrice";
             this.fieldTotalPrice1.GrandTotalCellFormat.FormatString = "N0";
             this.fieldTotalPrice1.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldTotalPrice1.MinWidth = 15;
             this.fieldTotalPrice1.Name = "fieldTotalPrice1";
             this.fieldTotalPrice1.TotalCellFormat.FormatString = "N0";
             this.fieldTotalPrice1.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -274,6 +290,7 @@ namespace MES.Order.UI
             this.fieldTotalPrice1.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.fieldTotalPrice1.ValueFormat.FormatString = "N0";
             this.fieldTotalPrice1.ValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldTotalPrice1.Width = 75;
             // 
             // fieldTotalCost1
             // 
@@ -299,6 +316,7 @@ namespace MES.Order.UI
             this.fieldTotalCost1.FieldName = "TotalCost";
             this.fieldTotalCost1.GrandTotalCellFormat.FormatString = "N0";
             this.fieldTotalCost1.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldTotalCost1.MinWidth = 15;
             this.fieldTotalCost1.Name = "fieldTotalCost1";
             this.fieldTotalCost1.TotalCellFormat.FormatString = "N0";
             this.fieldTotalCost1.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -306,6 +324,7 @@ namespace MES.Order.UI
             this.fieldTotalCost1.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.fieldTotalCost1.ValueFormat.FormatString = "N0";
             this.fieldTotalCost1.ValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldTotalCost1.Width = 75;
             // 
             // fieldTotalProfit1
             // 
@@ -331,6 +350,7 @@ namespace MES.Order.UI
             this.fieldTotalProfit1.FieldName = "TotalProfit";
             this.fieldTotalProfit1.GrandTotalCellFormat.FormatString = "N0";
             this.fieldTotalProfit1.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldTotalProfit1.MinWidth = 15;
             this.fieldTotalProfit1.Name = "fieldTotalProfit1";
             this.fieldTotalProfit1.TotalCellFormat.FormatString = "N0";
             this.fieldTotalProfit1.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -338,14 +358,16 @@ namespace MES.Order.UI
             this.fieldTotalProfit1.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
             this.fieldTotalProfit1.ValueFormat.FormatString = "N0";
             this.fieldTotalProfit1.ValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.fieldTotalProfit1.Width = 75;
             // 
             // ChartData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pivotGridControl1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ChartData";
-            this.Size = new System.Drawing.Size(1200, 708);
+            this.Size = new System.Drawing.Size(900, 566);
             ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsOrdersBindingSource)).EndInit();
             this.ResumeLayout(false);

@@ -110,8 +110,22 @@
             this.colNote3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNote2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
-            this.pivotGrid_FocusOrder = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.gridControl_Focus = new DevExpress.XtraGrid.GridControl();
             this.FocusbindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView_Focus = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.pivotGrid_FocusOrder = new DevExpress.XtraPivotGrid.PivotGridControl();
             this.fieldNote1 = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldCustomName = new DevExpress.XtraPivotGrid.PivotGridField();
             this.fieldArea = new DevExpress.XtraPivotGrid.PivotGridField();
@@ -142,20 +156,6 @@
             this.colNote31 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colNote21 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.colNote11 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridControl_Focus = new DevExpress.XtraGrid.GridControl();
-            this.gridView_Focus = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemSpinEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -198,14 +198,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).BeginInit();
             this.xtraTabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Focus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_Focus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -1308,6 +1308,8 @@
             this.colCount.ColumnEdit = this.repository_Count;
             this.colCount.FieldName = "Count";
             this.colCount.Name = "colCount";
+            this.colCount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "{0:N0}")});
             this.colCount.Visible = true;
             this.colCount.VisibleIndex = 7;
             this.colCount.Width = 99;
@@ -1597,6 +1599,298 @@
             this.xtraTabPage2.Size = new System.Drawing.Size(1116, 411);
             this.xtraTabPage2.Text = "拉單";
             // 
+            // gridControl_Focus
+            // 
+            this.gridControl_Focus.AllowDrop = true;
+            this.gridControl_Focus.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
+            this.gridControl_Focus.DataSource = this.FocusbindingSource;
+            this.gridControl_Focus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_Focus.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
+            this.gridControl_Focus.Location = new System.Drawing.Point(0, 0);
+            this.gridControl_Focus.MainView = this.gridView_Focus;
+            this.gridControl_Focus.Margin = new System.Windows.Forms.Padding(2);
+            this.gridControl_Focus.Name = "gridControl_Focus";
+            this.gridControl_Focus.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit1,
+            this.repositoryItemTextEdit1,
+            this.repositoryItemSpinEdit1});
+            this.gridControl_Focus.Size = new System.Drawing.Size(1116, 411);
+            this.gridControl_Focus.TabIndex = 9;
+            this.gridControl_Focus.UseEmbeddedNavigator = true;
+            this.gridControl_Focus.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView_Focus});
+            this.gridControl_Focus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
+            // 
+            // FocusbindingSource
+            // 
+            this.FocusbindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
+            // 
+            // gridView_Focus
+            // 
+            this.gridView_Focus.Appearance.Row.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.gridView_Focus.Appearance.Row.Options.UseFont = true;
+            this.gridView_Focus.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn4,
+            this.gridColumn6,
+            this.gridColumn7,
+            this.gridColumn8,
+            this.gridColumn9,
+            this.gridColumn10,
+            this.gridColumn11,
+            this.gridColumn13,
+            this.gridColumn15});
+            this.gridView_Focus.GridControl = this.gridControl_Focus;
+            this.gridView_Focus.GroupFormat = "{0}:{1} ,{2}";
+            this.gridView_Focus.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", null, "數量: {0:0.##}")});
+            this.gridView_Focus.Name = "gridView_Focus";
+            this.gridView_Focus.NewItemRowText = "點此新增";
+            this.gridView_Focus.OptionsSelection.CheckBoxSelectorField = "Note3";
+            this.gridView_Focus.OptionsSelection.MultiSelect = true;
+            this.gridView_Focus.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView_Focus.OptionsSelection.ResetSelectionClickOutsideCheckboxSelector = true;
+            this.gridView_Focus.OptionsView.ColumnAutoWidth = false;
+            this.gridView_Focus.OptionsView.ShowFooter = true;
+            this.gridView_Focus.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn4
+            // 
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceCell.Options.UseFont = true;
+            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn4.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn4.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn4.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn4.Caption = "地區";
+            this.gridColumn4.FieldName = "Area";
+            this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowFocus = false;
+            this.gridColumn4.Visible = true;
+            this.gridColumn4.VisibleIndex = 1;
+            this.gridColumn4.Width = 53;
+            // 
+            // gridColumn6
+            // 
+            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceCell.Options.UseFont = true;
+            this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn6.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn6.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn6.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn6.Caption = "客戶名稱";
+            this.gridColumn6.FieldName = "CustomName";
+            this.gridColumn6.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.FixedWidth = true;
+            this.gridColumn6.Visible = true;
+            this.gridColumn6.VisibleIndex = 2;
+            this.gridColumn6.Width = 134;
+            // 
+            // gridColumn7
+            // 
+            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceCell.Options.UseFont = true;
+            this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn7.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn7.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn7.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn7.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn7.Caption = "廠商";
+            this.gridColumn7.FieldName = "ProductGroupID";
+            this.gridColumn7.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowFocus = false;
+            this.gridColumn7.Width = 54;
+            // 
+            // gridColumn8
+            // 
+            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceCell.Options.UseFont = true;
+            this.gridColumn8.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn8.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn8.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn8.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn8.Caption = "產品";
+            this.gridColumn8.FieldName = "ProductName";
+            this.gridColumn8.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.FixedWidth = true;
+            this.gridColumn8.Visible = true;
+            this.gridColumn8.VisibleIndex = 3;
+            this.gridColumn8.Width = 231;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceCell.Options.UseFont = true;
+            this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn9.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn9.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn9.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn9.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn9.Caption = "數量";
+            this.gridColumn9.ColumnEdit = this.repositoryItemSpinEdit1;
+            this.gridColumn9.FieldName = "Count";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 6;
+            this.gridColumn9.Width = 99;
+            // 
+            // repositoryItemSpinEdit1
+            // 
+            this.repositoryItemSpinEdit1.AutoHeight = false;
+            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceCell.Options.UseFont = true;
+            this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn10.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn10.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn10.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn10.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn10.Caption = "售價";
+            this.gridColumn10.ColumnEdit = this.repositoryItemSpinEdit1;
+            this.gridColumn10.FieldName = "Price";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowFocus = false;
+            this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "{0:N0}")});
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 5;
+            this.gridColumn10.Width = 59;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceCell.Options.UseFont = true;
+            this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gridColumn11.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn11.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridColumn11.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn11.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn11.Caption = "總售價";
+            this.gridColumn11.FieldName = "TotalPrice";
+            this.gridColumn11.Name = "gridColumn11";
+            this.gridColumn11.OptionsColumn.AllowFocus = false;
+            this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "{0:N0}")});
+            this.gridColumn11.Visible = true;
+            this.gridColumn11.VisibleIndex = 7;
+            this.gridColumn11.Width = 71;
+            // 
+            // gridColumn13
+            // 
+            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceCell.Options.UseFont = true;
+            this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn13.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn13.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn13.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn13.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn13.Caption = "備註";
+            this.gridColumn13.ColumnEdit = this.repositoryItemTextEdit1;
+            this.gridColumn13.FieldName = "Note1";
+            this.gridColumn13.Name = "gridColumn13";
+            this.gridColumn13.Visible = true;
+            this.gridColumn13.VisibleIndex = 8;
+            this.gridColumn13.Width = 105;
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.Appearance.Options.UseFont = true;
+            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.AppearanceFocused.Options.UseFont = true;
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // gridColumn15
+            // 
+            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceCell.Options.UseFont = true;
+            this.gridColumn15.AppearanceCell.Options.UseTextOptions = true;
+            this.gridColumn15.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn15.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridColumn15.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn15.AppearanceHeader.Options.UseTextOptions = true;
+            this.gridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.gridColumn15.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
+            this.gridColumn15.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridColumn15.Caption = "取貨";
+            this.gridColumn15.FieldName = "Address";
+            this.gridColumn15.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 4;
+            this.gridColumn15.Width = 117;
+            // 
+            // repositoryItemLookUpEdit1
+            // 
+            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.Appearance.Options.UseFont = true;
+            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.AppearanceDropDown.Options.UseFont = true;
+            this.repositoryItemLookUpEdit1.AutoHeight = false;
+            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 140, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            this.repositoryItemLookUpEdit1.DisplayMember = "LocalDescription";
+            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+            this.repositoryItemLookUpEdit1.NullText = "";
+            this.repositoryItemLookUpEdit1.ValueMember = "Code";
+            // 
             // pivotGrid_FocusOrder
             // 
             this.pivotGrid_FocusOrder.AppearancePrint.Cell.Options.UseBorderColor = true;
@@ -1647,10 +1941,6 @@
             this.repositoryItemCheckEdit1});
             this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(378, 411);
             this.pivotGrid_FocusOrder.TabIndex = 8;
-            // 
-            // FocusbindingSource
-            // 
-            this.FocusbindingSource.DataSource = typeof(MES.Order.DAL.EntityFramework.ProductsOrder);
             // 
             // fieldNote1
             // 
@@ -1879,294 +2169,6 @@
             this.colNote11.FieldName = "Note1";
             this.colNote11.Name = "colNote11";
             // 
-            // gridControl_Focus
-            // 
-            this.gridControl_Focus.AllowDrop = true;
-            this.gridControl_Focus.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
-            this.gridControl_Focus.DataSource = this.FocusbindingSource;
-            this.gridControl_Focus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl_Focus.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl_Focus.Location = new System.Drawing.Point(0, 0);
-            this.gridControl_Focus.MainView = this.gridView_Focus;
-            this.gridControl_Focus.Margin = new System.Windows.Forms.Padding(2);
-            this.gridControl_Focus.Name = "gridControl_Focus";
-            this.gridControl_Focus.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit1,
-            this.repositoryItemTextEdit1,
-            this.repositoryItemSpinEdit1});
-            this.gridControl_Focus.Size = new System.Drawing.Size(1116, 411);
-            this.gridControl_Focus.TabIndex = 9;
-            this.gridControl_Focus.UseEmbeddedNavigator = true;
-            this.gridControl_Focus.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView_Focus});
-            this.gridControl_Focus.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Order_KeyDown);
-            // 
-            // gridView_Focus
-            // 
-            this.gridView_Focus.Appearance.Row.Font = new System.Drawing.Font("Times New Roman", 10.2F);
-            this.gridView_Focus.Appearance.Row.Options.UseFont = true;
-            this.gridView_Focus.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn4,
-            this.gridColumn6,
-            this.gridColumn7,
-            this.gridColumn8,
-            this.gridColumn9,
-            this.gridColumn10,
-            this.gridColumn11,
-            this.gridColumn13,
-            this.gridColumn15});
-            this.gridView_Focus.GridControl = this.gridControl_Focus;
-            this.gridView_Focus.GroupFormat = "{0}:{1} ,{2}";
-            this.gridView_Focus.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", null, "數量: {0:0.##}")});
-            this.gridView_Focus.Name = "gridView_Focus";
-            this.gridView_Focus.NewItemRowText = "點此新增";
-            this.gridView_Focus.OptionsSelection.CheckBoxSelectorField = "Note3";
-            this.gridView_Focus.OptionsSelection.MultiSelect = true;
-            this.gridView_Focus.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
-            this.gridView_Focus.OptionsSelection.ResetSelectionClickOutsideCheckboxSelector = true;
-            this.gridView_Focus.OptionsView.ColumnAutoWidth = false;
-            this.gridView_Focus.OptionsView.ShowFooter = true;
-            this.gridView_Focus.OptionsView.ShowGroupPanel = false;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn4.AppearanceCell.Options.UseFont = true;
-            this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn4.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn4.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
-            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn4.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn4.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn4.Caption = "地區";
-            this.gridColumn4.FieldName = "Area";
-            this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.OptionsColumn.AllowFocus = false;
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 53;
-            // 
-            // gridColumn6
-            // 
-            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn6.AppearanceCell.Options.UseFont = true;
-            this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn6.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn6.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn6.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn6.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn6.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn6.Caption = "客戶名稱";
-            this.gridColumn6.FieldName = "CustomName";
-            this.gridColumn6.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn6.Name = "gridColumn6";
-            this.gridColumn6.OptionsColumn.FixedWidth = true;
-            this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 134;
-            // 
-            // gridColumn7
-            // 
-            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn7.AppearanceCell.Options.UseFont = true;
-            this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn7.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn7.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn7.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn7.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn7.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn7.Caption = "廠商";
-            this.gridColumn7.FieldName = "ProductGroupID";
-            this.gridColumn7.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.OptionsColumn.AllowFocus = false;
-            this.gridColumn7.Width = 54;
-            // 
-            // gridColumn8
-            // 
-            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn8.AppearanceCell.Options.UseFont = true;
-            this.gridColumn8.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn8.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn8.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn8.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn8.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn8.Caption = "產品";
-            this.gridColumn8.FieldName = "ProductName";
-            this.gridColumn8.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.OptionsColumn.FixedWidth = true;
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 3;
-            this.gridColumn8.Width = 231;
-            // 
-            // gridColumn9
-            // 
-            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn9.AppearanceCell.Options.UseFont = true;
-            this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gridColumn9.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn9.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn9.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn9.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn9.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn9.Caption = "數量";
-            this.gridColumn9.ColumnEdit = this.repositoryItemSpinEdit1;
-            this.gridColumn9.FieldName = "Count";
-            this.gridColumn9.Name = "gridColumn9";
-            this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 6;
-            this.gridColumn9.Width = 99;
-            // 
-            // repositoryItemSpinEdit1
-            // 
-            this.repositoryItemSpinEdit1.AutoHeight = false;
-            this.repositoryItemSpinEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemSpinEdit1.Name = "repositoryItemSpinEdit1";
-            // 
-            // gridColumn10
-            // 
-            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn10.AppearanceCell.Options.UseFont = true;
-            this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gridColumn10.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn10.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn10.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn10.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn10.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn10.Caption = "售價";
-            this.gridColumn10.ColumnEdit = this.repositoryItemSpinEdit1;
-            this.gridColumn10.FieldName = "Price";
-            this.gridColumn10.Name = "gridColumn10";
-            this.gridColumn10.OptionsColumn.AllowFocus = false;
-            this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "{0:N0}")});
-            this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 5;
-            this.gridColumn10.Width = 59;
-            // 
-            // gridColumn11
-            // 
-            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn11.AppearanceCell.Options.UseFont = true;
-            this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gridColumn11.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn11.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn11.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridColumn11.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn11.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn11.Caption = "總售價";
-            this.gridColumn11.FieldName = "TotalPrice";
-            this.gridColumn11.Name = "gridColumn11";
-            this.gridColumn11.OptionsColumn.AllowFocus = false;
-            this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "{0:N0}")});
-            this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 8;
-            this.gridColumn11.Width = 71;
-            // 
-            // gridColumn13
-            // 
-            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn13.AppearanceCell.Options.UseFont = true;
-            this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn13.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn13.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn13.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn13.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn13.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn13.Caption = "備註";
-            this.gridColumn13.ColumnEdit = this.repositoryItemTextEdit1;
-            this.gridColumn13.FieldName = "Note1";
-            this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 8;
-            this.gridColumn13.Width = 105;
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repositoryItemTextEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repositoryItemTextEdit1.AppearanceFocused.Options.UseFont = true;
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // repositoryItemLookUpEdit1
-            // 
-            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repositoryItemLookUpEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
-            this.repositoryItemLookUpEdit1.AppearanceDropDown.Options.UseFont = true;
-            this.repositoryItemLookUpEdit1.AutoHeight = false;
-            this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 63, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 140, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.repositoryItemLookUpEdit1.DisplayMember = "LocalDescription";
-            this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-            this.repositoryItemLookUpEdit1.NullText = "";
-            this.repositoryItemLookUpEdit1.ValueMember = "Code";
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn15.AppearanceCell.Options.UseFont = true;
-            this.gridColumn15.AppearanceCell.Options.UseTextOptions = true;
-            this.gridColumn15.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn15.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.gridColumn15.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
-            this.gridColumn15.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn15.AppearanceHeader.Options.UseTextOptions = true;
-            this.gridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.gridColumn15.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
-            this.gridColumn15.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn15.Caption = "取貨";
-            this.gridColumn15.FieldName = "Address";
-            this.gridColumn15.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 5;
-            this.gridColumn15.Width = 117;
-            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -2222,14 +2224,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.repository_Note)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repository_WhetherStock)).EndInit();
             this.xtraTabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl_Focus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FocusbindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_Focus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSpinEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGrid_FocusOrder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
             this.ResumeLayout(false);
 
         }

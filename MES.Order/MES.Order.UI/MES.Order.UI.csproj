@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://chengsueyun.github.io/MES.Order/</InstallUrl>
+    <InstallUrl>https://chengsueyun.github.io/MES.Order/README/</InstallUrl>
     <UpdateUrl>https://raw.githubusercontent.com/ChengSueYun/MES.Order/master/MES.Order/MES.Order.UIpublish/</UpdateUrl>
     <ProductName>小夫妻程式</ProductName>
     <PublisherName>SueYun</PublisherName>
