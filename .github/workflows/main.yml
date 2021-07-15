@@ -1,5 +1,6 @@
 name: Build and Deploy
 on:
+ push:
     branches:
        main
 jobs:
@@ -18,4 +19,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages # The branch the action should deploy to.
-          folder: build # The folder the action should deploy.
+          folder: site
+          ssh-key: ${{ secrets.COMMIT_SECRET }}
