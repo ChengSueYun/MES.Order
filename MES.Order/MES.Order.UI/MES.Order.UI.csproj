@@ -24,12 +24,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>https://github.com/ChengSueYun/MES.Order/master/MES.Order/MES.Order.U/Ipublish/</InstallUrl>
+    <InstallUrl>https://chengsueyun.github.io/MES.Order/install/</InstallUrl>
     <UpdateUrl>https://raw.githubusercontent.com/ChengSueYun/MES.Order/master/MES.Order/MES.Order.UIpublish/</UpdateUrl>
     <ProductName>小夫妻程式</ProductName>
     <PublisherName>SueYun</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>default.html</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
     <TrustUrlParameters>true</TrustUrlParameters>
     <ApplicationRevision>14</ApplicationRevision>
     <ApplicationVersion>1.0.0.14</ApplicationVersion>
