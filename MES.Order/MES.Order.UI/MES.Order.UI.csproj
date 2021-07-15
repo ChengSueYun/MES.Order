@@ -13,17 +13,19 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>\\S03CSY-01\ClickOnce\</PublishUrl>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
-    <InstallFrom>Unc</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>https://github.com/ChengSueYun/MES.Order/master/MES.Order/MES.Order.U/Ipublish/</InstallUrl>
+    <UpdateUrl>https://raw.githubusercontent.com/ChengSueYun/MES.Order/master/MES.Order/MES.Order.UIpublish/</UpdateUrl>
     <ProductName>小夫妻程式</ProductName>
     <PublisherName>SueYun</PublisherName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
