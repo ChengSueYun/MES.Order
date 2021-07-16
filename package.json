@@ -4,7 +4,7 @@
   "description": "GitHub action for building a project and deploying it to GitHub pages.",
   "main": "lib/lib.js",
   "scripts": {
-    "build": "rimraf lib && tsc --declaration",
+    "build": "tsc MES.Order.sln",
     "test": "jest",
     "lint": "eslint src/**/*.ts __tests__/**/*.ts",
     "lint:format": "prettier --write './**/*.{ts,js,json,yml,md}' './*.{ts,js,json,yml,md}'"
