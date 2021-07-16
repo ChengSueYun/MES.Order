@@ -46,7 +46,7 @@ jobs:
     - name: MSBuild
       uses: actions/setup-node@v1
     #- run: npm run build --if-present
-    - run: msbuild MES.Order.sln
+    - run: msbuild MES.Order
        
     # Execute all unit tests in the solution
     #- name: Execute unit tests
