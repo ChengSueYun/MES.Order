@@ -34,13 +34,13 @@ jobs:
         dotnet-version: 5.0.x
 
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    #- name: Add msbuild to PATH
-    #  uses: microsoft/setup-msbuild@v1.0.2
-    #  with:
-    #   vswhere-path: 'C:\Program Files (x86)\Microsoft Visual Studio\Installer'
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+      with:
+       vswhere-path: 'C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe'
        
-    - name: Setup MSBuild.exe
-      uses: warrenbuckley/Setup-MSBuild@v1
+  #  - name: Setup MSBuild.exe
+   #   uses: warrenbuckley/Setup-MSBuild@v1
 
    # - name: MSBuild
    #   working-directory: master
