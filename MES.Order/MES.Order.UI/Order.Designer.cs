@@ -1945,7 +1945,7 @@
             // fieldNote1
             // 
             this.fieldNote1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.fieldNote1.AreaIndex = 2;
+            this.fieldNote1.AreaIndex = 3;
             this.fieldNote1.Caption = "備註";
             this.fieldNote1.FieldName = "Note1";
             this.fieldNote1.MinWidth = 17;
@@ -1965,7 +1965,7 @@
             this.fieldCustomName.Appearance.ValueTotal.Options.UseTextOptions = true;
             this.fieldCustomName.Appearance.ValueTotal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.fieldCustomName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.fieldCustomName.AreaIndex = 0;
+            this.fieldCustomName.AreaIndex = 1;
             this.fieldCustomName.Caption = "客戶";
             this.fieldCustomName.FieldName = "CustomName";
             this.fieldCustomName.MinWidth = 26;
@@ -1979,6 +1979,7 @@
             // 
             // fieldArea
             // 
+            this.fieldArea.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
             this.fieldArea.AreaIndex = 0;
             this.fieldArea.Caption = "地區";
             this.fieldArea.FieldName = "Area";
@@ -1988,7 +1989,7 @@
             // 
             // fieldPrice
             // 
-            this.fieldPrice.AreaIndex = 3;
+            this.fieldPrice.AreaIndex = 2;
             this.fieldPrice.Caption = "售價";
             this.fieldPrice.FieldName = "Price";
             this.fieldPrice.MinWidth = 17;
@@ -1998,7 +1999,7 @@
             // fieldProductName
             // 
             this.fieldProductName.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
-            this.fieldProductName.AreaIndex = 1;
+            this.fieldProductName.AreaIndex = 2;
             this.fieldProductName.Caption = "產品";
             this.fieldProductName.FieldName = "ProductName";
             this.fieldProductName.GrandTotalText = "合計";
@@ -2009,7 +2010,7 @@
             // 
             // fieldTotalCost
             // 
-            this.fieldTotalCost.AreaIndex = 1;
+            this.fieldTotalCost.AreaIndex = 0;
             this.fieldTotalCost.Caption = "總批價";
             this.fieldTotalCost.FieldName = "TotalCost";
             this.fieldTotalCost.MinWidth = 17;
@@ -2032,7 +2033,7 @@
             // 
             // fieldTotalProfit
             // 
-            this.fieldTotalProfit.AreaIndex = 2;
+            this.fieldTotalProfit.AreaIndex = 1;
             this.fieldTotalProfit.Caption = "總利潤";
             this.fieldTotalProfit.FieldName = "TotalProfit";
             this.fieldTotalProfit.MinWidth = 17;

@@ -46,14 +46,17 @@ namespace MES.Order.DAL
 
         public int DeleteCustomers(List<Custom> deleteCustoms)
         {
-            foreach (var deleteCustom in deleteCustoms)
+            using (var db = new ProductsDbContext())
             {
-                this.ProductsDbContext.Customs.Attach(deleteCustom);
-                this.ProductsDbContext.Entry(deleteCustom).State = EntityState.Deleted;
-            }
+                foreach (var deleteCustom in deleteCustoms)
+                {
+                    db.Customs.Attach(deleteCustom);
+                    db.Entry(deleteCustom).State = EntityState.Deleted;
+                }
 
-            var result = this.ProductsDbContext.SaveChangesAsync().Result;
-            return result;
+                var result = db.SaveChangesAsync().Result;
+                return result;
+            }
         }
 
         #endregion
@@ -62,9 +65,12 @@ namespace MES.Order.DAL
 
         public int SaveCustomers(List<Custom> insertCustoms)
         {
-            this.ProductsDbContext.Customs.AddRange(insertCustoms);
-            var result = this.ProductsDbContext.SaveChangesAsync().Result;
-            return result;
+            using (var db = new ProductsDbContext())
+            {
+                db.Customs.AddRange(insertCustoms);
+                var result = db.SaveChangesAsync().Result;
+                return result;
+            }
         }
 
         #endregion

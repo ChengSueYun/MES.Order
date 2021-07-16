@@ -30,14 +30,17 @@ namespace MES.Order.DAL
 
         public int DeleteProductsInfomations(List<ProductsInfomation> delProductsInfomations)
         {
-            foreach (var delProductsInfomation in delProductsInfomations)
+            using (var db = new ProductsDbContext())
             {
-                this.ProductsDbContext.ProductsInfomations.Attach(delProductsInfomation);
-                this.ProductsDbContext.Entry(delProductsInfomation).State = EntityState.Deleted;
-            }
+                foreach (var delProductsInfomation in delProductsInfomations)
+                {
+                    db.ProductsInfomations.Attach(delProductsInfomation);
+                    db.Entry(delProductsInfomation).State = EntityState.Deleted;
+                }
 
-            var result = this.ProductsDbContext.SaveChangesAsync().Result;
-            return result;
+                var result = db.SaveChangesAsync().Result;
+                return result;
+            }
         }
 
         #endregion
@@ -46,9 +49,12 @@ namespace MES.Order.DAL
 
         public int SaveProductsInfomations(List<ProductsInfomation> insertProductsInfomations)
         {
-            this.ProductsDbContext.ProductsInfomations.AddRange(insertProductsInfomations);
-            var result = this.ProductsDbContext.SaveChangesAsync().Result;
-            return result;
+            using (var db = new ProductsDbContext())
+            {
+                db.ProductsInfomations.AddRange(insertProductsInfomations);
+                var result = db.SaveChangesAsync().Result;
+                return result;
+            }
         }
 
         #endregion
