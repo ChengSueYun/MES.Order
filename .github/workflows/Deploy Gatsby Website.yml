@@ -17,7 +17,7 @@ jobs:
         run: ls -la
 
       - name: Install dependencies
-        working-directory: docs
+        working-directory: MES.Order
         run: |
           npm install
 
