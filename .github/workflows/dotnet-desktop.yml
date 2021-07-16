@@ -51,6 +51,9 @@ jobs:
     #- name: Execute unit tests
    #   run: dotnet test
 
+    - name: Nuget Restore 
+      run: nuget restore MES.Order
+      
     # Restore the application to populate the obj folder with RuntimeIdentifiers
     - name: Restore the application
       run: msbuild MES.Order  /t:Restore /p:Configuration=$env:Configuration
