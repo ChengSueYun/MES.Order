@@ -1,0 +1,32 @@
+name: Deploy Gatsby Website
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set Node.js 10.x
+        uses: actions/setup-node@master
+        with:
+          node-version: 10.x
+
+      - name: Build site assets
+        working-directory: ${{ github.workspace }}
+        run: ls -la
+
+      - name: Install dependencies
+        working-directory: docs
+        run: |
+          npm install
+
+      - name: Build
+        working-directory: docs
+        run: |
+          npm run build
+
+      - name: Deploy
+        working-directory: docs
+        run: |
+          npm run docs
