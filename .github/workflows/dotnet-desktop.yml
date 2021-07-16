@@ -43,7 +43,7 @@ jobs:
    #   uses: warrenbuckley/Setup-MSBuild@v1
 
     - name: MSBuild
-      working-directory: D:/ths-dev/Git/MES.Order
+      working-directory: docs
       run: msbuild MES.Order.sln 
        
     # Execute all unit tests in the solution
