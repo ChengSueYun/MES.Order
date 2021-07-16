@@ -37,7 +37,7 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
       with:
-       vswhere-path: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin'
+       vswhere-path: 'C:\Program Files (x86)\Microsoft Visual Studio\Installer'
     # Execute all unit tests in the solution
     #- name: Execute unit tests
    #   run: dotnet test
