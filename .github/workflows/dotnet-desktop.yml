@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        configuration: [KK, SueYun]
+        configuration: [KK]
 
     runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
@@ -46,6 +46,7 @@ jobs:
       run: msbuild MES.Order.sln  /t:Restore /p:Configuration=$env:Configuration
       env:
         Configuration: ${{ matrix.configuration }}
+        DeployExtension: False
 
   
     # Create the app package by building and packaging the Windows Application Packaging project
