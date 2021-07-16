@@ -1,10 +1,10 @@
 {
-  "name": "@chengsueyun/mes.order",
+  "name": "@chengsueyun",
   "version": "1.0.17",
   "description": "GitHub action for building a project and deploying it to GitHub pages.",
   "main": "lib/lib.js",
   "scripts": {
-    "build": "master",
+    "build": "mes.order",
     "test": "jest",
     "lint": "eslint src/**/*.ts __tests__/**/*.ts",
     "lint:format": "prettier --write './**/*.{ts,js,json,yml,md}' './*.{ts,js,json,yml,md}'"
