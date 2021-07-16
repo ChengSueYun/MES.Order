@@ -45,9 +45,7 @@ jobs:
 
     - name: MSBuild
       working-directory:  ${{ env.working-directory }}
-      run: msbuild MES.Order.sln /t:Restore /p:Configuration=$env:Configuration
-      env:
-       Configuration: ${{ matrix.configuration }}
+      run: msbuild MES.Order.sln
        
     # Execute all unit tests in the solution
     #- name: Execute unit tests
