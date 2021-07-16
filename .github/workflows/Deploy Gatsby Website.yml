@@ -22,11 +22,11 @@ jobs:
           npm install
 
       - name: Build
-        working-directory: docs
+        working-directory: MES.Order
         run: |
           npm run build
 
       - name: Deploy
-        working-directory: docs
+        working-directory: MES.Order
         run: |
           npm run docs
