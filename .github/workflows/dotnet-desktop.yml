@@ -44,7 +44,7 @@ jobs:
 
     - name: MSBuild
       working-directory: D:/ths-dev/Git/MES.Order
-      run: msbuildMES.Order.sln 
+      run: msbuild MES.Order.sln 
        
     # Execute all unit tests in the solution
     #- name: Execute unit tests
