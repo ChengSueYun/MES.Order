@@ -43,21 +43,19 @@ jobs:
   #  - name: Setup MSBuild.exe
    #   uses: warrenbuckley/Setup-MSBuild@v1
 
-    - name: MSBuild
-      uses: actions/setup-node@v1
-    #- run: npm run build --if-present
-    - run: msbuild MES.Order
+   # - name: MSBuild
+    #  uses: actions/setup-node@v1
+    #- run: msbuild MES.Order
        
     # Execute all unit tests in the solution
     #- name: Execute unit tests
    #   run: dotnet test
 
     # Restore the application to populate the obj folder with RuntimeIdentifiers
-   # - name: Restore the application
-   #   working-directory:  ${{ env.working-directory }}
-    #  run: msbuild MES.Order.sln  /t:Restore /p:Configuration=$env:Configuration
-     # env:
-      # Configuration: ${{ matrix.configuration }}
+    - name: Restore the application
+      run: msbuild MES.Order.sln  /t:Restore /p:Configuration=$env:Configuration
+      env:
+       Configuration: ${{ matrix.configuration }}
 
   
     # Create the app package by building and packaging the Windows Application Packaging project
