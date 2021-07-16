@@ -1,0 +1,56 @@
+{
+  "name": "@ChengSueYun/MES.Order",
+  "version": "1.0.0",
+  "description": "GitHub action for building a project and deploying it to GitHub pages.",
+  "main": "lib/lib.js",
+  "scripts": {
+    "build": "rimraf lib && tsc --declaration",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts __tests__/**/*.ts",
+    "lint:format": "prettier --write './**/*.{ts,js,json,yml,md}' './*.{ts,js,json,yml,md}'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChengSueYun/MES.Order.git"
+  },
+  "author": "ChengSueYun <57125794+ChengSueYun@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ChengSueYun/MES.Order.git/issues"
+  },
+  "homepage": "https://github.com/ChengSueYun/MES.Order",
+  "keywords": [
+    "actions",
+    "node",
+    "setup",
+    "build",
+    "deploy",
+    "gh-pages",
+    "pages",
+    "github",
+    "deploy",
+    "deployment"
+  ],
+  "dependencies": {
+    "@actions/core": "1.4.0",
+    "@actions/exec": "1.1.0",
+    "@actions/github": "5.0.0",
+    "@actions/io": "1.1.1"
+  },
+  "devDependencies": {
+    "@types/jest": "26.0.24",
+    "@types/node": "15.12.5",
+    "@typescript-eslint/eslint-plugin": "4.27.0",
+    "@typescript-eslint/parser": "4.28.3",
+    "eslint": "7.30.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-jest": "24.3.6",
+    "eslint-plugin-prettier": "3.4.0",
+    "jest": "26.6.3",
+    "jest-circus": "27.0.6",
+    "prettier": "2.3.2",
+    "rimraf": "3.0.2",
+    "ts-jest": "26.5.6",
+    "typescript": "4.3.5"
+  }
+}
