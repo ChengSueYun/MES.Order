@@ -44,8 +44,8 @@ jobs:
    #   uses: warrenbuckley/Setup-MSBuild@v1
 
     - name: MSBuild
-    #  working-directory:  ${{ env.working-directory }}
-      run: msbuild MES.Order.sln
+      uses: actions/setup-node@v1
+    - run: msbuild MES.Order.sln
        
     # Execute all unit tests in the solution
     #- name: Execute unit tests
