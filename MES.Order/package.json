@@ -1,5 +1,5 @@
 {
-  "name": "@ChengSueYun/MES.Order",
+  "name": "@ChengSueYun/MES.Order/MES.Order",
   "version": "1.0.0",
   "description": "GitHub action for building a project and deploying it to GitHub pages.",
   "main": "lib/lib.js",
