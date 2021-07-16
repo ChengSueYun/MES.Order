@@ -17,16 +17,16 @@ jobs:
         run: ls -la
 
       - name: Install dependencies
-        working-directory: MES.Order
+        working-directory: ./MES.Order
         run: |
           npm install
 
       - name: Build
-        working-directory: MES.Order
+        working-directory: ./MES.Order
         run: |
           npm run build
 
       - name: Deploy
-        working-directory: MES.Order
+        working-directory: ./MES.Order
         run: |
           npm run docs
