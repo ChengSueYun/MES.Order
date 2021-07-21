@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using DevExpress.DataProcessing;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraLayout;
 using DevExpress.XtraPrinting;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
@@ -23,7 +25,7 @@ namespace MES.Order.UI
     public partial class Order : XtraUserControl
     {
         private readonly List<AddOrderViewModel>  addOrderView    = new List<AddOrderViewModel>();
-        private readonly WhetherGetStock          whetherGetStock = new WhetherGetStock();
+        public readonly  WhetherGetStock          whetherGetStock = new WhetherGetStock();
         private readonly List<KeyAndNameForCombo> whetherCombos   = new List<KeyAndNameForCombo>();
         private readonly List<ProductsOrder>      focusOrders     = new List<ProductsOrder>();
         private          List<ProductsOrder>      productsOrders  = new List<ProductsOrder>();
@@ -81,6 +83,7 @@ namespace MES.Order.UI
             this.whetherCombos.Add(this.whetherGetStock.Get);
             this.whetherCombos.Add(this.whetherGetStock.unGet);
             this.whetherCombos.Add(this.whetherGetStock.AllNone);
+            this.whetherCombos.Add(this.whetherGetStock.AllGet);
 
             this.repository_WhetherStock.DataSource = this.whetherCombos;
         }
@@ -332,9 +335,9 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_UnFocus_Click(object sender, EventArgs e)
         {
-            var                 CurrentList                 = this.FocusbindingSource.DataSource as List<ProductsOrder>;
-            var                 checkedList                 = CurrentList.Where(x => x.Note3 == "True").ToList();
-            List<ProductsOrder> updateList                  = new List<ProductsOrder>();
+            var                 CurrentList = this.FocusbindingSource.DataSource as List<ProductsOrder>;
+            var                 checkedList = CurrentList.Where(x => x.Note3 == "True").ToList();
+            List<ProductsOrder> updateList  = new List<ProductsOrder>();
             var dialogResult = MessageBox.Show(@"是否確認要清除鎖定 " + checkedList.Count + @"筆資料?", "提醒",
                                                MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.No)
@@ -426,38 +429,46 @@ namespace MES.Order.UI
         /// <param name="e"></param>
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            string pWetherStock = @"";
             this.UpdateproductsOrders = new List<ProductsOrder>();
             var productsOrder = this.productsOrderBindingSource.DataSource as List<ProductsOrder>;
             var checkedList   = productsOrder.Where(x => x.Note3 == "True").ToList();
 
-            var dialogResult = MessageBox.Show(@"若要批次更新成[未取貨]，請點選[是]" + Environment.NewLine + @"若要批次更新成[ ]，請點選[否]"
-                                               + Environment.NewLine  + @"若都不要更新，請點選[取消]", @"提醒",
-                                               MessageBoxButtons.YesNoCancel);
-            if (dialogResult == DialogResult.Yes)
+            XtraInputBoxArgs args = new XtraInputBoxArgs
             {
-                pWetherStock = this.whetherGetStock.unGet.LocalDescription;
-            }
-            else if (dialogResult == DialogResult.No)
+                Caption = "批次更新是否取貨", Prompt = "請選擇其一選項", DefaultButtonIndex = 0
+            };
+            var editor = new LookUpEdit();
+            editor.Properties.DataSource = this.whetherCombos;
+            editor.Properties.Columns.Add(new LookUpColumnInfo("LocalDescription"));
+            editor.Properties.Columns.Add(new LookUpColumnInfo("Code"));
+            editor.Properties.Columns["LocalDescription"].Visible = false;
+            editor.Properties.DisplayMember                       = "Code";
+            editor.Properties.DisplayMember                       = "Code";
+            editor.Properties.NullText                            = "";
+            args.Editor                                           = editor;
+            if (XtraInputBox.Show(args) is KeyAndNameForCombo result)
             {
-                pWetherStock = this.whetherGetStock.AllNone.LocalDescription;
-            }
-            else if (dialogResult == DialogResult.Cancel)
-            {
-                return;
-            }
+                var resultCode   = result.Code;
+                var pWetherStock = resultCode;
 
-            foreach (var order in checkedList)
-            {
-                order.Address    = pWetherStock;
-                order.UpdateDate = DateTime.Now;
-                order.SetDefaultValue();
-                this.UpdateproductsOrders.Add(order);
-                this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
-                this.focusOrders.AddOrReplace(x => x.AutoID == order.AutoID, order);
-                this.pivotGrid_FocusOrder.RefreshData();
+                foreach (var order in checkedList)
+                {
+                    order.Address    = pWetherStock;
+                    order.UpdateDate = DateTime.Now;
+                    order.SetDefaultValue();
+                    this.UpdateproductsOrders.Add(order);
+                    this.ProductsOrderUCO.UpdateOrders(this.UpdateproductsOrders);
+                    if (this.focusOrders.Any(x => x.AutoID == order.AutoID))
+                    {
+                        this.focusOrders.AddOrReplace(x => x.AutoID == order.AutoID, order);
+                        this.pivotGrid_FocusOrder.RefreshData();
+                        this.gridView_Focus.RefreshData();
+                        this.xtraTabPage2.Text = string.Concat(@"拉單 共 ", this.focusOrders.Count, @" 筆");
+                    }
+                }
+
+                this.btn_Query.PerformClick();
             }
-            btn_Query.PerformClick();
         }
 
         #endregion
@@ -687,6 +698,5 @@ namespace MES.Order.UI
         }
 
         #endregion
-
     }
 }

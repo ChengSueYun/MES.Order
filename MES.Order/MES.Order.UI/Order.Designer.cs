@@ -1626,7 +1626,7 @@
             this.xtraTabPage2.Controls.Add(this.pivotGrid_FocusOrder);
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1275, 530);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1275, 531);
             this.xtraTabPage2.Text = "拉單";
             // 
             // gridControl_Focus
@@ -1644,7 +1644,7 @@
             this.repositoryItemLookUpEdit1,
             this.repositoryItemTextEdit1,
             this.repositoryItemSpinEdit1});
-            this.gridControl_Focus.Size = new System.Drawing.Size(1275, 530);
+            this.gridControl_Focus.Size = new System.Drawing.Size(1275, 531);
             this.gridControl_Focus.TabIndex = 9;
             this.gridControl_Focus.UseEmbeddedNavigator = true;
             this.gridControl_Focus.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {

@@ -49,5 +49,17 @@ namespace MES.Order.UI.Module
             }
             set => this._allNone = value;
         }
+        
+        private KeyAndNameForCombo _allGet;
+
+        public KeyAndNameForCombo AllGet
+        {
+            get
+            {
+                this._allGet = new KeyAndNameForCombo {Code = @"已取貨", LocalDescription = @"已取貨"};
+                return this._allGet;
+            }
+            set => this._allGet = value;
+        }
     }
 }
