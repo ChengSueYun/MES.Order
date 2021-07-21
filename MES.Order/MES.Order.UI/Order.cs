@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraLayout;
+using DevExpress.XtraPivotGrid;
 using DevExpress.XtraPrinting;
 using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
@@ -698,5 +700,39 @@ namespace MES.Order.UI
         }
 
         #endregion
+
+        private void pivotGrid_FocusOrder_CustomCellValue(object                                           sender,
+                                                          DevExpress.XtraPivotGrid.PivotCellValueEventArgs e)
+        {
+            if (e.RowField != null && e.RowField.Caption == @"客戶" & e.DataField.Caption == @"數量")
+            {
+                e.Value = @"總金額:";
+               
+                // e.Value = @"";
+            }
+        }
+
+        private void pivotGrid_FocusOrder_FieldValueDisplayText(object sender, PivotFieldDisplayTextEventArgs e)
+        {
+            // if (e.Field       != null && e.Field.Caption == @"客戶" && e.ValueType == PivotGridValueType.Total &&
+            //     e.DisplayText != @"Grand Total")
+            // {
+                // var concat = string.Concat(e.DisplayText, @"  總金額:");
+                // e.DisplayText = concat;
+                
+            // }
+        }
+
+        private void pivotGrid_FocusOrder_CustomDrawCell(object sender, PivotCustomDrawCellEventArgs e)
+        {
+            // if (e.RowField != null && e.RowField.Caption == @"客戶" & e.DataField.Caption == @"數量")
+            // {
+            //     e.Appearance.ForeColor = Color.Red;
+            // }
+            // if (e.RowField != null && e.RowField.Caption == @"客戶" & e.DataField.Caption == @"總售價")
+            // {
+            //     e.Appearance.ForeColor = Color.Red;
+            // }
+        }
     }
 }
