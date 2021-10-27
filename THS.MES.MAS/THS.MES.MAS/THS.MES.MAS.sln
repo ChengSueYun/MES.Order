@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THS.MES.MAS.DAL", "THS.MES.MAS.DAL\THS.MES.MAS.DAL.csproj", "{80F254CF-3C2D-4610-9F54-97C4EE970AB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THS.MES.MAS.Infrastructure", "THS.MES.MAS.Infrastructure\THS.MES.MAS.Infrastructure.csproj", "{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THS.MES.MAS.Adapter", "THS.MES.MAS.Adapter\THS.MES.MAS.Adapter.csproj", "{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THS.MES.MAS.BLL", "THS.MES.MAS.BLL\THS.MES.MAS.BLL.csproj", "{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THS.MES.MAS.Utility", "THS.MES.MAS.Utility\THS.MES.MAS.Utility.csproj", "{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "THS.MES.MAS.WebAPI", "THS.MES.MAS.WebAPI\THS.MES.MAS.WebAPI.csproj", "{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		本機開發|Any CPU = 本機開發|Any CPU
+		苗栗正式|Any CPU = 苗栗正式|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.本機開發|Any CPU.ActiveCfg = 本機開發|Any CPU
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.本機開發|Any CPU.Build.0 = 本機開發|Any CPU
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.苗栗正式|Any CPU.ActiveCfg = 苗栗正式|Any CPU
+		{80F254CF-3C2D-4610-9F54-97C4EE970AB7}.苗栗正式|Any CPU.Build.0 = 苗栗正式|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.本機開發|Any CPU.ActiveCfg = 本機開發|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.本機開發|Any CPU.Build.0 = 本機開發|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.苗栗正式|Any CPU.ActiveCfg = 苗栗正式|Any CPU
+		{ADDDC916-B044-44CC-BF72-5AE115BD4AAD}.苗栗正式|Any CPU.Build.0 = 苗栗正式|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.本機開發|Any CPU.ActiveCfg = 本機開發|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.本機開發|Any CPU.Build.0 = 本機開發|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.苗栗正式|Any CPU.ActiveCfg = 苗栗正式|Any CPU
+		{58D40F5A-D800-46AD-9C8B-C2C30992EFA9}.苗栗正式|Any CPU.Build.0 = 苗栗正式|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.本機開發|Any CPU.ActiveCfg = 本機開發|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.本機開發|Any CPU.Build.0 = 本機開發|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.苗栗正式|Any CPU.ActiveCfg = 苗栗正式|Any CPU
+		{C03DCFDD-D3F7-4B88-8783-694AEF2F5516}.苗栗正式|Any CPU.Build.0 = 苗栗正式|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.本機開發|Any CPU.ActiveCfg = 本機開發|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.本機開發|Any CPU.Build.0 = 本機開發|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.苗栗正式|Any CPU.ActiveCfg = 苗栗正式|Any CPU
+		{6D0D30DD-B917-45BA-84CC-11F64B3DC16F}.苗栗正式|Any CPU.Build.0 = 苗栗正式|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.本機開發|Any CPU.ActiveCfg = 本機開發|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.本機開發|Any CPU.Build.0 = 本機開發|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.苗栗正式|Any CPU.ActiveCfg = 苗栗正式|Any CPU
+		{B2FF3F48-2172-4FA3-A66C-BCCA7DAE71E7}.苗栗正式|Any CPU.Build.0 = 苗栗正式|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86F13C2E-3764-4EC5-B3D7-EE0ED53B3DEB}
+	EndGlobalSection
+EndGlobal
