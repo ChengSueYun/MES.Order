@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ritek.App.Demo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppDefaultSteelPlate" Type="Ritek.App.Infrastructure.SteelPlateViewModel" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SeriesNo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CY8103</Value>
+    </Setting>
+    <Setting Name="AppDefaultThickness" Type="Ritek.App.Infrastructure.ThicknessViewModel" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AppDefaultDevelopment" Type="Ritek.App.Infrastructure.DevelopmentViewModel" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AppDefaultLDI" Type="Ritek.App.Infrastructure.LDIViewModel" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
