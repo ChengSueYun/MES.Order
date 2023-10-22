@@ -1,5 +1,0 @@
-E:\Git\Ritek\Ritek.App\Ritek.App.Infrastructure\bin\Debug\Ritek.App.Infrastructure.dll
-E:\Git\Ritek\Ritek.App\Ritek.App.Infrastructure\bin\Debug\Ritek.App.Infrastructure.pdb
-E:\Git\Ritek\Ritek.App\Ritek.App.Infrastructure\obj\Debug\Ritek.App.Infrastructure.csproj.CoreCompileInputs.cache
-E:\Git\Ritek\Ritek.App\Ritek.App.Infrastructure\obj\Debug\Ritek.App.Infrastructure.dll
-E:\Git\Ritek\Ritek.App\Ritek.App.Infrastructure\obj\Debug\Ritek.App.Infrastructure.pdb
