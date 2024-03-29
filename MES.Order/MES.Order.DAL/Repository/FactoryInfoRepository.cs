@@ -53,24 +53,39 @@ namespace MES.Order.DAL.Repository
 
         public async Task<List<FactoryInfoViewModel>> Get()
         {
-            var result    = new List<FactoryInfoViewModel>();
+            try
+            {
+var result    = new List<FactoryInfoViewModel>();
             var queryable = this.mDbContext.FactoryInfoes.AsQueryable();
             if (queryable.Any())
             {
                 DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
             }
             return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+            
         }
 
         public async Task<List<KeyAndName>> GetFactoryIdAsync()
         {
-            var filter = await this.mDbContext.FactoryInfoes.Select(a => new KeyAndName
-                                                                         {
-                                                                             Code = a.Factory
-                                                                           , LocalDescription =
-                                                                                 a.Factory
-                                                                         }).Distinct().ToListAsync();
-            return filter;
+            try
+            {
+                var filter = await this.mDbContext.FactoryInfoes.Select(a => new KeyAndName
+                {
+                    Code = a.Factory, LocalDescription =
+                        a.Factory
+                }).Distinct().ToListAsync();
+                return filter;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+         
         }
 
     #endregion

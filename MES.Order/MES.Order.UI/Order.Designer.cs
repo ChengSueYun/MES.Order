@@ -212,12 +212,12 @@
             // 
             this.groupControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.groupControl1.Appearance.BackColor2 = System.Drawing.Color.White;
-            this.groupControl1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupControl1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.Appearance.Options.UseBackColor = true;
             this.groupControl1.Appearance.Options.UseFont = true;
             this.groupControl1.AppearanceCaption.BackColor = System.Drawing.Color.White;
             this.groupControl1.AppearanceCaption.BackColor2 = System.Drawing.Color.White;
-            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupControl1.AppearanceCaption.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl1.AppearanceCaption.Options.UseBackColor = true;
             this.groupControl1.AppearanceCaption.Options.UseFont = true;
             this.groupControl1.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl1.CaptionImageOptions.Image")));
@@ -281,7 +281,7 @@
             this.dateEdit_OrderDateE.Location = new System.Drawing.Point(953, 35);
             this.dateEdit_OrderDateE.Margin = new System.Windows.Forms.Padding(2);
             this.dateEdit_OrderDateE.Name = "dateEdit_OrderDateE";
-            this.dateEdit_OrderDateE.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dateEdit_OrderDateE.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.dateEdit_OrderDateE.Properties.Appearance.Options.UseFont = true;
             this.dateEdit_OrderDateE.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -297,7 +297,7 @@
             // 
             // label_Area
             // 
-            this.label_Area.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label_Area.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label_Area.Appearance.ForeColor = System.Drawing.Color.Black;
             this.label_Area.Appearance.Options.UseFont = true;
             this.label_Area.Appearance.Options.UseForeColor = true;
@@ -319,7 +319,7 @@
             this.lookUpEdit_Area.Location = new System.Drawing.Point(164, 5);
             this.lookUpEdit_Area.Name = "lookUpEdit_Area";
             this.lookUpEdit_Area.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.lookUpEdit_Area.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_Area.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_Area.Properties.Appearance.Options.UseBackColor = true;
             this.lookUpEdit_Area.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_Area.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -341,7 +341,7 @@
             // 
             // label_CustomerName
             // 
-            this.label_CustomerName.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.label_CustomerName.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label_CustomerName.Appearance.ForeColor = System.Drawing.Color.Black;
             this.label_CustomerName.Appearance.Options.UseFont = true;
             this.label_CustomerName.Appearance.Options.UseForeColor = true;
@@ -359,7 +359,7 @@
             // 
             // lbl_ProductGroupID
             // 
-            this.lbl_ProductGroupID.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.lbl_ProductGroupID.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lbl_ProductGroupID.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lbl_ProductGroupID.Appearance.Options.UseFont = true;
             this.lbl_ProductGroupID.Appearance.Options.UseForeColor = true;
@@ -381,7 +381,7 @@
             this.lookUpEdit_ProductGroupID.Location = new System.Drawing.Point(782, 5);
             this.lookUpEdit_ProductGroupID.Name = "lookUpEdit_ProductGroupID";
             this.lookUpEdit_ProductGroupID.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.lookUpEdit_ProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_ProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_ProductGroupID.Properties.Appearance.Options.UseBackColor = true;
             this.lookUpEdit_ProductGroupID.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_ProductGroupID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
@@ -403,7 +403,7 @@
             // 
             // lbl_ProductName
             // 
-            this.lbl_ProductName.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.lbl_ProductName.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.lbl_ProductName.Appearance.ForeColor = System.Drawing.Color.Black;
             this.lbl_ProductName.Appearance.Options.UseFont = true;
             this.lbl_ProductName.Appearance.Options.UseForeColor = true;
@@ -426,7 +426,7 @@
             this.lookUpEdit_ProductName.Location = new System.Drawing.Point(163, 35);
             this.lookUpEdit_ProductName.Margin = new System.Windows.Forms.Padding(2);
             this.lookUpEdit_ProductName.Name = "lookUpEdit_ProductName";
-            this.lookUpEdit_ProductName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_ProductName.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_ProductName.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_ProductName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lookUpEdit_ProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -482,7 +482,7 @@
             this.dateEdit_OrderDateS.Location = new System.Drawing.Point(638, 35);
             this.dateEdit_OrderDateS.Margin = new System.Windows.Forms.Padding(2);
             this.dateEdit_OrderDateS.Name = "dateEdit_OrderDateS";
-            this.dateEdit_OrderDateS.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.dateEdit_OrderDateS.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.dateEdit_OrderDateS.Properties.Appearance.Options.UseFont = true;
             this.dateEdit_OrderDateS.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -503,7 +503,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
@@ -521,7 +521,7 @@
             // 
             // label_OrderDate
             // 
-            this.label_OrderDate.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.label_OrderDate.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.label_OrderDate.Appearance.ForeColor = System.Drawing.Color.Black;
             this.label_OrderDate.Appearance.Options.UseFont = true;
             this.label_OrderDate.Appearance.Options.UseForeColor = true;
@@ -541,7 +541,7 @@
             // 
             this.btn_Query.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_Query.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Query.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.btn_Query.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_Query.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Query.Appearance.Options.UseBackColor = true;
             this.btn_Query.Appearance.Options.UseFont = true;
@@ -563,7 +563,7 @@
             this.lookUpEdit_CustomerName.Location = new System.Drawing.Point(483, 4);
             this.lookUpEdit_CustomerName.Margin = new System.Windows.Forms.Padding(2);
             this.lookUpEdit_CustomerName.Name = "lookUpEdit_CustomerName";
-            this.lookUpEdit_CustomerName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_CustomerName.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_CustomerName.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_CustomerName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lookUpEdit_CustomerName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -612,7 +612,7 @@
             // 
             this.btn_FocusRow.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_FocusRow.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_FocusRow.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.btn_FocusRow.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_FocusRow.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_FocusRow.Appearance.Options.UseBackColor = true;
             this.btn_FocusRow.Appearance.Options.UseFont = true;
@@ -632,7 +632,7 @@
             // 
             this.btn_Save.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_Save.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Save.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.btn_Save.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_Save.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Save.Appearance.Options.UseBackColor = true;
             this.btn_Save.Appearance.Options.UseFont = true;
@@ -652,7 +652,7 @@
             // 
             this.btn_UnFocus.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_UnFocus.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_UnFocus.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.btn_UnFocus.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_UnFocus.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_UnFocus.Appearance.Options.UseBackColor = true;
             this.btn_UnFocus.Appearance.Options.UseFont = true;
@@ -673,7 +673,7 @@
             // 
             this.btn_Export.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_Export.Appearance.BackColor2 = System.Drawing.Color.Khaki;
-            this.btn_Export.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.btn_Export.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_Export.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Export.Appearance.Options.UseBackColor = true;
             this.btn_Export.Appearance.Options.UseFont = true;
@@ -693,7 +693,7 @@
             // 
             this.btn_Cancel.Appearance.BackColor = System.Drawing.Color.Orange;
             this.btn_Cancel.Appearance.BackColor2 = System.Drawing.Color.Aquamarine;
-            this.btn_Cancel.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.btn_Cancel.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_Cancel.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Cancel.Appearance.Options.UseBackColor = true;
             this.btn_Cancel.Appearance.Options.UseFont = true;
@@ -713,7 +713,7 @@
             // 
             this.btn_Update.Appearance.BackColor = System.Drawing.Color.PeachPuff;
             this.btn_Update.Appearance.BackColor2 = System.Drawing.Color.LightSkyBlue;
-            this.btn_Update.Appearance.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F);
+            this.btn_Update.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btn_Update.Appearance.ForeColor = System.Drawing.Color.Sienna;
             this.btn_Update.Appearance.Options.UseBackColor = true;
             this.btn_Update.Appearance.Options.UseFont = true;
@@ -733,7 +733,7 @@
             this.toggleSwitch_GroupColumn.Location = new System.Drawing.Point(80, 5);
             this.toggleSwitch_GroupColumn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.toggleSwitch_GroupColumn.Name = "toggleSwitch_GroupColumn";
-            this.toggleSwitch_GroupColumn.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.toggleSwitch_GroupColumn.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.toggleSwitch_GroupColumn.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
             this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseFont = true;
             this.toggleSwitch_GroupColumn.Properties.Appearance.Options.UseForeColor = true;
@@ -767,10 +767,10 @@
             // groupControl2
             // 
             this.groupControl2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.groupControl2.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupControl2.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl2.Appearance.Options.UseBackColor = true;
             this.groupControl2.Appearance.Options.UseFont = true;
-            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.AutoSize = true;
             this.groupControl2.CaptionImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("groupControl2.CaptionImageOptions.Image")));
@@ -821,7 +821,7 @@
             // label7
             // 
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(958, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(157, 21);
@@ -832,7 +832,7 @@
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.label6.Location = new System.Drawing.Point(872, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 21);
@@ -843,7 +843,7 @@
             // label5
             // 
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(718, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(148, 21);
@@ -854,7 +854,7 @@
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(419, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(293, 21);
@@ -865,7 +865,7 @@
             // label3
             // 
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(272, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(141, 21);
@@ -877,7 +877,7 @@
             // 
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 21);
@@ -888,7 +888,7 @@
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(114, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 21);
@@ -903,7 +903,7 @@
             this.lookUpEdit_addArea.Location = new System.Drawing.Point(3, 23);
             this.lookUpEdit_addArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lookUpEdit_addArea.Name = "lookUpEdit_addArea";
-            this.lookUpEdit_addArea.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_addArea.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_addArea.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_addArea.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -931,7 +931,7 @@
             this.LookUpEdit_addCustomerName.Location = new System.Drawing.Point(114, 23);
             this.LookUpEdit_addCustomerName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LookUpEdit_addCustomerName.Name = "LookUpEdit_addCustomerName";
-            this.LookUpEdit_addCustomerName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LookUpEdit_addCustomerName.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.LookUpEdit_addCustomerName.Properties.Appearance.Options.UseFont = true;
             this.LookUpEdit_addCustomerName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -980,7 +980,7 @@
             this.lookUpEdit_addProductGroupID.Location = new System.Drawing.Point(272, 23);
             this.lookUpEdit_addProductGroupID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lookUpEdit_addProductGroupID.Name = "lookUpEdit_addProductGroupID";
-            this.lookUpEdit_addProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lookUpEdit_addProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.lookUpEdit_addProductGroupID.Properties.Appearance.Options.UseFont = true;
             this.lookUpEdit_addProductGroupID.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1003,7 +1003,7 @@
             this.LookUpEdit_addProductName.Location = new System.Drawing.Point(419, 23);
             this.LookUpEdit_addProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LookUpEdit_addProductName.Name = "LookUpEdit_addProductName";
-            this.LookUpEdit_addProductName.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LookUpEdit_addProductName.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.LookUpEdit_addProductName.Properties.Appearance.Options.UseFont = true;
             this.LookUpEdit_addProductName.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
             this.LookUpEdit_addProductName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1058,7 +1058,7 @@
             this.spinEdit_addCount.Location = new System.Drawing.Point(718, 23);
             this.spinEdit_addCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.spinEdit_addCount.Name = "spinEdit_addCount";
-            this.spinEdit_addCount.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.spinEdit_addCount.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.spinEdit_addCount.Properties.Appearance.Options.UseFont = true;
             this.spinEdit_addCount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -1077,7 +1077,7 @@
             this.textEdit_addTotalPrice.Location = new System.Drawing.Point(872, 23);
             this.textEdit_addTotalPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEdit_addTotalPrice.Name = "textEdit_addTotalPrice";
-            this.textEdit_addTotalPrice.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textEdit_addTotalPrice.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.textEdit_addTotalPrice.Properties.Appearance.Options.UseFont = true;
             this.textEdit_addTotalPrice.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.textEdit_addTotalPrice.Properties.ReadOnly = true;
@@ -1093,7 +1093,7 @@
             this.textEdit_addNote1.Location = new System.Drawing.Point(958, 23);
             this.textEdit_addNote1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textEdit_addNote1.Name = "textEdit_addNote1";
-            this.textEdit_addNote1.Properties.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.textEdit_addNote1.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.textEdit_addNote1.Properties.Appearance.Options.UseFont = true;
             this.textEdit_addNote1.Size = new System.Drawing.Size(157, 24);
             this.textEdit_addNote1.TabIndex = 13;
@@ -1187,13 +1187,13 @@
             // 
             // colAutoID
             // 
-            this.colAutoID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colAutoID.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colAutoID.AppearanceCell.Options.UseFont = true;
             this.colAutoID.AppearanceCell.Options.UseTextOptions = true;
             this.colAutoID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colAutoID.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colAutoID.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colAutoID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colAutoID.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colAutoID.AppearanceHeader.Options.UseFont = true;
             this.colAutoID.AppearanceHeader.Options.UseTextOptions = true;
             this.colAutoID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1205,13 +1205,13 @@
             // 
             // colArea
             // 
-            this.colArea.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colArea.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colArea.AppearanceCell.Options.UseFont = true;
             this.colArea.AppearanceCell.Options.UseTextOptions = true;
             this.colArea.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colArea.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colArea.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colArea.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.colArea.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
             this.colArea.AppearanceHeader.Options.UseFont = true;
             this.colArea.AppearanceHeader.Options.UseTextOptions = true;
             this.colArea.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1228,13 +1228,13 @@
             // 
             // colCustomID
             // 
-            this.colCustomID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colCustomID.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomID.AppearanceCell.Options.UseFont = true;
             this.colCustomID.AppearanceCell.Options.UseTextOptions = true;
             this.colCustomID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colCustomID.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colCustomID.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colCustomID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colCustomID.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomID.AppearanceHeader.Options.UseFont = true;
             this.colCustomID.AppearanceHeader.Options.UseTextOptions = true;
             this.colCustomID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1247,13 +1247,13 @@
             // 
             // colCustomName
             // 
-            this.colCustomName.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colCustomName.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomName.AppearanceCell.Options.UseFont = true;
             this.colCustomName.AppearanceCell.Options.UseTextOptions = true;
             this.colCustomName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colCustomName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colCustomName.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colCustomName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colCustomName.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colCustomName.AppearanceHeader.Options.UseFont = true;
             this.colCustomName.AppearanceHeader.Options.UseTextOptions = true;
             this.colCustomName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1270,13 +1270,13 @@
             // 
             // colProductGroupID
             // 
-            this.colProductGroupID.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colProductGroupID.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colProductGroupID.AppearanceCell.Options.UseFont = true;
             this.colProductGroupID.AppearanceCell.Options.UseTextOptions = true;
             this.colProductGroupID.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colProductGroupID.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colProductGroupID.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colProductGroupID.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colProductGroupID.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colProductGroupID.AppearanceHeader.Options.UseFont = true;
             this.colProductGroupID.AppearanceHeader.Options.UseTextOptions = true;
             this.colProductGroupID.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1291,13 +1291,13 @@
             // 
             // colProductName
             // 
-            this.colProductName.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colProductName.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colProductName.AppearanceCell.Options.UseFont = true;
             this.colProductName.AppearanceCell.Options.UseTextOptions = true;
             this.colProductName.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colProductName.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colProductName.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colProductName.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colProductName.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colProductName.AppearanceHeader.Options.UseFont = true;
             this.colProductName.AppearanceHeader.Options.UseTextOptions = true;
             this.colProductName.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1314,13 +1314,13 @@
             // 
             // colCount
             // 
-            this.colCount.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colCount.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colCount.AppearanceCell.Options.UseFont = true;
             this.colCount.AppearanceCell.Options.UseTextOptions = true;
             this.colCount.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colCount.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colCount.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colCount.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colCount.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colCount.AppearanceHeader.Options.UseFont = true;
             this.colCount.AppearanceHeader.Options.UseTextOptions = true;
             this.colCount.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1346,13 +1346,13 @@
             // 
             // colPrice
             // 
-            this.colPrice.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colPrice.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colPrice.AppearanceCell.Options.UseFont = true;
             this.colPrice.AppearanceCell.Options.UseTextOptions = true;
             this.colPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colPrice.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colPrice.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colPrice.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colPrice.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colPrice.AppearanceHeader.Options.UseFont = true;
             this.colPrice.AppearanceHeader.Options.UseTextOptions = true;
             this.colPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1371,13 +1371,13 @@
             // 
             // colTotalPrice
             // 
-            this.colTotalPrice.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colTotalPrice.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalPrice.AppearanceCell.Options.UseFont = true;
             this.colTotalPrice.AppearanceCell.Options.UseTextOptions = true;
             this.colTotalPrice.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotalPrice.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colTotalPrice.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colTotalPrice.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colTotalPrice.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalPrice.AppearanceHeader.Options.UseFont = true;
             this.colTotalPrice.AppearanceHeader.Options.UseTextOptions = true;
             this.colTotalPrice.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1395,13 +1395,13 @@
             // 
             // colOrderDate
             // 
-            this.colOrderDate.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colOrderDate.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colOrderDate.AppearanceCell.Options.UseFont = true;
             this.colOrderDate.AppearanceCell.Options.UseTextOptions = true;
             this.colOrderDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colOrderDate.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colOrderDate.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colOrderDate.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colOrderDate.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colOrderDate.AppearanceHeader.Options.UseFont = true;
             this.colOrderDate.AppearanceHeader.Options.UseTextOptions = true;
             this.colOrderDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1418,13 +1418,13 @@
             // 
             // colNote1
             // 
-            this.colNote1.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colNote1.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colNote1.AppearanceCell.Options.UseFont = true;
             this.colNote1.AppearanceCell.Options.UseTextOptions = true;
             this.colNote1.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colNote1.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colNote1.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colNote1.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colNote1.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colNote1.AppearanceHeader.Options.UseFont = true;
             this.colNote1.AppearanceHeader.Options.UseTextOptions = true;
             this.colNote1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1440,9 +1440,9 @@
             // 
             // repository_Note
             // 
-            this.repository_Note.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_Note.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repository_Note.Appearance.Options.UseFont = true;
-            this.repository_Note.AppearanceFocused.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_Note.AppearanceFocused.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repository_Note.AppearanceFocused.Options.UseFont = true;
             this.repository_Note.AutoHeight = false;
             this.repository_Note.Name = "repository_Note";
@@ -1450,13 +1450,13 @@
             // 
             // colSetAddress
             // 
-            this.colSetAddress.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colSetAddress.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colSetAddress.AppearanceCell.Options.UseFont = true;
             this.colSetAddress.AppearanceCell.Options.UseTextOptions = true;
             this.colSetAddress.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colSetAddress.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.colSetAddress.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colSetAddress.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colSetAddress.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colSetAddress.AppearanceHeader.Options.UseFont = true;
             this.colSetAddress.AppearanceHeader.Options.UseTextOptions = true;
             this.colSetAddress.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1472,9 +1472,9 @@
             // 
             // repository_WhetherStock
             // 
-            this.repository_WhetherStock.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_WhetherStock.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repository_WhetherStock.Appearance.Options.UseFont = true;
-            this.repository_WhetherStock.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repository_WhetherStock.AppearanceDropDown.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repository_WhetherStock.AppearanceDropDown.Options.UseFont = true;
             this.repository_WhetherStock.AutoHeight = false;
             this.repository_WhetherStock.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1490,13 +1490,13 @@
             // 
             // colAddress
             // 
-            this.colAddress.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colAddress.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colAddress.AppearanceCell.Options.UseFont = true;
             this.colAddress.AppearanceCell.Options.UseTextOptions = true;
             this.colAddress.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.colAddress.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colAddress.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colAddress.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colAddress.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colAddress.AppearanceHeader.Options.UseFont = true;
             this.colAddress.AppearanceHeader.Options.UseTextOptions = true;
             this.colAddress.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1512,13 +1512,13 @@
             // 
             // colTotalCost
             // 
-            this.colTotalCost.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colTotalCost.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalCost.AppearanceCell.Options.UseFont = true;
             this.colTotalCost.AppearanceCell.Options.UseTextOptions = true;
             this.colTotalCost.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotalCost.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colTotalCost.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colTotalCost.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colTotalCost.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalCost.AppearanceHeader.Options.UseFont = true;
             this.colTotalCost.AppearanceHeader.Options.UseTextOptions = true;
             this.colTotalCost.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1536,13 +1536,13 @@
             // 
             // colTotalProfit
             // 
-            this.colTotalProfit.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colTotalProfit.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalProfit.AppearanceCell.Options.UseFont = true;
             this.colTotalProfit.AppearanceCell.Options.UseTextOptions = true;
             this.colTotalProfit.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.colTotalProfit.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colTotalProfit.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colTotalProfit.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colTotalProfit.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colTotalProfit.AppearanceHeader.Options.UseFont = true;
             this.colTotalProfit.AppearanceHeader.Options.UseTextOptions = true;
             this.colTotalProfit.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1560,13 +1560,13 @@
             // 
             // colUpdateDate
             // 
-            this.colUpdateDate.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colUpdateDate.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colUpdateDate.AppearanceCell.Options.UseFont = true;
             this.colUpdateDate.AppearanceCell.Options.UseTextOptions = true;
             this.colUpdateDate.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colUpdateDate.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colUpdateDate.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colUpdateDate.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colUpdateDate.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colUpdateDate.AppearanceHeader.Options.UseFont = true;
             this.colUpdateDate.AppearanceHeader.Options.UseTextOptions = true;
             this.colUpdateDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1578,13 +1578,13 @@
             // 
             // colNote3
             // 
-            this.colNote3.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colNote3.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colNote3.AppearanceCell.Options.UseFont = true;
             this.colNote3.AppearanceCell.Options.UseTextOptions = true;
             this.colNote3.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNote3.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colNote3.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colNote3.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colNote3.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colNote3.AppearanceHeader.Options.UseFont = true;
             this.colNote3.AppearanceHeader.Options.UseTextOptions = true;
             this.colNote3.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1596,13 +1596,13 @@
             // 
             // colNote2
             // 
-            this.colNote2.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colNote2.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colNote2.AppearanceCell.Options.UseFont = true;
             this.colNote2.AppearanceCell.Options.UseTextOptions = true;
             this.colNote2.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colNote2.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colNote2.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.colNote2.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.colNote2.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.colNote2.AppearanceHeader.Options.UseFont = true;
             this.colNote2.AppearanceHeader.Options.UseTextOptions = true;
             this.colNote2.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1862,13 +1862,13 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn4.AppearanceCell.Options.UseFont = true;
             this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn4.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn4.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1885,13 +1885,13 @@
             // 
             // gridColumn6
             // 
-            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn6.AppearanceCell.Options.UseFont = true;
             this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn6.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn6.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn6.AppearanceHeader.Options.UseFont = true;
             this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1908,13 +1908,13 @@
             // 
             // gridColumn7
             // 
-            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn7.AppearanceCell.Options.UseFont = true;
             this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn7.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn7.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn7.AppearanceHeader.Options.UseFont = true;
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1929,13 +1929,13 @@
             // 
             // gridColumn8
             // 
-            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceCell.Options.UseFont = true;
             this.gridColumn8.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn8.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn8.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceHeader.Options.UseFont = true;
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -1952,13 +1952,13 @@
             // 
             // gridColumn9
             // 
-            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn9.AppearanceCell.Options.UseFont = true;
             this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn9.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn9.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn9.AppearanceHeader.Options.UseFont = true;
             this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -1981,13 +1981,13 @@
             // 
             // gridColumn10
             // 
-            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn10.AppearanceCell.Options.UseFont = true;
             this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn10.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn10.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn10.AppearanceHeader.Options.UseFont = true;
             this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2006,13 +2006,13 @@
             // 
             // gridColumn11
             // 
-            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn11.AppearanceCell.Options.UseFont = true;
             this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn11.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn11.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn11.AppearanceHeader.Options.UseFont = true;
             this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2030,13 +2030,13 @@
             // 
             // gridColumn13
             // 
-            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn13.AppearanceCell.Options.UseFont = true;
             this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn13.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn13.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn13.AppearanceHeader.Options.UseFont = true;
             this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2052,22 +2052,22 @@
             // 
             // repositoryItemTextEdit1
             // 
-            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemTextEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemTextEdit1.AppearanceFocused.Options.UseFont = true;
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // gridColumn15
             // 
-            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn15.AppearanceCell.Options.UseFont = true;
             this.gridColumn15.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn15.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn15.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn15.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn15.AppearanceHeader.Options.UseFont = true;
             this.gridColumn15.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2083,9 +2083,9 @@
             // 
             // repositoryItemLookUpEdit1
             // 
-            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemLookUpEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemLookUpEdit1.AppearanceDropDown.Options.UseFont = true;
             this.repositoryItemLookUpEdit1.AutoHeight = false;
             this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {

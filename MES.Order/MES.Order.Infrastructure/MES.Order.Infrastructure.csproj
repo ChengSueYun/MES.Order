@@ -76,10 +76,6 @@
     <Compile Include="UI\Order\ProductsOrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\invisiblePassword.png" />
-    <Content Include="Resources\showPassword.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

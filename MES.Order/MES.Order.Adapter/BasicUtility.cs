@@ -39,11 +39,19 @@ namespace MES.Order.Adapter
         }
 
         private static IFactoryInfoAdapter s_factoryInfoAdapter;
+        private static IOrderInfoAdapter _orderInfoAdapter;
 
         public static IFactoryInfoAdapter FactoryInfoAdapter
         {
             get => s_factoryInfoAdapter ?? new FactoryInfoAdapter();
             set => s_factoryInfoAdapter = value;
+        }
+
+        public static IOrderInfoAdapter OrderInfoAdapter
+        {
+            get => _orderInfoAdapter ?? new OrderInfoAdapter();
+
+            set => _orderInfoAdapter = value;
         }
     }
 }

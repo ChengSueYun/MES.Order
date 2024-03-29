@@ -13,7 +13,7 @@ namespace MES.Order.DAL.Repository
 {
     public class ProductsInfoRepository
     {
-    #region Contructure
+        #region Contructure
 
         private readonly CoupleOrderDbContext mDbContext;
 
@@ -22,7 +22,7 @@ namespace MES.Order.DAL.Repository
             this.mDbContext = CoupleOrderDbContext.Create(conn);
         }
 
-        private          bool mDisposed;
+        private bool mDisposed;
         private readonly bool mIsDisposeConnection = true;
 
         ~ProductsInfoRepository()
@@ -47,60 +47,82 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Query
+        #region Query
 
         public async Task<List<ProductsInfoViewModel>> Get()
         {
-            var result    = new List<ProductsInfoViewModel>();
-            var queryable = this.mDbContext.ProductsInfoes.AsQueryable();
-            if (queryable.Any())
+            try
             {
-                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
+                var result = new List<ProductsInfoViewModel>();
+                var queryable = await this.mDbContext.ProductsInfoes.ToListAsync();
+                if (queryable.Any())
+                {
+                    DefaultMapper.Map(queryable, result);
+                }
+
+                return result;
             }
-            return result;
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
         }
 
         public async Task<List<KeyAndName>> GetProductNameAsync()
         {
-            var result = await this.mDbContext.ProductsInfoes.Select(a => new KeyAndName()
-                                                                          {
-                                                                              Code             = a.Product
-                                                                            , LocalDescription = a.ProductType
-                                                                          }).Distinct().ToListAsync();
-            return result;
+            try
+            {
+                var result = await this.mDbContext.ProductsInfoes.Select(a => new KeyAndName()
+                {
+                    Code = a.Product, LocalDescription = a.Factory
+                }).Distinct().ToListAsync();
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
         }
 
         public async Task<List<KeyAndName>> GetProductTypeAsync()
         {
-            var result = await this.mDbContext.ProductsInfoes.Select(a => new KeyAndName()
-                                                                          {
-                                                                              Code             = a.ProductType
-                                                                            , LocalDescription = a.ProductType
-                                                                          }).Distinct().ToListAsync();
-            return result;
+            try
+            {
+                var result = await this.mDbContext.ProductsInfoes.Select(a => new KeyAndName()
+                {
+                    Code = a.ProductType, LocalDescription = a.Factory
+                }).Distinct().ToListAsync();
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
         }
 
-    #endregion
+        #endregion
 
-    #region AddOrUpdate
+        #region AddOrUpdate
 
         public async Task<bool> AddOrUpdate(IEnumerable<ProductsInfoViewModel> FromUi)
         {
             try
             {
-                var                       result  = false;
+                var result = false;
                 IEnumerable<ProductsInfo> request = new List<ProductsInfo>();
                 DefaultMapper.Map(FromUi, request);
                 foreach (var areaInfo in request)
                 {
-                    this.mDbContext.ProductsInfoes.AddOrUpdate(x => new { x.Factory, x.Product }, areaInfo);
+                    this.mDbContext.ProductsInfoes.AddOrUpdate(x => new {x.Factory, x.Product}, areaInfo);
                 }
+
                 if (await this.mDbContext.SaveChangesAsync() > 0)
                 {
                     result = true;
                 }
+
                 return result;
             }
             catch (Exception e)
@@ -113,16 +135,17 @@ namespace MES.Order.DAL.Repository
         {
             try
             {
-                var result  = false;
+                var result = false;
                 var request = new ProductsInfo();
                 DefaultMapper.Map(FromUi, request);
 
-                this.mDbContext.ProductsInfoes.AddOrUpdate(x => new { x.Factory, x.Product }, request);
+                this.mDbContext.ProductsInfoes.AddOrUpdate(x => new {x.Factory, x.Product}, request);
 
                 if (await this.mDbContext.SaveChangesAsync() > 0)
                 {
                     result = true;
                 }
+
                 return result;
             }
             catch (Exception e)
@@ -131,9 +154,9 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Delete
+        #region Delete
 
         public async Task<bool> Delete(string pFactory, string pProduct)
         {
@@ -150,6 +173,7 @@ namespace MES.Order.DAL.Repository
                         result = true;
                     }
                 }
+
                 return result;
             }
             catch (Exception e)
@@ -158,6 +182,6 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-    #endregion
+        #endregion
     }
 }

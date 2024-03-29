@@ -32,7 +32,6 @@ namespace MES.Order.DAL.NewEntityFramework
 
         public int Profit { get; set; }
 
-        [Column(TypeName = "image")]
         [Required]
         public byte[] Image { get; set; }
 

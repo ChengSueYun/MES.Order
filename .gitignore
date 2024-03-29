@@ -24,3 +24,11 @@
 /MES.Order/MES.Order.BLL/bin/S03CSY
 /MES.Order/MES.Order.DAL/bin/S03CSY
 /MES.Order/MES.Order.Infrastructure/bin/S03CSY
+/MES.Order/MES.Order.Adapter/bin
+/MES.Order/MES.Order.BLL/bin
+/MES.Order/MES.Order.DAL/bin
+MES.Order/MES.Order.UI/Properties/licenses.licx
+MES.Order/MES.Order.UI/Properties/licenses.licx.bak
+*.licx
+*.bak
+*.licx

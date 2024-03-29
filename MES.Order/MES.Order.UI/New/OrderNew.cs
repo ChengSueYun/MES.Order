@@ -1,39 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.Utils.Extensions;
+using System.Threading.Tasks;
+using DevExpress.CodeParser;
 using DevExpress.XtraEditors;
-using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraLayout.Utils;
-using DevExpress.XtraPivotGrid;
-using MES.Order.BLL;
-using MES.Order.DAL.EntityFramework;
+using MES.Order.Adapter;
 using MES.Order.DAL.ViewModel;
-using MES.Order.Infrastructure;
 using MES.Order.Infrastructure.NewViewModel.Filter;
-using MES.Order.Infrastructure.UI.Order;
-using MES.Order.UI.Mappers;
 using MES.Order.UI.Module;
 using THS.Infrastructure.Extensions;
-using AddOrderViewModel = MES.Order.DAL.ViewModel.AddOrderViewModel;
+using MES.Order.Infrastructure;
+using MES.Order.Infrastructure.NewViewModel.Request;
+using Const = MES.Order.Infrastructure.Const;
 
 namespace MES.Order.UI.New
 {
-    public partial class OrderNew : XtraUserControl
+    public partial class OrderNew : XtraForm
     {
-        public static readonly  WhetherGetStock          whetherGetStock = new WhetherGetStock();
-        private static readonly List<KeyAndNameForCombo> whetherCombos   = new List<KeyAndNameForCombo>();
-        private static          FilterOrderInfo          _filter         = new FilterOrderInfo();
+        public static readonly WhetherGetStock whetherGetStock = new WhetherGetStock();
+        private static readonly List<KeyAndNameForCombo> whetherCombos = new List<KeyAndNameForCombo>();
+        private static FilterOrderInfo _filter = new FilterOrderInfo();
 
-    #region Property
-
- 
-
-    #endregion
 
         public OrderNew()
         {
@@ -41,6 +27,7 @@ namespace MES.Order.UI.New
             try
             {
                 InitialControls();
+                BindAddPanelControl();
             }
             catch (Exception ex)
             {
@@ -52,30 +39,58 @@ namespace MES.Order.UI.New
         {
         }
 
-    #region Initial
+        #region Query
+
+        private async void button_Query_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.orderInfoViewModelBindingSource.DataSource = await BasicUtility.OrderInfoAdapter.Query(_filter);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+        }
+
+        #endregion
+
+        #region Property
+
+        private static OrderInfoRequest _request;
+        public static OrderInfoRequest _Request
+        {
+            get => _request ?? new OrderInfoRequest();
+
+            set => _request = value;
+        }
+
+        #endregion
+
+        #region Initial
 
         public void InitialControls()
         {
             InitialWhetherStock();
-            this.filterOrderInfoBindingSource.AddNew();
-            _filter = this.filterOrderInfoBindingSource.Current as FilterOrderInfo;
+            filterOrderInfoBindingSource.AddNew();
+            _filter = filterOrderInfoBindingSource.Current as FilterOrderInfo;
             _filter.SetDefaultValue();
+            if (_filter != null)
+            {
+                _filter.OrderDateStart = DateTime.Today.AddDays(-7);
+                _filter.OrderDateEnd = DateTime.Today;
+            }
+        }
 
-            //地區
-            this.QueryAreaLookUpEdit.Properties.DataSource = Const.AreaInfoList;
-            this.AreaKeybindingSource.DataSource           = Const.AreaInfoList;
-            this.QueryAreaLookUpEdit.Properties.DataSource = Const.AreaInfoList;
-            //客戶
-            this.QueryCustomerNameCheckComboBoxEdit.Properties.DataSource = Const.CustomerNameInfoList;
-            this.CustomerKeybindingSource.DataSource                      = Const.CustomerNameList;
-
-            //廠商
-            this.QueryProductGroupIDLookUpEdit.Properties.DataSource = Const.FactoryInfoList;
-            this.FactoryKeybindingSource.DataSource                  = Const.FactoryInfoList;
-
-            //產品
-            this.QueryProductNameLookUpEdit.Properties.DataSource = Const.ProductsNameInfoList;
-            this.ProductKeybindingSource.DataSource               = Const.ProductsNameInfoList;
+        private void BindAddPanelControl()
+        {
+            orderInfoRequestBindingSource.AddNew();
+            _Request = orderInfoRequestBindingSource.Current as OrderInfoRequest;
+            _Request.SetDefaultValue();
+            this.AreaKeybindingSource.DataSource = Const.AreaInfoList;
+            this.CustomerKeybindingSource.DataSource = Const.CustomerNameInfoList;
+            this.FactoryKeybindingSource.DataSource = Const.FactoryInfoList;
+            this.ProductKeybindingSource.DataSource = Const.ProductsNameInfoList;
         }
 
         private void InitialWhetherStock()
@@ -86,46 +101,42 @@ namespace MES.Order.UI.New
             whetherCombos.Add(whetherGetStock.AllNone);
             whetherCombos.Add(whetherGetStock.AllGet);
 
-            this.repository_WhetherStock.DataSource = whetherCombos;
+            repository_WhetherStock.DataSource = whetherCombos;
         }
 
-    #endregion
+        #endregion
 
-    #region Query
+        #region EditValueChange
 
-        private void button_Query_Click(object sender, EventArgs e)
+        private void CustomNameTextEdit_EditValueChanging(object sender,
+            DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-           
-        }
-
-        private void QueryAreaLookUpEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            if (this.QueryAreaLookUpEdit.EditValue.ToString() != @"*ALL")
+            try
             {
-                this.QueryCustomerNameCheckComboBoxEdit.Properties.DataSource =
-                    Const.CustomerNameList.FindAll(x => x.LocalDescription ==
-                                                        this.QueryAreaLookUpEdit.EditValue.ToString());
+                _Request.Customer = e.NewValue.ToString();
+                _Request.Area = AddCustomView.GetFocusedRowCellValue("LocalDescription").ToString();
             }
-            else
+            catch (Exception exception)
             {
-                this.QueryCustomerNameCheckComboBoxEdit.Properties.DataSource = Const.CustomerNameList;
+                throw new Exception(exception.ToString());
             }
         }
 
-        private void QueryProductGroupIDLookUpEdit_EditValueChanged(object sender, EventArgs e)
-        {
-            // if (this.QueryProductGroupIDLookUpEdit.EditValue.ToString() != @"*ALL")
-            // {
-            //     this.QueryProductNameLookUpEdit.Properties.DataSource =
-            //         Const.ProductsList.FindAll(x => x.LocalDescription ==
-            //                                         this.QueryProductGroupIDLookUpEdit.EditValue.ToString());
-            // }
-            // else
-            // {
-            //     _filterProductsOrderRequest.ProductName = @"*ALL";
-            // }
-        }
+        #endregion
 
-    #endregion
+        private void ProductNameTextEdit_EditValueChanging(object sender,
+            DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            try
+            {
+                _Request.Product = e.NewValue.ToString();
+
+                _Request.Factory = AddProductNameView.GetFocusedRowCellValue("LocalDescription").ToString();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString());
+            }
+        }
     }
 }

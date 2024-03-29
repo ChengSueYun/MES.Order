@@ -13,7 +13,7 @@ namespace MES.Order.DAL.Repository
 {
     public class CustomerInfoRepository
     {
-    #region Contructure
+        #region Contructure
 
         private readonly CoupleOrderDbContext mDbContext;
 
@@ -22,7 +22,7 @@ namespace MES.Order.DAL.Repository
             this.mDbContext = CoupleOrderDbContext.Create(conn);
         }
 
-        private          bool mDisposed;
+        private bool mDisposed;
         private readonly bool mIsDisposeConnection = true;
 
         ~CustomerInfoRepository()
@@ -47,77 +47,25 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Query
+        #region Query
 
         public async Task<List<KeyAndName>> DistinctCustomer(string pArea)
         {
-            var filter = await this.mDbContext.CustomInfoes.ToListAsync();
-            if (string.IsNullOrWhiteSpace(pArea) == false && pArea != "全部")
-            {
-                filter = filter.Where(x => x.Area == pArea).ToList();
-            }
-
-            var result = (from a in filter
-                          select new KeyAndName
-                                 {
-                                     Code = a.Customer, LocalDescription = a.Area
-                                 }).Distinct().ToList();
-            return result;
-        }
-
-        public async Task<List<KeyAndName>> DistinctCustomerAsync()
-        {
-            var result = await this.mDbContext.CustomInfoes.Select(a => new KeyAndName
-                                                                        {
-                                                                            Code             = a.Customer
-                                                                          , LocalDescription = a.Area
-                                                                        })
-                                   .Distinct().AsNoTracking().ToListAsync();
-
-            return result;
-        }
-
-        public async Task<List<CustomInfoViewModel>> GetAll()
-        {
-            var result    = new List<CustomInfoViewModel>();
-            var queryable = this.mDbContext.CustomInfoes.AsQueryable();
-            if (queryable.Any())
-            {
-                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
-            }
-            return result;
-        }
-
-        public async Task<List<CustomInfoViewModel>> Get(string pArea, string pCustom)
-        {
-            var result = new List<CustomInfoViewModel>();
-            var queryable = this.mDbContext.CustomInfoes.Where(x => x.Area     == pArea &&
-                                                                    x.Customer == pCustom).AsQueryable();
-            if (queryable.Any())
-            {
-                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
-            }
-            return result;
-        }
-
-    #endregion
-
-    #region AddOrUpdate
-
-        public async Task<bool> AddOrUpdate(CustomInfoViewModel FromUi)
-        {
             try
             {
-                var        result  = false;
-                CustomInfo request = new CustomInfo();
-                DefaultMapper.Map(FromUi, request);
-                this.mDbContext.CustomInfoes.AddOrUpdate(x => new { x.Area, x.Customer }, request);
-                if (await this.mDbContext.SaveChangesAsync() > 0)
+                var filter = this.mDbContext.CustomInfoes.AsQueryable();
+                if (!string.IsNullOrWhiteSpace(pArea) && pArea != "全部")
                 {
-                    result = true;
+                    filter = filter.Where(x => x.Area == pArea);
                 }
+
+                var result = await (from a in filter
+                    select new KeyAndName
+                    {
+                        Code = a.Customer, LocalDescription = a.Area
+                    }).Distinct().ToListAsync();
                 return result;
             }
             catch (Exception e)
@@ -126,16 +74,101 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-    #endregion
+        public async Task<List<KeyAndName>> DistinctCustomerAsync()
+        {
+            try
+            {
+   var result = await this.mDbContext.CustomInfoes.Select(a => new KeyAndName
+                {
+                    Code = a.Customer, LocalDescription = a.Area
+                })
+                .Distinct().AsNoTracking().ToListAsync();
 
-    #region Delete
+            return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+         
+        }
+
+        public async Task<List<CustomInfoViewModel>> GetAll()
+        {
+            try
+            {
+ var result = new List<CustomInfoViewModel>();
+            var queryable = this.mDbContext.CustomInfoes.AsQueryable();
+            if (queryable.Any())
+            {
+                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
+            }
+
+            return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+           
+        }
+
+        public async Task<List<CustomInfoViewModel>> Get(string pArea, string pCustom)
+        {
+            try
+            {
+  var result = new List<CustomInfoViewModel>();
+            var queryable = this.mDbContext.CustomInfoes.Where(x => x.Area == pArea &&
+                                                                    x.Customer == pCustom).AsQueryable();
+            if (queryable.Any())
+            {
+                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
+            }
+
+            return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+          
+        }
+
+        #endregion
+
+        #region AddOrUpdate
+
+        public async Task<bool> AddOrUpdate(CustomInfoViewModel FromUi)
+        {
+            try
+            {
+                var result = false;
+                CustomInfo request = new CustomInfo();
+                DefaultMapper.Map(FromUi, request);
+                this.mDbContext.CustomInfoes.AddOrUpdate(x => new {x.Area, x.Customer}, request);
+                if (await this.mDbContext.SaveChangesAsync() > 0)
+                {
+                    result = true;
+                }
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+        }
+
+        #endregion
+
+        #region Delete
 
         public async Task<bool> Delete(string pArea, string pCustom)
         {
             try
             {
                 var result = false;
-                var customInfos = this.mDbContext.CustomInfoes.Where(x => x.Area     == pArea &&
+                var customInfos = this.mDbContext.CustomInfoes.Where(x => x.Area == pArea &&
                                                                           x.Customer == pCustom);
                 if (customInfos.Any())
                 {
@@ -145,6 +178,7 @@ namespace MES.Order.DAL.Repository
                         result = true;
                     }
                 }
+
                 return result;
             }
             catch (Exception e)
@@ -153,6 +187,6 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-    #endregion
+        #endregion
     }
 }
