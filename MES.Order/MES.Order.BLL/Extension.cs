@@ -51,13 +51,10 @@ namespace MES.Order.BLL
         /// </summary>
         public static async Task GetAreaAsync()
         {
-            if (Const.AreaList == null)
-            {
-                Const.AreaList = new List<KeyAndName>();
-                var areaAsync = IareaAdapter.GetAreaAsync();
-                await areaAsync.ConfigureAwait(false);
-                Const.AreaList.SetAllChoise();
-            }
+            Const.AreaList = new List<KeyAndName>();
+            var areaAsync = IareaAdapter.GetAreaAsync();
+            await areaAsync.ConfigureAwait(false);
+            Const.AreaList.SetAllChoise();
         }
 
         /// <summary>
@@ -65,13 +62,10 @@ namespace MES.Order.BLL
         /// </summary>
         public static async Task GetCustomerAsync()
         {
-            if (Const.CustomerNameList == null)
-            {
-                Const.CustomerNameList = new List<KeyAndName>();
-                var customerAsync = IcustomerAdapter.DistinctCustomerAsync();
-                await customerAsync.ConfigureAwait(false);
-                Const.CustomerNameList.SetAllChoise();
-            }
+            Const.CustomerNameList = new List<KeyAndName>();
+            var customerAsync = IcustomerAdapter.DistinctCustomerAsync();
+            await customerAsync.ConfigureAwait(false);
+            Const.CustomerNameList.SetAllChoise();
         }
 
         /// <summary>
@@ -79,13 +73,10 @@ namespace MES.Order.BLL
         /// </summary>
         public static async Task GetProductGroupIdAsync()
         {
-            if (Const.ProductGroupIDList == null)
-            {
-                Const.ProductGroupIDList = new List<KeyAndName>();
-                var groupIdAsync = IproductGroupIdAdapter.GetProductGroupIdAsync();
-                await groupIdAsync.ConfigureAwait(false);
-                Const.ProductGroupIDList.SetAllChoise();
-            }
+            Const.ProductGroupIDList = new List<KeyAndName>();
+            var groupIdAsync = IproductGroupIdAdapter.GetProductGroupIdAsync();
+            await groupIdAsync.ConfigureAwait(false);
+            Const.ProductGroupIDList.SetAllChoise();
         }
 
         /// <summary>
@@ -93,21 +84,18 @@ namespace MES.Order.BLL
         /// </summary>
         public static async Task GetProductAsync()
         {
-            if (Const.ProductsList == null)
-            {
-                Const.ProductsList = new List<KeyAndName>();
-                var productsAsync = IpProductsInformationAdapter.GetProductNameAsync();
-                await productsAsync.ConfigureAwait(false);
-                Const.ProductsList.SetAllChoise();
-            }
+            Const.ProductsList = new List<KeyAndName>();
+            var productsAsync = IpProductsInformationAdapter.GetProductNameAsync();
+            await productsAsync.ConfigureAwait(false);
+            Const.ProductsList.SetAllChoise();
         }
 
-        public static void SetAllChoise(this List<KeyAndName> keyAndNames)
+        private static void SetAllChoise(this List<KeyAndName> keyAndNames)
         {
             keyAndNames.Insert(0, new KeyAndName()
-            {
-                Code = "全部", LocalDescription = "全部"
-            });
+                                  {
+                                      Code = "全部", LocalDescription = "全部"
+                                  });
         }
     }
 }

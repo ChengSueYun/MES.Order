@@ -42,9 +42,19 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KK|AnyCPU'">
     <OutputPath>bin\KK\</OutputPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'S03CSY|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\S03CSY\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,9 +65,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Area\AreaAdapter.cs" />
+    <Compile Include="BasicUtility.cs" />
     <Compile Include="Customer\CustomerAdapter.cs" />
     <Compile Include="Area\IAreaAdapter.cs" />
     <Compile Include="Customer\ICustomerAdapter.cs" />
+    <Compile Include="Implement\AreaInfoAdapter.cs" />
+    <Compile Include="Implement\CustomerInfoAdapter.cs" />
+    <Compile Include="Implement\FactoryInfoAdapter.cs" />
+    <Compile Include="Implement\OrderInfoAdapter.cs" />
+    <Compile Include="Implement\ProductsInfoAdapter.cs" />
+    <Compile Include="Interface\IAreaInfoAdapter.cs" />
+    <Compile Include="Interface\ICustomerInfoAdapter.cs" />
+    <Compile Include="Interface\IFactoryInfoAdapter.cs" />
+    <Compile Include="Interface\IOrderInfoAdapter.cs" />
+    <Compile Include="Interface\IProductsInfoAdapter.cs" />
     <Compile Include="ProductGroupID\IProductGroupIDAdapter.cs" />
     <Compile Include="ProductInformation\IProductsInformationAdapter.cs" />
     <Compile Include="ProducstOrder\IProductsOrderAdapter.cs" />
@@ -70,6 +91,10 @@
     <ProjectReference Include="..\MES.Order.DAL\MES.Order.DAL.csproj">
       <Project>{B0EB30AE-3EF4-4AE2-BCA5-B84AFF1839E3}</Project>
       <Name>MES.Order.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MES.Order.Infrastructure\MES.Order.Infrastructure.csproj">
+      <Project>{8D658BDC-80AB-4E05-B1A7-16ECBF073A55}</Project>
+      <Name>MES.Order.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

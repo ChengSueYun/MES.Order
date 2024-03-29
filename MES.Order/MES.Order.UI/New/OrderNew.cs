@@ -14,6 +14,7 @@ using MES.Order.BLL;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
 using MES.Order.Infrastructure;
+using MES.Order.Infrastructure.NewViewModel.Filter;
 using MES.Order.Infrastructure.UI.Order;
 using MES.Order.UI.Mappers;
 using MES.Order.UI.Module;
@@ -24,24 +25,15 @@ namespace MES.Order.UI.New
 {
     public partial class OrderNew : XtraUserControl
     {
-        private static readonly List<AddOrderViewModel>    addOrderView    = new List<AddOrderViewModel>();
-        public static readonly  WhetherGetStock            whetherGetStock = new WhetherGetStock();
-        private static readonly List<KeyAndNameForCombo>   whetherCombos   = new List<KeyAndNameForCombo>();
-        private static readonly List<ProductsOrder>        focusOrders     = new List<ProductsOrder>();
-        private static          FilterProductsOrderRequest _filterProductsOrderRequest;
-        private static          List<ProductsOrder>        productsOrders = new List<ProductsOrder>();
+        public static readonly  WhetherGetStock          whetherGetStock = new WhetherGetStock();
+        private static readonly List<KeyAndNameForCombo> whetherCombos   = new List<KeyAndNameForCombo>();
+        private static          FilterOrderInfo          _filter         = new FilterOrderInfo();
 
-        #region Property
+    #region Property
 
-        private static List<KeyAndNameForCombo> _queryProductsList
-        {
-            get => s_queryProductsList ?? new List<KeyAndNameForCombo>();
-            set => s_queryProductsList = value;
-        }
+ 
 
-        private static List<KeyAndNameForCombo> s_queryProductsList;
-
-        #endregion
+    #endregion
 
         public OrderNew()
         {
@@ -60,31 +52,30 @@ namespace MES.Order.UI.New
         {
         }
 
-        #region Initial
+    #region Initial
 
         public void InitialControls()
         {
             InitialWhetherStock();
-            this.filterProductsOrderRequestBindingSource.AddNew();
-            _filterProductsOrderRequest =
-                this.filterProductsOrderRequestBindingSource.Current as FilterProductsOrderRequest;
-            _filterProductsOrderRequest.SetDefaultValue();
+            this.filterOrderInfoBindingSource.AddNew();
+            _filter = this.filterOrderInfoBindingSource.Current as FilterOrderInfo;
+            _filter.SetDefaultValue();
 
             //地區
-            this.QueryAreaLookUpEdit.Properties.DataSource = Const.AreaList;
-            // _filterProductsOrderRequest.Area               = @"*ALL";
-
+            this.QueryAreaLookUpEdit.Properties.DataSource = Const.AreaInfoList;
+            this.AreaKeybindingSource.DataSource           = Const.AreaInfoList;
+            this.QueryAreaLookUpEdit.Properties.DataSource = Const.AreaInfoList;
             //客戶
-            this.QueryCustomerNameCheckComboBoxEdit.Properties.DataSource = Const.CustomerNameList;
-            // _filterProductsOrderRequest.CustomerName                      = @"*ALL";
+            this.QueryCustomerNameCheckComboBoxEdit.Properties.DataSource = Const.CustomerNameInfoList;
+            this.CustomerKeybindingSource.DataSource                      = Const.CustomerNameList;
 
             //廠商
-            this.QueryProductGroupIDLookUpEdit.Properties.DataSource = Const.ProductGroupIDList;
-            // _filterProductsOrderRequest.ProductGroupID               = @"*ALL";
+            this.QueryProductGroupIDLookUpEdit.Properties.DataSource = Const.FactoryInfoList;
+            this.FactoryKeybindingSource.DataSource                  = Const.FactoryInfoList;
 
             //產品
-            this.QueryProductNameLookUpEdit.Properties.DataSource = Const.ProductsList;
-            // _filterProductsOrderRequest.ProductName               = @"*ALL";
+            this.QueryProductNameLookUpEdit.Properties.DataSource = Const.ProductsNameInfoList;
+            this.ProductKeybindingSource.DataSource               = Const.ProductsNameInfoList;
         }
 
         private void InitialWhetherStock()
@@ -98,14 +89,13 @@ namespace MES.Order.UI.New
             this.repository_WhetherStock.DataSource = whetherCombos;
         }
 
-        #endregion
+    #endregion
 
-        #region Query
+    #region Query
 
         private void button_Query_Click(object sender, EventArgs e)
         {
-            _filterProductsOrderRequest.CustomerNames.AddRange(this.QueryCustomerNameCheckComboBoxEdit.EditValue as
-                                                                   List<string> ?? new List<string>());
+           
         }
 
         private void QueryAreaLookUpEdit_EditValueChanged(object sender, EventArgs e)
@@ -124,18 +114,18 @@ namespace MES.Order.UI.New
 
         private void QueryProductGroupIDLookUpEdit_EditValueChanged(object sender, EventArgs e)
         {
-            if (this.QueryProductGroupIDLookUpEdit.EditValue.ToString() != @"*ALL")
-            {
-                this.QueryProductNameLookUpEdit.Properties.DataSource =
-                    Const.ProductsList.FindAll(x => x.LocalDescription ==
-                                                    this.QueryProductGroupIDLookUpEdit.EditValue.ToString());
-            }
-            else
-            {
-                _filterProductsOrderRequest.ProductName = @"*ALL";
-            }
+            // if (this.QueryProductGroupIDLookUpEdit.EditValue.ToString() != @"*ALL")
+            // {
+            //     this.QueryProductNameLookUpEdit.Properties.DataSource =
+            //         Const.ProductsList.FindAll(x => x.LocalDescription ==
+            //                                         this.QueryProductGroupIDLookUpEdit.EditValue.ToString());
+            // }
+            // else
+            // {
+            //     _filterProductsOrderRequest.ProductName = @"*ALL";
+            // }
         }
 
-        #endregion
+    #endregion
     }
 }

@@ -24,13 +24,17 @@ namespace MES.Order.UI
                                      //TODO:看要衝啥，就寫在這裡
 
                                      //讀資料
-                                     Extension.GetAreaAsync();
-                                     Extension.GetCustomerAsync();
-                                     Extension.GetProductGroupIdAsync();
-                                     Extension.GetProductAsync();
+                                     // Extension.GetAreaAsync();
+                                     // Extension.GetCustomerAsync();
+                                     // Extension.GetProductGroupIdAsync();
+                                     // Extension.GetProductAsync();
+                                     NewExtension.GetAreaAsync();
+                                     NewExtension.GetCustomerAsync();
+                                     NewExtension.GetProductAsync();
+                                     NewExtension.GetFactoryIdAsync();
+                                     NewExtension.GetProductTypeAsync();
 
                                      // Thread.Sleep(500);
-                                     
                                  }, _context, new TimeSpan(0, 0, 0, tempRefreshData));
 
             // Handling the QueryControl event that will populate all automatically generated Documents

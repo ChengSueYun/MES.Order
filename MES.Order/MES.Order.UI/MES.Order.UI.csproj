@@ -90,6 +90,16 @@
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'S03CSY|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\S03CSY\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -240,6 +250,10 @@
       <DependentUpon>App.config</DependentUpon>
       <IsTransformFile>true</IsTransformFile>
     </None>
+    <None Include="App.S03CSY.config">
+      <DependentUpon>App.config</DependentUpon>
+      <IsTransformFile>true</IsTransformFile>
+    </None>
     <None Include="App.SueYun.config">
       <DependentUpon>App.config</DependentUpon>
       <IsTransformFile>true</IsTransformFile>
@@ -254,6 +268,9 @@
     <None Include="Properties\DataSources\MES.Order.DAL.ViewModel.KeyAndNameForCombo.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.Const.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.KeyAndName.datasource" />
+    <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.Filter.FilterOrderInfo.datasource" />
+    <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.OrderInfoViewModel.datasource" />
+    <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.Request.OrderInfoRequest.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.UI.Order.FilterProductsOrderRequest.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.UI.ViewModel.FilterProductsOrderRequest.datasource" />
     <None Include="Properties\Settings.settings">
@@ -276,7 +293,7 @@
       <Version>10.1.1</Version>
     </PackageReference>
     <PackageReference Include="CSYCodeAdvance.Winform">
-      <Version>1.0.13</Version>
+      <Version>1.0.14</Version>
     </PackageReference>
     <PackageReference Include="EntityFramework">
       <Version>6.4.4</Version>
