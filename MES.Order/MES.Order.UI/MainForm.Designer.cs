@@ -32,6 +32,7 @@ namespace MES.Order.UI
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer dockingContainer1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer();
             this.documentGroup1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.DocumentGroup(this.components);
+            this.orderNewDocument = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.chartDataDocument = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.document1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
             this.document2 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document(this.components);
@@ -40,6 +41,7 @@ namespace MES.Order.UI
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderNewDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.document2)).BeginInit();
@@ -51,10 +53,17 @@ namespace MES.Order.UI
             // documentGroup1
             // 
             this.documentGroup1.Items.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.Document[] {
+            this.orderNewDocument,
             this.chartDataDocument,
             this.document1,
             this.document2,
             this.document3});
+            // 
+            // orderNewDocument
+            // 
+            this.orderNewDocument.Caption = "OrderNew2023";
+            this.orderNewDocument.ControlName = "OrderNew";
+            this.orderNewDocument.ControlTypeName = "MES.Order.UI.New.OrderNew";
             // 
             // chartDataDocument
             // 
@@ -71,7 +80,6 @@ namespace MES.Order.UI
             this.document1.Caption = "訂單";
             this.document1.ControlName = "Order";
             this.document1.ControlTypeName = "MES.Order.UI.Order";
-         
             // 
             // document2
             // 
@@ -105,7 +113,8 @@ namespace MES.Order.UI
             this.document1,
             this.document2,
             this.document3,
-            this.chartDataDocument});
+            this.chartDataDocument,
+            this.orderNewDocument});
             dockingContainer1.Element = this.documentGroup1;
             this.tabbedView1.RootContainer.Nodes.AddRange(new DevExpress.XtraBars.Docking2010.Views.Tabbed.DockingContainer[] {
             dockingContainer1});
@@ -113,26 +122,26 @@ namespace MES.Order.UI
             // 
             // simpleButton1
             // 
-            this.simpleButton1.Location = new System.Drawing.Point(466, 12);
+            this.simpleButton1.Location = new System.Drawing.Point(408, 9);
+            this.simpleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(94, 29);
+            this.simpleButton1.Size = new System.Drawing.Size(82, 23);
             this.simpleButton1.TabIndex = 1;
             this.simpleButton1.Text = "simpleButton1";
             // 
             // MainForm
             // 
             this.AllowMdiBar = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 939);
+            this.ClientSize = new System.Drawing.Size(1230, 730);
             this.Controls.Add(this.simpleButton1);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "小夫妻程式";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.documentGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderNewDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDataDocument)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.document2)).EndInit();
@@ -161,5 +170,6 @@ namespace MES.Order.UI
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document document3;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document chartDataDocument;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.Document orderNewDocument;
     }
 }

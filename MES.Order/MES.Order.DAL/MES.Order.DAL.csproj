@@ -44,6 +44,7 @@
     <OutputPath>bin\KK\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.CodeParser.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -87,6 +88,11 @@
     <None Include="App.config" />
     <None Include="Properties\DataSources\MES.Order.DAL.EntityFramework.ProductsInfomation.datasource" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MES.Order.Infrastructure\MES.Order.Infrastructure.csproj">
+      <Project>{8D658BDC-80AB-4E05-B1A7-16ECBF073A55}</Project>
+      <Name>MES.Order.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

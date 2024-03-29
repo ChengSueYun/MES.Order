@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MES.Order.DAL;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
@@ -31,6 +32,11 @@ namespace MES.Order.Adapter
         public List<KeyAndNameForCombo> DistinctProductName(string ProductGroupID)
         {
             return this.productsInformationPo.DistinctProductName(ProductGroupID);
+        }
+
+        public async Task GetProductNameAsync()
+        {
+            await this.productsInformationPo.GetProductNameAsync();
         }
 
         public List<KeyAndNameForCombo> DistinctProductName()

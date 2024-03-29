@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MES.Order.DAL;
 using MES.Order.DAL.ViewModel;
 
@@ -25,6 +26,11 @@ namespace MES.Order.Adapter
         public List<KeyAndNameForCombo> GetArea()
         {
             return this.areaPo.GetArea();
+        }
+        
+        public async Task GetAreaAsync()
+        {
+            await this.areaPo.GetAreaAsync();
         }
     }
 }

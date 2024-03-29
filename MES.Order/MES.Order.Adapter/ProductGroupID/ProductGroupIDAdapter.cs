@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MES.Order.DAL;
 using MES.Order.DAL.ViewModel;
 
@@ -25,6 +26,11 @@ namespace MES.Order.Adapter
         public List<KeyAndNameForCombo> QueryProductGroupIds()
         {
             return this.ProductGroupIDPO.QueryAllProductsGroupID();
+        }
+
+        public async Task GetProductGroupIdAsync()
+        {
+            await this.ProductGroupIDPO.GetProductGroupIdAsync();
         }
     }
 }

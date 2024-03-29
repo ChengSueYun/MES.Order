@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
+using MES.Order.Infrastructure;
 using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL
@@ -92,6 +94,23 @@ namespace MES.Order.DAL
                               LocalDescription = a.Address
                           }).Distinct().ToList();
             return result;
+        }
+
+        public async Task DistinctCustomerAsync()
+        {
+            List<KeyAndName> result = new List<KeyAndName>();
+
+            result = await this.ProductsDbContext.Customs.Select(a => new KeyAndName
+                               {
+                                   Code             = a.CustomName,
+                                   LocalDescription = a.Address
+                               })
+                               .Distinct().AsNoTracking().ToListAsync();
+
+            if (result.Any())
+            {
+                Const.CustomerNameList.AddRange(result);
+            }
         }
 
         public List<Custom> QueryAllCustoms(string pArea, string pCustomName)

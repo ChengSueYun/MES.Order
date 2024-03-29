@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using MES.Order.DAL;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
@@ -28,12 +29,18 @@ namespace MES.Order.Adapter
             return this.customerPo.DistinctCustomer(pArea);
         }
 
+        public async Task DistinctCustomerAsync()
+        {
+            await this.customerPo.DistinctCustomerAsync();
+        }
+
         public List<Custom> QueryAllCustoms(string pArea, string pCustomName)
         {
             return this.customerPo.QueryAllCustoms(pArea, pCustomName);
         }
 
-        public string QuerySpecifcName(string pCustomName) {
+        public string QuerySpecifcName(string pCustomName)
+        {
             return this.customerPo.QuerySpecifcName(pCustomName);
         }
 

@@ -1,8 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
+using MES.Order.Infrastructure;
+using KeyAndNameForCombo = MES.Order.DAL.ViewModel.KeyAndNameForCombo;
 
 namespace MES.Order.DAL
 {
@@ -34,6 +37,25 @@ namespace MES.Order.DAL
                               LocalDescription = a.AreaName
                           }).Distinct().ToList();
             return result;
+        }
+
+        /// <summary>
+        /// Get Area Data List
+        /// </summary>
+        public async Task GetAreaAsync()
+        {
+            var dbUsecaseParameters = await this.ProductsDbContext.Areas
+                                                .Select(a => new KeyAndName
+                                                {
+                                                    Code             = a.AreaName,
+                                                    LocalDescription = a.AreaName
+                                                })
+                                                .Distinct().AsNoTracking().ToListAsync();
+
+            if (dbUsecaseParameters.Any())
+            {
+                Const.AreaList.AddRange(dbUsecaseParameters);
+            }
         }
     }
 }

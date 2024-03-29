@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
+using MES.Order.Infrastructure;
 
 namespace MES.Order.DAL
 {
@@ -27,7 +29,7 @@ namespace MES.Order.DAL
 
         public List<KeyAndNameForCombo> QueryAllProductsGroupID()
         {
-            var filter    = this.ProductsDbContext.ProductGroupIDs.ToListAsync().Result;
+            var filter = this.ProductsDbContext.ProductGroupIDs.ToListAsync().Result;
             var result = (from a in filter
                           select new KeyAndNameForCombo
                           {
@@ -36,6 +38,19 @@ namespace MES.Order.DAL
                           }).Distinct().ToList();
 
             return result;
+        }
+
+        public async Task GetProductGroupIdAsync()
+        {
+            var filter = await this.ProductsDbContext.ProductGroupIDs.Select(a => new KeyAndName
+            {
+                Code             = a.ProductGroupID,
+                LocalDescription = a.ProductGroupName
+            }).Distinct().ToListAsync();
+            if (filter.Any())
+            {
+                Const.ProductGroupIDList.AddRange(filter);
+            }
         }
     }
 }

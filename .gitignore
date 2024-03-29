@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/MES.Order/packages
+/MES.Order/.vs
+/MES.Order/MES.Order.Adapter/.vs
+/MES.Order/MES.Order.Adapter/bin/SueYun
+/MES.Order/MES.Order.Adapter/obj
+/MES.Order/MES.Order.BLL/.vs
+/MES.Order/MES.Order.BLL/bin/SueYun
+/MES.Order/MES.Order.BLL/obj
+/MES.Order/MES.Order.DAL/.vs
+/MES.Order/MES.Order.DAL/bin/SueYun
+/MES.Order/MES.Order.DAL/obj
+/MES.Order/MES.Order.Infrastructure/obj/Debug
+/MES.Order/MES.Order.Infrastructure/bin/Debug
+/MES.Order/MES.Order.Infrastructure/.vs
+/MES.Order/MES.Order.UI/.vs
+/MES.Order/MES.Order.UI/bin
+/MES.Order/MES.Order.UI/obj

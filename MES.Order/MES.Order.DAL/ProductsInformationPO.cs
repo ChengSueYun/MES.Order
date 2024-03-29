@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
+using MES.Order.Infrastructure;
 using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL
@@ -69,6 +71,19 @@ namespace MES.Order.DAL
                         Code             = a.ProductName,
                         LocalDescription = a.ProductName
                     }).Distinct().ToList();
+        }
+
+        public async Task GetProductNameAsync()
+        {
+            var filter = await this.ProductsDbContext.ProductsInfomations.Select(a => new KeyAndName()
+            {
+                Code             = a.ProductName,
+                LocalDescription = a.ProductGroupID
+            }).Distinct().ToListAsync();
+            if (filter.Any())
+            {
+                Const.ProductsList.AddRange(filter);
+            }
         }
 
         public List<ProductsInfomation> QueryAllProducts(string productGroupId, string productName)

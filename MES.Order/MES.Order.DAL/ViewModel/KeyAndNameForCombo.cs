@@ -2,7 +2,7 @@
 
 namespace MES.Order.DAL.ViewModel
 {
-    [Table("KeyAndNameForCombo")]
+    
     public class KeyAndNameForCombo
     {
         public string Code { get; set; }

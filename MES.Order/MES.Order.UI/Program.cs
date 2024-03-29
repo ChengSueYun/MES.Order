@@ -4,6 +4,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using MES.Order.BLL;
 
 namespace MES.Order.UI
 {

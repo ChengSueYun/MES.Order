@@ -9,85 +9,85 @@ using MES.Order.DAL.ViewModel;
 
 namespace MES.Order.BLL
 {
-    public class ProductsOrderUCO
+    public static class ProductsOrderUCO
     {
-        private IProductsOrderAdapter       _IproductsOrderAdapter;
-        private IAreaAdapter                _IareaAdapter;
-        private IProductGroupIDAdapter      _iproductGroupIdAdapter;
-        private IProductsInformationAdapter _ipProductsInformationAdapter;
-        private ICustomerAdapter            _icustomerAdapter;
+        private static IProductsOrderAdapter       _IproductsOrderAdapter;
+        private static IAreaAdapter                _IareaAdapter;
+        private static IProductGroupIDAdapter      _iproductGroupIdAdapter;
+        private static IProductsInformationAdapter _ipProductsInformationAdapter;
+        private static ICustomerAdapter            _icustomerAdapter;
 
-        internal IProductsOrderAdapter IProductsOrderAdapter
+        internal static IProductsOrderAdapter IProductsOrderAdapter
         {
             get
             {
-                if (this._IproductsOrderAdapter == null)
+                if (_IproductsOrderAdapter == null)
                 {
-                    this._IproductsOrderAdapter = new ProducstOrderAdapter();
+                    _IproductsOrderAdapter = new ProducstOrderAdapter();
                 }
 
-                return this._IproductsOrderAdapter;
+                return _IproductsOrderAdapter;
             }
-            set => this._IproductsOrderAdapter = value;
+            set => _IproductsOrderAdapter = value;
         }
 
-        internal IAreaAdapter IareaAdapter
+        internal static IAreaAdapter IareaAdapter
         {
             get
             {
-                if (this._IareaAdapter == null)
+                if (_IareaAdapter == null)
                 {
-                    this._IareaAdapter = new AreaAdapter();
+                    _IareaAdapter = new AreaAdapter();
                 }
 
-                return this._IareaAdapter;
+                return _IareaAdapter;
             }
-            set => this._IareaAdapter = value;
+            set => _IareaAdapter = value;
         }
 
-        internal IProductGroupIDAdapter IproductGroupIdAdapter
+        internal static IProductGroupIDAdapter IproductGroupIdAdapter
         {
             get
             {
-                if (this._iproductGroupIdAdapter == null)
+                if (_iproductGroupIdAdapter == null)
                 {
-                    this._iproductGroupIdAdapter = new ProductGroupIDAdapter();
+                    _iproductGroupIdAdapter = new ProductGroupIDAdapter();
                 }
 
-                return this._iproductGroupIdAdapter;
+                return _iproductGroupIdAdapter;
             }
-            set => this._iproductGroupIdAdapter = value;
+            set => _iproductGroupIdAdapter = value;
         }
 
-        internal IProductsInformationAdapter ipProductsInformationAdapter
+        internal static IProductsInformationAdapter ipProductsInformationAdapter
         {
             get
             {
-                if (this._ipProductsInformationAdapter == null)
+                if (_ipProductsInformationAdapter == null)
                 {
-                    this._ipProductsInformationAdapter = new ProductInformationAdapter();
+                    _ipProductsInformationAdapter = new ProductInformationAdapter();
                 }
 
-                return this._ipProductsInformationAdapter;
+                return _ipProductsInformationAdapter;
             }
-            set => this._ipProductsInformationAdapter = value;
+            set => _ipProductsInformationAdapter = value;
         }
 
-        internal ICustomerAdapter IcustomerAdapter
+        internal static ICustomerAdapter IcustomerAdapter
         {
             get
             {
-                if (this._icustomerAdapter == null)
+                if (_icustomerAdapter == null)
                 {
-                    this._icustomerAdapter = new CustomerAdapter();
+                    _icustomerAdapter = new CustomerAdapter();
                 }
 
-                return this._icustomerAdapter;
+                return _icustomerAdapter;
             }
-            set => this._icustomerAdapter = value;
+            set => _icustomerAdapter = value;
         }
 
-        private void AddAllSelectRow(ref List<KeyAndNameForCombo> Result)
+        private static void AddAllSelectRow(ref List<KeyAndNameForCombo> Result)
         {
             var all = new KeyAndNameForCombo();
             all.Code             = "*ALL";
@@ -95,73 +95,74 @@ namespace MES.Order.BLL
             Result.Insert(0, all);
         }
 
-        public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
-                                                  string ProductName, DateTime orderDateTimeS, DateTime orderDateTimeE)
+        public static List<ProductsOrder> QueryAllOrders(string   Area, string ProductGroupID, string CustomerName,
+                                                         string   ProductName, DateTime orderDateTimeS,
+                                                         DateTime orderDateTimeE)
         {
-            return this.IProductsOrderAdapter.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName,
-                                                             orderDateTimeS,
-                                                             orderDateTimeE);
+            return IProductsOrderAdapter.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName,
+                                                        orderDateTimeS,
+                                                        orderDateTimeE);
         }
 
-        public List<ProductsOrder> QueryAllOrders(string       Area, string ProductGroupID, List<string> CustomerName,
-                                                  List<string> ProductName, DateTime orderDateTimeS,
-                                                  DateTime     orderDateTimeE) =>
-            this.IProductsOrderAdapter.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName, orderDateTimeS,
-                                                      orderDateTimeE);
+        public static List<ProductsOrder> QueryAllOrders(string Area, string ProductGroupID, List<string> CustomerName,
+                                                         List<string> ProductName, DateTime orderDateTimeS,
+                                                         DateTime orderDateTimeE) =>
+            IProductsOrderAdapter.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName, orderDateTimeS,
+                                                 orderDateTimeE);
 
-        public List<KeyAndNameForCombo> GetArea()
+        public static List<KeyAndNameForCombo> GetArea()
         {
-            List<KeyAndNameForCombo> result = this.IareaAdapter.GetArea();
+            List<KeyAndNameForCombo> result = IareaAdapter.GetArea();
             AddAllSelectRow(ref result);
             return result;
         }
 
-        public List<KeyAndNameForCombo> GetProductGroupID()
+        public static List<KeyAndNameForCombo> GetProductGroupID()
         {
-            List<KeyAndNameForCombo> result = this.IproductGroupIdAdapter.QueryProductGroupIds();
+            List<KeyAndNameForCombo> result = IproductGroupIdAdapter.QueryProductGroupIds();
             AddAllSelectRow(ref result);
             return result;
         }
 
-        public string QuerySpecifcName(string pCustomName) => this._icustomerAdapter.QuerySpecifcName(pCustomName);
+        public static string QuerySpecifcName(string pCustomName) => _icustomerAdapter.QuerySpecifcName(pCustomName);
 
-        public List<KeyAndNameForCombo> GetCustomerName(string Area)
+        public static List<KeyAndNameForCombo> GetCustomerName(string Area)
         {
-            List<KeyAndNameForCombo> result = this.IcustomerAdapter.DistinctCustomer(Area);
+            List<KeyAndNameForCombo> result = IcustomerAdapter.DistinctCustomer(Area);
             AddAllSelectRow(ref result);
             return result;
         }
 
-        public List<KeyAndNameForCombo> GetProductName(string ProductGroupID)
+        public static List<KeyAndNameForCombo> GetProductName(string ProductGroupID)
         {
-            var result = this.ipProductsInformationAdapter.DistinctProductName(ProductGroupID);
+            var result = ipProductsInformationAdapter.DistinctProductName(ProductGroupID);
             AddAllSelectRow(ref result);
             return result;
         }
 
-        public List<ProductsInfomation> GetProductPrice(string ProductGroupID, string ProductName)
+        public static List<ProductsInfomation> GetProductPrice(string ProductGroupID, string ProductName)
         {
-            return this.ipProductsInformationAdapter.GetProdctPrice(ProductGroupID, ProductName);
+            return ipProductsInformationAdapter.GetProdctPrice(ProductGroupID, ProductName);
         }
 
-        public List<ProductsInfomation> GetProductCost(string ProductGroupID, string ProductName)
+        public static List<ProductsInfomation> GetProductCost(string ProductGroupID, string ProductName)
         {
-            return this.ipProductsInformationAdapter.GetProdctCost(ProductGroupID, ProductName);
+            return ipProductsInformationAdapter.GetProdctCost(ProductGroupID, ProductName);
         }
 
-        public int SaveOrders(List<ProductsOrder> insertProductsOrders)
+        public static int SaveOrders(List<ProductsOrder> insertProductsOrders)
         {
-            return this.IProductsOrderAdapter.SaveOrder(insertProductsOrders);
+            return IProductsOrderAdapter.SaveOrder(insertProductsOrders);
         }
 
-        public int DeleteOrders(List<ProductsOrder> deleteProductsOrders)
+        public static int DeleteOrders(List<ProductsOrder> deleteProductsOrders)
         {
-            return this.IProductsOrderAdapter.DeleteOrder(deleteProductsOrders);
+            return IProductsOrderAdapter.DeleteOrder(deleteProductsOrders);
         }
 
-        public int UpdateOrders(List<ProductsOrder> updateProductsOrders)
+        public static int UpdateOrders(List<ProductsOrder> updateProductsOrders)
         {
-            return this.IProductsOrderAdapter.UpdateOrder(updateProductsOrders);
+            return IProductsOrderAdapter.UpdateOrder(updateProductsOrders);
         }
     }
 }

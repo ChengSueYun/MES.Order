@@ -54,16 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreaAdapter.cs" />
-    <Compile Include="CustomerAdapter.cs" />
-    <Compile Include="IAreaAdapter.cs" />
-    <Compile Include="ICustomerAdapter.cs" />
-    <Compile Include="IProductGroupIDAdapter.cs" />
-    <Compile Include="IProductsInformationAdapter.cs" />
-    <Compile Include="IProductsOrderAdapter.cs" />
-    <Compile Include="ProducstOrderAdapter.cs" />
-    <Compile Include="ProductGroupIDAdapter.cs" />
-    <Compile Include="ProductInformationAdapter.cs" />
+    <Compile Include="Area\AreaAdapter.cs" />
+    <Compile Include="Customer\CustomerAdapter.cs" />
+    <Compile Include="Area\IAreaAdapter.cs" />
+    <Compile Include="Customer\ICustomerAdapter.cs" />
+    <Compile Include="ProductGroupID\IProductGroupIDAdapter.cs" />
+    <Compile Include="ProductInformation\IProductsInformationAdapter.cs" />
+    <Compile Include="ProducstOrder\IProductsOrderAdapter.cs" />
+    <Compile Include="ProducstOrder\ProducstOrderAdapter.cs" />
+    <Compile Include="ProductGroupID\ProductGroupIDAdapter.cs" />
+    <Compile Include="ProductInformation\ProductInformationAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,5 +72,6 @@
       <Name>MES.Order.DAL</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
