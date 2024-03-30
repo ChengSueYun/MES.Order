@@ -29,7 +29,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// </summary>
         [Required]
         [Column(Order = 1)]
-        [StringLength(15)]
+        [StringLength(40)]
         [Display(Name = "客戶", Prompt = "請輸入客戶")]
         public string Customer
         {

@@ -9,12 +9,13 @@ using MES.Order.DAL.NewEntityFramework;
 using MES.Order.Infrastructure.NewViewModel;
 using MES.Order.Infrastructure.NewViewModel.Filter;
 using MES.Order.Infrastructure.NewViewModel.Request;
+using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL.Repository
 {
     public class OrderInfoRepository
     {
-        #region Contructure
+    #region Contructure
 
         private readonly CoupleOrderDbContext mDbContext;
 
@@ -23,7 +24,7 @@ namespace MES.Order.DAL.Repository
             this.mDbContext = CoupleOrderDbContext.Create(conn);
         }
 
-        private bool mDisposed;
+        private          bool mDisposed;
         private readonly bool mIsDisposeConnection = true;
 
         ~OrderInfoRepository()
@@ -48,18 +49,27 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-        #endregion
+    #endregion
 
-        #region Query
+    #region Query
 
-        public  async Task<List<OrderInfoViewModel>> Query(FilterOrderInfo _filter)
+        public async Task<List<OrderInfoViewModel>> Query(FilterOrderInfo _filter)
         {
             try
             {
                 var result = new List<OrderInfoViewModel>();
-                var asQueryable = await this.mDbContext.OrderInfoes.Where(x => x.OrderDate >= _filter.OrderDateStart &&
-                                                                               x.OrderDate <= _filter.OrderDateEnd)
-                    .ToListAsync();
+                var asQueryable = await this.mDbContext.OrderInfoes
+                                            .Where(x => x.OrderDate.Year >= _filter.OrderDateStart.Year &&
+                                                        x.OrderDate.Month >=
+                                                        _filter.OrderDateStart.Month &&
+                                                        x.OrderDate.Day >=
+                                                        _filter.OrderDateStart.Day &&
+                                                        x.OrderDate.Year <= _filter.OrderDateEnd.Year
+                                                        &&
+                                                        x.OrderDate.Month <= _filter.OrderDateEnd.Month
+                                                        &&
+                                                        x.OrderDate.Day <= _filter.OrderDateEnd.Day)
+                                            .ToListAsync();
 
                 if (asQueryable.Any())
                 {
@@ -74,21 +84,21 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-        #endregion
+    #endregion
 
-        #region AddOrUpdate
+    #region AddOrUpdate
 
         public async Task<bool> AddOrUpdate(IEnumerable<OrderInfoRequest> fromUi)
         {
             try
             {
-                var result = false;
+                var                    result  = false;
                 IEnumerable<OrderInfo> request = new List<OrderInfo>();
                 DefaultMapper.Map(fromUi, request);
                 foreach (var areaInfo in request)
                 {
-                    this.mDbContext.OrderInfoes.AddOrUpdate(x => new {x.Area, x.Customer, x.Factory, x.Product},
-                        areaInfo);
+                    this.mDbContext.OrderInfoes.AddOrUpdate(x => new { x.Area, x.Customer, x.Factory, x.Product },
+                                                            areaInfo);
                 }
 
                 if (await this.mDbContext.SaveChangesAsync() > 0)
@@ -108,16 +118,21 @@ namespace MES.Order.DAL.Repository
         {
             try
             {
-                var result = false;
+                var result  = false;
                 var request = new OrderInfo();
                 DefaultMapper.Map(fromUi, request);
-
-                this.mDbContext.OrderInfoes.AddOrUpdate(x => new {x.Area, x.Customer, x.Factory, x.Product}, request);
+               
+                this.mDbContext.OrderInfoes.AddOrUpdate(x => new { x.Area, x.Customer, x.Factory, x.Product }, request);
 
                 if (await this.mDbContext.SaveChangesAsync() > 0)
                 {
                     result = true;
                 }
+
+                // if (this.mDbContext.Save() > 0)
+                // {
+                //     result = true;
+                // }
 
                 return result;
             }
@@ -127,18 +142,18 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-        #endregion
+    #endregion
 
-        #region Delete
+    #region Delete
 
         public async Task<bool> Delete(OrderInfoViewModel request)
         {
             try
             {
                 var result = false;
-                var productsInfos = this.mDbContext.OrderInfoes.Where(x => x.Area == request.Area &&
-                                                                           x.Product == request.Product &&
-                                                                           x.Factory == request.Factory &&
+                var productsInfos = this.mDbContext.OrderInfoes.Where(x => x.Area     == request.Area    &&
+                                                                           x.Product  == request.Product &&
+                                                                           x.Factory  == request.Factory &&
                                                                            x.Customer == request.Customer);
                 if (productsInfos.Any())
                 {
@@ -190,6 +205,6 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-        #endregion
+    #endregion
     }
 }

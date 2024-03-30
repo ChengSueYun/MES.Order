@@ -53,8 +53,9 @@ namespace MES.Order.UI
                     NewExtension.GetAreaAsync();
                     NewExtension.GetCustomerAsync();
                     NewExtension.GetFactoryIdAsync();
-                    NewExtension.GetProductAsync();
-                    NewExtension.GetProductTypeAsync();
+                    NewExtension.GetAllProductAsync();
+                    // NewExtension.GetProductAsync();
+                    // NewExtension.GetProductTypeAsync();
 
                     // Thread.Sleep(500);
                 }, _context, new TimeSpan(0, 0, 0, tempRefreshData));

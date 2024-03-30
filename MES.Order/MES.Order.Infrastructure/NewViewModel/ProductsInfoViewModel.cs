@@ -20,7 +20,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         [Display(Name = "產品", Prompt = "請輸入產品")]
         [Required]
         [Column(Order = 1)]
-        [StringLength(100)]
+        [StringLength(200)]
         public string Product { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// 產品網址
         /// </summary>
         [Display(Name = "產品網址", Prompt = "請輸入產品網址")]
-        [StringLength(100)]
+        [StringLength(300)]
         public string ProductWebSite { get; set; }
     }
 }

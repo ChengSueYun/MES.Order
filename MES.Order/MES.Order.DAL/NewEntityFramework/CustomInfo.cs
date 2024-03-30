@@ -9,8 +9,6 @@ namespace MES.Order.DAL.NewEntityFramework
     [Table("CustomInfo")]
     public partial class CustomInfo
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AutoID { get; set; }
 
         [Key]
         [Column(Order = 0)]
@@ -19,32 +17,32 @@ namespace MES.Order.DAL.NewEntityFramework
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(15)]
+        [StringLength(40)]
         public string Customer { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(20)]
         public string FaceBookId { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(100)]
         public string FaceBookLink { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(50)]
         public string Remark { get; set; }
 
         [Column(TypeName = "smalldatetime")]
         public DateTime CreateDate { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(10)]
         public string CreateUser { get; set; }
 
         [Column(TypeName = "smalldatetime")]
         public DateTime UpdateDate { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(10)]
         public string UpdateUser { get; set; }
     }

@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using MES.Order.Infrastructure.NewViewModel;
+using THS.Infrastructure.Extensions;
+using static MES.Order.Infrastructure.EnumCollect;
 
 namespace MES.Order.Infrastructure
 {
@@ -76,6 +80,83 @@ namespace MES.Order.Infrastructure
         {
             get => s_productsTypeList ?? new List<KeyAndName>();
             set => s_productsTypeList = value;
+        }
+
+        private static List<KeyAndName> s_orderStatusEnums;
+
+        public static List<KeyAndName> OrderStatusEnums
+        {
+            get =>
+                s_orderStatusEnums ?? (s_orderStatusEnums = new List<KeyAndName>
+                                                            {
+                                                                new KeyAndName()
+                                                                {
+                                                                    Code =
+                                                                        $"{OrderStatusEnum.Y}:{DateTime.Today.ToSimpleTaiwanCalendar()} 已取貨"
+                                                                  , LocalDescription =
+                                                                        $"{OrderStatusEnum.Y}:{DateTime.Today.ToSimpleTaiwanCalendar()} 已取貨"
+                                                                }
+                                                              , new KeyAndName()
+                                                                {
+                                                                    Code =
+                                                                        $"{OrderStatusEnum.N}:未取貨"
+                                                                  , LocalDescription =
+                                                                        $"{OrderStatusEnum.N}:未取貨"
+                                                                }
+                                                            });
+            set => s_orderStatusEnums = value;
+        }
+
+        private static List<KeyAndName> s_colorSpecEnums;
+
+        public static List<KeyAndName> ColorSpecEnums
+        {
+            get
+            {
+                if (s_colorSpecEnums == null)
+                {
+                    s_colorSpecEnums = new List<KeyAndName>();
+                }
+                foreach (var value in Enum.GetNames(typeof(ColorSpecEnum)))
+                {
+                    s_colorSpecEnums.Add(new KeyAndName()
+                                         {
+                                             Code = value, LocalDescription = value
+                                         });
+                }
+                return s_colorSpecEnums;
+            }
+            set => s_colorSpecEnums = value;
+        }
+
+        private static List<KeyAndName> s_sizeSpecEnum;
+
+        public static List<KeyAndName> SizeSpecEnum
+        {
+            get
+            {
+                if (s_sizeSpecEnum == null)
+                {
+                    s_sizeSpecEnum = new List<KeyAndName>();
+                }
+                foreach (var value in Enum.GetNames(typeof(SizeSpecEnum)))
+                {
+                    s_sizeSpecEnum.Add(new KeyAndName()
+                                       {
+                                           Code = value, LocalDescription = value
+                                       });
+                }
+                return s_sizeSpecEnum;
+            }
+            set => s_sizeSpecEnum = value;
+        }
+
+        private static List<ProductsInfoViewModel> s_allProductsView;
+
+        public static List<ProductsInfoViewModel> AllProductsView
+        {
+            get => s_allProductsView ?? new List<ProductsInfoViewModel>();
+            set => s_allProductsView = value;
         }
 
     #endregion

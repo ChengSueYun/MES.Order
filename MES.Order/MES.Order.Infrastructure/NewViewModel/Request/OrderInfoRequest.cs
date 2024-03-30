@@ -9,12 +9,14 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
 {
     public class OrderInfoRequest : INotifyPropertyChanged
     {
+        public ProductsInfoViewModel ProductsInfo { get; set; }
+
         private string mArea;
 
         /// <summary>
         /// 地區
         /// </summary>
-        [Required]
+        
         [Column(Order = 0)]
         [StringLength(10)]
         [Display(Name = "地區", Prompt = "請輸入地區")]
@@ -38,9 +40,9 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
         /// <summary>
         /// 客戶
         /// </summary>
-        [Required]
+        
         [Column(Order = 1)]
-        [StringLength(15)]
+        [StringLength(40)]
         [Display(Name = "客戶", Prompt = "請輸入客戶")]
         public string Customer
         {
@@ -62,7 +64,7 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
         /// <summary>
         /// 廠商
         /// </summary>
-        [Required]
+        
         [Column(Order = 2)]
         [StringLength(10)]
         [Display(Name = "廠商", Prompt = "請輸入廠商")]
@@ -86,9 +88,9 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
         /// <summary>
         /// 產品
         /// </summary>
-        [Required]
+        
         [Column(Order = 3)]
-        [StringLength(100)]
+        [StringLength(200)]
         [Display(Name = "產品", Prompt = "請輸入產品")]
         public string Product
         {
@@ -110,11 +112,11 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
         /// <summary>
         /// 訂購日期
         /// </summary>
-        [Column(TypeName = "smalldatetime")]
+        [Column(TypeName = "datetime")]
         [Display(Name = "訂購日期", Prompt = "請輸入訂購日期")]
         public DateTime OrderDate
         {
-            get => this.mOrderDate;
+            get => this.mOrderDate = DateTime.Now;
             set
             {
                 if (value.Equals(this.mOrderDate))
@@ -156,7 +158,15 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
         [Display(Name = "訂購總金額", Prompt = "請輸入訂購總金額")]
         public int TotalPrice
         {
-            get => this.mTotalPrice;
+            get
+            {
+                var productsInfoViewModel = this.ProductsInfo;
+                if (productsInfoViewModel != null)
+                {
+                    return this.mTotalPrice = productsInfoViewModel.Price * this.Count;
+                }
+                return this.mTotalPrice;
+            }
             set
             {
                 if (value == this.mTotalPrice)
@@ -177,7 +187,15 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
         [Display(Name = "訂購總批價", Prompt = "請輸入訂購總批價")]
         public int TotalCost
         {
-            get => this.mTotalCost;
+            get
+            {
+                var productsInfoViewModel = this.ProductsInfo;
+                if (productsInfoViewModel != null)
+                {
+                    return this.mTotalCost = productsInfoViewModel.Cost * this.Count;
+                }
+                return this.mTotalCost;
+            }
             set
             {
                 if (value == this.mTotalCost)
@@ -198,7 +216,15 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
         [Display(Name = "訂購總利潤", Prompt = "請輸入訂購總利潤")]
         public int TotalProfit
         {
-            get => this.mTotalProfit;
+            get
+            {
+                var productsInfoViewModel = this.ProductsInfo;
+                if (productsInfoViewModel != null)
+                {
+                    return this.mTotalProfit = productsInfoViewModel.Profit * this.Count;
+                }
+                return this.mTotalProfit;
+            }
             set
             {
                 if (value == this.mTotalProfit)
@@ -279,8 +305,8 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
 
         private string mStatus;
 
-        [Required]
-        [StringLength(3)]
+        
+        [StringLength(20)]
         public string Status
         {
             get => this.mStatus;
@@ -330,5 +356,4 @@ namespace MES.Order.Infrastructure.NewViewModel.Request
             return true;
         }
     }
-
 }

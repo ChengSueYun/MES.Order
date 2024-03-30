@@ -9,8 +9,6 @@ namespace MES.Order.DAL.NewEntityFramework
     [Table("OrderInfo")]
     public partial class OrderInfo
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AutoID { get; set; }
 
         [Key]
         [Column(Order = 0)]
@@ -19,7 +17,7 @@ namespace MES.Order.DAL.NewEntityFramework
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(15)]
+        [StringLength(40)]
         public string Customer { get; set; }
 
         [Key]
@@ -29,10 +27,10 @@ namespace MES.Order.DAL.NewEntityFramework
 
         [Key]
         [Column(Order = 3)]
-        [StringLength(100)]
+        [StringLength(200)]
         public string Product { get; set; }
 
-        [Column(TypeName = "smalldatetime")]
+        [Column(TypeName = "datetime")]
         public DateTime OrderDate { get; set; }
 
         public int Count { get; set; }
@@ -43,20 +41,20 @@ namespace MES.Order.DAL.NewEntityFramework
 
         public int TotalProfit { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(7)]
         public string ColorSpec { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(7)]
         public string SizSpec { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(100)]
         public string Remark { get; set; }
 
-        [Required]
-        [StringLength(3)]
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(20)]
         public string Status { get; set; }
 
         [Column(TypeName = "smalldatetime")]

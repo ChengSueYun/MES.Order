@@ -9,15 +9,13 @@ namespace MES.Order.DAL.NewEntityFramework
     [Table("FactoryInfo")]
     public partial class FactoryInfo
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AutoID { get; set; }
 
         [Key]
         [StringLength(10)]
         public string Factory { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(300)]
         public string FactoryWebSit { get; set; }
     }
 }

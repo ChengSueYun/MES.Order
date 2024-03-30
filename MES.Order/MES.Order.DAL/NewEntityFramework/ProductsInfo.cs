@@ -9,8 +9,6 @@ namespace MES.Order.DAL.NewEntityFramework
     [Table("ProductsInfo")]
     public partial class ProductsInfo
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int AutoID { get; set; }
 
         [Key]
         [Column(Order = 0)]
@@ -19,10 +17,10 @@ namespace MES.Order.DAL.NewEntityFramework
 
         [Key]
         [Column(Order = 1)]
-        [StringLength(100)]
+        [StringLength(200)]
         public string Product { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         [StringLength(10)]
         public string ProductType { get; set; }
 
@@ -32,11 +30,11 @@ namespace MES.Order.DAL.NewEntityFramework
 
         public int Profit { get; set; }
 
-        [Required]
+        [Required(AllowEmptyStrings = true)]
         public byte[] Image { get; set; }
 
-        [Required]
-        [StringLength(100)]
+        [Required(AllowEmptyStrings = true)]
+        [StringLength(300)]
         public string ProductWebSite { get; set; }
     }
 }

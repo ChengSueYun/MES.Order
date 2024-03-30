@@ -16,7 +16,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// 廠商網頁網址
         /// </summary>
         [Required(AllowEmptyStrings = true)]
-        [StringLength(100)]
+        [StringLength(300)]
         [Display(Name = "廠商網頁網址", Prompt = "請輸入廠商網頁網址")]
         public string FactoryWebSit { get; set; }
     }

@@ -6,3 +6,12 @@ D:\ths-dev\Git\ChengSueYun\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03C
 D:\ths-dev\Git\ChengSueYun\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03CSY\MES.Order.Infrastructure.pdb
 D:\ths-dev\Git\ChengSueYun\MES.Order\MES.Order\MES.Order.Infrastructure\bin\S03CSY\System.ComponentModel.Annotations.dll
 D:\ths-dev\Git\ChengSueYun\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03CSY\MES.Orde.B9769FBC.Up2Date
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\bin\S03CSY\MES.Order.Infrastructure.dll
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\bin\S03CSY\MES.Order.Infrastructure.pdb
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\bin\S03CSY\System.ComponentModel.Annotations.dll
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\bin\S03CSY\THS.Infrastructure.dll
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03CSY\MES.Order.Infrastructure.csproj.AssemblyReference.cache
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03CSY\MES.Order.Infrastructure.csproj.CoreCompileInputs.cache
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03CSY\MES.Orde.B9769FBC.Up2Date
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03CSY\MES.Order.Infrastructure.dll
+D:\ths-dev\GitHub\MES.Order\MES.Order\MES.Order.Infrastructure\obj\S03CSY\MES.Order.Infrastructure.pdb
