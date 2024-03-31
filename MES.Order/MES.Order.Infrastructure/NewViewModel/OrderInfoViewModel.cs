@@ -8,8 +8,20 @@ using System.Runtime.CompilerServices;
 
 namespace MES.Order.Infrastructure.NewViewModel
 {
-    public class OrderInfoViewModel: INotifyPropertyChanged
+    public class OrderInfoViewModel : INotifyPropertyChanged
     {
+        public bool Selection
+        {
+            get => _selection;
+
+            set
+            {
+                if (value == _selection) return;
+                _selection = value;
+                OnPropertyChanged();
+            }
+        }
+
         private string mArea;
 
         /// <summary>
@@ -22,6 +34,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string Area
         {
             get => this.mArea;
+
             set
             {
                 if (value == this.mArea) return;
@@ -43,6 +56,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string Customer
         {
             get => this.mCustomer;
+
             set
             {
                 if (value == this.mCustomer)
@@ -67,6 +81,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string Factory
         {
             get => this.mFactory;
+
             set
             {
                 if (value == this.mFactory)
@@ -91,6 +106,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string Product
         {
             get => this.mProduct;
+
             set
             {
                 if (value == this.mProduct)
@@ -113,6 +129,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public DateTime OrderDate
         {
             get => this.mOrderDate = DateTime.Now;
+
             set
             {
                 if (value.Equals(this.mOrderDate)) return;
@@ -131,6 +148,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public int Count
         {
             get => this.mCount;
+
             set
             {
                 if (value == this.mCount)
@@ -152,6 +170,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public int TotalPrice
         {
             get => this.mTotalPrice;
+
             set
             {
                 if (value == this.mTotalPrice)
@@ -174,6 +193,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public int TotalCost
         {
             get => this.mTotalCost;
+
             set
             {
                 if (value == this.mTotalCost)
@@ -187,7 +207,7 @@ namespace MES.Order.Infrastructure.NewViewModel
             }
         }
 
-        private int                      mTotalProfit;
+        private int mTotalProfit;
         private INotifyCollectionChanged mNotifyCollectionChangedImplementation;
 
         /// <summary>
@@ -197,6 +217,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public int TotalProfit
         {
             get => this.mTotalProfit = this.TotalPrice - this.TotalCost;
+
             set
             {
                 if (value == this.mTotalProfit) return;
@@ -216,6 +237,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string ColorSpec
         {
             get => this.mColorSpec;
+
             set
             {
                 if (value == this.mColorSpec)
@@ -238,6 +260,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string SizSpec
         {
             get => this.mSizSpec;
+
             set
             {
                 if (value == this.mSizSpec)
@@ -260,6 +283,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string Remark
         {
             get => this.mRemark;
+
             set
             {
                 if (value == this.mRemark)
@@ -279,6 +303,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         public string Status
         {
             get => this.mStatus;
+
             set
             {
                 if (value == this.mStatus)
@@ -292,11 +317,13 @@ namespace MES.Order.Infrastructure.NewViewModel
         }
 
         private DateTime mUpdateDate;
+        private bool _selection;
 
         [Column(TypeName = "smalldatetime")]
         public DateTime UpdateDate
         {
             get => this.mUpdateDate;
+
             set
             {
                 if (value.Equals(this.mUpdateDate))
@@ -316,7 +343,7 @@ namespace MES.Order.Infrastructure.NewViewModel
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected bool SetField < T >(ref T field, T value, [CallerMemberName] string propertyName = null)
+        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(field, value)) return false;
 
