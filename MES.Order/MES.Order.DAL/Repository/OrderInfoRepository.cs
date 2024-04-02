@@ -59,16 +59,8 @@ namespace MES.Order.DAL.Repository
             {
                 var result = new List<OrderInfoViewModel>();
                 var asQueryable = await this.mDbContext.OrderInfoes
-                                            .Where(x => x.OrderDate.Year >= _filter.OrderDateStart.Year &&
-                                                        x.OrderDate.Month >=
-                                                        _filter.OrderDateStart.Month &&
-                                                        x.OrderDate.Day >=
-                                                        _filter.OrderDateStart.Day &&
-                                                        x.OrderDate.Year <= _filter.OrderDateEnd.Year
-                                                        &&
-                                                        x.OrderDate.Month <= _filter.OrderDateEnd.Month
-                                                        &&
-                                                        x.OrderDate.Day <= _filter.OrderDateEnd.Day)
+                                            .Where(x => x.OrderDate      >= _filter.OrderDateStart &&
+                                                        x.OrderDate <= _filter.OrderDateEnd)
                                             .ToListAsync();
 
                 if (asQueryable.Any())
@@ -121,7 +113,7 @@ namespace MES.Order.DAL.Repository
                 var result  = false;
                 var request = new OrderInfo();
                 DefaultMapper.Map(fromUi, request);
-               
+
                 this.mDbContext.OrderInfoes.AddOrUpdate(x => new { x.Area, x.Customer, x.Factory, x.Product }, request);
 
                 if (await this.mDbContext.SaveChangesAsync() > 0)

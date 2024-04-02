@@ -4,7 +4,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 using DevExpress.Data;
 using DevExpress.Utils;
@@ -192,8 +194,27 @@ namespace MES.Order.UI.New
         {
             try
             {
-                this.orderInfoViewModelBindingSource.DataSource = await BasicUtility.OrderInfoAdapter.Query(_filter);
-                this.gridView_ProductOrder.BestFitColumns();
+                // this.orderInfoViewModelBindingSource.DataSource = await BasicUtility.OrderInfoAdapter.Query(_filter);
+                // this.gridView_ProductOrder.BestFitColumns();
+
+
+            
+                var accessToken = "EAAOAT9rhCCsBO4mSiVtdTR86wBCmYcubHGkfVVaitKUTv6XsBSFFm4vWPdGQENgURa7LjawZA4BGjDfQYkbg6x8yKBqzmW1worpi91LAZCu8ZC95h9uT7ibaDOTikU6BTCuKT5ZBLggM49i8pdgv3GDwaKQOhA0SDjxvKmQtFQoZAZBx0dJDQhF57fIQvzcn3hnveiMNSz4j5lrVMr9AZDZD";
+                var recipientId = "7704016049622006";
+                var message     = "Hello, this is a test message.";
+                
+                var url = $"https://graph.facebook.com/v2.6/me/messages?access_token={accessToken}";
+                var content =
+                    new
+                        StringContent($"{{\"recipient\": {{\"id\": \"{recipientId}\"}}, \"message\": {{\"text\": \"{message}\"}}}}"
+                                    , Encoding.UTF8, "application/json");
+                
+                using (var httpClient = new HttpClient())
+                {
+                    var    response       = await httpClient.PostAsync(url, content);
+                    string responseString = await response.Content.ReadAsStringAsync();
+                    XtraMessageBox.Show(responseString);
+                }
             }
             catch (Exception ex)
             {
@@ -288,29 +309,23 @@ namespace MES.Order.UI.New
 
     #region 新增地區
 
-        private void Area_Repository_ProcessNewValue(object sender, ProcessNewValueEventArgs e)
+        private void gridView_AddArea_EditFormHidden(object sender, EditFormHiddenEventArgs e)
         {
             try
             {
-                var pAreaNewValue = e.DisplayValue.ToString();
-                if (string.IsNullOrEmpty(pAreaNewValue))
+                if (e.Result == EditFormResult.Update)
                 {
-                    return;
-                }
-                var dialogResult = XtraMessageBox.Show($"確定新增地區:[{pAreaNewValue}]嗎?", "提示訊息", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    var request = new AreaInfoViewModel().SetDefaultValue();
-                    request.Area = pAreaNewValue;
-                    var addOrUpdateAsync = BasicUtility.AreaInfoAdapter.AddOrUpdateAsync(request);
-                    while (addOrUpdateAsync.IsCompleted)
+                    if (this.AreaKeybindingSource.Current is AreaInfoViewModel request)
                     {
-                        Const.AllAreaView                    = BasicUtility.AreaInfoAdapter.GetAsync().Result;
-                        this.AreaKeybindingSource.DataSource = Const.AllAreaView;
-                    }
-                    if (this.CustomerKeybindingSource.Current is CustomInfoViewModel CustomRequest)
-                    {
-                        CustomRequest.Area = request.Area;
+                        request.SetDefaultValue();
+
+                        var addOrUpdate = BasicUtility.AreaInfoAdapter.AddOrUpdateAsync(request);
+                        while (addOrUpdate.IsCompleted)
+                        {
+                            Const.AllAreaView                        = BasicUtility.AreaInfoAdapter.GetAsync().Result;
+                            this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
+                        }
+                        _Request.Area = request.Area;
                     }
                 }
             }
@@ -342,6 +357,8 @@ namespace MES.Order.UI.New
                             Const.AllCustomerView                    = BasicUtility.CustomerInfoAdapter.GetAll().Result;
                             this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
                         }
+                        _Request.Area     = request.Area;
+                        _Request.Customer = request.Customer;
                     }
                 }
             }
@@ -371,6 +388,8 @@ namespace MES.Order.UI.New
                             Const.AllProductsView                   = BasicUtility.ProductsInfoAdapter.Get().Result;
                             this.ProductKeybindingSource.DataSource = Const.AllProductsView;
                         }
+                        _Request.Factory = request.Factory;
+                        _Request.Product = request.Product;
                     }
                 }
             }
@@ -378,6 +397,50 @@ namespace MES.Order.UI.New
             {
                 throw new Exception(exception.ToString());
             }
+        }
+
+        private void ProductImage_Repository_EditValueChanging(object sender, ChangingEventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(e.NewValue.ToString())) return;
+
+                string filePath =
+                    $"D:\\{_Request.Factory}圖片\\{_Request.Product.Substring(0,5)}_{DateTime.Now.ToTaiwanCalendar("yMMd")}.{ImageFormat.Png}";
+                if (!Directory.Exists(filePath))
+                {
+                    //新增資料夾
+                    Directory.CreateDirectory(filePath);
+                }
+                this.SaveImage(e.NewValue.ToString()
+                             , filePath
+                             , ImageFormat.Png);
+            }
+            catch (ExternalException)
+            {
+                return;
+            }
+            catch (ArgumentNullException)
+            {
+                return;
+            }
+        }
+
+        public void SaveImage(string imageUrl, string filename, ImageFormat format)
+        {
+            WebClient client = new WebClient();
+            Stream    stream = client.OpenRead(imageUrl);
+            Bitmap    bitmap;
+            bitmap = new Bitmap(stream);
+
+            if (bitmap != null)
+            {
+                bitmap.Save(filename, format);
+            }
+
+            stream.Flush();
+            stream.Close();
+            client.Dispose();
         }
 
     #endregion
@@ -404,6 +467,7 @@ namespace MES.Order.UI.New
                         {
                             ProductRequest.Factory = request.Factory;
                         }
+                        _Request.Factory = request.Factory;
                     }
                 }
             }
@@ -414,39 +478,5 @@ namespace MES.Order.UI.New
         }
 
     #endregion
-
-        private void ProductImage_Repository_EditValueChanging(object sender, ChangingEventArgs e)
-        {
-            try
-            {
-                SaveImage(e.NewValue.ToString(), $"D:\\{DateTime.Now.ToString("yyyyMMddhhmmss")}.{ImageFormat.Png}", ImageFormat.Png);
-            }
-            catch (ExternalException)
-            {
-                // Something is wrong with Format -- Maybe required Format is not 
-                // applicable here
-            }
-            catch (ArgumentNullException)
-            {
-                // Something wrong with Stream
-            }
-        }
-
-        public void SaveImage(string imageUrl, string filename, ImageFormat format)
-        {
-            WebClient client = new WebClient();
-            Stream    stream = client.OpenRead(imageUrl);
-            Bitmap    bitmap;
-            bitmap = new Bitmap(stream);
-
-            if (bitmap != null)
-            {
-                bitmap.Save(filename, format);
-            }
-
-            stream.Flush();
-            stream.Close();
-            client.Dispose();
-        }
     }
 }
