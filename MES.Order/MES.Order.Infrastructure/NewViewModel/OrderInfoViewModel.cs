@@ -27,7 +27,6 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// <summary>
         /// 地區
         /// </summary>
-        [Required]
         [Column(Order = 0)]
         [StringLength(10)]
         [Display(Name = "地區", Prompt = "請輸入地區")]
@@ -49,7 +48,6 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// <summary>
         /// 客戶
         /// </summary>
-        [Required]
         [Column(Order = 1)]
         [StringLength(40)]
         [Display(Name = "客戶", Prompt = "請輸入客戶")]
@@ -74,7 +72,6 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// <summary>
         /// 廠商
         /// </summary>
-        [Required]
         [Column(Order = 2)]
         [StringLength(10)]
         [Display(Name = "廠商", Prompt = "請輸入廠商")]
@@ -99,7 +96,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// <summary>
         /// 產品
         /// </summary>
-        [Required]
+        
         [Column(Order = 3)]
         [StringLength(200)]
         [Display(Name = "產品", Prompt = "請輸入產品")]
@@ -298,7 +295,7 @@ namespace MES.Order.Infrastructure.NewViewModel
 
         private string mStatus;
 
-        [Required]
+        
         [StringLength(20)]
         public string Status
         {

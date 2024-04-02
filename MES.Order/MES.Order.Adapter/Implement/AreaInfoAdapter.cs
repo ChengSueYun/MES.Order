@@ -26,6 +26,9 @@ namespace MES.Order.Adapter.Implement
         public Task<bool> AddOrUpdateAsync(IEnumerable<AreaInfoViewModel> FromUi) => _repository.AddOrUpdate(FromUi);
 
         /// <inheritdoc />
+        public Task<bool> AddOrUpdateAsync(AreaInfoViewModel FromUi) => _repository.AddOrUpdate(FromUi);
+
+        /// <inheritdoc />
         public Task<List<KeyAndName>> GetAreaAsync()
         {
             return _repository.GetAreaAsync();

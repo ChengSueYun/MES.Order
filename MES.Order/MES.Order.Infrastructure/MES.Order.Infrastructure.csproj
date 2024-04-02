@@ -63,7 +63,6 @@
     <Compile Include="EnumCollect.cs" />
     <Compile Include="KeyAndName.cs" />
     <Compile Include="NewViewModel\AreaInfoViewModel.cs" />
-    <Compile Include="NewViewModel\CustomInfoRequest.cs" />
     <Compile Include="NewViewModel\CustomInfoViewModel.cs" />
     <Compile Include="NewViewModel\FactoryInfoViewModel.cs" />
     <Compile Include="NewViewModel\Filter\FilterOrderInfo.cs" />

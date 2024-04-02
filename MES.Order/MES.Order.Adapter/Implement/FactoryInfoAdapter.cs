@@ -30,6 +30,9 @@ namespace MES.Order.Adapter.Implement
         }
 
         /// <inheritdoc />
+        public Task<bool> AddOrUpdate(FactoryInfoViewModel FromUi) => this._repository.AddOrUpdate(FromUi);
+
+        /// <inheritdoc />
         public Task<List<KeyAndName>> GetFactoryIdAsync()
         {
             return this._repository.GetFactoryIdAsync();

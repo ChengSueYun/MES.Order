@@ -159,6 +159,30 @@ namespace MES.Order.Infrastructure
             set => s_allProductsView = value;
         }
 
+        private static List<CustomInfoViewModel> s_allCustomerView;
+
+        public static List<CustomInfoViewModel> AllCustomerView
+        {
+            get => s_allCustomerView ?? new List<CustomInfoViewModel>();
+            set => s_allCustomerView = value;
+        }
+
+        private static List<AreaInfoViewModel> s_allAreaView;
+
+        public static List<AreaInfoViewModel> AllAreaView
+        {
+            get => s_allAreaView ?? new List<AreaInfoViewModel>();
+            set => s_allAreaView = value;
+        }
+
+        private static List<FactoryInfoViewModel> s_allFactoryView;
+
+        public static List<FactoryInfoViewModel> AllFactoryView
+        {
+            get => s_allFactoryView ?? new List<FactoryInfoViewModel>();
+            set => s_allFactoryView = value;
+        }
+
     #endregion
     }
 }

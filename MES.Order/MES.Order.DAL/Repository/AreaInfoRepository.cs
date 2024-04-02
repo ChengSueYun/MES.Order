@@ -114,6 +114,28 @@ namespace MES.Order.DAL.Repository
             }
         }
 
+        public async Task<bool> AddOrUpdate(AreaInfoViewModel fromUi)
+        {
+            try
+            {
+                var      result  = false;
+                AreaInfo request = new AreaInfo();
+                DefaultMapper.Map(fromUi, request);
+
+                this.mDbContext.AreaInfoes.AddOrUpdate(x => x.Area, request);
+
+                if (await this.mDbContext.SaveChangesAsync() > 0)
+                {
+                    result = true;
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+        }
+
     #endregion
     }
 }

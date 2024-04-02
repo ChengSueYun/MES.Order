@@ -15,11 +15,11 @@ namespace MES.Order.BLL
         /// </summary>
         public static void GetAreaAsync()
         {
-            Const.AreaInfoList = new List<KeyAndName>();
-            var areaAsync = BasicUtility.AreaInfoAdapter.GetAreaAsync().Result;
-            Const.AreaInfoList.AddRange(areaAsync);
-
-            // Const.AreaInfoList.SetAllChoise();
+            Const.AllAreaView = new List<AreaInfoViewModel>(BasicUtility.AreaInfoAdapter.GetAsync().Result);
+            Const.AreaInfoList = new List<KeyAndName>(Const.AllAreaView
+                                                           .Select(x => new KeyAndName()
+                                                                        { Code = x.Area, LocalDescription = x.Area })
+                                                           .Distinct().ToList());
         }
 
         /// <summary>
@@ -27,11 +27,16 @@ namespace MES.Order.BLL
         /// </summary>
         public static void GetCustomerAsync()
         {
-            Const.CustomerNameInfoList = new List<KeyAndName>();
-            var customerAsync = BasicUtility.CustomerInfoAdapter.DistinctCustomerAsync().Result;
-            Const.CustomerNameInfoList.AddRange(customerAsync);
+            Const.AllCustomerView = new List<CustomInfoViewModel>(BasicUtility.CustomerInfoAdapter.GetAll().Result.OrderByDescending(x=>x.CreateDate));
+            Const.CustomerNameInfoList = new List<KeyAndName>(Const.AllCustomerView
+                                                                   .Select(x => new KeyAndName()
+                                                                               {
+                                                                                   Code             = x.Customer
+                                                                                 , LocalDescription = x.Area
+                                                                               })
+                                                                   .Distinct().ToList());
 
-            // Const.CustomerNameInfoList.SetAllChoise();
+          
         }
 
         /// <summary>
@@ -39,11 +44,15 @@ namespace MES.Order.BLL
         /// </summary>
         public static void GetFactoryIdAsync()
         {
-            Const.FactoryInfoList = new List<KeyAndName>();
-            var groupIdAsync = BasicUtility.FactoryInfoAdapter.GetFactoryIdAsync().Result;
-            Const.FactoryInfoList.AddRange(groupIdAsync);
-
-            // Const.FactoryInfoList.SetAllChoise();
+            Const.AllFactoryView = new List<FactoryInfoViewModel>(BasicUtility.FactoryInfoAdapter.Get().Result);
+            Const.FactoryInfoList = new List<KeyAndName>(Const.AllFactoryView
+                                                              .Select(x => new KeyAndName()
+                                                                           {
+                                                                               Code             = x.Factory
+                                                                             , LocalDescription = x.Factory
+                                                                           })
+                                                              .Distinct().ToList());
+         
         }
 
         /// <summary>
@@ -51,9 +60,9 @@ namespace MES.Order.BLL
         /// </summary>
         public static void GetProductAsync()
         {
-            Const.ProductsNameInfoList = new List<KeyAndName>();
-            var productsAsync = BasicUtility.ProductsInfoAdapter.GetProductNameAsync().Result;
-            Const.ProductsNameInfoList.AddRange(productsAsync);
+            // Const.ProductsNameInfoList = new List<KeyAndName>();
+            // var productsAsync = BasicUtility.ProductsInfoAdapter.GetProductNameAsync().Result;
+            // Const.ProductsNameInfoList.AddRange(productsAsync);
         }
 
         /// <summary>
@@ -61,9 +70,9 @@ namespace MES.Order.BLL
         /// </summary>
         public static void GetProductTypeAsync()
         {
-            Const.ProductsTypeList = new List<KeyAndName>();
-            var productsAsync = BasicUtility.ProductsInfoAdapter.GetProductTypeAsync().Result;
-            Const.ProductsTypeList.AddRange(productsAsync);
+            // Const.ProductsTypeList = new List<KeyAndName>();
+            // var productsAsync = BasicUtility.ProductsInfoAdapter.GetProductTypeAsync().Result;
+            // Const.ProductsTypeList.AddRange(productsAsync);
 
             // Const.ProductsTypeList.SetAllChoise();
         }

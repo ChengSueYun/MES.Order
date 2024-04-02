@@ -13,7 +13,7 @@ namespace MES.Order.DAL.Repository
 {
     public class CustomerInfoRepository
     {
-        #region Contructure
+    #region Contructure
 
         private readonly CoupleOrderDbContext mDbContext;
 
@@ -22,7 +22,7 @@ namespace MES.Order.DAL.Repository
             this.mDbContext = CoupleOrderDbContext.Create(conn);
         }
 
-        private bool mDisposed;
+        private          bool mDisposed;
         private readonly bool mIsDisposeConnection = true;
 
         ~CustomerInfoRepository()
@@ -47,9 +47,9 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-        #endregion
+    #endregion
 
-        #region Query
+    #region Query
 
         public async Task<List<KeyAndName>> DistinctCustomer(string pArea)
         {
@@ -62,10 +62,10 @@ namespace MES.Order.DAL.Repository
                 }
 
                 var result = await (from a in filter
-                    select new KeyAndName
-                    {
-                        Code = a.Customer, LocalDescription = a.Area
-                    }).Distinct().ToListAsync();
+                                    select new KeyAndName
+                                           {
+                                               Code = a.Customer, LocalDescription = a.Area
+                                           }).Distinct().ToListAsync();
                 return result;
             }
             catch (Exception e)
@@ -78,74 +78,72 @@ namespace MES.Order.DAL.Repository
         {
             try
             {
-   var result = await this.mDbContext.CustomInfoes.Select(a => new KeyAndName
-                {
-                    Code = a.Customer, LocalDescription = a.Area
-                })
-                .Distinct().AsNoTracking().ToListAsync();
+                var result = await this.mDbContext.CustomInfoes.Select(a => new KeyAndName
+                                                                            {
+                                                                                Code             = a.Customer
+                                                                              , LocalDescription = a.Area
+                                                                            })
+                                       .Distinct().AsNoTracking().ToListAsync();
 
-            return result;
+                return result;
             }
             catch (Exception e)
             {
                 throw new Exception(e.ToString());
             }
-         
         }
 
         public async Task<List<CustomInfoViewModel>> GetAll()
         {
             try
             {
- var result = new List<CustomInfoViewModel>();
-            var queryable = this.mDbContext.CustomInfoes.AsQueryable();
-            if (queryable.Any())
-            {
-                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
-            }
+                var result    = new List<CustomInfoViewModel>();
+                var queryable = this.mDbContext.CustomInfoes.AsQueryable();
+                if (queryable.Any())
+                {
+                    DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
+                }
 
-            return result;
+                return result;
             }
             catch (Exception e)
             {
                 throw new Exception(e.ToString());
             }
-           
         }
 
         public async Task<List<CustomInfoViewModel>> Get(string pArea, string pCustom)
         {
             try
             {
-  var result = new List<CustomInfoViewModel>();
-            var queryable = this.mDbContext.CustomInfoes.Where(x => x.Area == pArea &&
-                                                                    x.Customer == pCustom).AsQueryable();
-            if (queryable.Any())
-            {
-                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
-            }
+                var result = new List<CustomInfoViewModel>();
+                var queryable = this.mDbContext.CustomInfoes.Where(x => x.Area     == pArea &&
+                                                                        x.Customer == pCustom).AsQueryable();
+                if (queryable.Any())
+                {
+                    DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
+                }
 
-            return result;
+                return result;
             }
             catch (Exception e)
             {
                 throw new Exception(e.ToString());
             }
-          
         }
 
-        #endregion
+    #endregion
 
-        #region AddOrUpdate
+    #region AddOrUpdate
 
         public async Task<bool> AddOrUpdate(CustomInfoViewModel FromUi)
         {
             try
             {
-                var result = false;
+                var        result  = false;
                 CustomInfo request = new CustomInfo();
                 DefaultMapper.Map(FromUi, request);
-                this.mDbContext.CustomInfoes.AddOrUpdate(x => new {x.Area, x.Customer}, request);
+                this.mDbContext.CustomInfoes.AddOrUpdate(x => new { x.Area, x.Customer }, request);
                 if (await this.mDbContext.SaveChangesAsync() > 0)
                 {
                     result = true;
@@ -159,16 +157,16 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-        #endregion
+    #endregion
 
-        #region Delete
+    #region Delete
 
         public async Task<bool> Delete(string pArea, string pCustom)
         {
             try
             {
                 var result = false;
-                var customInfos = this.mDbContext.CustomInfoes.Where(x => x.Area == pArea &&
+                var customInfos = this.mDbContext.CustomInfoes.Where(x => x.Area     == pArea &&
                                                                           x.Customer == pCustom);
                 if (customInfos.Any())
                 {
@@ -187,6 +185,6 @@ namespace MES.Order.DAL.Repository
             }
         }
 
-        #endregion
+    #endregion
     }
 }

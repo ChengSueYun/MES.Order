@@ -7,12 +7,26 @@ namespace MES.Order.Infrastructure.NewViewModel
     public class CustomInfoViewModel
 
     {
+        private string mAreaCustomer;
+
+        public string AreaCustomer
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(this.Area) && !string.IsNullOrEmpty(this.Customer))
+                {
+                    this.mAreaCustomer = $"{this.Area}-{this.Customer}";
+                }
+                return this.mAreaCustomer;
+            }
+            set => this.mAreaCustomer = value;
+        }
+
         private string mArea;
 
         /// <summary>
         /// 地區
         /// </summary>
-        [Required]
         [Column(Order = 0)]
         [StringLength(10)]
         [Display(Name = "地區", Prompt = "請輸入地區")]
@@ -27,7 +41,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         /// <summary>
         /// 客戶
         /// </summary>
-        [Required]
+
         [Column(Order = 1)]
         [StringLength(40)]
         [Display(Name = "客戶", Prompt = "請輸入客戶")]
@@ -85,7 +99,6 @@ namespace MES.Order.Infrastructure.NewViewModel
             set => this.mCreateDate = value;
         }
 
-
         [StringLength(10)]
         [Display(AutoGenerateField = false)]
         public string CreateUser { get; set; }
@@ -94,7 +107,6 @@ namespace MES.Order.Infrastructure.NewViewModel
         public DateTime UpdateDate { get; set; }
 
         private string mUpdateUser;
-
 
         [StringLength(10)]
         public string UpdateUser

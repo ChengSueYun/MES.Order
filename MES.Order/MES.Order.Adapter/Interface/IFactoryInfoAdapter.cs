@@ -11,6 +11,8 @@ namespace MES.Order.Adapter.Interface
 
         Task<bool> AddOrUpdate(IEnumerable<FactoryInfoViewModel> FromUi);
 
+        Task<bool> AddOrUpdate(FactoryInfoViewModel FromUi);
+
         Task<List<KeyAndName>> GetFactoryIdAsync();
     }
 }

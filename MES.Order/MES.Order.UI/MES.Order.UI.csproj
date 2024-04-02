@@ -276,8 +276,12 @@
     <None Include="Properties\DataSources\MES.Order.Infrastructure.Const.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.EnumCollect+OrderStatusEnum.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.KeyAndName.datasource" />
+    <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.AreaInfoViewModel.datasource" />
+    <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.CustomInfoViewModel.datasource" />
+    <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.FactoryInfoViewModel.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.Filter.FilterOrderInfo.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.OrderInfoViewModel.datasource" />
+    <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.ProductsInfoViewModel.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.NewViewModel.Request.OrderInfoRequest.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.UI.Order.FilterProductsOrderRequest.datasource" />
     <None Include="Properties\DataSources\MES.Order.Infrastructure.UI.ViewModel.FilterProductsOrderRequest.datasource" />

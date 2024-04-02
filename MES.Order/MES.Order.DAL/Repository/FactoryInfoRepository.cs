@@ -55,19 +55,18 @@ namespace MES.Order.DAL.Repository
         {
             try
             {
-var result    = new List<FactoryInfoViewModel>();
-            var queryable = this.mDbContext.FactoryInfoes.AsQueryable();
-            if (queryable.Any())
-            {
-                DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
-            }
-            return result;
+                var result    = new List<FactoryInfoViewModel>();
+                var queryable = this.mDbContext.FactoryInfoes.AsQueryable();
+                if (queryable.Any())
+                {
+                    DefaultMapper.Map(await queryable.AsNoTracking().ToListAsync(), result);
+                }
+                return result;
             }
             catch (Exception e)
             {
                 throw new Exception(e.ToString());
             }
-            
         }
 
         public async Task<List<KeyAndName>> GetFactoryIdAsync()
@@ -75,17 +74,16 @@ var result    = new List<FactoryInfoViewModel>();
             try
             {
                 var filter = await this.mDbContext.FactoryInfoes.Select(a => new KeyAndName
-                {
-                    Code = a.Factory, LocalDescription =
-                        a.Factory
-                }).Distinct().ToListAsync();
+                                                                             {
+                                                                                 Code = a.Factory, LocalDescription =
+                                                                                     a.Factory
+                                                                             }).Distinct().ToListAsync();
                 return filter;
             }
             catch (Exception e)
             {
                 throw new Exception(e.ToString());
             }
-         
         }
 
     #endregion
@@ -103,6 +101,26 @@ var result    = new List<FactoryInfoViewModel>();
                 {
                     this.mDbContext.FactoryInfoes.AddOrUpdate(x => x.Factory, areaInfo);
                 }
+                if (await this.mDbContext.SaveChangesAsync() > 0)
+                {
+                    result = true;
+                }
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+        }
+
+        public async Task<bool> AddOrUpdate(FactoryInfoViewModel fromUi)
+        {
+            try
+            {
+                var         result  = false;
+                FactoryInfo request = new FactoryInfo();
+                DefaultMapper.Map(fromUi, request);
+                this.mDbContext.FactoryInfoes.AddOrUpdate(x => x.Factory, request);
                 if (await this.mDbContext.SaveChangesAsync() > 0)
                 {
                     result = true;

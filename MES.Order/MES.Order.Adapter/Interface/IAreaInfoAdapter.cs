@@ -9,6 +9,7 @@ namespace MES.Order.Adapter.Interface
     {
         Task<List<AreaInfoViewModel>> GetAsync();
         Task<bool>                    AddOrUpdateAsync(IEnumerable<AreaInfoViewModel> FromUi);
+        Task<bool>                    AddOrUpdateAsync(AreaInfoViewModel FromUi);
 
         Task<List<KeyAndName>> GetAreaAsync();
     }
