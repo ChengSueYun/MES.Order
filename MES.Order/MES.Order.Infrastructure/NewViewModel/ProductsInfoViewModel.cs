@@ -162,13 +162,13 @@ namespace MES.Order.Infrastructure.NewViewModel
             }
         }
 
-        private byte[] mImage;
+        private string mImage;
 
         /// <summary>
         /// 圖片
         /// </summary>
         [Display(Name = "圖片", Prompt = "請上傳圖片")]
-        public byte[] Image
+        public string Image
         {
             get => this.mImage;
             set

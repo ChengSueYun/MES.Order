@@ -4,7 +4,6 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using MES.Order.BLL;
 using MES.Order.UI.New;
 
 namespace MES.Order.UI
@@ -12,9 +11,6 @@ namespace MES.Order.UI
     internal static class Program
     {
         private static Form mMainForm;
-        static Program()
-        {
-        }
 
         [DllImport("User32.dll")]
         private static extern bool ShowWindowAsync(IntPtr hWnd, int cmdShow);
@@ -29,28 +25,22 @@ namespace MES.Order.UI
         private static void Main()
         {
             RegisterGlobalErrorHandler();
-            
-            System.Windows.Forms.Application.EnableVisualStyles();
-            System.Windows.Forms.Application.DoEvents();
+
+            Application.EnableVisualStyles();
+            Application.DoEvents();
 
             //取得執行中的處理序
-            Process instance = RunningInstance();
+            var instance = RunningInstance();
             if (instance == null)
             {
-                System.Windows.Forms.Application.EnableVisualStyles();
-                System.Windows.Forms.Application.DoEvents();
+                Application.EnableVisualStyles();
+                Application.DoEvents();
                 AntWorkManager.GetAsyncData();
-                mMainForm = new OrderNew();
+                mMainForm = new FluentMainForm();
 
-                if (mMainForm.IsDisposed == false)
-                {
-                    Application.Run(mMainForm);
-                }
+                if (mMainForm.IsDisposed == false) Application.Run(mMainForm);
             }
-            else
-            {
-                //HandleRunningInstance(instance);
-            }
+            //HandleRunningInstance(instance);
         }
 
 
@@ -67,20 +57,14 @@ namespace MES.Order.UI
 
         public static Process RunningInstance()
         {
-            Process   current   = Process.GetCurrentProcess();                     // 取得目前作用中的處理序
-            Process[] processes = Process.GetProcessesByName(current.ProcessName); // 取得指定的處理緒名稱的所有處理序
+            var current = Process.GetCurrentProcess(); // 取得目前作用中的處理序
+            var processes = Process.GetProcessesByName(current.ProcessName); // 取得指定的處理緒名稱的所有處理序
 
             //尋找相同名稱的處理序
-            foreach (Process process in processes)
-            {
+            foreach (var process in processes)
                 if (process.Id != current.Id)
-                {
                     if (Assembly.GetExecutingAssembly().Location.Replace("/", "\\") == current.MainModule.FileName)
-                    {
                         return process;
-                    }
-                }
-            }
 
             return null;
         }
@@ -95,7 +79,7 @@ namespace MES.Order.UI
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            var exception = (Exception) e.ExceptionObject;
+            var exception = (Exception)e.ExceptionObject;
             Error(exception);
         }
 
@@ -107,7 +91,7 @@ namespace MES.Order.UI
         private static void Error(Exception ex)
         {
             MessageBox.Show(@"發生異常，請聯繫系統管理員" + Environment.NewLine + "(" + ex + ")", "Error", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                MessageBoxIcon.Error);
         }
     }
 }

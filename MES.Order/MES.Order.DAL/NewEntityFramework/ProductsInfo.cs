@@ -31,7 +31,8 @@ namespace MES.Order.DAL.NewEntityFramework
         public int Profit { get; set; }
 
         [Required(AllowEmptyStrings = true)]
-        public byte[] Image { get; set; }
+        [StringLength(300)]
+        public string Image { get; set; }
 
         [Required(AllowEmptyStrings = true)]
         [StringLength(300)]

@@ -25,7 +25,9 @@ namespace MES.Order.UI.New
 {
     public partial class OrderNew : XtraForm
     {
-        public OrderNew()
+        #region Infrastructure
+
+          public OrderNew()
         {
             this.InitializeComponent();
             try
@@ -40,10 +42,16 @@ namespace MES.Order.UI.New
             }
         }
 
-    #region FocusEvent
+        private void Order_Enter(object sender, EventArgs e)
+        {
+        }
+        #endregion
+      
 
-        private void gridView_ProductOrder_SelectionChanged(object                    sender
-                                                          , SelectionChangedEventArgs e)
+        #region FocusEvent
+
+        private void gridView_ProductOrder_SelectionChanged(object sender
+            , SelectionChangedEventArgs e)
         {
             try
             {
@@ -55,10 +63,10 @@ namespace MES.Order.UI.New
                 var focusRow = this.orderInfoViewModelBindingSource.Current as OrderInfoViewModel;
                 if (focusRow != null && focusRow.Selection)
                 {
-                    var exists = _FocusData.Exists(x => x.Area     == focusRow.Area     &&
+                    var exists = _FocusData.Exists(x => x.Area == focusRow.Area &&
                                                         x.Customer == focusRow.Customer &&
-                                                        x.Factory  == focusRow.Factory  &&
-                                                        x.Product  == focusRow.Product);
+                                                        x.Factory == focusRow.Factory &&
+                                                        x.Product == focusRow.Product);
                     if (!exists)
                     {
                         _FocusData.Add(focusRow);
@@ -66,10 +74,10 @@ namespace MES.Order.UI.New
                 }
                 else if (focusRow != null && !focusRow.Selection)
                 {
-                    var exists = _FocusData.Exists(x => x.Area     == focusRow.Area     &&
+                    var exists = _FocusData.Exists(x => x.Area == focusRow.Area &&
                                                         x.Customer == focusRow.Customer &&
-                                                        x.Factory  == focusRow.Factory  &&
-                                                        x.Product  == focusRow.Product);
+                                                        x.Factory == focusRow.Factory &&
+                                                        x.Product == focusRow.Product);
                     if (exists)
                     {
                         _FocusData.Remove(focusRow);
@@ -85,13 +93,11 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
 
-        private void Order_Enter(object sender, EventArgs e)
-        {
-        }
+    
 
-    #region Property
+        #region Property
 
         private static OrderInfoRequest _request;
 
@@ -115,33 +121,34 @@ namespace MES.Order.UI.New
 
         private static bool IfFocusData;
 
-    #endregion
+        #endregion
 
-    #region Initial
+        #region Initial
 
         public void InitialControls()
         {
             this.orderInfoRequestBindingSource.AddNew();
             this.filterOrderInfoBindingSource.AddNew();
-            _filter  = this.filterOrderInfoBindingSource.Current as FilterOrderInfo;
+            _filter = this.filterOrderInfoBindingSource.Current as FilterOrderInfo;
             _Request = this.orderInfoRequestBindingSource.Current as OrderInfoRequest;
             _filter.SetDefaultValue();
             _Request.SetDefaultValue();
             if (_filter != null)
             {
                 _filter.OrderDateStart = DateTime.Today.AddDays(-7);
-                _filter.OrderDateEnd   = DateTime.Today;
+                _filter.OrderDateEnd = DateTime.Today;
             }
+
             this.CustomerTextEdit.Properties.TextEditStyle = TextEditStyles.Standard;
         }
 
         private void BindAddPanelControl()
         {
-            this.AreaKeybindingSource.DataSource         = Const.AllAreaView;
-            this.CustomerKeybindingSource.DataSource     = Const.AllCustomerView;
-            this.FactoryKeybindingSource.DataSource      = Const.AllFactoryView;
-            this.ProductKeybindingSource.DataSource      = Const.AllProductsView;
-            this.SizSpecTextEdit.Properties.DataSource   = Const.SizeSpecEnum;
+            this.AreaKeybindingSource.DataSource = Const.AllAreaView;
+            this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
+            this.FactoryKeybindingSource.DataSource = Const.AllFactoryView;
+            this.ProductKeybindingSource.DataSource = Const.AllProductsView;
+            this.SizSpecTextEdit.Properties.DataSource = Const.SizeSpecEnum;
             this.ColorSpecTextEdit.Properties.DataSource = Const.ColorSpecEnums;
 
             // this.Area_Repository.DataSource = Const.AllAreaView;
@@ -149,12 +156,12 @@ namespace MES.Order.UI.New
             // this.Factory_Repository.DataSource=Const.AllFactoryView;
         }
 
-    #endregion
+        #endregion
 
-    #region Add Event
+        #region Add Event
 
-        private void CustomerTextEdit_EditValueChanging(object            sender
-                                                      , ChangingEventArgs e)
+        private void CustomerTextEdit_EditValueChanging(object sender
+            , ChangingEventArgs e)
         {
             try
             {
@@ -173,8 +180,8 @@ namespace MES.Order.UI.New
             }
         }
 
-        private void ProductTextEdit_EditValueChanging(object            sender
-                                                     , ChangingEventArgs e)
+        private void ProductTextEdit_EditValueChanging(object sender
+            , ChangingEventArgs e)
         {
             if (e.NewValue != null)
             {
@@ -186,35 +193,17 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Button
+        #region Button
 
         private async void button_Query_Click(object sender, EventArgs e)
         {
             try
             {
-                // this.orderInfoViewModelBindingSource.DataSource = await BasicUtility.OrderInfoAdapter.Query(_filter);
-                // this.gridView_ProductOrder.BestFitColumns();
+                this.orderInfoViewModelBindingSource.DataSource = await BasicUtility.OrderInfoAdapter.Query(_filter);
+                this.gridView_ProductOrder.BestFitColumns();
 
-
-            
-                var accessToken = "EAAOAT9rhCCsBO4mSiVtdTR86wBCmYcubHGkfVVaitKUTv6XsBSFFm4vWPdGQENgURa7LjawZA4BGjDfQYkbg6x8yKBqzmW1worpi91LAZCu8ZC95h9uT7ibaDOTikU6BTCuKT5ZBLggM49i8pdgv3GDwaKQOhA0SDjxvKmQtFQoZAZBx0dJDQhF57fIQvzcn3hnveiMNSz4j5lrVMr9AZDZD";
-                var recipientId = "7704016049622006";
-                var message     = "Hello, this is a test message.";
-                
-                var url = $"https://graph.facebook.com/v2.6/me/messages?access_token={accessToken}";
-                var content =
-                    new
-                        StringContent($"{{\"recipient\": {{\"id\": \"{recipientId}\"}}, \"message\": {{\"text\": \"{message}\"}}}}"
-                                    , Encoding.UTF8, "application/json");
-                
-                using (var httpClient = new HttpClient())
-                {
-                    var    response       = await httpClient.PostAsync(url, content);
-                    string responseString = await response.Content.ReadAsStringAsync();
-                    XtraMessageBox.Show(responseString);
-                }
             }
             catch (Exception ex)
             {
@@ -276,7 +265,7 @@ namespace MES.Order.UI.New
             try
             {
                 var deleteRequest = this.orderInfoViewModelBindingSource.Current as OrderInfoViewModel;
-                var delete        = await BasicUtility.OrderInfoAdapter.Delete(deleteRequest);
+                var delete = await BasicUtility.OrderInfoAdapter.Delete(deleteRequest);
                 if (delete)
                 {
                     this.MessageTextBox.Text +=
@@ -294,53 +283,24 @@ namespace MES.Order.UI.New
         {
             if (IfFocusData)
             {
-                IfFocusData                  = false;
+                IfFocusData = false;
                 this.barItem_LockRow.Caption = @"鎖定列";
             }
             else
             {
-                IfFocusData                  = true;
+                IfFocusData = true;
                 this.barItem_LockRow.Caption = @"解除鎖定列";
             }
+
             _FocusData = new List<OrderInfoViewModel>();
         }
 
-    #endregion
+        #endregion
 
-    #region 新增地區
+        #region 新增客戶
 
-        private void gridView_AddArea_EditFormHidden(object sender, EditFormHiddenEventArgs e)
-        {
-            try
-            {
-                if (e.Result == EditFormResult.Update)
-                {
-                    if (this.AreaKeybindingSource.Current is AreaInfoViewModel request)
-                    {
-                        request.SetDefaultValue();
-
-                        var addOrUpdate = BasicUtility.AreaInfoAdapter.AddOrUpdateAsync(request);
-                        while (addOrUpdate.IsCompleted)
-                        {
-                            Const.AllAreaView                        = BasicUtility.AreaInfoAdapter.GetAsync().Result;
-                            this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
-                        }
-                        _Request.Area = request.Area;
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-                throw new Exception(exception.ToString());
-            }
-        }
-
-    #endregion
-
-    #region 新增客戶
-
-        private void gridView_AddCustomer_EditFormHidden(object                  sender
-                                                       , EditFormHiddenEventArgs e)
+        private void gridView_AddCustomer_EditFormHidden(object sender
+            , EditFormHiddenEventArgs e)
         {
             try
             {
@@ -354,10 +314,11 @@ namespace MES.Order.UI.New
                         var addOrUpdate = BasicUtility.CustomerInfoAdapter.AddOrUpdate(request);
                         while (addOrUpdate.IsCompleted)
                         {
-                            Const.AllCustomerView                    = BasicUtility.CustomerInfoAdapter.GetAll().Result;
+                            Const.AllCustomerView = BasicUtility.CustomerInfoAdapter.GetAll().Result;
                             this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
                         }
-                        _Request.Area     = request.Area;
+
+                        _Request.Area = request.Area;
                         _Request.Customer = request.Customer;
                     }
                 }
@@ -368,9 +329,9 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
 
-    #region 新增產品
+        #region 新增產品
 
         private void gridView_AddProduct_EditFormHidden(object sender, EditFormHiddenEventArgs e)
         {
@@ -385,9 +346,10 @@ namespace MES.Order.UI.New
                         var addOrUpdate = BasicUtility.ProductsInfoAdapter.AddOrUpdate(request);
                         while (addOrUpdate.IsCompleted)
                         {
-                            Const.AllProductsView                   = BasicUtility.ProductsInfoAdapter.Get().Result;
+                            Const.AllProductsView = BasicUtility.ProductsInfoAdapter.Get().Result;
                             this.ProductKeybindingSource.DataSource = Const.AllProductsView;
                         }
+
                         _Request.Factory = request.Factory;
                         _Request.Product = request.Product;
                     }
@@ -406,15 +368,16 @@ namespace MES.Order.UI.New
                 if (string.IsNullOrEmpty(e.NewValue.ToString())) return;
 
                 string filePath =
-                    $"D:\\{_Request.Factory}圖片\\{_Request.Product.Substring(0,5)}_{DateTime.Now.ToTaiwanCalendar("yMMd")}.{ImageFormat.Png}";
+                    $"D:\\{_Request.Factory}圖片\\{_Request.Product.Substring(0, 5)}_{DateTime.Now.ToTaiwanCalendar("yMMd")}.{ImageFormat.Png}";
                 if (!Directory.Exists(filePath))
                 {
                     //新增資料夾
                     Directory.CreateDirectory(filePath);
                 }
+
                 this.SaveImage(e.NewValue.ToString()
-                             , filePath
-                             , ImageFormat.Png);
+                    , filePath
+                    , ImageFormat.Png);
             }
             catch (ExternalException)
             {
@@ -429,8 +392,8 @@ namespace MES.Order.UI.New
         public void SaveImage(string imageUrl, string filename, ImageFormat format)
         {
             WebClient client = new WebClient();
-            Stream    stream = client.OpenRead(imageUrl);
-            Bitmap    bitmap;
+            Stream stream = client.OpenRead(imageUrl);
+            Bitmap bitmap;
             bitmap = new Bitmap(stream);
 
             if (bitmap != null)
@@ -443,40 +406,6 @@ namespace MES.Order.UI.New
             client.Dispose();
         }
 
-    #endregion
-
-    #region 新增廠商
-
-        private void gridView_AddFactory_EditFormHidden(object sender, EditFormHiddenEventArgs e)
-        {
-            try
-            {
-                if (e.Result == EditFormResult.Update)
-                {
-                    if (this.FactoryKeybindingSource.Current is FactoryInfoViewModel request)
-                    {
-                        request.SetDefaultValue();
-
-                        var addOrUpdate = BasicUtility.FactoryInfoAdapter.AddOrUpdate(request);
-                        while (addOrUpdate.IsCompleted)
-                        {
-                            Const.AllFactoryView                    = BasicUtility.FactoryInfoAdapter.Get().Result;
-                            this.FactoryKeybindingSource.DataSource = Const.AllFactoryView;
-                        }
-                        if (this.ProductKeybindingSource.Current is ProductsInfoViewModel ProductRequest)
-                        {
-                            ProductRequest.Factory = request.Factory;
-                        }
-                        _Request.Factory = request.Factory;
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-                throw new Exception(exception.ToString());
-            }
-        }
-
-    #endregion
+        #endregion
     }
 }

@@ -195,12 +195,43 @@
     </Compile>
     <Compile Include="Mappers\DefaultMapper.cs" />
     <Compile Include="Mappers\ProductsOrderProfile.cs" />
+    <Compile Include="Module\GlobalCollection.cs" />
     <Compile Include="Module\WhetherGetStock.cs" />
+    <Compile Include="New\AreaNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\AreaNew.Designer.cs">
+      <DependentUpon>AreaNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\CustomNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\CustomNew.Designer.cs">
+      <DependentUpon>CustomNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\FactoryNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\FactoryNew.Designer.cs">
+      <DependentUpon>FactoryNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\FluentMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\FluentMainForm.Designer.cs">
+      <DependentUpon>FluentMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="New\OrderNew.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="New\OrderNew.Designer.cs">
       <DependentUpon>OrderNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="New\ProductNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\ProductNew.Designer.cs">
+      <DependentUpon>ProductNew.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductInformation.cs">
       <SubType>UserControl</SubType>
@@ -225,8 +256,23 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="New\AreaNew.resx">
+      <DependentUpon>AreaNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\CustomNew.resx">
+      <DependentUpon>CustomNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\FactoryNew.resx">
+      <DependentUpon>FactoryNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\FluentMainForm.resx">
+      <DependentUpon>FluentMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="New\OrderNew.resx">
       <DependentUpon>OrderNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\ProductNew.resx">
+      <DependentUpon>ProductNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductInformation.resx">
       <DependentUpon>ProductInformation.cs</DependentUpon>
