@@ -12,6 +12,10 @@ namespace MES.Order.Adapter.Interface
 
         Task<bool> AddOrUpdate(IEnumerable<OrderInfoRequest> fromUi);
 
+        Task<bool> AddOrUpdate(IEnumerable<OrderInfoViewModel> fromUi);
+
+        Task<bool> AddOrUpdate(OrderInfoViewModel fromUi);
+
         Task<bool> AddOrUpdate(OrderInfoRequest fromUi);
 
         Task<bool> Delete(OrderInfoViewModel request);

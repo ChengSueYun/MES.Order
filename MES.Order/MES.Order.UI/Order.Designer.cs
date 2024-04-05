@@ -227,7 +227,7 @@
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.LookAndFeel.UseDefaultLookAndFeel = false;
             this.groupControl1.LookAndFeel.UseWindowsXPTheme = true;
-            this.groupControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupControl1.Margin = new System.Windows.Forms.Padding(4);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(1603, 197);
             this.groupControl1.TabIndex = 5;
@@ -266,7 +266,7 @@
             this.tableLayoutPanel1.Controls.Add(this.btn_Update, 4, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 38);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -309,7 +309,7 @@
             this.label_Area.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.label_Area.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_Area.Location = new System.Drawing.Point(6, 6);
-            this.label_Area.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label_Area.Margin = new System.Windows.Forms.Padding(4);
             this.label_Area.Name = "label_Area";
             this.label_Area.Size = new System.Drawing.Size(218, 41);
             this.label_Area.TabIndex = 364;
@@ -319,7 +319,7 @@
             // 
             this.lookUpEdit_Area.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lookUpEdit_Area.Location = new System.Drawing.Point(234, 6);
-            this.lookUpEdit_Area.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lookUpEdit_Area.Margin = new System.Windows.Forms.Padding(4);
             this.lookUpEdit_Area.Name = "lookUpEdit_Area";
             this.lookUpEdit_Area.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.lookUpEdit_Area.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
@@ -355,7 +355,7 @@
             this.label_CustomerName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.label_CustomerName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_CustomerName.Location = new System.Drawing.Point(462, 6);
-            this.label_CustomerName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label_CustomerName.Margin = new System.Windows.Forms.Padding(4);
             this.label_CustomerName.Name = "label_CustomerName";
             this.label_CustomerName.Size = new System.Drawing.Size(222, 41);
             this.label_CustomerName.TabIndex = 366;
@@ -374,7 +374,7 @@
             this.lbl_ProductGroupID.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lbl_ProductGroupID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_ProductGroupID.Location = new System.Drawing.Point(916, 6);
-            this.lbl_ProductGroupID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbl_ProductGroupID.Margin = new System.Windows.Forms.Padding(4);
             this.lbl_ProductGroupID.Name = "lbl_ProductGroupID";
             this.lbl_ProductGroupID.Size = new System.Drawing.Size(195, 41);
             this.lbl_ProductGroupID.TabIndex = 12;
@@ -384,7 +384,7 @@
             // 
             this.lookUpEdit_ProductGroupID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lookUpEdit_ProductGroupID.Location = new System.Drawing.Point(1121, 6);
-            this.lookUpEdit_ProductGroupID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lookUpEdit_ProductGroupID.Margin = new System.Windows.Forms.Padding(4);
             this.lookUpEdit_ProductGroupID.Name = "lookUpEdit_ProductGroupID";
             this.lookUpEdit_ProductGroupID.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.lookUpEdit_ProductGroupID.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
@@ -420,7 +420,7 @@
             this.lbl_ProductName.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.lbl_ProductName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lbl_ProductName.Location = new System.Drawing.Point(6, 57);
-            this.lbl_ProductName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lbl_ProductName.Margin = new System.Windows.Forms.Padding(4);
             this.lbl_ProductName.Name = "lbl_ProductName";
             this.lbl_ProductName.Size = new System.Drawing.Size(218, 33);
             this.lbl_ProductName.TabIndex = 50;
@@ -519,7 +519,7 @@
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelControl1.Location = new System.Drawing.Point(1121, 57);
-            this.labelControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelControl1.Margin = new System.Windows.Forms.Padding(4);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(236, 33);
             this.labelControl1.TabIndex = 371;
@@ -538,7 +538,7 @@
             this.label_OrderDate.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.label_OrderDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label_OrderDate.Location = new System.Drawing.Point(694, 57);
-            this.label_OrderDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.label_OrderDate.Margin = new System.Windows.Forms.Padding(4);
             this.label_OrderDate.Name = "label_OrderDate";
             this.label_OrderDate.Size = new System.Drawing.Size(212, 33);
             this.label_OrderDate.TabIndex = 368;
@@ -557,7 +557,7 @@
             this.btn_Query.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Query.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Query.ImageOptions.Image")));
             this.btn_Query.Location = new System.Drawing.Point(1367, 6);
-            this.btn_Query.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Query.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Size = new System.Drawing.Size(222, 41);
             this.btn_Query.TabIndex = 31;
@@ -628,7 +628,7 @@
             this.btn_FocusRow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_FocusRow.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_FocusRow.ImageOptions.Image")));
             this.btn_FocusRow.Location = new System.Drawing.Point(6, 100);
-            this.btn_FocusRow.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_FocusRow.Margin = new System.Windows.Forms.Padding(4);
             this.btn_FocusRow.Name = "btn_FocusRow";
             this.btn_FocusRow.Size = new System.Drawing.Size(218, 48);
             this.btn_FocusRow.TabIndex = 372;
@@ -649,7 +649,7 @@
             this.btn_Save.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Save.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Save.ImageOptions.Image")));
             this.btn_Save.Location = new System.Drawing.Point(1367, 100);
-            this.btn_Save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Save.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(222, 48);
             this.btn_Save.TabIndex = 53;
@@ -670,7 +670,7 @@
             this.btn_UnFocus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_UnFocus.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_UnFocus.ImageOptions.Image")));
             this.btn_UnFocus.Location = new System.Drawing.Point(462, 100);
-            this.btn_UnFocus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_UnFocus.Margin = new System.Windows.Forms.Padding(4);
             this.btn_UnFocus.Name = "btn_UnFocus";
             this.btn_UnFocus.Size = new System.Drawing.Size(222, 48);
             this.btn_UnFocus.TabIndex = 377;
@@ -692,7 +692,7 @@
             this.btn_Export.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Export.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Export.ImageOptions.Image")));
             this.btn_Export.Location = new System.Drawing.Point(234, 100);
-            this.btn_Export.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Export.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Export.Name = "btn_Export";
             this.btn_Export.Size = new System.Drawing.Size(218, 48);
             this.btn_Export.TabIndex = 373;
@@ -713,7 +713,7 @@
             this.btn_Cancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Cancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Cancel.ImageOptions.Image")));
             this.btn_Cancel.Location = new System.Drawing.Point(1121, 100);
-            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Cancel.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(236, 48);
             this.btn_Cancel.TabIndex = 31;
@@ -734,7 +734,7 @@
             this.btn_Update.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btn_Update.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Update.ImageOptions.Image")));
             this.btn_Update.Location = new System.Drawing.Point(916, 100);
-            this.btn_Update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Update.Name = "btn_Update";
             this.btn_Update.Size = new System.Drawing.Size(195, 48);
             this.btn_Update.TabIndex = 379;
@@ -1656,7 +1656,7 @@
             this.xtraTabPage2.Controls.Add(this.gridControl_Focus);
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(1601, 598);
+            this.xtraTabPage2.Size = new System.Drawing.Size(1601, 599);
             this.xtraTabPage2.Text = "拉單";
             // 
             // pivotGrid_FocusOrder
@@ -1710,7 +1710,7 @@
             this.pivotGrid_FocusOrder.OptionsView.ShowTotalsForSingleValues = true;
             this.pivotGrid_FocusOrder.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(1601, 598);
+            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(1601, 599);
             this.pivotGrid_FocusOrder.TabIndex = 8;
             this.pivotGrid_FocusOrder.FieldValueDisplayText += new DevExpress.XtraPivotGrid.PivotFieldDisplayTextEventHandler(this.pivotGrid_FocusOrder_FieldValueDisplayText);
             this.pivotGrid_FocusOrder.CustomCellValue += new System.EventHandler<DevExpress.XtraPivotGrid.PivotCellValueEventArgs>(this.pivotGrid_FocusOrder_CustomCellValue);
@@ -1780,7 +1780,7 @@
             this.fieldProductName.Caption = "產品";
             this.fieldProductName.FieldName = "ProductName";
             this.fieldProductName.GrandTotalText = "合計";
-            this.fieldProductName.MinWidth = 124;
+            this.fieldProductName.MinWidth = 100;
             this.fieldProductName.Name = "fieldProductName";
             this.fieldProductName.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None;
             this.fieldProductName.Width = 374;

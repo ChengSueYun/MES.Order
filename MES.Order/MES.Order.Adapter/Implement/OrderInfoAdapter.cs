@@ -31,6 +31,16 @@ namespace MES.Order.Adapter.Implement
             return repo.AddOrUpdate(fromUi);
         }
 
+        public Task<bool> AddOrUpdate(IEnumerable<OrderInfoViewModel> fromUi)
+        {
+            return repo.AddOrUpdate(fromUi);
+        }
+
+        public Task<bool> AddOrUpdate(OrderInfoViewModel fromUi)
+        {
+            return repo.AddOrUpdate(fromUi);
+        }
+
         public Task<bool> AddOrUpdate(OrderInfoRequest fromUi)
         {
             return repo.AddOrUpdate(fromUi);

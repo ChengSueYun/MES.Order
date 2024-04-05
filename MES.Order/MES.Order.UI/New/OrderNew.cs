@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.Data;
+using DevExpress.Data.Helpers;
 using DevExpress.Utils;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
 using MES.Order.Adapter;
+using MES.Order.DAL.EntityFramework;
 using MES.Order.Infrastructure;
 using MES.Order.Infrastructure.NewViewModel;
 using MES.Order.Infrastructure.NewViewModel.Filter;
 using MES.Order.Infrastructure.NewViewModel.Request;
+using MES.Order.UI.Module;
 using THS.Infrastructure.Extensions;
 
 namespace MES.Order.UI.New
@@ -27,7 +32,7 @@ namespace MES.Order.UI.New
     {
         #region Infrastructure
 
-          public OrderNew()
+        public OrderNew()
         {
             this.InitializeComponent();
             try
@@ -45,8 +50,8 @@ namespace MES.Order.UI.New
         private void Order_Enter(object sender, EventArgs e)
         {
         }
+
         #endregion
-      
 
         #region FocusEvent
 
@@ -55,37 +60,40 @@ namespace MES.Order.UI.New
         {
             try
             {
-                if (!IfFocusData)
+                if (IfFocusData)
                 {
-                    return;
-                }
-
-                var focusRow = this.orderInfoViewModelBindingSource.Current as OrderInfoViewModel;
-                if (focusRow != null && focusRow.Selection)
-                {
-                    var exists = _FocusData.Exists(x => x.Area == focusRow.Area &&
-                                                        x.Customer == focusRow.Customer &&
-                                                        x.Factory == focusRow.Factory &&
-                                                        x.Product == focusRow.Product);
-                    if (!exists)
+                    var focusRow = this.orderInfoViewModelBindingSource.Current as OrderInfoViewModel;
+                    if (focusRow != null && focusRow.Selection)
                     {
-                        _FocusData.Add(focusRow);
+                        focusRow.Status = GlobalCollection.OrderStatusCollection.LastOrDefault();
+                        _FocusData.AddOrReplace(x => x.Area == focusRow.Area &&
+                                                     x.Customer == focusRow.Customer &&
+                                                     x.Factory == focusRow.Factory &&
+                                                     x.Product == focusRow.Product, focusRow);
+                        this.MessageTextBox.Text +=
+                            $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}";
                     }
-                }
-                else if (focusRow != null && !focusRow.Selection)
-                {
-                    var exists = _FocusData.Exists(x => x.Area == focusRow.Area &&
-                                                        x.Customer == focusRow.Customer &&
-                                                        x.Factory == focusRow.Factory &&
-                                                        x.Product == focusRow.Product);
-                    if (exists)
+                    else if (focusRow != null && !focusRow.Selection)
                     {
-                        _FocusData.Remove(focusRow);
+                        focusRow.Status = string.Empty;
+                        var exists = _FocusData.Exists(x => x.Area == focusRow.Area &&
+                                                            x.Customer == focusRow.Customer &&
+                                                            x.Factory == focusRow.Factory &&
+                                                            x.Product == focusRow.Product);
+                        if (exists)
+                        {
+                            _FocusData.Remove(focusRow);
+                            this.MessageTextBox.Text +=
+                                $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已取消拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}";
+                        }
                     }
-                }
 
-                this.pivotGrid_FocusOrder.DataSource = _FocusData;
-                this.pivotGrid_FocusOrder.RefreshDataAsync().ConfigureAwait(true);
+                    BasicUtility.OrderInfoAdapter.AddOrUpdate(focusRow);
+                    focusTabPage.Text = $@"拉單({_FocusData.Count})";
+
+                    this.pivotGrid_FocusOrder.DataSource = _FocusData;
+                    this.pivotGrid_FocusOrder.RefreshDataAsync().ConfigureAwait(true);
+                }
             }
             catch (Exception exception)
             {
@@ -94,8 +102,6 @@ namespace MES.Order.UI.New
         }
 
         #endregion
-
-    
 
         #region Property
 
@@ -148,12 +154,9 @@ namespace MES.Order.UI.New
             this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
             this.FactoryKeybindingSource.DataSource = Const.AllFactoryView;
             this.ProductKeybindingSource.DataSource = Const.AllProductsView;
-            this.SizSpecTextEdit.Properties.DataSource = Const.SizeSpecEnum;
-            this.ColorSpecTextEdit.Properties.DataSource = Const.ColorSpecEnums;
-
-            // this.Area_Repository.DataSource = Const.AllAreaView;
-
-            // this.Factory_Repository.DataSource=Const.AllFactoryView;
+            this.SizSpecTextEdit.Properties.DataSource = GlobalCollection.SiezSpcCollection;
+            this.ColorSpecTextEdit.Properties.DataSource = GlobalCollection.ColorSpeCollection;
+            this.ProductType_ComboBox.Items.AddRange(GlobalCollection.ProductTypeCollection);
         }
 
         #endregion
@@ -203,7 +206,6 @@ namespace MES.Order.UI.New
             {
                 this.orderInfoViewModelBindingSource.DataSource = await BasicUtility.OrderInfoAdapter.Query(_filter);
                 this.gridView_ProductOrder.BestFitColumns();
-
             }
             catch (Exception ex)
             {
@@ -251,7 +253,7 @@ namespace MES.Order.UI.New
                 {
                     this.MessageTextBox.Text +=
                         $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已新增{_Request.Customer}:{_Request.Product}{Environment.NewLine}";
-                    this.button_Query_Click(null, null);
+                    this.btn_Query.PerformClick();
                 }
             }
             catch (Exception exception)
@@ -270,7 +272,7 @@ namespace MES.Order.UI.New
                 {
                     this.MessageTextBox.Text +=
                         $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已刪除{deleteRequest.Customer}:{deleteRequest.Product}{Environment.NewLine}";
-                    this.button_Query_Click(null, null);
+                    this.btn_Query.PerformClick();
                 }
             }
             catch (Exception exception)
@@ -285,6 +287,8 @@ namespace MES.Order.UI.New
             {
                 IfFocusData = false;
                 this.barItem_LockRow.Caption = @"鎖定列";
+
+                
             }
             else
             {
@@ -359,51 +363,6 @@ namespace MES.Order.UI.New
             {
                 throw new Exception(exception.ToString());
             }
-        }
-
-        private void ProductImage_Repository_EditValueChanging(object sender, ChangingEventArgs e)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(e.NewValue.ToString())) return;
-
-                string filePath =
-                    $"D:\\{_Request.Factory}圖片\\{_Request.Product.Substring(0, 5)}_{DateTime.Now.ToTaiwanCalendar("yMMd")}.{ImageFormat.Png}";
-                if (!Directory.Exists(filePath))
-                {
-                    //新增資料夾
-                    Directory.CreateDirectory(filePath);
-                }
-
-                this.SaveImage(e.NewValue.ToString()
-                    , filePath
-                    , ImageFormat.Png);
-            }
-            catch (ExternalException)
-            {
-                return;
-            }
-            catch (ArgumentNullException)
-            {
-                return;
-            }
-        }
-
-        public void SaveImage(string imageUrl, string filename, ImageFormat format)
-        {
-            WebClient client = new WebClient();
-            Stream stream = client.OpenRead(imageUrl);
-            Bitmap bitmap;
-            bitmap = new Bitmap(stream);
-
-            if (bitmap != null)
-            {
-                bitmap.Save(filename, format);
-            }
-
-            stream.Flush();
-            stream.Close();
-            client.Dispose();
         }
 
         #endregion
