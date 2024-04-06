@@ -33,16 +33,16 @@ namespace MES.Order.UI.New
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderNew));
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.CustomerKeybindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProductKeybindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -422,6 +422,7 @@ namespace MES.Order.UI.New
             this.barItem_Update.ItemInMenuAppearance.Pressed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.barItem_Update.ItemInMenuAppearance.Pressed.Options.UseFont = true;
             this.barItem_Update.Name = "barItem_Update";
+            this.barItem_Update.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barItem_Update_ItemClick);
             // 
             // barSubItem3
             // 
@@ -511,16 +512,16 @@ namespace MES.Order.UI.New
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1096, 39);
+            this.barDockControlTop.Size = new System.Drawing.Size(1080, 39);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 610);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 602);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1096, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1080, 0);
             // 
             // barDockControlLeft
             // 
@@ -529,16 +530,16 @@ namespace MES.Order.UI.New
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 39);
             this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 571);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 563);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1096, 39);
+            this.barDockControlRight.Location = new System.Drawing.Point(1080, 39);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 571);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 563);
             // 
             // barItem_UnlockRow
             // 
@@ -584,7 +585,7 @@ namespace MES.Order.UI.New
             this.QueryMenu.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             this.QueryMenu.Properties.ZoomAcceleration = 0D;
             this.QueryMenu.Properties.ZoomPercent = 50D;
-            this.QueryMenu.Size = new System.Drawing.Size(142, 50);
+            this.QueryMenu.Size = new System.Drawing.Size(138, 50);
             this.QueryMenu.TabIndex = 0;
             // 
             // orderInfoViewModelBindingSource
@@ -704,7 +705,7 @@ namespace MES.Order.UI.New
             this.QueryPanel.LookAndFeel.UseDefaultLookAndFeel = false;
             this.QueryPanel.Margin = new System.Windows.Forms.Padding(4);
             this.QueryPanel.Name = "QueryPanel";
-            this.QueryPanel.Size = new System.Drawing.Size(146, 571);
+            this.QueryPanel.Size = new System.Drawing.Size(142, 563);
             this.QueryPanel.TabIndex = 2;
             // 
             // dataLayoutControl1
@@ -745,7 +746,7 @@ namespace MES.Order.UI.New
             this.dataLayoutControl1.OptionsView.HighlightFocusedItem = true;
             this.dataLayoutControl1.Padding = new System.Windows.Forms.Padding(7);
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(142, 517);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(138, 509);
             this.dataLayoutControl1.TabIndex = 1;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -763,7 +764,7 @@ namespace MES.Order.UI.New
             this.btn_Query.Location = new System.Drawing.Point(10, 126);
             this.btn_Query.Name = "btn_Query";
             this.btn_Query.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_Query.Size = new System.Drawing.Size(122, 44);
+            this.btn_Query.Size = new System.Drawing.Size(118, 42);
             this.btn_Query.TabIndex = 3;
             this.btn_Query.Text = "查詢";
             this.btn_Query.TextColor = System.Drawing.Color.Black;
@@ -806,14 +807,14 @@ namespace MES.Order.UI.New
             this.QueryOrderDateSDateEdit.Properties.AppearanceFocused.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.QueryOrderDateSDateEdit.Properties.AppearanceFocused.Options.UseFont = true;
             this.QueryOrderDateSDateEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.QueryOrderDateSDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.QueryOrderDateSDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.QueryOrderDateSDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
             this.QueryOrderDateSDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.QueryOrderDateSDateEdit.Size = new System.Drawing.Size(120, 24);
+            this.QueryOrderDateSDateEdit.Size = new System.Drawing.Size(116, 24);
             this.QueryOrderDateSDateEdit.StyleController = this.dataLayoutControl1;
             this.QueryOrderDateSDateEdit.TabIndex = 0;
             this.QueryOrderDateSDateEdit.TextColor = System.Drawing.Color.Black;
@@ -858,14 +859,14 @@ namespace MES.Order.UI.New
             this.QueryOrderDateEDateEdit.Properties.AppearanceFocused.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.QueryOrderDateEDateEdit.Properties.AppearanceFocused.Options.UseFont = true;
             this.QueryOrderDateEDateEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
             this.QueryOrderDateEDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.QueryOrderDateEDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.QueryOrderDateEDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
             this.QueryOrderDateEDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.QueryOrderDateEDateEdit.Size = new System.Drawing.Size(120, 24);
+            this.QueryOrderDateEDateEdit.Size = new System.Drawing.Size(116, 24);
             this.QueryOrderDateEDateEdit.StyleController = this.dataLayoutControl1;
             this.QueryOrderDateEDateEdit.TabIndex = 2;
             this.QueryOrderDateEDateEdit.TextColor = System.Drawing.Color.Black;
@@ -877,7 +878,7 @@ namespace MES.Order.UI.New
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(142, 517);
+            this.Root.Size = new System.Drawing.Size(138, 509);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -906,7 +907,7 @@ namespace MES.Order.UI.New
             this.layoutControlGroup1.OptionsPrint.AppearanceItemControl.Options.UseFont = true;
             this.layoutControlGroup1.OptionsPrint.AppearanceItemText.BorderColor = System.Drawing.Color.Black;
             this.layoutControlGroup1.OptionsPrint.AppearanceItemText.Options.UseBorderColor = true;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(142, 517);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(138, 509);
             this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 7);
             // 
             // layoutControlGroup2
@@ -940,7 +941,7 @@ namespace MES.Order.UI.New
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AutoSize;
             this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(142, 517);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(138, 509);
             this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup2.Text = "查詢";
             this.layoutControlGroup2.TextVisible = false;
@@ -961,7 +962,7 @@ namespace MES.Order.UI.New
             this.ItemForOrderDateE.OptionsPrint.AppearanceItemControl.Options.UseBorderColor = true;
             this.ItemForOrderDateE.OptionsPrint.AppearanceItemText.BorderColor = System.Drawing.Color.Black;
             this.ItemForOrderDateE.OptionsPrint.AppearanceItemText.Options.UseBorderColor = true;
-            this.ItemForOrderDateE.Size = new System.Drawing.Size(132, 58);
+            this.ItemForOrderDateE.Size = new System.Drawing.Size(128, 58);
             this.ItemForOrderDateE.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.ItemForOrderDateE.Text = "訂貨迄日";
             this.ItemForOrderDateE.TextLocation = DevExpress.Utils.Locations.Top;
@@ -976,7 +977,7 @@ namespace MES.Order.UI.New
             this.ItemForOrderDateS.Name = "ItemForOrderDateS";
             this.ItemForOrderDateS.OptionsPrint.AppearanceItem.BorderColor = System.Drawing.Color.Black;
             this.ItemForOrderDateS.OptionsPrint.AppearanceItem.Options.UseBorderColor = true;
-            this.ItemForOrderDateS.Size = new System.Drawing.Size(132, 58);
+            this.ItemForOrderDateS.Size = new System.Drawing.Size(128, 58);
             this.ItemForOrderDateS.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.ItemForOrderDateS.Text = "訂貨起日";
             this.ItemForOrderDateS.TextLocation = DevExpress.Utils.Locations.Top;
@@ -988,7 +989,7 @@ namespace MES.Order.UI.New
             this.qqq.Location = new System.Drawing.Point(0, 116);
             this.qqq.Name = "qqq";
             this.qqq.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.qqq.Size = new System.Drawing.Size(132, 54);
+            this.qqq.Size = new System.Drawing.Size(128, 52);
             this.qqq.TextSize = new System.Drawing.Size(0, 0);
             this.qqq.TextVisible = false;
             this.qqq.Click += new System.EventHandler(this.button_Query_Click);
@@ -996,9 +997,9 @@ namespace MES.Order.UI.New
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 170);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 168);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(132, 337);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(128, 331);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // MessageTextBox
@@ -1007,11 +1008,11 @@ namespace MES.Order.UI.New
             this.MessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.csyPanel1.SetColumn(this.MessageTextBox, 0);
             this.MessageTextBox.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MessageTextBox.Location = new System.Drawing.Point(3, 14);
+            this.MessageTextBox.Location = new System.Drawing.Point(3, 13);
             this.MessageTextBox.Name = "MessageTextBox";
             this.MessageTextBox.ReadOnly = true;
             this.csyPanel1.SetRow(this.MessageTextBox, 0);
-            this.MessageTextBox.Size = new System.Drawing.Size(389, 74);
+            this.MessageTextBox.Size = new System.Drawing.Size(385, 74);
             this.MessageTextBox.TabIndex = 4;
             this.MessageTextBox.Text = "";
             this.MessageTextBox.ZoomFactor = 0.8F;
@@ -1059,7 +1060,7 @@ namespace MES.Order.UI.New
             this.dataLayoutControl2.Name = "dataLayoutControl2";
             this.dataLayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2599, 132, 834, 533);
             this.dataLayoutControl2.Root = this.layoutControlGroup3;
-            this.dataLayoutControl2.Size = new System.Drawing.Size(545, 103);
+            this.dataLayoutControl2.Size = new System.Drawing.Size(537, 101);
             this.dataLayoutControl2.TabIndex = 22;
             this.dataLayoutControl2.Text = "dataLayoutControl2";
             // 
@@ -1070,7 +1071,7 @@ namespace MES.Order.UI.New
             this.RemarkTextEdit.BorderRadius = 5;
             this.RemarkTextEdit.BorderSize = 0;
             this.RemarkTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "Remark", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.RemarkTextEdit.Location = new System.Drawing.Point(269, 74);
+            this.RemarkTextEdit.Location = new System.Drawing.Point(265, 74);
             this.RemarkTextEdit.MenuManager = this.barManager1;
             this.RemarkTextEdit.Name = "RemarkTextEdit";
             this.RemarkTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
@@ -1078,7 +1079,7 @@ namespace MES.Order.UI.New
             this.RemarkTextEdit.Properties.Appearance.Options.UseBackColor = true;
             this.RemarkTextEdit.Properties.Appearance.Options.UseForeColor = true;
             this.RemarkTextEdit.Properties.NullValuePrompt = "請輸入備註";
-            this.RemarkTextEdit.Size = new System.Drawing.Size(123, 26);
+            this.RemarkTextEdit.Size = new System.Drawing.Size(121, 26);
             this.RemarkTextEdit.StyleController = this.dataLayoutControl2;
             this.RemarkTextEdit.TabIndex = 11;
             this.RemarkTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -1112,7 +1113,7 @@ namespace MES.Order.UI.New
             this.CustomerTextEdit.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
             this.CustomerTextEdit.Properties.ValueMember = "Customer";
-            this.CustomerTextEdit.Size = new System.Drawing.Size(520, 26);
+            this.CustomerTextEdit.Size = new System.Drawing.Size(512, 26);
             this.CustomerTextEdit.StyleController = this.dataLayoutControl2;
             this.CustomerTextEdit.TabIndex = 5;
             this.CustomerTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1249,7 +1250,7 @@ namespace MES.Order.UI.New
             this.repositoryItemLookUpEdit3,
             this.ProductType_ComboBox});
             this.ProductTextEdit.Properties.ValueMember = "Product";
-            this.ProductTextEdit.Size = new System.Drawing.Size(518, 26);
+            this.ProductTextEdit.Size = new System.Drawing.Size(510, 26);
             this.ProductTextEdit.StyleController = this.dataLayoutControl2;
             this.ProductTextEdit.TabIndex = 7;
             this.ProductTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1425,7 +1426,7 @@ namespace MES.Order.UI.New
             this.CountTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.CountTextEdit.Properties.MaskSettings.Set("mask", "N0");
             this.CountTextEdit.Properties.NullValuePrompt = "請輸入訂購數量";
-            this.CountTextEdit.Size = new System.Drawing.Size(125, 26);
+            this.CountTextEdit.Size = new System.Drawing.Size(123, 26);
             this.CountTextEdit.StyleController = this.dataLayoutControl2;
             this.CountTextEdit.TabIndex = 8;
             this.CountTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1437,7 +1438,7 @@ namespace MES.Order.UI.New
             this.ColorSpecTextEdit.BorderRadius = 5;
             this.ColorSpecTextEdit.BorderSize = 0;
             this.ColorSpecTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "ColorSpec", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ColorSpecTextEdit.Location = new System.Drawing.Point(137, 74);
+            this.ColorSpecTextEdit.Location = new System.Drawing.Point(135, 74);
             this.ColorSpecTextEdit.MenuManager = this.barManager1;
             this.ColorSpecTextEdit.Name = "ColorSpecTextEdit";
             this.ColorSpecTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
@@ -1454,7 +1455,7 @@ namespace MES.Order.UI.New
             this.ColorSpecTextEdit.Properties.NullText = "";
             this.ColorSpecTextEdit.Properties.NullValuePrompt = "請輸入顏色規格";
             this.ColorSpecTextEdit.Properties.ValueMember = "Code";
-            this.ColorSpecTextEdit.Size = new System.Drawing.Size(124, 26);
+            this.ColorSpecTextEdit.Size = new System.Drawing.Size(122, 26);
             this.ColorSpecTextEdit.StyleController = this.dataLayoutControl2;
             this.ColorSpecTextEdit.TabIndex = 9;
             this.ColorSpecTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1466,7 +1467,7 @@ namespace MES.Order.UI.New
             this.SizSpecTextEdit.BorderRadius = 5;
             this.SizSpecTextEdit.BorderSize = 0;
             this.SizSpecTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "SizSpec", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.SizSpecTextEdit.Location = new System.Drawing.Point(400, 74);
+            this.SizSpecTextEdit.Location = new System.Drawing.Point(394, 74);
             this.SizSpecTextEdit.MenuManager = this.barManager1;
             this.SizSpecTextEdit.Name = "SizSpecTextEdit";
             this.SizSpecTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
@@ -1483,7 +1484,7 @@ namespace MES.Order.UI.New
             this.SizSpecTextEdit.Properties.NullText = "";
             this.SizSpecTextEdit.Properties.NullValuePrompt = "請輸入尺寸規格";
             this.SizSpecTextEdit.Properties.ValueMember = "Code";
-            this.SizSpecTextEdit.Size = new System.Drawing.Size(124, 26);
+            this.SizSpecTextEdit.Size = new System.Drawing.Size(122, 26);
             this.SizSpecTextEdit.StyleController = this.dataLayoutControl2;
             this.SizSpecTextEdit.TabIndex = 10;
             this.SizSpecTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1633,7 +1634,7 @@ namespace MES.Order.UI.New
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup4});
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(528, 104);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(520, 104);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlGroup4
@@ -1649,7 +1650,7 @@ namespace MES.Order.UI.New
             this.ItemForSizSpec});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(528, 104);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(520, 104);
             // 
             // ItemForCount
             // 
@@ -1657,7 +1658,7 @@ namespace MES.Order.UI.New
             this.ItemForCount.Location = new System.Drawing.Point(0, 70);
             this.ItemForCount.Name = "ItemForCount";
             this.ItemForCount.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForCount.Size = new System.Drawing.Size(133, 34);
+            this.ItemForCount.Size = new System.Drawing.Size(131, 34);
             this.ItemForCount.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.ItemForCount.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForCount.TextVisible = false;
@@ -1668,7 +1669,7 @@ namespace MES.Order.UI.New
             this.ItemForProduct.Location = new System.Drawing.Point(0, 34);
             this.ItemForProduct.Name = "ItemForProduct";
             this.ItemForProduct.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForProduct.Size = new System.Drawing.Size(528, 36);
+            this.ItemForProduct.Size = new System.Drawing.Size(520, 36);
             this.ItemForProduct.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
             this.ItemForProduct.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForProduct.TextVisible = false;
@@ -1679,7 +1680,7 @@ namespace MES.Order.UI.New
             this.ItemForCustomer.Location = new System.Drawing.Point(0, 0);
             this.ItemForCustomer.Name = "ItemForCustomer";
             this.ItemForCustomer.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForCustomer.Size = new System.Drawing.Size(528, 34);
+            this.ItemForCustomer.Size = new System.Drawing.Size(520, 34);
             this.ItemForCustomer.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.ItemForCustomer.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForCustomer.TextVisible = false;
@@ -1687,10 +1688,10 @@ namespace MES.Order.UI.New
             // ItemForColorSpec
             // 
             this.ItemForColorSpec.Control = this.ColorSpecTextEdit;
-            this.ItemForColorSpec.Location = new System.Drawing.Point(133, 70);
+            this.ItemForColorSpec.Location = new System.Drawing.Point(131, 70);
             this.ItemForColorSpec.Name = "ItemForColorSpec";
             this.ItemForColorSpec.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForColorSpec.Size = new System.Drawing.Size(132, 34);
+            this.ItemForColorSpec.Size = new System.Drawing.Size(130, 34);
             this.ItemForColorSpec.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.ItemForColorSpec.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForColorSpec.TextVisible = false;
@@ -1698,10 +1699,10 @@ namespace MES.Order.UI.New
             // ItemForRemark
             // 
             this.ItemForRemark.Control = this.RemarkTextEdit;
-            this.ItemForRemark.Location = new System.Drawing.Point(265, 70);
+            this.ItemForRemark.Location = new System.Drawing.Point(261, 70);
             this.ItemForRemark.Name = "ItemForRemark";
             this.ItemForRemark.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForRemark.Size = new System.Drawing.Size(131, 34);
+            this.ItemForRemark.Size = new System.Drawing.Size(129, 34);
             this.ItemForRemark.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.ItemForRemark.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForRemark.TextVisible = false;
@@ -1709,10 +1710,10 @@ namespace MES.Order.UI.New
             // ItemForSizSpec
             // 
             this.ItemForSizSpec.Control = this.SizSpecTextEdit;
-            this.ItemForSizSpec.Location = new System.Drawing.Point(396, 70);
+            this.ItemForSizSpec.Location = new System.Drawing.Point(390, 70);
             this.ItemForSizSpec.Name = "ItemForSizSpec";
             this.ItemForSizSpec.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForSizSpec.Size = new System.Drawing.Size(132, 34);
+            this.ItemForSizSpec.Size = new System.Drawing.Size(130, 34);
             this.ItemForSizSpec.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
             this.ItemForSizSpec.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForSizSpec.TextVisible = false;
@@ -1735,7 +1736,7 @@ namespace MES.Order.UI.New
             this.csyPanel1.Name = "csyPanel1";
             this.csyPanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 89F)});
-            this.csyPanel1.Size = new System.Drawing.Size(395, 103);
+            this.csyPanel1.Size = new System.Drawing.Size(391, 101);
             this.csyPanel1.TabIndex = 4;
             // 
             // focusTabPage
@@ -1751,7 +1752,7 @@ namespace MES.Order.UI.New
             this.focusTabPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.focusTabPage.Name = "focusTabPage";
             this.focusTabPage.SelectedTabPage = this.xtraTabPage1;
-            this.focusTabPage.Size = new System.Drawing.Size(944, 463);
+            this.focusTabPage.Size = new System.Drawing.Size(932, 457);
             this.focusTabPage.TabIndex = 32;
             this.focusTabPage.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -1762,7 +1763,7 @@ namespace MES.Order.UI.New
             this.xtraTabPage1.Controls.Add(this.gridControl_ProductOrder);
             this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(938, 429);
+            this.xtraTabPage1.Size = new System.Drawing.Size(926, 423);
             this.xtraTabPage1.Text = "查詢結果";
             // 
             // gridControl_ProductOrder
@@ -1774,7 +1775,7 @@ namespace MES.Order.UI.New
             this.gridControl_ProductOrder.Location = new System.Drawing.Point(0, 0);
             this.gridControl_ProductOrder.MainView = this.gridView_ProductOrder;
             this.gridControl_ProductOrder.Name = "gridControl_ProductOrder";
-            this.gridControl_ProductOrder.Size = new System.Drawing.Size(938, 429);
+            this.gridControl_ProductOrder.Size = new System.Drawing.Size(926, 423);
             this.gridControl_ProductOrder.TabIndex = 6;
             this.gridControl_ProductOrder.UseEmbeddedNavigator = true;
             this.gridControl_ProductOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -2139,7 +2140,7 @@ namespace MES.Order.UI.New
             this.xtraTabPage2.Controls.Add(this.gridControl_Focus);
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(948, 435);
+            this.xtraTabPage2.Size = new System.Drawing.Size(926, 423);
             this.xtraTabPage2.Text = "拉單";
             // 
             // pivotGrid_FocusOrder
@@ -2191,7 +2192,7 @@ namespace MES.Order.UI.New
             this.pivotGrid_FocusOrder.OptionsView.ShowColumnGrandTotalHeader = false;
             this.pivotGrid_FocusOrder.OptionsView.ShowRowGrandTotalHeader = false;
             this.pivotGrid_FocusOrder.OptionsView.ShowTotalsForSingleValues = true;
-            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(948, 435);
+            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(926, 423);
             this.pivotGrid_FocusOrder.TabIndex = 8;
             // 
             // fieldRemark
@@ -2624,8 +2625,8 @@ namespace MES.Order.UI.New
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.csyPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(944, 103);
-            this.splitContainer1.SplitterDistance = 545;
+            this.splitContainer1.Size = new System.Drawing.Size(932, 101);
+            this.splitContainer1.SplitterDistance = 537;
             this.splitContainer1.TabIndex = 33;
             // 
             // splitContainer2
@@ -2643,8 +2644,8 @@ namespace MES.Order.UI.New
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.focusTabPage);
-            this.splitContainer2.Size = new System.Drawing.Size(944, 571);
-            this.splitContainer2.SplitterDistance = 103;
+            this.splitContainer2.Size = new System.Drawing.Size(932, 563);
+            this.splitContainer2.SplitterDistance = 101;
             this.splitContainer2.SplitterWidth = 5;
             this.splitContainer2.TabIndex = 34;
             // 
@@ -2661,8 +2662,8 @@ namespace MES.Order.UI.New
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer3.Size = new System.Drawing.Size(1096, 571);
-            this.splitContainer3.SplitterDistance = 146;
+            this.splitContainer3.Size = new System.Drawing.Size(1080, 563);
+            this.splitContainer3.SplitterDistance = 142;
             this.splitContainer3.SplitterWidth = 6;
             this.splitContainer3.TabIndex = 35;
             // 
@@ -2674,7 +2675,7 @@ namespace MES.Order.UI.New
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1096, 610);
+            this.ClientSize = new System.Drawing.Size(1080, 602);
             this.Controls.Add(this.splitContainer3);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);

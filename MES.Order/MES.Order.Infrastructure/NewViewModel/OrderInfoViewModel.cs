@@ -10,6 +10,8 @@ namespace MES.Order.Infrastructure.NewViewModel
 {
     public class OrderInfoViewModel : INotifyPropertyChanged
     {
+        public ProductsInfoViewModel ProductsInfo { get; set; }
+
         public bool Selection
         {
             get => _selection;
@@ -125,7 +127,7 @@ namespace MES.Order.Infrastructure.NewViewModel
         [Display(Name = "訂購日期", Prompt = "請輸入訂購日期")]
         public DateTime OrderDate
         {
-            get => this.mOrderDate = DateTime.Now;
+            get => this.mOrderDate;
 
             set
             {

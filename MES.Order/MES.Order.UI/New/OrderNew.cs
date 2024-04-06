@@ -11,6 +11,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.Data;
 using DevExpress.Data.Helpers;
+using DevExpress.DataProcessing;
 using DevExpress.Utils;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars;
@@ -19,12 +20,14 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
 using MES.Order.Adapter;
 using MES.Order.DAL.EntityFramework;
+using MES.Order.DAL.ViewModel;
 using MES.Order.Infrastructure;
 using MES.Order.Infrastructure.NewViewModel;
 using MES.Order.Infrastructure.NewViewModel.Filter;
 using MES.Order.Infrastructure.NewViewModel.Request;
 using MES.Order.UI.Module;
 using THS.Infrastructure.Extensions;
+using ComboBox = DevExpress.XtraEditors.ComboBox;
 
 namespace MES.Order.UI.New
 {
@@ -66,6 +69,7 @@ namespace MES.Order.UI.New
                     if (focusRow != null && focusRow.Selection)
                     {
                         focusRow.Status = GlobalCollection.OrderStatusCollection.LastOrDefault();
+                        focusRow.UpdateDate = DateTime.Now;
                         _FocusData.AddOrReplace(x => x.Area == focusRow.Area &&
                                                      x.Customer == focusRow.Customer &&
                                                      x.Factory == focusRow.Factory &&
@@ -76,6 +80,7 @@ namespace MES.Order.UI.New
                     else if (focusRow != null && !focusRow.Selection)
                     {
                         focusRow.Status = string.Empty;
+                        focusRow.UpdateDate = DateTime.Now;
                         var exists = _FocusData.Exists(x => x.Area == focusRow.Area &&
                                                             x.Customer == focusRow.Customer &&
                                                             x.Factory == focusRow.Factory &&
@@ -91,7 +96,7 @@ namespace MES.Order.UI.New
                     BasicUtility.OrderInfoAdapter.AddOrUpdate(focusRow);
                     focusTabPage.Text = $@"拉單({_FocusData.Count})";
 
-                    this.pivotGrid_FocusOrder.DataSource = _FocusData;
+                    this.FocusbindingSource.DataSource = _FocusData;
                     this.pivotGrid_FocusOrder.RefreshDataAsync().ConfigureAwait(true);
                 }
             }
@@ -204,7 +209,15 @@ namespace MES.Order.UI.New
         {
             try
             {
-                this.orderInfoViewModelBindingSource.DataSource = await BasicUtility.OrderInfoAdapter.Query(_filter);
+                var orderInfoViewModels = await BasicUtility.OrderInfoAdapter.Query(_filter);
+                foreach (var i in orderInfoViewModels)
+                {
+                    var productInfo = Const.AllProductsView.Find(x => x.Product == i.Product &&
+                                                                      x.Factory == i.Factory);
+                    i.ProductsInfo = productInfo;
+                }
+
+                this.orderInfoViewModelBindingSource.DataSource = orderInfoViewModels;
                 this.gridView_ProductOrder.BestFitColumns();
             }
             catch (Exception ex)
@@ -247,6 +260,7 @@ namespace MES.Order.UI.New
                 var productInfo = Const.AllProductsView.Find(x => x.Product == _Request.Product &&
                                                                   x.Factory == _Request.Factory);
                 _Request.ProductsInfo = productInfo;
+                _Request.OrderDate = DateTime.Now;
                 _Request.SetDefaultValue();
                 var addOrUpdate = await BasicUtility.OrderInfoAdapter.AddOrUpdate(_Request);
                 if (addOrUpdate)
@@ -287,8 +301,7 @@ namespace MES.Order.UI.New
             {
                 IfFocusData = false;
                 this.barItem_LockRow.Caption = @"鎖定列";
-
-                
+                this.FocusbindingSource.Clear();
             }
             else
             {
@@ -297,6 +310,51 @@ namespace MES.Order.UI.New
             }
 
             _FocusData = new List<OrderInfoViewModel>();
+        }
+
+        private void barItem_Update_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                var updateRequest = new List<OrderInfoViewModel>();
+                var pOrder = this.orderInfoRequestBindingSource.DataSource as List<OrderInfoViewModel>;
+                var checkedList = pOrder.Where(x => x.Selection).ToList();
+
+                XtraInputBoxArgs args = new XtraInputBoxArgs
+                {
+                    Caption = "批次更新是否取貨", Prompt = "請選擇其一選項", DefaultButtonIndex = 0
+                };
+                var editor = new ComboBoxEdit();
+                editor.Properties.Items.AddRange(GlobalCollection.OrderStatusCollection);
+                args.Editor = editor;
+                if (XtraInputBox.Show(args) is KeyAndNameForCombo result)
+                {
+                    var resultCode = result.Code;
+                    var pStatus = resultCode;
+
+                    foreach (var order in checkedList)
+                    {
+                        order.Status = pStatus;
+                        order.UpdateDate = DateTime.Now;
+                        order.SetDefaultValue();
+                        updateRequest.Add(order);
+                        BasicUtility.OrderInfoAdapter.AddOrUpdate(updateRequest);
+                        _FocusData.AddOrReplace(x => x.Area == order.Area &&
+                                                     x.Customer == order.Customer &&
+                                                     x.Factory == order.Factory &&
+                                                     x.Product == order.Product, order);
+                        this.FocusbindingSource.DataSource = _FocusData;
+                        this.gridView_Focus.RefreshData();
+                        focusTabPage.Text = $@"拉單({_FocusData.Count})";
+                    }
+
+                    this.btn_Query.PerformClick();
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString());
+            }
         }
 
         #endregion
