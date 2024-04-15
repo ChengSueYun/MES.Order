@@ -47,8 +47,7 @@ namespace MES.Order.UI.New
 
             //將Form加入tabPage中
             fluentDesignFormContainer1.Controls.Add(currentForm);
-         
-         
+            this.Menu.CollapseAll();
         }
     }
 }

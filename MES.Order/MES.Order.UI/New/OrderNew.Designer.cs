@@ -33,16 +33,16 @@ namespace MES.Order.UI.New
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderNew));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             this.CustomerKeybindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ProductKeybindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
@@ -131,7 +131,6 @@ namespace MES.Order.UI.New
             this.colImage = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colProductWebSite = new DevExpress.XtraGrid.Columns.GridColumn();
             this.CountTextEdit = new CSYCodeAdvance.EditorControls.CSYSpinEdit();
-            this.ColorSpecTextEdit = new CSYCodeAdvance.EditorControls.CSYLookUpEdit();
             this.SizSpecTextEdit = new CSYCodeAdvance.EditorControls.CSYLookUpEdit();
             this.AreaTextEdit = new CSYCodeAdvance.EditorControls.CSYSearchLookUpEdit();
             this.gridView_AddArea = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -140,6 +139,7 @@ namespace MES.Order.UI.New
             this.gridView_AddFactory = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFactory1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFactoryWebSit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ColorSpecTextEdit = new CSYCodeAdvance.EditorControls.CSYCheckedComboBoxEdit();
             this.ItemForArea = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForFactory = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -240,12 +240,12 @@ namespace MES.Order.UI.New
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductType_ComboBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountTextEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ColorSpecTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SizSpecTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AreaTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_AddArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FactoryTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_AddFactory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColorSpecTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFactory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
@@ -512,7 +512,7 @@ namespace MES.Order.UI.New
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1080, 39);
+            this.barDockControlTop.Size = new System.Drawing.Size(1064, 39);
             // 
             // barDockControlBottom
             // 
@@ -521,7 +521,7 @@ namespace MES.Order.UI.New
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 602);
             this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1080, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1064, 0);
             // 
             // barDockControlLeft
             // 
@@ -536,7 +536,7 @@ namespace MES.Order.UI.New
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1080, 39);
+            this.barDockControlRight.Location = new System.Drawing.Point(1064, 39);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 563);
@@ -573,7 +573,7 @@ namespace MES.Order.UI.New
             this.QueryMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.QueryMenu.EditValue = ((object)(resources.GetObject("QueryMenu.EditValue")));
             this.QueryMenu.Location = new System.Drawing.Point(2, 2);
-            this.QueryMenu.Margin = new System.Windows.Forms.Padding(4);
+            this.QueryMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QueryMenu.Name = "QueryMenu";
             this.QueryMenu.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
             this.QueryMenu.Properties.Appearance.BackColor2 = System.Drawing.Color.Turquoise;
@@ -585,7 +585,7 @@ namespace MES.Order.UI.New
             this.QueryMenu.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             this.QueryMenu.Properties.ZoomAcceleration = 0D;
             this.QueryMenu.Properties.ZoomPercent = 50D;
-            this.QueryMenu.Size = new System.Drawing.Size(138, 50);
+            this.QueryMenu.Size = new System.Drawing.Size(134, 24);
             this.QueryMenu.TabIndex = 0;
             // 
             // orderInfoViewModelBindingSource
@@ -598,9 +598,9 @@ namespace MES.Order.UI.New
             // 
             // alertControl1
             // 
-            this.alertControl1.AppearanceCaption.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertControl1.AppearanceCaption.Options.UseFont = true;
-            this.alertControl1.AppearanceText.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceText.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertControl1.AppearanceText.Options.UseFont = true;
             this.alertControl1.AutoFormDelay = 3000;
             // 
@@ -703,9 +703,9 @@ namespace MES.Order.UI.New
             this.QueryPanel.Location = new System.Drawing.Point(0, 0);
             this.QueryPanel.LookAndFeel.SkinName = "DevExpress Style";
             this.QueryPanel.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.QueryPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.QueryPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QueryPanel.Name = "QueryPanel";
-            this.QueryPanel.Size = new System.Drawing.Size(142, 563);
+            this.QueryPanel.Size = new System.Drawing.Size(138, 563);
             this.QueryPanel.TabIndex = 2;
             // 
             // dataLayoutControl1
@@ -723,10 +723,10 @@ namespace MES.Order.UI.New
             this.dataLayoutControl1.DataSource = this.filterOrderInfoBindingSource;
             this.dataLayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataLayoutControl1.Location = new System.Drawing.Point(2, 52);
+            this.dataLayoutControl1.Location = new System.Drawing.Point(2, 26);
             this.dataLayoutControl1.LookAndFeel.SkinName = "DevExpress Style";
             this.dataLayoutControl1.LookAndFeel.UseDefaultLookAndFeel = false;
-            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataLayoutControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataLayoutControl1.Name = "dataLayoutControl1";
             this.dataLayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(622, 375, 650, 511);
             this.dataLayoutControl1.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignMode.AlignInGroups;
@@ -744,9 +744,9 @@ namespace MES.Order.UI.New
             this.dataLayoutControl1.OptionsPrint.AppearanceItem.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.dataLayoutControl1.OptionsView.GroupStyle = DevExpress.Utils.GroupStyle.Card;
             this.dataLayoutControl1.OptionsView.HighlightFocusedItem = true;
-            this.dataLayoutControl1.Padding = new System.Windows.Forms.Padding(7);
+            this.dataLayoutControl1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataLayoutControl1.Root = this.Root;
-            this.dataLayoutControl1.Size = new System.Drawing.Size(138, 509);
+            this.dataLayoutControl1.Size = new System.Drawing.Size(134, 535);
             this.dataLayoutControl1.TabIndex = 1;
             this.dataLayoutControl1.Text = "dataLayoutControl1";
             // 
@@ -759,12 +759,13 @@ namespace MES.Order.UI.New
             this.btn_Query.BorderSize = 0;
             this.btn_Query.FlatAppearance.BorderSize = 0;
             this.btn_Query.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Query.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Query.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Query.ForeColor = System.Drawing.Color.Black;
-            this.btn_Query.Location = new System.Drawing.Point(10, 126);
+            this.btn_Query.Location = new System.Drawing.Point(5, 107);
+            this.btn_Query.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.btn_Query.Name = "btn_Query";
-            this.btn_Query.Padding = new System.Windows.Forms.Padding(4);
-            this.btn_Query.Size = new System.Drawing.Size(118, 42);
+            this.btn_Query.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Query.Size = new System.Drawing.Size(124, 54);
             this.btn_Query.TabIndex = 3;
             this.btn_Query.Text = "查詢";
             this.btn_Query.TextColor = System.Drawing.Color.Black;
@@ -780,8 +781,8 @@ namespace MES.Order.UI.New
             this.QueryOrderDateSDateEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.QueryOrderDateSDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.filterOrderInfoBindingSource, "OrderDateStart", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.QueryOrderDateSDateEdit.EditValue = new System.DateTime(2024, 3, 29, 20, 43, 53, 95);
-            this.QueryOrderDateSDateEdit.Location = new System.Drawing.Point(11, 33);
-            this.QueryOrderDateSDateEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.QueryOrderDateSDateEdit.Location = new System.Drawing.Point(6, 27);
+            this.QueryOrderDateSDateEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QueryOrderDateSDateEdit.Name = "QueryOrderDateSDateEdit";
             this.QueryOrderDateSDateEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
             this.QueryOrderDateSDateEdit.Properties.Appearance.BorderColor = System.Drawing.Color.LightCoral;
@@ -807,14 +808,14 @@ namespace MES.Order.UI.New
             this.QueryOrderDateSDateEdit.Properties.AppearanceFocused.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.QueryOrderDateSDateEdit.Properties.AppearanceFocused.Options.UseFont = true;
             this.QueryOrderDateSDateEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
+            editorButtonImageOptions1.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions1.Image")));
             this.QueryOrderDateSDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.QueryOrderDateSDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.QueryOrderDateSDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
             this.QueryOrderDateSDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.QueryOrderDateSDateEdit.Size = new System.Drawing.Size(116, 24);
+            this.QueryOrderDateSDateEdit.Size = new System.Drawing.Size(122, 24);
             this.QueryOrderDateSDateEdit.StyleController = this.dataLayoutControl1;
             this.QueryOrderDateSDateEdit.TabIndex = 0;
             this.QueryOrderDateSDateEdit.TextColor = System.Drawing.Color.Black;
@@ -832,8 +833,8 @@ namespace MES.Order.UI.New
             this.QueryOrderDateEDateEdit.Cursor = System.Windows.Forms.Cursors.Default;
             this.QueryOrderDateEDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.filterOrderInfoBindingSource, "OrderDateEnd", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.QueryOrderDateEDateEdit.EditValue = new System.DateTime(2024, 3, 29, 20, 43, 47, 208);
-            this.QueryOrderDateEDateEdit.Location = new System.Drawing.Point(11, 91);
-            this.QueryOrderDateEDateEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.QueryOrderDateEDateEdit.Location = new System.Drawing.Point(6, 78);
+            this.QueryOrderDateEDateEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QueryOrderDateEDateEdit.Name = "QueryOrderDateEDateEdit";
             this.QueryOrderDateEDateEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
             this.QueryOrderDateEDateEdit.Properties.Appearance.BorderColor = System.Drawing.Color.LightCoral;
@@ -859,14 +860,14 @@ namespace MES.Order.UI.New
             this.QueryOrderDateEDateEdit.Properties.AppearanceFocused.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             this.QueryOrderDateEDateEdit.Properties.AppearanceFocused.Options.UseFont = true;
             this.QueryOrderDateEDateEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            editorButtonImageOptions3.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions3.Image")));
+            editorButtonImageOptions2.Image = ((System.Drawing.Image)(resources.GetObject("editorButtonImageOptions2.Image")));
             this.QueryOrderDateEDateEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.QueryOrderDateEDateEdit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.QueryOrderDateEDateEdit.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Fluent;
             this.QueryOrderDateEDateEdit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.QueryOrderDateEDateEdit.Size = new System.Drawing.Size(116, 24);
+            this.QueryOrderDateEDateEdit.Size = new System.Drawing.Size(122, 24);
             this.QueryOrderDateEDateEdit.StyleController = this.dataLayoutControl1;
             this.QueryOrderDateEDateEdit.TabIndex = 2;
             this.QueryOrderDateEDateEdit.TextColor = System.Drawing.Color.Black;
@@ -878,7 +879,7 @@ namespace MES.Order.UI.New
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(138, 509);
+            this.Root.Size = new System.Drawing.Size(134, 535);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -907,8 +908,8 @@ namespace MES.Order.UI.New
             this.layoutControlGroup1.OptionsPrint.AppearanceItemControl.Options.UseFont = true;
             this.layoutControlGroup1.OptionsPrint.AppearanceItemText.BorderColor = System.Drawing.Color.Black;
             this.layoutControlGroup1.OptionsPrint.AppearanceItemText.Options.UseBorderColor = true;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(138, 509);
-            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(7, 7, 7, 7);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(134, 535);
+            this.layoutControlGroup1.Spacing = new DevExpress.XtraLayout.Utils.Padding(3, 3, 3, 3);
             // 
             // layoutControlGroup2
             // 
@@ -940,21 +941,21 @@ namespace MES.Order.UI.New
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AutoSize;
-            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
-            this.layoutControlGroup2.Size = new System.Drawing.Size(138, 509);
+            this.layoutControlGroup2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(134, 535);
             this.layoutControlGroup2.Spacing = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.layoutControlGroup2.Text = "查詢";
             this.layoutControlGroup2.TextVisible = false;
             // 
             // ItemForOrderDateE
             // 
-            this.ItemForOrderDateE.AppearanceItemCaption.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemForOrderDateE.AppearanceItemCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemForOrderDateE.AppearanceItemCaption.Options.UseFont = true;
             this.ItemForOrderDateE.AppearanceItemCaptionDisabled.BorderColor = System.Drawing.Color.Black;
             this.ItemForOrderDateE.AppearanceItemCaptionDisabled.Options.UseBorderColor = true;
             this.ItemForOrderDateE.Control = this.QueryOrderDateEDateEdit;
             this.ItemForOrderDateE.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.filterOrderInfoBindingSource, "OrderDateEnd", true));
-            this.ItemForOrderDateE.Location = new System.Drawing.Point(0, 58);
+            this.ItemForOrderDateE.Location = new System.Drawing.Point(0, 51);
             this.ItemForOrderDateE.Name = "ItemForOrderDateE";
             this.ItemForOrderDateE.OptionsPrint.AppearanceItem.BorderColor = System.Drawing.Color.Black;
             this.ItemForOrderDateE.OptionsPrint.AppearanceItem.Options.UseBorderColor = true;
@@ -962,23 +963,23 @@ namespace MES.Order.UI.New
             this.ItemForOrderDateE.OptionsPrint.AppearanceItemControl.Options.UseBorderColor = true;
             this.ItemForOrderDateE.OptionsPrint.AppearanceItemText.BorderColor = System.Drawing.Color.Black;
             this.ItemForOrderDateE.OptionsPrint.AppearanceItemText.Options.UseBorderColor = true;
-            this.ItemForOrderDateE.Size = new System.Drawing.Size(128, 58);
-            this.ItemForOrderDateE.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForOrderDateE.Size = new System.Drawing.Size(128, 51);
+            this.ItemForOrderDateE.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForOrderDateE.Text = "訂貨迄日";
             this.ItemForOrderDateE.TextLocation = DevExpress.Utils.Locations.Top;
             this.ItemForOrderDateE.TextSize = new System.Drawing.Size(60, 19);
             // 
             // ItemForOrderDateS
             // 
-            this.ItemForOrderDateS.AppearanceItemCaption.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemForOrderDateS.AppearanceItemCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemForOrderDateS.AppearanceItemCaption.Options.UseFont = true;
             this.ItemForOrderDateS.Control = this.QueryOrderDateSDateEdit;
             this.ItemForOrderDateS.Location = new System.Drawing.Point(0, 0);
             this.ItemForOrderDateS.Name = "ItemForOrderDateS";
             this.ItemForOrderDateS.OptionsPrint.AppearanceItem.BorderColor = System.Drawing.Color.Black;
             this.ItemForOrderDateS.OptionsPrint.AppearanceItem.Options.UseBorderColor = true;
-            this.ItemForOrderDateS.Size = new System.Drawing.Size(128, 58);
-            this.ItemForOrderDateS.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForOrderDateS.Size = new System.Drawing.Size(128, 51);
+            this.ItemForOrderDateS.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForOrderDateS.Text = "訂貨起日";
             this.ItemForOrderDateS.TextLocation = DevExpress.Utils.Locations.Top;
             this.ItemForOrderDateS.TextSize = new System.Drawing.Size(60, 19);
@@ -986,10 +987,10 @@ namespace MES.Order.UI.New
             // qqq
             // 
             this.qqq.Control = this.btn_Query;
-            this.qqq.Location = new System.Drawing.Point(0, 116);
+            this.qqq.Location = new System.Drawing.Point(0, 102);
             this.qqq.Name = "qqq";
-            this.qqq.Padding = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
-            this.qqq.Size = new System.Drawing.Size(128, 52);
+            this.qqq.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.qqq.Size = new System.Drawing.Size(128, 58);
             this.qqq.TextSize = new System.Drawing.Size(0, 0);
             this.qqq.TextVisible = false;
             this.qqq.Click += new System.EventHandler(this.button_Query_Click);
@@ -997,9 +998,9 @@ namespace MES.Order.UI.New
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 168);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 160);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(128, 331);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(128, 369);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // MessageTextBox
@@ -1007,12 +1008,13 @@ namespace MES.Order.UI.New
             this.MessageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.MessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.csyPanel1.SetColumn(this.MessageTextBox, 0);
-            this.MessageTextBox.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.MessageTextBox.Location = new System.Drawing.Point(3, 13);
+            this.MessageTextBox.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MessageTextBox.Location = new System.Drawing.Point(1, 32);
+            this.MessageTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.MessageTextBox.Name = "MessageTextBox";
             this.MessageTextBox.ReadOnly = true;
             this.csyPanel1.SetRow(this.MessageTextBox, 0);
-            this.MessageTextBox.Size = new System.Drawing.Size(385, 74);
+            this.MessageTextBox.Size = new System.Drawing.Size(387, 36);
             this.MessageTextBox.TabIndex = 4;
             this.MessageTextBox.Text = "";
             this.MessageTextBox.ZoomFactor = 0.8F;
@@ -1047,20 +1049,21 @@ namespace MES.Order.UI.New
             this.dataLayoutControl2.Controls.Add(this.CustomerTextEdit);
             this.dataLayoutControl2.Controls.Add(this.ProductTextEdit);
             this.dataLayoutControl2.Controls.Add(this.CountTextEdit);
-            this.dataLayoutControl2.Controls.Add(this.ColorSpecTextEdit);
             this.dataLayoutControl2.Controls.Add(this.SizSpecTextEdit);
             this.dataLayoutControl2.Controls.Add(this.AreaTextEdit);
             this.dataLayoutControl2.Controls.Add(this.FactoryTextEdit);
+            this.dataLayoutControl2.Controls.Add(this.ColorSpecTextEdit);
             this.dataLayoutControl2.DataSource = this.orderInfoRequestBindingSource;
             this.dataLayoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataLayoutControl2.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.ItemForArea,
             this.ItemForFactory});
             this.dataLayoutControl2.Location = new System.Drawing.Point(0, 0);
+            this.dataLayoutControl2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.dataLayoutControl2.Name = "dataLayoutControl2";
             this.dataLayoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(2599, 132, 834, 533);
             this.dataLayoutControl2.Root = this.layoutControlGroup3;
-            this.dataLayoutControl2.Size = new System.Drawing.Size(537, 101);
+            this.dataLayoutControl2.Size = new System.Drawing.Size(529, 101);
             this.dataLayoutControl2.TabIndex = 22;
             this.dataLayoutControl2.Text = "dataLayoutControl2";
             // 
@@ -1071,7 +1074,8 @@ namespace MES.Order.UI.New
             this.RemarkTextEdit.BorderRadius = 5;
             this.RemarkTextEdit.BorderSize = 0;
             this.RemarkTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "Remark", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.RemarkTextEdit.Location = new System.Drawing.Point(265, 74);
+            this.RemarkTextEdit.Location = new System.Drawing.Point(267, 50);
+            this.RemarkTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.RemarkTextEdit.MenuManager = this.barManager1;
             this.RemarkTextEdit.Name = "RemarkTextEdit";
             this.RemarkTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
@@ -1079,7 +1083,7 @@ namespace MES.Order.UI.New
             this.RemarkTextEdit.Properties.Appearance.Options.UseBackColor = true;
             this.RemarkTextEdit.Properties.Appearance.Options.UseForeColor = true;
             this.RemarkTextEdit.Properties.NullValuePrompt = "請輸入備註";
-            this.RemarkTextEdit.Size = new System.Drawing.Size(121, 26);
+            this.RemarkTextEdit.Size = new System.Drawing.Size(127, 20);
             this.RemarkTextEdit.StyleController = this.dataLayoutControl2;
             this.RemarkTextEdit.TabIndex = 11;
             this.RemarkTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -1095,7 +1099,8 @@ namespace MES.Order.UI.New
             this.CustomerTextEdit.BorderRadius = 5;
             this.CustomerTextEdit.BorderSize = 0;
             this.CustomerTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "Customer", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.CustomerTextEdit.Location = new System.Drawing.Point(4, 4);
+            this.CustomerTextEdit.Location = new System.Drawing.Point(2, 2);
+            this.CustomerTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CustomerTextEdit.MenuManager = this.barManager1;
             this.CustomerTextEdit.Name = "CustomerTextEdit";
             this.CustomerTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -1113,7 +1118,7 @@ namespace MES.Order.UI.New
             this.CustomerTextEdit.Properties.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
             this.CustomerTextEdit.Properties.ValueMember = "Customer";
-            this.CustomerTextEdit.Size = new System.Drawing.Size(512, 26);
+            this.CustomerTextEdit.Size = new System.Drawing.Size(525, 20);
             this.CustomerTextEdit.StyleController = this.dataLayoutControl2;
             this.CustomerTextEdit.TabIndex = 5;
             this.CustomerTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1131,6 +1136,7 @@ namespace MES.Order.UI.New
             this.colCreateDate,
             this.colUpdateDate2,
             this.colUpdateUser});
+            this.gridView_AddCustomer.DetailHeight = 171;
             this.gridView_AddCustomer.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView_AddCustomer.Name = "gridView_AddCustomer";
             this.gridView_AddCustomer.NewItemRowText = "點兩下新增客戶";
@@ -1146,18 +1152,22 @@ namespace MES.Order.UI.New
             // colAreaCustomer
             // 
             this.colAreaCustomer.FieldName = "AreaCustomer";
+            this.colAreaCustomer.MinWidth = 10;
             this.colAreaCustomer.Name = "colAreaCustomer";
+            this.colAreaCustomer.Width = 36;
             // 
             // colAddArea
             // 
             this.colAddArea.ColumnEdit = this.repositoryItemLookUpEdit2;
             this.colAddArea.FieldName = "Area";
+            this.colAddArea.MinWidth = 10;
             this.colAddArea.Name = "colAddArea";
             this.colAddArea.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.Top;
             this.colAddArea.OptionsEditForm.RowSpan = 2;
             this.colAddArea.OptionsEditForm.UseEditorColRowSpan = false;
             this.colAddArea.Visible = true;
             this.colAddArea.VisibleIndex = 0;
+            this.colAddArea.Width = 36;
             // 
             // repositoryItemLookUpEdit2
             // 
@@ -1173,54 +1183,68 @@ namespace MES.Order.UI.New
             // colAddCustomer
             // 
             this.colAddCustomer.FieldName = "Customer";
+            this.colAddCustomer.MinWidth = 10;
             this.colAddCustomer.Name = "colAddCustomer";
             this.colAddCustomer.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.Top;
             this.colAddCustomer.OptionsEditForm.RowSpan = 2;
             this.colAddCustomer.OptionsEditForm.UseEditorColRowSpan = false;
             this.colAddCustomer.Visible = true;
             this.colAddCustomer.VisibleIndex = 1;
+            this.colAddCustomer.Width = 36;
             // 
             // colFaceBookId
             // 
             this.colFaceBookId.FieldName = "FaceBookId";
+            this.colFaceBookId.MinWidth = 10;
             this.colFaceBookId.Name = "colFaceBookId";
             this.colFaceBookId.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.Top;
             this.colFaceBookId.OptionsEditForm.RowSpan = 2;
             this.colFaceBookId.OptionsEditForm.UseEditorColRowSpan = false;
             this.colFaceBookId.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colFaceBookId.Width = 36;
             // 
             // colFaceBookLink
             // 
             this.colFaceBookLink.FieldName = "FaceBookLink";
+            this.colFaceBookLink.MinWidth = 10;
             this.colFaceBookLink.Name = "colFaceBookLink";
             this.colFaceBookLink.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.Top;
             this.colFaceBookLink.OptionsEditForm.RowSpan = 2;
             this.colFaceBookLink.OptionsEditForm.UseEditorColRowSpan = false;
             this.colFaceBookLink.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colFaceBookLink.Width = 36;
             // 
             // colRemark1
             // 
             this.colRemark1.FieldName = "Remark";
+            this.colRemark1.MinWidth = 10;
             this.colRemark1.Name = "colRemark1";
             this.colRemark1.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.Top;
             this.colRemark1.OptionsEditForm.RowSpan = 2;
             this.colRemark1.OptionsEditForm.UseEditorColRowSpan = false;
             this.colRemark1.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colRemark1.Width = 36;
             // 
             // colCreateDate
             // 
             this.colCreateDate.FieldName = "CreateDate";
+            this.colCreateDate.MinWidth = 10;
             this.colCreateDate.Name = "colCreateDate";
+            this.colCreateDate.Width = 36;
             // 
             // colUpdateDate2
             // 
             this.colUpdateDate2.FieldName = "UpdateDate";
+            this.colUpdateDate2.MinWidth = 10;
             this.colUpdateDate2.Name = "colUpdateDate2";
+            this.colUpdateDate2.Width = 36;
             // 
             // colUpdateUser
             // 
             this.colUpdateUser.FieldName = "UpdateUser";
+            this.colUpdateUser.MinWidth = 10;
             this.colUpdateUser.Name = "colUpdateUser";
+            this.colUpdateUser.Width = 36;
             // 
             // ProductTextEdit
             // 
@@ -1229,7 +1253,8 @@ namespace MES.Order.UI.New
             this.ProductTextEdit.BorderRadius = 5;
             this.ProductTextEdit.BorderSize = 0;
             this.ProductTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "Product", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ProductTextEdit.Location = new System.Drawing.Point(5, 39);
+            this.ProductTextEdit.Location = new System.Drawing.Point(2, 26);
+            this.ProductTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ProductTextEdit.MenuManager = this.barManager1;
             this.ProductTextEdit.Name = "ProductTextEdit";
             this.ProductTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -1250,7 +1275,7 @@ namespace MES.Order.UI.New
             this.repositoryItemLookUpEdit3,
             this.ProductType_ComboBox});
             this.ProductTextEdit.Properties.ValueMember = "Product";
-            this.ProductTextEdit.Size = new System.Drawing.Size(510, 26);
+            this.ProductTextEdit.Size = new System.Drawing.Size(525, 20);
             this.ProductTextEdit.StyleController = this.dataLayoutControl2;
             this.ProductTextEdit.TabIndex = 7;
             this.ProductTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1268,6 +1293,7 @@ namespace MES.Order.UI.New
             this.colProfit,
             this.colImage,
             this.colProductWebSite});
+            this.gridView_AddProduct.DetailHeight = 171;
             this.gridView_AddProduct.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView_AddProduct.Name = "gridView_AddProduct";
             this.gridView_AddProduct.NewItemRowText = "點兩下新增產品";
@@ -1285,12 +1311,15 @@ namespace MES.Order.UI.New
             // colFactoryProduct
             // 
             this.colFactoryProduct.FieldName = "FactoryProduct";
+            this.colFactoryProduct.MinWidth = 10;
             this.colFactoryProduct.Name = "colFactoryProduct";
+            this.colFactoryProduct.Width = 36;
             // 
             // colAddFactory
             // 
             this.colAddFactory.ColumnEdit = this.repositoryItemLookUpEdit3;
             this.colAddFactory.FieldName = "Factory";
+            this.colAddFactory.MinWidth = 10;
             this.colAddFactory.Name = "colAddFactory";
             this.colAddFactory.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colAddFactory.OptionsEditForm.ColumnSpan = 2;
@@ -1299,6 +1328,7 @@ namespace MES.Order.UI.New
             this.colAddFactory.OptionsEditForm.UseEditorColRowSpan = false;
             this.colAddFactory.Visible = true;
             this.colAddFactory.VisibleIndex = 1;
+            this.colAddFactory.Width = 36;
             // 
             // repositoryItemLookUpEdit3
             // 
@@ -1315,6 +1345,7 @@ namespace MES.Order.UI.New
             // colAddProduct
             // 
             this.colAddProduct.FieldName = "Product";
+            this.colAddProduct.MinWidth = 10;
             this.colAddProduct.Name = "colAddProduct";
             this.colAddProduct.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colAddProduct.OptionsEditForm.ColumnSpan = 2;
@@ -1323,11 +1354,13 @@ namespace MES.Order.UI.New
             this.colAddProduct.OptionsEditForm.UseEditorColRowSpan = false;
             this.colAddProduct.Visible = true;
             this.colAddProduct.VisibleIndex = 0;
+            this.colAddProduct.Width = 36;
             // 
             // colProductType
             // 
             this.colProductType.ColumnEdit = this.ProductType_ComboBox;
             this.colProductType.FieldName = "ProductType";
+            this.colProductType.MinWidth = 10;
             this.colProductType.Name = "colProductType";
             this.colProductType.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colProductType.OptionsEditForm.ColumnSpan = 2;
@@ -1335,6 +1368,7 @@ namespace MES.Order.UI.New
             this.colProductType.OptionsEditForm.StartNewRow = true;
             this.colProductType.OptionsEditForm.UseEditorColRowSpan = false;
             this.colProductType.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colProductType.Width = 36;
             // 
             // ProductType_ComboBox
             // 
@@ -1346,6 +1380,7 @@ namespace MES.Order.UI.New
             // colPrice
             // 
             this.colPrice.FieldName = "Price";
+            this.colPrice.MinWidth = 10;
             this.colPrice.Name = "colPrice";
             this.colPrice.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colPrice.OptionsEditForm.ColumnSpan = 2;
@@ -1353,10 +1388,12 @@ namespace MES.Order.UI.New
             this.colPrice.OptionsEditForm.StartNewRow = true;
             this.colPrice.OptionsEditForm.UseEditorColRowSpan = false;
             this.colPrice.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colPrice.Width = 36;
             // 
             // colCost
             // 
             this.colCost.FieldName = "Cost";
+            this.colCost.MinWidth = 10;
             this.colCost.Name = "colCost";
             this.colCost.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colCost.OptionsEditForm.ColumnSpan = 2;
@@ -1364,10 +1401,12 @@ namespace MES.Order.UI.New
             this.colCost.OptionsEditForm.StartNewRow = true;
             this.colCost.OptionsEditForm.UseEditorColRowSpan = false;
             this.colCost.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colCost.Width = 36;
             // 
             // colProfit
             // 
             this.colProfit.FieldName = "Profit";
+            this.colProfit.MinWidth = 10;
             this.colProfit.Name = "colProfit";
             this.colProfit.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colProfit.OptionsEditForm.ColumnSpan = 2;
@@ -1375,10 +1414,12 @@ namespace MES.Order.UI.New
             this.colProfit.OptionsEditForm.StartNewRow = true;
             this.colProfit.OptionsEditForm.UseEditorColRowSpan = false;
             this.colProfit.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colProfit.Width = 36;
             // 
             // colImage
             // 
             this.colImage.FieldName = "Image";
+            this.colImage.MinWidth = 10;
             this.colImage.Name = "colImage";
             this.colImage.OptionsEditForm.Caption = "圖片:";
             this.colImage.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
@@ -1387,10 +1428,12 @@ namespace MES.Order.UI.New
             this.colImage.OptionsEditForm.StartNewRow = true;
             this.colImage.OptionsEditForm.UseEditorColRowSpan = false;
             this.colImage.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colImage.Width = 36;
             // 
             // colProductWebSite
             // 
             this.colProductWebSite.FieldName = "ProductWebSite";
+            this.colProductWebSite.MinWidth = 10;
             this.colProductWebSite.Name = "colProductWebSite";
             this.colProductWebSite.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colProductWebSite.OptionsEditForm.ColumnSpan = 2;
@@ -1398,6 +1441,7 @@ namespace MES.Order.UI.New
             this.colProductWebSite.OptionsEditForm.StartNewRow = true;
             this.colProductWebSite.OptionsEditForm.UseEditorColRowSpan = false;
             this.colProductWebSite.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
+            this.colProductWebSite.Width = 36;
             // 
             // CountTextEdit
             // 
@@ -1411,7 +1455,8 @@ namespace MES.Order.UI.New
             0,
             0,
             0});
-            this.CountTextEdit.Location = new System.Drawing.Point(4, 74);
+            this.CountTextEdit.Location = new System.Drawing.Point(2, 50);
+            this.CountTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.CountTextEdit.MenuManager = this.barManager1;
             this.CountTextEdit.Name = "CountTextEdit";
             this.CountTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
@@ -1426,39 +1471,10 @@ namespace MES.Order.UI.New
             this.CountTextEdit.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.CountTextEdit.Properties.MaskSettings.Set("mask", "N0");
             this.CountTextEdit.Properties.NullValuePrompt = "請輸入訂購數量";
-            this.CountTextEdit.Size = new System.Drawing.Size(123, 26);
+            this.CountTextEdit.Size = new System.Drawing.Size(129, 20);
             this.CountTextEdit.StyleController = this.dataLayoutControl2;
             this.CountTextEdit.TabIndex = 8;
             this.CountTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            // 
-            // ColorSpecTextEdit
-            // 
-            this.ColorSpecTextEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
-            this.ColorSpecTextEdit.BorderColor = System.Drawing.Color.Transparent;
-            this.ColorSpecTextEdit.BorderRadius = 5;
-            this.ColorSpecTextEdit.BorderSize = 0;
-            this.ColorSpecTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "ColorSpec", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ColorSpecTextEdit.Location = new System.Drawing.Point(135, 74);
-            this.ColorSpecTextEdit.MenuManager = this.barManager1;
-            this.ColorSpecTextEdit.Name = "ColorSpecTextEdit";
-            this.ColorSpecTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
-            this.ColorSpecTextEdit.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            this.ColorSpecTextEdit.Properties.Appearance.Options.UseBackColor = true;
-            this.ColorSpecTextEdit.Properties.Appearance.Options.UseForeColor = true;
-            this.ColorSpecTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ColorSpecTextEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 49, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 138, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.ColorSpecTextEdit.Properties.DataSource = this.keyAndNameBindingSource;
-            this.ColorSpecTextEdit.Properties.DisplayMember = "Code";
-            this.ColorSpecTextEdit.Properties.NullText = "";
-            this.ColorSpecTextEdit.Properties.NullValuePrompt = "請輸入顏色規格";
-            this.ColorSpecTextEdit.Properties.ValueMember = "Code";
-            this.ColorSpecTextEdit.Size = new System.Drawing.Size(122, 26);
-            this.ColorSpecTextEdit.StyleController = this.dataLayoutControl2;
-            this.ColorSpecTextEdit.TabIndex = 9;
-            this.ColorSpecTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             // 
             // SizSpecTextEdit
             // 
@@ -1467,7 +1483,8 @@ namespace MES.Order.UI.New
             this.SizSpecTextEdit.BorderRadius = 5;
             this.SizSpecTextEdit.BorderSize = 0;
             this.SizSpecTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "SizSpec", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.SizSpecTextEdit.Location = new System.Drawing.Point(394, 74);
+            this.SizSpecTextEdit.Location = new System.Drawing.Point(398, 50);
+            this.SizSpecTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.SizSpecTextEdit.MenuManager = this.barManager1;
             this.SizSpecTextEdit.Name = "SizSpecTextEdit";
             this.SizSpecTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
@@ -1477,14 +1494,14 @@ namespace MES.Order.UI.New
             this.SizSpecTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.SizSpecTextEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 49, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 138, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 24, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.SizSpecTextEdit.Properties.DataSource = this.keyAndNameBindingSource;
             this.SizSpecTextEdit.Properties.DisplayMember = "Code";
             this.SizSpecTextEdit.Properties.NullText = "";
             this.SizSpecTextEdit.Properties.NullValuePrompt = "請輸入尺寸規格";
             this.SizSpecTextEdit.Properties.ValueMember = "Code";
-            this.SizSpecTextEdit.Size = new System.Drawing.Size(122, 26);
+            this.SizSpecTextEdit.Size = new System.Drawing.Size(129, 20);
             this.SizSpecTextEdit.StyleController = this.dataLayoutControl2;
             this.SizSpecTextEdit.TabIndex = 10;
             this.SizSpecTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1496,7 +1513,8 @@ namespace MES.Order.UI.New
             this.AreaTextEdit.BorderRadius = 5;
             this.AreaTextEdit.BorderSize = 0;
             this.AreaTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "Area", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.AreaTextEdit.Location = new System.Drawing.Point(242, 4);
+            this.AreaTextEdit.Location = new System.Drawing.Point(118, 2);
+            this.AreaTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.AreaTextEdit.MenuManager = this.barManager1;
             this.AreaTextEdit.Name = "AreaTextEdit";
             this.AreaTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -1513,7 +1531,7 @@ namespace MES.Order.UI.New
             this.AreaTextEdit.Properties.NullValuePrompt = "請輸入地區";
             this.AreaTextEdit.Properties.PopupView = this.gridView_AddArea;
             this.AreaTextEdit.Properties.ValueMember = "Area";
-            this.AreaTextEdit.Size = new System.Drawing.Size(114, 26);
+            this.AreaTextEdit.Size = new System.Drawing.Size(56, 20);
             this.AreaTextEdit.StyleController = this.dataLayoutControl2;
             this.AreaTextEdit.TabIndex = 4;
             this.AreaTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1522,6 +1540,7 @@ namespace MES.Order.UI.New
             // 
             this.gridView_AddArea.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colArea3});
+            this.gridView_AddArea.DetailHeight = 171;
             this.gridView_AddArea.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView_AddArea.Name = "gridView_AddArea";
             this.gridView_AddArea.NewItemRowText = "點兩下新增";
@@ -1533,9 +1552,11 @@ namespace MES.Order.UI.New
             // colArea3
             // 
             this.colArea3.FieldName = "Area";
+            this.colArea3.MinWidth = 10;
             this.colArea3.Name = "colArea3";
             this.colArea3.Visible = true;
             this.colArea3.VisibleIndex = 0;
+            this.colArea3.Width = 36;
             // 
             // FactoryTextEdit
             // 
@@ -1544,7 +1565,8 @@ namespace MES.Order.UI.New
             this.FactoryTextEdit.BorderRadius = 5;
             this.FactoryTextEdit.BorderSize = 0;
             this.FactoryTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "Factory", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.FactoryTextEdit.Location = new System.Drawing.Point(238, 38);
+            this.FactoryTextEdit.Location = new System.Drawing.Point(117, 19);
+            this.FactoryTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.FactoryTextEdit.MenuManager = this.barManager1;
             this.FactoryTextEdit.Name = "FactoryTextEdit";
             this.FactoryTextEdit.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -1560,7 +1582,7 @@ namespace MES.Order.UI.New
             this.FactoryTextEdit.Properties.NullValuePrompt = "請輸入廠商";
             this.FactoryTextEdit.Properties.PopupView = this.gridView_AddFactory;
             this.FactoryTextEdit.Properties.ValueMember = "Factory";
-            this.FactoryTextEdit.Size = new System.Drawing.Size(112, 26);
+            this.FactoryTextEdit.Size = new System.Drawing.Size(55, 20);
             this.FactoryTextEdit.StyleController = this.dataLayoutControl2;
             this.FactoryTextEdit.TabIndex = 6;
             this.FactoryTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
@@ -1570,6 +1592,7 @@ namespace MES.Order.UI.New
             this.gridView_AddFactory.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colFactory1,
             this.colFactoryWebSit});
+            this.gridView_AddFactory.DetailHeight = 171;
             this.gridView_AddFactory.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView_AddFactory.Name = "gridView_AddFactory";
             this.gridView_AddFactory.NewItemRowText = "點兩下新增";
@@ -1586,6 +1609,7 @@ namespace MES.Order.UI.New
             // colFactory1
             // 
             this.colFactory1.FieldName = "Factory";
+            this.colFactory1.MinWidth = 10;
             this.colFactory1.Name = "colFactory1";
             this.colFactory1.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colFactory1.OptionsEditForm.RowSpan = 2;
@@ -1593,17 +1617,41 @@ namespace MES.Order.UI.New
             this.colFactory1.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
             this.colFactory1.Visible = true;
             this.colFactory1.VisibleIndex = 0;
-            this.colFactory1.Width = 50;
+            this.colFactory1.Width = 24;
             // 
             // colFactoryWebSit
             // 
             this.colFactoryWebSit.FieldName = "FactoryWebSit";
+            this.colFactoryWebSit.MinWidth = 10;
             this.colFactoryWebSit.Name = "colFactoryWebSit";
             this.colFactoryWebSit.OptionsEditForm.CaptionLocation = DevExpress.XtraGrid.EditForm.EditFormColumnCaptionLocation.None;
             this.colFactoryWebSit.OptionsEditForm.RowSpan = 2;
             this.colFactoryWebSit.OptionsEditForm.UseEditorColRowSpan = false;
             this.colFactoryWebSit.OptionsEditForm.Visible = DevExpress.Utils.DefaultBoolean.True;
-            this.colFactoryWebSit.Width = 50;
+            this.colFactoryWebSit.Width = 24;
+            // 
+            // ColorSpecTextEdit
+            // 
+            this.ColorSpecTextEdit.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
+            this.ColorSpecTextEdit.BorderColor = System.Drawing.Color.Transparent;
+            this.ColorSpecTextEdit.BorderRadius = 5;
+            this.ColorSpecTextEdit.BorderSize = 0;
+            this.ColorSpecTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.orderInfoRequestBindingSource, "ColorSpec", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ColorSpecTextEdit.Location = new System.Drawing.Point(135, 50);
+            this.ColorSpecTextEdit.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ColorSpecTextEdit.MenuManager = this.barManager1;
+            this.ColorSpecTextEdit.Name = "ColorSpecTextEdit";
+            this.ColorSpecTextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(194)))), ((int)(((byte)(162)))));
+            this.ColorSpecTextEdit.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            this.ColorSpecTextEdit.Properties.Appearance.Options.UseBackColor = true;
+            this.ColorSpecTextEdit.Properties.Appearance.Options.UseForeColor = true;
+            this.ColorSpecTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ColorSpecTextEdit.Properties.NullValuePrompt = "請輸入顏色規格";
+            this.ColorSpecTextEdit.Size = new System.Drawing.Size(128, 20);
+            this.ColorSpecTextEdit.StyleController = this.dataLayoutControl2;
+            this.ColorSpecTextEdit.TabIndex = 9;
+            this.ColorSpecTextEdit.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
             // 
             // ItemForArea
             // 
@@ -1612,7 +1660,7 @@ namespace MES.Order.UI.New
             this.ItemForArea.Name = "ItemForArea";
             this.ItemForArea.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.ItemForArea.Size = new System.Drawing.Size(122, 34);
-            this.ItemForArea.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForArea.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForArea.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForArea.TextVisible = false;
             // 
@@ -1623,7 +1671,7 @@ namespace MES.Order.UI.New
             this.ItemForFactory.Name = "ItemForFactory";
             this.ItemForFactory.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
             this.ItemForFactory.Size = new System.Drawing.Size(120, 36);
-            this.ItemForFactory.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForFactory.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForFactory.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForFactory.TextVisible = false;
             // 
@@ -1634,7 +1682,7 @@ namespace MES.Order.UI.New
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup4});
             this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(520, 104);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(529, 101);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlGroup4
@@ -1650,27 +1698,27 @@ namespace MES.Order.UI.New
             this.ItemForSizSpec});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(520, 104);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(529, 101);
             // 
             // ItemForCount
             // 
             this.ItemForCount.Control = this.CountTextEdit;
-            this.ItemForCount.Location = new System.Drawing.Point(0, 70);
+            this.ItemForCount.Location = new System.Drawing.Point(0, 48);
             this.ItemForCount.Name = "ItemForCount";
             this.ItemForCount.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForCount.Size = new System.Drawing.Size(131, 34);
-            this.ItemForCount.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForCount.Size = new System.Drawing.Size(133, 53);
+            this.ItemForCount.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForCount.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForCount.TextVisible = false;
             // 
             // ItemForProduct
             // 
             this.ItemForProduct.Control = this.ProductTextEdit;
-            this.ItemForProduct.Location = new System.Drawing.Point(0, 34);
+            this.ItemForProduct.Location = new System.Drawing.Point(0, 24);
             this.ItemForProduct.Name = "ItemForProduct";
             this.ItemForProduct.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForProduct.Size = new System.Drawing.Size(520, 36);
-            this.ItemForProduct.Spacing = new DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5);
+            this.ItemForProduct.Size = new System.Drawing.Size(529, 24);
+            this.ItemForProduct.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForProduct.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForProduct.TextVisible = false;
             // 
@@ -1680,41 +1728,41 @@ namespace MES.Order.UI.New
             this.ItemForCustomer.Location = new System.Drawing.Point(0, 0);
             this.ItemForCustomer.Name = "ItemForCustomer";
             this.ItemForCustomer.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForCustomer.Size = new System.Drawing.Size(520, 34);
-            this.ItemForCustomer.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForCustomer.Size = new System.Drawing.Size(529, 24);
+            this.ItemForCustomer.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForCustomer.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForCustomer.TextVisible = false;
             // 
             // ItemForColorSpec
             // 
             this.ItemForColorSpec.Control = this.ColorSpecTextEdit;
-            this.ItemForColorSpec.Location = new System.Drawing.Point(131, 70);
+            this.ItemForColorSpec.Location = new System.Drawing.Point(133, 48);
             this.ItemForColorSpec.Name = "ItemForColorSpec";
             this.ItemForColorSpec.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForColorSpec.Size = new System.Drawing.Size(130, 34);
-            this.ItemForColorSpec.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForColorSpec.Size = new System.Drawing.Size(132, 53);
+            this.ItemForColorSpec.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForColorSpec.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForColorSpec.TextVisible = false;
             // 
             // ItemForRemark
             // 
             this.ItemForRemark.Control = this.RemarkTextEdit;
-            this.ItemForRemark.Location = new System.Drawing.Point(261, 70);
+            this.ItemForRemark.Location = new System.Drawing.Point(265, 48);
             this.ItemForRemark.Name = "ItemForRemark";
             this.ItemForRemark.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForRemark.Size = new System.Drawing.Size(129, 34);
-            this.ItemForRemark.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForRemark.Size = new System.Drawing.Size(131, 53);
+            this.ItemForRemark.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForRemark.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForRemark.TextVisible = false;
             // 
             // ItemForSizSpec
             // 
             this.ItemForSizSpec.Control = this.SizSpecTextEdit;
-            this.ItemForSizSpec.Location = new System.Drawing.Point(390, 70);
+            this.ItemForSizSpec.Location = new System.Drawing.Point(396, 48);
             this.ItemForSizSpec.Name = "ItemForSizSpec";
             this.ItemForSizSpec.Padding = new DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0);
-            this.ItemForSizSpec.Size = new System.Drawing.Size(130, 34);
-            this.ItemForSizSpec.Spacing = new DevExpress.XtraLayout.Utils.Padding(4, 4, 4, 4);
+            this.ItemForSizSpec.Size = new System.Drawing.Size(133, 53);
+            this.ItemForSizSpec.Spacing = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
             this.ItemForSizSpec.TextSize = new System.Drawing.Size(0, 0);
             this.ItemForSizSpec.TextVisible = false;
             // 
@@ -1733,26 +1781,27 @@ namespace MES.Order.UI.New
             this.csyPanel1.Controls.Add(this.MessageTextBox);
             this.csyPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.csyPanel1.Location = new System.Drawing.Point(0, 0);
+            this.csyPanel1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.csyPanel1.Name = "csyPanel1";
             this.csyPanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 89F)});
-            this.csyPanel1.Size = new System.Drawing.Size(391, 101);
+            this.csyPanel1.Size = new System.Drawing.Size(389, 101);
             this.csyPanel1.TabIndex = 4;
             // 
             // focusTabPage
             // 
-            this.focusTabPage.Appearance.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.focusTabPage.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.focusTabPage.Appearance.Options.UseFont = true;
-            this.focusTabPage.AppearancePage.Header.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
+            this.focusTabPage.AppearancePage.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F);
             this.focusTabPage.AppearancePage.Header.Options.UseFont = true;
-            this.focusTabPage.AppearancePage.HeaderActive.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
+            this.focusTabPage.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F);
             this.focusTabPage.AppearancePage.HeaderActive.Options.UseFont = true;
             this.focusTabPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.focusTabPage.Location = new System.Drawing.Point(0, 0);
-            this.focusTabPage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.focusTabPage.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.focusTabPage.Name = "focusTabPage";
             this.focusTabPage.SelectedTabPage = this.xtraTabPage1;
-            this.focusTabPage.Size = new System.Drawing.Size(932, 457);
+            this.focusTabPage.Size = new System.Drawing.Size(920, 459);
             this.focusTabPage.TabIndex = 32;
             this.focusTabPage.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -1761,9 +1810,9 @@ namespace MES.Order.UI.New
             // xtraTabPage1
             // 
             this.xtraTabPage1.Controls.Add(this.gridControl_ProductOrder);
-            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(926, 423);
+            this.xtraTabPage1.Size = new System.Drawing.Size(914, 425);
             this.xtraTabPage1.Text = "查詢結果";
             // 
             // gridControl_ProductOrder
@@ -1772,10 +1821,12 @@ namespace MES.Order.UI.New
             this.gridControl_ProductOrder.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
             this.gridControl_ProductOrder.DataSource = this.orderInfoViewModelBindingSource;
             this.gridControl_ProductOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl_ProductOrder.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.gridControl_ProductOrder.Location = new System.Drawing.Point(0, 0);
             this.gridControl_ProductOrder.MainView = this.gridView_ProductOrder;
+            this.gridControl_ProductOrder.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.gridControl_ProductOrder.Name = "gridControl_ProductOrder";
-            this.gridControl_ProductOrder.Size = new System.Drawing.Size(926, 423);
+            this.gridControl_ProductOrder.Size = new System.Drawing.Size(914, 425);
             this.gridControl_ProductOrder.TabIndex = 6;
             this.gridControl_ProductOrder.UseEmbeddedNavigator = true;
             this.gridControl_ProductOrder.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1785,21 +1836,21 @@ namespace MES.Order.UI.New
             // 
             this.gridView_ProductOrder.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(202)))), ((int)(((byte)(195)))));
             this.gridView_ProductOrder.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView_ProductOrder.Appearance.FooterPanel.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
+            this.gridView_ProductOrder.Appearance.FooterPanel.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F);
             this.gridView_ProductOrder.Appearance.FooterPanel.Options.UseFont = true;
-            this.gridView_ProductOrder.Appearance.HeaderPanel.Font = new System.Drawing.Font("微軟正黑體", 11F);
+            this.gridView_ProductOrder.Appearance.HeaderPanel.Font = new System.Drawing.Font("Microsoft JhengHei", 11F);
             this.gridView_ProductOrder.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridView_ProductOrder.Appearance.HeaderPanel.Options.UseTextOptions = true;
             this.gridView_ProductOrder.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView_ProductOrder.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridView_ProductOrder.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridView_ProductOrder.Appearance.Row.Font = new System.Drawing.Font("微軟正黑體", 11F);
+            this.gridView_ProductOrder.Appearance.Row.Font = new System.Drawing.Font("Microsoft JhengHei", 11F);
             this.gridView_ProductOrder.Appearance.Row.Options.UseFont = true;
             this.gridView_ProductOrder.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
             this.gridView_ProductOrder.Appearance.SelectedRow.Options.UseBackColor = true;
             this.gridView_ProductOrder.Appearance.SelectedRow.Options.UseFont = true;
             this.gridView_ProductOrder.Appearance.TopNewRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(180)))), ((int)(((byte)(167)))));
-            this.gridView_ProductOrder.Appearance.TopNewRow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView_ProductOrder.Appearance.TopNewRow.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.gridView_ProductOrder.Appearance.TopNewRow.ForeColor = System.Drawing.Color.White;
             this.gridView_ProductOrder.Appearance.TopNewRow.Options.UseBackColor = true;
             this.gridView_ProductOrder.Appearance.TopNewRow.Options.UseFont = true;
@@ -1809,7 +1860,7 @@ namespace MES.Order.UI.New
             this.gridBand2,
             this.gridBand3,
             this.gridBand4});
-            this.gridView_ProductOrder.ColumnPanelRowHeight = 2;
+            this.gridView_ProductOrder.ColumnPanelRowHeight = 1;
             this.gridView_ProductOrder.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.colArea,
             this.colCustomer,
@@ -1826,7 +1877,7 @@ namespace MES.Order.UI.New
             this.colStatus,
             this.colUpdateDate,
             this.colSelection});
-            this.gridView_ProductOrder.DetailHeight = 500;
+            this.gridView_ProductOrder.DetailHeight = 245;
             this.gridView_ProductOrder.FixedLineWidth = 3;
             this.gridView_ProductOrder.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gridView_ProductOrder.GridControl = this.gridControl_ProductOrder;
@@ -1837,7 +1888,7 @@ namespace MES.Order.UI.New
             this.gridView_ProductOrder.NewItemRowText = "點此新增";
             this.gridView_ProductOrder.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridView_ProductOrder.OptionsFilter.ShowInHeaderSearchTextMode = DevExpress.XtraGrid.Views.Grid.ShowInHeaderSearchTextMode.Tooltip;
-            this.gridView_ProductOrder.OptionsSelection.CheckBoxSelectorColumnWidth = 30;
+            this.gridView_ProductOrder.OptionsSelection.CheckBoxSelectorColumnWidth = 15;
             this.gridView_ProductOrder.OptionsSelection.CheckBoxSelectorField = "Selection";
             this.gridView_ProductOrder.OptionsSelection.MultiSelect = true;
             this.gridView_ProductOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
@@ -1845,8 +1896,8 @@ namespace MES.Order.UI.New
             this.gridView_ProductOrder.OptionsView.BestFitMode = DevExpress.XtraGrid.Views.Grid.GridBestFitMode.Full;
             this.gridView_ProductOrder.OptionsView.ShowFooter = true;
             this.gridView_ProductOrder.OptionsView.ShowGroupPanel = false;
-            this.gridView_ProductOrder.RowHeight = 21;
-            this.gridView_ProductOrder.RowSeparatorHeight = 2;
+            this.gridView_ProductOrder.RowHeight = 10;
+            this.gridView_ProductOrder.RowSeparatorHeight = 1;
             this.gridView_ProductOrder.SelectionChanged += new DevExpress.Data.SelectionChangedEventHandler(this.gridView_ProductOrder_SelectionChanged);
             // 
             // gridBand1
@@ -1866,9 +1917,10 @@ namespace MES.Order.UI.New
             this.gridBand1.ImageOptions.Alignment = System.Drawing.StringAlignment.Center;
             this.gridBand1.ImageOptions.ImageUri.Uri = "business%20objects/bo_department";
             this.gridBand1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("gridBand1.ImageOptions.SvgImage")));
+            this.gridBand1.MinWidth = 7;
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.VisibleIndex = 0;
-            this.gridBand1.Width = 308;
+            this.gridBand1.Width = 150;
             // 
             // colArea
             // 
@@ -1882,11 +1934,12 @@ namespace MES.Order.UI.New
             this.colArea.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colArea.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colArea.FieldName = "Area";
+            this.colArea.MinWidth = 10;
             this.colArea.Name = "colArea";
             this.colArea.OptionsColumn.AllowEdit = false;
             this.colArea.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colArea.Visible = true;
-            this.colArea.Width = 95;
+            this.colArea.Width = 46;
             // 
             // colCustomer
             // 
@@ -1900,11 +1953,12 @@ namespace MES.Order.UI.New
             this.colCustomer.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colCustomer.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colCustomer.FieldName = "Customer";
+            this.colCustomer.MinWidth = 10;
             this.colCustomer.Name = "colCustomer";
             this.colCustomer.OptionsColumn.AllowEdit = false;
             this.colCustomer.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colCustomer.Visible = true;
-            this.colCustomer.Width = 99;
+            this.colCustomer.Width = 48;
             // 
             // colOrderDate
             // 
@@ -1918,23 +1972,28 @@ namespace MES.Order.UI.New
             this.colOrderDate.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colOrderDate.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colOrderDate.FieldName = "OrderDate";
+            this.colOrderDate.MinWidth = 10;
             this.colOrderDate.Name = "colOrderDate";
             this.colOrderDate.OptionsColumn.AllowEdit = false;
             this.colOrderDate.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colOrderDate.Visible = true;
-            this.colOrderDate.Width = 114;
+            this.colOrderDate.Width = 56;
             // 
             // colUpdateDate
             // 
             this.colUpdateDate.FieldName = "UpdateDate";
+            this.colUpdateDate.MinWidth = 10;
             this.colUpdateDate.Name = "colUpdateDate";
             this.colUpdateDate.OptionsColumn.AllowEdit = false;
             this.colUpdateDate.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
+            this.colUpdateDate.Width = 36;
             // 
             // colSelection
             // 
             this.colSelection.FieldName = "Selection";
+            this.colSelection.MinWidth = 10;
             this.colSelection.Name = "colSelection";
+            this.colSelection.Width = 36;
             // 
             // gridBand2
             // 
@@ -1947,9 +2006,10 @@ namespace MES.Order.UI.New
             this.gridBand2.Columns.Add(this.colFactory);
             this.gridBand2.Columns.Add(this.colProduct);
             this.gridBand2.Columns.Add(this.colStatus);
+            this.gridBand2.MinWidth = 7;
             this.gridBand2.Name = "gridBand2";
             this.gridBand2.VisibleIndex = 1;
-            this.gridBand2.Width = 261;
+            this.gridBand2.Width = 128;
             // 
             // colFactory
             // 
@@ -1959,11 +2019,12 @@ namespace MES.Order.UI.New
             this.colFactory.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colFactory.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colFactory.FieldName = "Factory";
+            this.colFactory.MinWidth = 10;
             this.colFactory.Name = "colFactory";
             this.colFactory.OptionsColumn.AllowEdit = false;
             this.colFactory.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colFactory.Visible = true;
-            this.colFactory.Width = 90;
+            this.colFactory.Width = 44;
             // 
             // colProduct
             // 
@@ -1973,11 +2034,12 @@ namespace MES.Order.UI.New
             this.colProduct.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colProduct.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colProduct.FieldName = "Product";
+            this.colProduct.MinWidth = 10;
             this.colProduct.Name = "colProduct";
             this.colProduct.OptionsColumn.AllowEdit = false;
             this.colProduct.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colProduct.Visible = true;
-            this.colProduct.Width = 90;
+            this.colProduct.Width = 44;
             // 
             // colStatus
             // 
@@ -1988,10 +2050,11 @@ namespace MES.Order.UI.New
             this.colStatus.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colStatus.Caption = "狀態";
             this.colStatus.FieldName = "Status";
+            this.colStatus.MinWidth = 10;
             this.colStatus.Name = "colStatus";
             this.colStatus.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colStatus.Visible = true;
-            this.colStatus.Width = 81;
+            this.colStatus.Width = 40;
             // 
             // gridBand3
             // 
@@ -2004,9 +2067,10 @@ namespace MES.Order.UI.New
             this.gridBand3.Columns.Add(this.colColorSpec);
             this.gridBand3.Columns.Add(this.colSizSpec);
             this.gridBand3.Columns.Add(this.colRemark);
+            this.gridBand3.MinWidth = 7;
             this.gridBand3.Name = "gridBand3";
             this.gridBand3.VisibleIndex = 2;
-            this.gridBand3.Width = 221;
+            this.gridBand3.Width = 108;
             // 
             // colColorSpec
             // 
@@ -2017,10 +2081,11 @@ namespace MES.Order.UI.New
             this.colColorSpec.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colColorSpec.Caption = "顏色";
             this.colColorSpec.FieldName = "ColorSpec";
+            this.colColorSpec.MinWidth = 10;
             this.colColorSpec.Name = "colColorSpec";
             this.colColorSpec.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colColorSpec.Visible = true;
-            this.colColorSpec.Width = 71;
+            this.colColorSpec.Width = 35;
             // 
             // colSizSpec
             // 
@@ -2031,10 +2096,11 @@ namespace MES.Order.UI.New
             this.colSizSpec.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colSizSpec.Caption = "尺寸";
             this.colSizSpec.FieldName = "SizSpec";
+            this.colSizSpec.MinWidth = 10;
             this.colSizSpec.Name = "colSizSpec";
             this.colSizSpec.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colSizSpec.Visible = true;
-            this.colSizSpec.Width = 71;
+            this.colSizSpec.Width = 35;
             // 
             // colRemark
             // 
@@ -2044,11 +2110,12 @@ namespace MES.Order.UI.New
             this.colRemark.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colRemark.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colRemark.FieldName = "Remark";
+            this.colRemark.MinWidth = 10;
             this.colRemark.Name = "colRemark";
             this.colRemark.OptionsColumn.AllowEdit = false;
             this.colRemark.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colRemark.Visible = true;
-            this.colRemark.Width = 79;
+            this.colRemark.Width = 38;
             // 
             // gridBand4
             // 
@@ -2062,9 +2129,10 @@ namespace MES.Order.UI.New
             this.gridBand4.Columns.Add(this.colTotalPrice);
             this.gridBand4.Columns.Add(this.colTotalCost);
             this.gridBand4.Columns.Add(this.colTotalProfit);
+            this.gridBand4.MinWidth = 7;
             this.gridBand4.Name = "gridBand4";
             this.gridBand4.VisibleIndex = 3;
-            this.gridBand4.Width = 322;
+            this.gridBand4.Width = 157;
             // 
             // colCount
             // 
@@ -2075,13 +2143,14 @@ namespace MES.Order.UI.New
             this.colCount.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colCount.Caption = "數量";
             this.colCount.FieldName = "Count";
+            this.colCount.MinWidth = 10;
             this.colCount.Name = "colCount";
             this.colCount.OptionsColumn.AllowEdit = false;
             this.colCount.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colCount.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Count", "{0:0.##}")});
             this.colCount.Visible = true;
-            this.colCount.Width = 92;
+            this.colCount.Width = 45;
             // 
             // colTotalPrice
             // 
@@ -2092,13 +2161,14 @@ namespace MES.Order.UI.New
             this.colTotalPrice.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colTotalPrice.Caption = "總金額";
             this.colTotalPrice.FieldName = "TotalPrice";
+            this.colTotalPrice.MinWidth = 10;
             this.colTotalPrice.Name = "colTotalPrice";
             this.colTotalPrice.OptionsColumn.AllowEdit = false;
             this.colTotalPrice.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colTotalPrice.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "{0:0.##}")});
             this.colTotalPrice.Visible = true;
-            this.colTotalPrice.Width = 74;
+            this.colTotalPrice.Width = 36;
             // 
             // colTotalCost
             // 
@@ -2109,13 +2179,14 @@ namespace MES.Order.UI.New
             this.colTotalCost.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colTotalCost.Caption = "總批價";
             this.colTotalCost.FieldName = "TotalCost";
+            this.colTotalCost.MinWidth = 10;
             this.colTotalCost.Name = "colTotalCost";
             this.colTotalCost.OptionsColumn.AllowEdit = false;
             this.colTotalCost.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colTotalCost.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalCost", "{0:0.##}")});
             this.colTotalCost.Visible = true;
-            this.colTotalCost.Width = 74;
+            this.colTotalCost.Width = 36;
             // 
             // colTotalProfit
             // 
@@ -2126,21 +2197,22 @@ namespace MES.Order.UI.New
             this.colTotalProfit.AppearanceHeader.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.colTotalProfit.Caption = "總利潤";
             this.colTotalProfit.FieldName = "TotalProfit";
+            this.colTotalProfit.MinWidth = 10;
             this.colTotalProfit.Name = "colTotalProfit";
             this.colTotalProfit.OptionsColumn.AllowEdit = false;
             this.colTotalProfit.OptionsFilter.AllowInHeaderSearch = DevExpress.Utils.DefaultBoolean.True;
             this.colTotalProfit.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalProfit", "{0:0.##}")});
             this.colTotalProfit.Visible = true;
-            this.colTotalProfit.Width = 82;
+            this.colTotalProfit.Width = 40;
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.pivotGrid_FocusOrder);
             this.xtraTabPage2.Controls.Add(this.gridControl_Focus);
-            this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(926, 423);
+            this.xtraTabPage2.Size = new System.Drawing.Size(646, 290);
             this.xtraTabPage2.Text = "拉單";
             // 
             // pivotGrid_FocusOrder
@@ -2169,14 +2241,14 @@ namespace MES.Order.UI.New
             this.fieldCount,
             this.fieldAddress});
             this.pivotGrid_FocusOrder.Location = new System.Drawing.Point(0, 0);
-            this.pivotGrid_FocusOrder.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.pivotGrid_FocusOrder.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.pivotGrid_FocusOrder.Name = "pivotGrid_FocusOrder";
             this.pivotGrid_FocusOrder.OptionsBehavior.BestFitConsiderCustomAppearance = true;
             this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowCustomTotals = true;
             this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowGrandTotals = true;
             this.pivotGrid_FocusOrder.OptionsChartDataSource.ProvideRowTotals = true;
             this.pivotGrid_FocusOrder.OptionsDataField.AreaIndex = 0;
-            this.pivotGrid_FocusOrder.OptionsDataField.RowHeaderWidth = 374;
+            this.pivotGrid_FocusOrder.OptionsDataField.RowHeaderWidth = 183;
             this.pivotGrid_FocusOrder.OptionsOLAP.SortByCustomFieldValueDisplayText = true;
             this.pivotGrid_FocusOrder.OptionsPrint.PrintColumnHeaders = DevExpress.Utils.DefaultBoolean.True;
             this.pivotGrid_FocusOrder.OptionsPrint.PrintDataHeaders = DevExpress.Utils.DefaultBoolean.True;
@@ -2187,12 +2259,12 @@ namespace MES.Order.UI.New
             this.pivotGrid_FocusOrder.OptionsPrint.PrintVertLines = DevExpress.Utils.DefaultBoolean.True;
             this.pivotGrid_FocusOrder.OptionsPrint.UsePrintAppearance = true;
             this.pivotGrid_FocusOrder.OptionsSelection.EnableAppearanceFocusedCell = true;
-            this.pivotGrid_FocusOrder.OptionsView.RowTreeOffset = 26;
-            this.pivotGrid_FocusOrder.OptionsView.RowTreeWidth = 124;
+            this.pivotGrid_FocusOrder.OptionsView.RowTreeOffset = 13;
+            this.pivotGrid_FocusOrder.OptionsView.RowTreeWidth = 61;
             this.pivotGrid_FocusOrder.OptionsView.ShowColumnGrandTotalHeader = false;
             this.pivotGrid_FocusOrder.OptionsView.ShowRowGrandTotalHeader = false;
             this.pivotGrid_FocusOrder.OptionsView.ShowTotalsForSingleValues = true;
-            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(926, 423);
+            this.pivotGrid_FocusOrder.Size = new System.Drawing.Size(646, 290);
             this.pivotGrid_FocusOrder.TabIndex = 8;
             // 
             // fieldRemark
@@ -2201,10 +2273,10 @@ namespace MES.Order.UI.New
             this.fieldRemark.AreaIndex = 3;
             this.fieldRemark.Caption = "備註";
             this.fieldRemark.FieldName = "Remark";
-            this.fieldRemark.MinWidth = 24;
+            this.fieldRemark.MinWidth = 12;
             this.fieldRemark.Name = "fieldRemark";
             this.fieldRemark.Options.ShowTotals = false;
-            this.fieldRemark.Width = 250;
+            this.fieldRemark.Width = 122;
             // 
             // fieldCustomer
             // 
@@ -2220,14 +2292,14 @@ namespace MES.Order.UI.New
             this.fieldCustomer.AreaIndex = 1;
             this.fieldCustomer.Caption = "客戶";
             this.fieldCustomer.FieldName = "Customer";
-            this.fieldCustomer.MinWidth = 37;
+            this.fieldCustomer.MinWidth = 18;
             this.fieldCustomer.Name = "fieldCustomer";
             this.fieldCustomer.Options.ShowGrandTotal = false;
             this.fieldCustomer.SortMode = DevExpress.XtraPivotGrid.PivotSortMode.Custom;
             this.fieldCustomer.TotalCellFormat.FormatString = "\"合計\"0";
             this.fieldCustomer.TotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.fieldCustomer.TotalValueFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.fieldCustomer.Width = 250;
+            this.fieldCustomer.Width = 122;
             // 
             // fieldArea
             // 
@@ -2235,18 +2307,18 @@ namespace MES.Order.UI.New
             this.fieldArea.AreaIndex = 0;
             this.fieldArea.Caption = "地區";
             this.fieldArea.FieldName = "Area";
-            this.fieldArea.MinWidth = 24;
+            this.fieldArea.MinWidth = 12;
             this.fieldArea.Name = "fieldArea";
-            this.fieldArea.Width = 124;
+            this.fieldArea.Width = 61;
             // 
             // fieldProductsInfoPrice
             // 
             this.fieldProductsInfoPrice.AreaIndex = 2;
             this.fieldProductsInfoPrice.Caption = "售價";
             this.fieldProductsInfoPrice.FieldName = "ProductsInfo.Price";
-            this.fieldProductsInfoPrice.MinWidth = 24;
+            this.fieldProductsInfoPrice.MinWidth = 12;
             this.fieldProductsInfoPrice.Name = "fieldProductsInfoPrice";
-            this.fieldProductsInfoPrice.Width = 124;
+            this.fieldProductsInfoPrice.Width = 61;
             // 
             // fieldProduct
             // 
@@ -2255,19 +2327,19 @@ namespace MES.Order.UI.New
             this.fieldProduct.Caption = "產品";
             this.fieldProduct.FieldName = "Product";
             this.fieldProduct.GrandTotalText = "合計";
-            this.fieldProduct.MinWidth = 100;
+            this.fieldProduct.MinWidth = 49;
             this.fieldProduct.Name = "fieldProduct";
             this.fieldProduct.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None;
-            this.fieldProduct.Width = 374;
+            this.fieldProduct.Width = 183;
             // 
             // fieldTotalCost
             // 
             this.fieldTotalCost.AreaIndex = 0;
             this.fieldTotalCost.Caption = "總批價";
             this.fieldTotalCost.FieldName = "TotalCost";
-            this.fieldTotalCost.MinWidth = 24;
+            this.fieldTotalCost.MinWidth = 12;
             this.fieldTotalCost.Name = "fieldTotalCost";
-            this.fieldTotalCost.Width = 124;
+            this.fieldTotalCost.Width = 61;
             // 
             // fieldTotalPrice
             // 
@@ -2277,20 +2349,20 @@ namespace MES.Order.UI.New
             this.fieldTotalPrice.FieldName = "TotalPrice";
             this.fieldTotalPrice.GrandTotalCellFormat.FormatString = "\"$\"0";
             this.fieldTotalPrice.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.fieldTotalPrice.MinWidth = 24;
+            this.fieldTotalPrice.MinWidth = 12;
             this.fieldTotalPrice.Name = "fieldTotalPrice";
             this.fieldTotalPrice.Options.ShowTotals = false;
             this.fieldTotalPrice.Options.ShowValues = false;
-            this.fieldTotalPrice.Width = 124;
+            this.fieldTotalPrice.Width = 61;
             // 
             // fieldTotalProfit
             // 
             this.fieldTotalProfit.AreaIndex = 1;
             this.fieldTotalProfit.Caption = "總利潤";
             this.fieldTotalProfit.FieldName = "TotalProfit";
-            this.fieldTotalProfit.MinWidth = 24;
+            this.fieldTotalProfit.MinWidth = 12;
             this.fieldTotalProfit.Name = "fieldTotalProfit";
-            this.fieldTotalProfit.Width = 124;
+            this.fieldTotalProfit.Width = 61;
             // 
             // fieldCount
             // 
@@ -2300,10 +2372,10 @@ namespace MES.Order.UI.New
             this.fieldCount.FieldName = "Count";
             this.fieldCount.GrandTotalCellFormat.FormatString = "\"+\"0";
             this.fieldCount.GrandTotalCellFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.fieldCount.MinWidth = 24;
+            this.fieldCount.MinWidth = 12;
             this.fieldCount.Name = "fieldCount";
             this.fieldCount.TotalsVisibility = DevExpress.XtraPivotGrid.PivotTotalsVisibility.None;
-            this.fieldCount.Width = 174;
+            this.fieldCount.Width = 85;
             // 
             // fieldAddress
             // 
@@ -2311,25 +2383,27 @@ namespace MES.Order.UI.New
             this.fieldAddress.AreaIndex = 3;
             this.fieldAddress.Caption = "是否取貨";
             this.fieldAddress.FieldName = "Address";
-            this.fieldAddress.MinWidth = 24;
+            this.fieldAddress.MinWidth = 12;
             this.fieldAddress.Name = "fieldAddress";
             this.fieldAddress.Options.ShowGrandTotal = false;
             this.fieldAddress.Options.ShowTotals = false;
             this.fieldAddress.Visible = false;
-            this.fieldAddress.Width = 187;
+            this.fieldAddress.Width = 92;
             // 
             // gridControl_Focus
             // 
             this.gridControl_Focus.AllowDrop = true;
             this.gridControl_Focus.AllowRestoreSelectionAndFocusedRow = DevExpress.Utils.DefaultBoolean.True;
-            this.gridControl_Focus.Location = new System.Drawing.Point(720, 0);
+            this.gridControl_Focus.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.gridControl_Focus.Location = new System.Drawing.Point(353, 0);
             this.gridControl_Focus.MainView = this.gridView_Focus;
+            this.gridControl_Focus.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.gridControl_Focus.Name = "gridControl_Focus";
             this.gridControl_Focus.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit1,
             this.repositoryItemTextEdit1,
             this.repositoryItemSpinEdit1});
-            this.gridControl_Focus.Size = new System.Drawing.Size(874, 590);
+            this.gridControl_Focus.Size = new System.Drawing.Size(428, 289);
             this.gridControl_Focus.TabIndex = 9;
             this.gridControl_Focus.UseEmbeddedNavigator = true;
             this.gridControl_Focus.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -2349,7 +2423,7 @@ namespace MES.Order.UI.New
             this.gridColumn11,
             this.gridColumn13,
             this.gridColumn15});
-            this.gridView_Focus.DetailHeight = 500;
+            this.gridView_Focus.DetailHeight = 245;
             this.gridView_Focus.FixedLineWidth = 3;
             this.gridView_Focus.GridControl = this.gridControl_Focus;
             this.gridView_Focus.GroupFormat = "{0}:{1} ,{2}";
@@ -2367,13 +2441,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn4
             // 
-            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn4.AppearanceCell.Options.UseFont = true;
             this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn4.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn4.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2382,22 +2456,22 @@ namespace MES.Order.UI.New
             this.gridColumn4.Caption = "地區";
             this.gridColumn4.FieldName = "Area";
             this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn4.MinWidth = 29;
+            this.gridColumn4.MinWidth = 14;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowFocus = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 1;
-            this.gridColumn4.Width = 76;
+            this.gridColumn4.Width = 37;
             // 
             // gridColumn6
             // 
-            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn6.AppearanceCell.Options.UseFont = true;
             this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn6.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn6.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn6.AppearanceHeader.Options.UseFont = true;
             this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2406,22 +2480,22 @@ namespace MES.Order.UI.New
             this.gridColumn6.Caption = "客戶名稱";
             this.gridColumn6.FieldName = "CustomName";
             this.gridColumn6.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn6.MinWidth = 29;
+            this.gridColumn6.MinWidth = 14;
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.FixedWidth = true;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 2;
-            this.gridColumn6.Width = 191;
+            this.gridColumn6.Width = 94;
             // 
             // gridColumn7
             // 
-            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn7.AppearanceCell.Options.UseFont = true;
             this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn7.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn7.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn7.AppearanceHeader.Options.UseFont = true;
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2430,20 +2504,20 @@ namespace MES.Order.UI.New
             this.gridColumn7.Caption = "廠商";
             this.gridColumn7.FieldName = "ProductGroupID";
             this.gridColumn7.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn7.MinWidth = 29;
+            this.gridColumn7.MinWidth = 14;
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowFocus = false;
-            this.gridColumn7.Width = 77;
+            this.gridColumn7.Width = 38;
             // 
             // gridColumn8
             // 
-            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceCell.Options.UseFont = true;
             this.gridColumn8.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn8.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn8.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceHeader.Options.UseFont = true;
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2452,22 +2526,22 @@ namespace MES.Order.UI.New
             this.gridColumn8.Caption = "產品";
             this.gridColumn8.FieldName = "ProductName";
             this.gridColumn8.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn8.MinWidth = 29;
+            this.gridColumn8.MinWidth = 14;
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.FixedWidth = true;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 3;
-            this.gridColumn8.Width = 330;
+            this.gridColumn8.Width = 162;
             // 
             // gridColumn9
             // 
-            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn9.AppearanceCell.Options.UseFont = true;
             this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn9.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn9.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn9.AppearanceHeader.Options.UseFont = true;
             this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2476,11 +2550,11 @@ namespace MES.Order.UI.New
             this.gridColumn9.Caption = "數量";
             this.gridColumn9.ColumnEdit = this.repositoryItemSpinEdit1;
             this.gridColumn9.FieldName = "Count";
-            this.gridColumn9.MinWidth = 29;
+            this.gridColumn9.MinWidth = 14;
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 6;
-            this.gridColumn9.Width = 141;
+            this.gridColumn9.Width = 69;
             // 
             // repositoryItemSpinEdit1
             // 
@@ -2491,13 +2565,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn10
             // 
-            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn10.AppearanceCell.Options.UseFont = true;
             this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn10.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn10.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn10.AppearanceHeader.Options.UseFont = true;
             this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2506,24 +2580,24 @@ namespace MES.Order.UI.New
             this.gridColumn10.Caption = "售價";
             this.gridColumn10.ColumnEdit = this.repositoryItemSpinEdit1;
             this.gridColumn10.FieldName = "Price";
-            this.gridColumn10.MinWidth = 29;
+            this.gridColumn10.MinWidth = 14;
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowFocus = false;
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Price", "{0:N0}")});
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 5;
-            this.gridColumn10.Width = 84;
+            this.gridColumn10.Width = 41;
             // 
             // gridColumn11
             // 
-            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn11.AppearanceCell.Options.UseFont = true;
             this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn11.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn11.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn11.AppearanceHeader.Options.UseFont = true;
             this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2531,24 +2605,24 @@ namespace MES.Order.UI.New
             this.gridColumn11.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.gridColumn11.Caption = "總售價";
             this.gridColumn11.FieldName = "TotalPrice";
-            this.gridColumn11.MinWidth = 29;
+            this.gridColumn11.MinWidth = 14;
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowFocus = false;
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalPrice", "{0:N0}")});
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 7;
-            this.gridColumn11.Width = 101;
+            this.gridColumn11.Width = 50;
             // 
             // gridColumn13
             // 
-            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn13.AppearanceCell.Options.UseFont = true;
             this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn13.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn13.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn13.AppearanceHeader.Options.UseFont = true;
             this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2557,30 +2631,30 @@ namespace MES.Order.UI.New
             this.gridColumn13.Caption = "備註";
             this.gridColumn13.ColumnEdit = this.repositoryItemTextEdit1;
             this.gridColumn13.FieldName = "Note1";
-            this.gridColumn13.MinWidth = 29;
+            this.gridColumn13.MinWidth = 14;
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 8;
-            this.gridColumn13.Width = 150;
+            this.gridColumn13.Width = 73;
             // 
             // repositoryItemTextEdit1
             // 
-            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemTextEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemTextEdit1.AppearanceFocused.Options.UseFont = true;
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // gridColumn15
             // 
-            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn15.AppearanceCell.Options.UseFont = true;
             this.gridColumn15.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn15.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn15.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn15.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn15.AppearanceHeader.Options.UseFont = true;
             this.gridColumn15.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2589,24 +2663,24 @@ namespace MES.Order.UI.New
             this.gridColumn15.Caption = "取貨";
             this.gridColumn15.FieldName = "Address";
             this.gridColumn15.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.gridColumn15.MinWidth = 29;
+            this.gridColumn15.MinWidth = 14;
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 4;
-            this.gridColumn15.Width = 167;
+            this.gridColumn15.Width = 82;
             // 
             // repositoryItemLookUpEdit1
             // 
-            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemLookUpEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemLookUpEdit1.AppearanceDropDown.Options.UseFont = true;
             this.repositoryItemLookUpEdit1.AutoHeight = false;
             this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 79, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 174, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 38, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 85, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
             this.repositoryItemLookUpEdit1.DisplayMember = "LocalDescription";
             this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
             this.repositoryItemLookUpEdit1.NullText = "";
@@ -2616,6 +2690,7 @@ namespace MES.Order.UI.New
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -2625,8 +2700,9 @@ namespace MES.Order.UI.New
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.csyPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(932, 101);
-            this.splitContainer1.SplitterDistance = 537;
+            this.splitContainer1.Size = new System.Drawing.Size(920, 101);
+            this.splitContainer1.SplitterDistance = 529;
+            this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 33;
             // 
             // splitContainer2
@@ -2634,6 +2710,7 @@ namespace MES.Order.UI.New
             this.splitContainer2.BackColor = System.Drawing.Color.White;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -2644,9 +2721,9 @@ namespace MES.Order.UI.New
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.focusTabPage);
-            this.splitContainer2.Size = new System.Drawing.Size(932, 563);
+            this.splitContainer2.Size = new System.Drawing.Size(920, 563);
             this.splitContainer2.SplitterDistance = 101;
-            this.splitContainer2.SplitterWidth = 5;
+            this.splitContainer2.SplitterWidth = 3;
             this.splitContainer2.TabIndex = 34;
             // 
             // splitContainer3
@@ -2662,8 +2739,8 @@ namespace MES.Order.UI.New
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer3.Size = new System.Drawing.Size(1080, 563);
-            this.splitContainer3.SplitterDistance = 142;
+            this.splitContainer3.Size = new System.Drawing.Size(1064, 563);
+            this.splitContainer3.SplitterDistance = 138;
             this.splitContainer3.SplitterWidth = 6;
             this.splitContainer3.TabIndex = 35;
             // 
@@ -2675,13 +2752,13 @@ namespace MES.Order.UI.New
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CausesValidation = false;
-            this.ClientSize = new System.Drawing.Size(1080, 602);
+            this.ClientSize = new System.Drawing.Size(1064, 602);
             this.Controls.Add(this.splitContainer3);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LookAndFeel.SkinName = "DevExpress Style";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "OrderNew";
@@ -2725,12 +2802,12 @@ namespace MES.Order.UI.New
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductType_ComboBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CountTextEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ColorSpecTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SizSpecTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AreaTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_AddArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FactoryTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView_AddFactory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColorSpecTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ItemForFactory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
@@ -2846,7 +2923,6 @@ namespace MES.Order.UI.New
         private CSYSearchLookUpEdit ProductTextEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView_AddProduct;
         private CSYSpinEdit CountTextEdit;
-        private CSYLookUpEdit ColorSpecTextEdit;
         private CSYLookUpEdit SizSpecTextEdit;
         private CSYButton btn_Query;
         private DevExpress.XtraLayout.LayoutControlItem qqq;
@@ -2934,5 +3010,6 @@ namespace MES.Order.UI.New
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ProductType_ComboBox;
+        private CSYCheckedComboBoxEdit ColorSpecTextEdit;
     }
 }
