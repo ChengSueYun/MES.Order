@@ -8,9 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-using System.Collections.Specialized;
-
 namespace MES.Order.UI.Properties {
     
     
@@ -92,9 +89,8 @@ namespace MES.Order.UI.Properties {
   <string>N:未取貨</string>
   <string>已取貨</string>
   <string />
-  <string />
 </ArrayOfString>")]
-        public StringCollection OrderStatus {
+        public global::System.Collections.Specialized.StringCollection OrderStatus {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["OrderStatus"]));
             }

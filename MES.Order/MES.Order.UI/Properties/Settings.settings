@@ -40,7 +40,6 @@
   &lt;string&gt;N:未取貨&lt;/string&gt;
   &lt;string&gt;已取貨&lt;/string&gt;
   &lt;string /&gt;
-  &lt;string /&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>

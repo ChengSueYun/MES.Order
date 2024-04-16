@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System">
+      <section name="MES.Order.UI.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+      <section name="DevExpress.LookAndFeel.Design.AppSettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />
+    </sectionGroup>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" >
+      <section name="MES.Order.UI.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+  <applicationSettings>
+    <MES.Order.UI.Properties.Settings>
+      <setting name="OrderStatus" serializeAs="Xml">
+        <value>
+          <ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <string>Y:已取貨</string>
+            <string>N:未取貨</string>
+            <string>已取貨</string>
+            <string />
+          </ArrayOfString>
+        </value>
+      </setting>
+    </MES.Order.UI.Properties.Settings>
+    <DevExpress.LookAndFeel.Design.AppSettings>
+      <setting name="DefaultAppSkin" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="DefaultPalette" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="TouchUI" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="CompactUI" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="TouchScaleFactor" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="DirectX" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="RegisterUserSkins" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="RegisterBonusSkins" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="FontBehavior" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="DefaultAppFont" serializeAs="String">
+        <value>Microsoft JhengHei;12</value>
+      </setting>
+      <setting name="DPIAwarenessMode" serializeAs="String">
+        <value></value>
+      </setting>
+      <setting name="CustomPaletteCollection" serializeAs="Xml">
+        <value />
+      </setting>
+    </DevExpress.LookAndFeel.Design.AppSettings>
+  </applicationSettings>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8" />
+  </startup>
+  <connectionStrings>
+    <add name="DbContext"
+      connectionString="data source=KK\SQLEXPRESS;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"
+      providerName="System.Data.SqlClient"/>
+  </connectionStrings>
+  <userSettings>
+    <MES.Order.UI.Properties.Settings>
+      <setting name="ProductType" serializeAs="Xml">
+        <value>
+          <ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <string>家電用品</string>
+            <string>冷凍食品</string>
+            <string>常溫食品</string>
+            <string>居家百貨</string>
+            <string>3C產品</string>
+          </ArrayOfString>
+        </value>
+      </setting>
+      <setting name="ColorSpec" serializeAs="Xml">
+        <value>
+          <ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <string>紅</string>
+            <string>白</string>
+            <string>黃</string>
+            <string>綠</string>
+            <string>藍</string>
+            <string>紫</string>
+          </ArrayOfString>
+        </value>
+      </setting>
+      <setting name="SizeSpec" serializeAs="Xml">
+        <value>
+          <ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <string>XS</string>
+            <string>S</string>
+            <string>M</string>
+            <string>L</string>
+            <string>XL</string>
+          </ArrayOfString>
+        </value>
+      </setting>
+    </MES.Order.UI.Properties.Settings>
+  </userSettings>
+</configuration>

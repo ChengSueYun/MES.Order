@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
-    <PublishUrlHistory>\\S03CSY-01\Users\s03csy\Desktop\小夫妻程式\</PublishUrlHistory>
+    <PublishUrlHistory>publish\|\\S03CSY-01\Users\s03csy\Desktop\小夫妻程式\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
     <UpdateUrlHistory />
