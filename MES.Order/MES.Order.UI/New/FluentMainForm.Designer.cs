@@ -155,7 +155,7 @@
             this.Name = "FluentMainForm";
             this.NavigationControl = this.Menu;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FluentMainForm";
+            this.Text = "小夫妻團購系統";
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
