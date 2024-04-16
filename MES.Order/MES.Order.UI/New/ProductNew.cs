@@ -73,33 +73,33 @@ namespace MES.Order.UI.New
         {
             if (e.Column.FieldName == "Photo" && e.IsGetData)
             {
-                //RefImage是存储图片路径的那一列
-                string filePath = (e.Row as ProductsInfoViewModel).Image;
-                Image img = null;
+                // //RefImage是存储图片路径的那一列
+                // string filePath = (e.Row as ProductsInfoViewModel).Image;
+                // Image img = null;
                 try
                 {
-                    //判断图片路径是否为网络路径
-                    if (UrlDiscern(filePath))
-                    {
-                        //文件是否存在
-                        if (RemoteFileExists(filePath))
-                        {
-                            //读取文件
-                            using (WebClient wc = new WebClient())
-                            {
-                                img = new Bitmap(wc.OpenRead(filePath));
-                            }
-                        }
-                    }
-                    // 判断本地文件是否存在
-                    else if (LocalFileExists(filePath))
-                    {
-                        //加载本地图片
-                        img = Image.FromFile(filePath);
-                    }
-            
-                    //pictureEdit列绑定图片
-                    e.Value = img;
+                //     //判断图片路径是否为网络路径
+                //     if (UrlDiscern(filePath))
+                //     {
+                //         //文件是否存在
+                //         if (RemoteFileExists(filePath))
+                //         {
+                //             //读取文件
+                //             using (WebClient wc = new WebClient())
+                //             {
+                //                 img = new Bitmap(wc.OpenRead(filePath));
+                //             }
+                //         }
+                //     }
+                //     // 判断本地文件是否存在
+                //     else if (LocalFileExists(filePath))
+                //     {
+                //         //加载本地图片
+                //         img = Image.FromFile(filePath);
+                //     }
+                //
+                //     //pictureEdit列绑定图片
+                //     e.Value = img;
                 }
                 catch (Exception ex)
                 {

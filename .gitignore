@@ -32,3 +32,12 @@ MES.Order/MES.Order.UI/Properties/licenses.licx.bak
 *.licx
 *.bak
 *.licx
+*.deploy
+*.application
+*.manifest
+*.html
+*.application
+MES.Order/MES.Order.UI/publish.zip
+MES.Order/MES.Order.UI/publish/index.html
+MES.Order/MES.Order.UI/publish/MES.Order.UI.application
+/MES.Order/MES.Order.UI/publish.zip
