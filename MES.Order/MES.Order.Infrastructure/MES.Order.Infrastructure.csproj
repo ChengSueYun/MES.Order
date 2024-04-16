@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB4E2E9D-D81C-47E4-9FF0-CD4CEFE2EB2C}</ProjectGuid>
+    <ProjectGuid>{8D658BDC-80AB-4E05-B1A7-16ECBF073A55}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MES.Order.BLL</RootNamespace>
-    <AssemblyName>MES.Order.BLL</AssemblyName>
+    <RootNamespace>MES.Order.Infrastructure</RootNamespace>
+    <AssemblyName>MES.Order.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,25 +31,30 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'SueYun|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'S03CSY|AnyCPU'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\SueYun\</OutputPath>
+    <OutputPath>bin\S03CSY\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'KK|AnyCPU'">
-    <OutputPath>bin\KK\</OutputPath>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BlackKK|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\BlackKK\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,22 +62,34 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="THS.Infrastructure">
+      <HintPath>..\Share-DLL\THS.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomerUCO.cs" />
-    <Compile Include="ProductInformationUCO.cs" />
-    <Compile Include="ProductsOrderUCO.cs" />
+    <Compile Include="Const.cs" />
+    <Compile Include="KeyAndName.cs" />
+    <Compile Include="NewViewModel\AreaInfoViewModel.cs" />
+    <Compile Include="NewViewModel\CustomInfoViewModel.cs" />
+    <Compile Include="NewViewModel\FactoryInfoViewModel.cs" />
+    <Compile Include="NewViewModel\Filter\FilterOrderInfo.cs" />
+    <Compile Include="NewViewModel\OrderInfoViewModel.cs" />
+    <Compile Include="NewViewModel\ProductsInfoViewModel.cs" />
+    <Compile Include="NewViewModel\Request\OrderInfoRequest.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Order\AddOrderViewModel.cs" />
+    <Compile Include="UI\Order\FilterProductsOrderRequest.cs" />
+    <Compile Include="UI\ViewModel\AreaViewModel.cs" />
+    <Compile Include="UI\ViewModel\CustomViewModel.cs" />
+    <Compile Include="UI\ViewModel\ProductsGroupViewModel.cs" />
+    <Compile Include="UI\ViewModel\ProductsInfomationViewModel.cs" />
+    <Compile Include="UI\Order\ProductsOrderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MES.Order.Adapter\MES.Order.Adapter.csproj">
-      <Project>{5FC8CAFD-FFD5-477F-935C-26A0B6F58389}</Project>
-      <Name>MES.Order.Adapter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MES.Order.DAL\MES.Order.DAL.csproj">
-      <Project>{B0EB30AE-3EF4-4AE2-BCA5-B84AFF1839E3}</Project>
-      <Name>MES.Order.DAL</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
