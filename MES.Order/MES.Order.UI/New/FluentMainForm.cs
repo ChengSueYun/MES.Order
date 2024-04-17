@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraBars.FluentDesignSystem;
@@ -18,6 +19,20 @@ namespace MES.Order.UI.New
         public FluentMainForm()
         {
             InitializeComponent();
+            this.Login();
+        }
+
+        private void Login()
+        {
+            try
+            {
+                var LoginForm = new Login();
+                LoginForm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
         }
 
         private void Menu_ElementClick(object sender, DevExpress.XtraBars.Navigation.ElementClickEventArgs e)

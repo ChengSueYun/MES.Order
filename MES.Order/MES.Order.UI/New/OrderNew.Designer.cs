@@ -23,7 +23,7 @@ namespace MES.Order.UI.New
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+    #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -139,7 +139,7 @@ namespace MES.Order.UI.New
             this.gridView_AddFactory = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFactory1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFactoryWebSit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.ColorSpecTextEdit = new CSYCodeAdvance.EditorControls.CSYCheckedComboBoxEdit();
+            this.ColorSpecTextEdit = new CSYCodeAdvance.EditorControls.CSYLookUpEdit();
             this.ItemForArea = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForFactory = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -599,9 +599,9 @@ namespace MES.Order.UI.New
             // 
             // alertControl1
             // 
-            this.alertControl1.AppearanceCaption.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertControl1.AppearanceCaption.Options.UseFont = true;
-            this.alertControl1.AppearanceText.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alertControl1.AppearanceText.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alertControl1.AppearanceText.Options.UseFont = true;
             this.alertControl1.AutoFormDelay = 3000;
             // 
@@ -760,7 +760,7 @@ namespace MES.Order.UI.New
             this.btn_Query.BorderSize = 0;
             this.btn_Query.FlatAppearance.BorderSize = 0;
             this.btn_Query.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Query.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Query.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Query.ForeColor = System.Drawing.Color.Black;
             this.btn_Query.Location = new System.Drawing.Point(5, 113);
             this.btn_Query.Margin = new System.Windows.Forms.Padding(1);
@@ -950,7 +950,7 @@ namespace MES.Order.UI.New
             // 
             // ItemForOrderDateE
             // 
-            this.ItemForOrderDateE.AppearanceItemCaption.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemForOrderDateE.AppearanceItemCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemForOrderDateE.AppearanceItemCaption.Options.UseFont = true;
             this.ItemForOrderDateE.AppearanceItemCaptionDisabled.BorderColor = System.Drawing.Color.Black;
             this.ItemForOrderDateE.AppearanceItemCaptionDisabled.Options.UseBorderColor = true;
@@ -972,7 +972,7 @@ namespace MES.Order.UI.New
             // 
             // ItemForOrderDateS
             // 
-            this.ItemForOrderDateS.AppearanceItemCaption.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ItemForOrderDateS.AppearanceItemCaption.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemForOrderDateS.AppearanceItemCaption.Options.UseFont = true;
             this.ItemForOrderDateS.Control = this.QueryOrderDateSDateEdit;
             this.ItemForOrderDateS.Location = new System.Drawing.Point(0, 0);
@@ -1008,7 +1008,7 @@ namespace MES.Order.UI.New
             this.MessageTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
             this.MessageTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.csyPanel1.SetColumn(this.MessageTextBox, 0);
-            this.MessageTextBox.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.MessageTextBox.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.MessageTextBox.Location = new System.Drawing.Point(1, 7);
             this.MessageTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.MessageTextBox.Name = "MessageTextBox";
@@ -1493,11 +1493,6 @@ namespace MES.Order.UI.New
             this.SizSpecTextEdit.Properties.Appearance.Options.UseForeColor = true;
             this.SizSpecTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.SizSpecTextEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Code", "Code", 24, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LocalDescription", "Local Description", 68, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near, DevExpress.Data.ColumnSortOrder.None, DevExpress.Utils.DefaultBoolean.Default)});
-            this.SizSpecTextEdit.Properties.DataSource = this.keyAndNameBindingSource;
-            this.SizSpecTextEdit.Properties.DisplayMember = "Code";
             this.SizSpecTextEdit.Properties.NullText = "";
             this.SizSpecTextEdit.Properties.NullValuePrompt = "請輸入尺寸規格";
             this.SizSpecTextEdit.Properties.ValueMember = "Code";
@@ -1646,7 +1641,8 @@ namespace MES.Order.UI.New
             this.ColorSpecTextEdit.Properties.Appearance.Options.UseBackColor = true;
             this.ColorSpecTextEdit.Properties.Appearance.Options.UseForeColor = true;
             this.ColorSpecTextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Down)});
+            this.ColorSpecTextEdit.Properties.NullText = "";
             this.ColorSpecTextEdit.Properties.NullValuePrompt = "請輸入顏色規格";
             this.ColorSpecTextEdit.Size = new System.Drawing.Size(125, 26);
             this.ColorSpecTextEdit.StyleController = this.dataLayoutControl2;
@@ -1790,11 +1786,11 @@ namespace MES.Order.UI.New
             // 
             // focusTabPage
             // 
-            this.focusTabPage.Appearance.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.focusTabPage.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.focusTabPage.Appearance.Options.UseFont = true;
-            this.focusTabPage.AppearancePage.Header.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
+            this.focusTabPage.AppearancePage.Header.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F);
             this.focusTabPage.AppearancePage.Header.Options.UseFont = true;
-            this.focusTabPage.AppearancePage.HeaderActive.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
+            this.focusTabPage.AppearancePage.HeaderActive.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F);
             this.focusTabPage.AppearancePage.HeaderActive.Options.UseFont = true;
             this.focusTabPage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.focusTabPage.Location = new System.Drawing.Point(0, 0);
@@ -1834,23 +1830,25 @@ namespace MES.Order.UI.New
             // 
             // gridView_ProductOrder
             // 
+            this.gridView_ProductOrder.Appearance.BandPanel.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.gridView_ProductOrder.Appearance.BandPanel.Options.UseFont = true;
             this.gridView_ProductOrder.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(202)))), ((int)(((byte)(195)))));
             this.gridView_ProductOrder.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gridView_ProductOrder.Appearance.FooterPanel.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
+            this.gridView_ProductOrder.Appearance.FooterPanel.Font = new System.Drawing.Font("Microsoft JhengHei", 11.25F);
             this.gridView_ProductOrder.Appearance.FooterPanel.Options.UseFont = true;
-            this.gridView_ProductOrder.Appearance.HeaderPanel.Font = new System.Drawing.Font("微軟正黑體", 11F);
+            this.gridView_ProductOrder.Appearance.HeaderPanel.Font = new System.Drawing.Font("Microsoft JhengHei", 11F);
             this.gridView_ProductOrder.Appearance.HeaderPanel.Options.UseFont = true;
             this.gridView_ProductOrder.Appearance.HeaderPanel.Options.UseTextOptions = true;
             this.gridView_ProductOrder.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.gridView_ProductOrder.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridView_ProductOrder.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridView_ProductOrder.Appearance.Row.Font = new System.Drawing.Font("微軟正黑體", 11F);
+            this.gridView_ProductOrder.Appearance.Row.Font = new System.Drawing.Font("Microsoft JhengHei", 11F);
             this.gridView_ProductOrder.Appearance.Row.Options.UseFont = true;
             this.gridView_ProductOrder.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(233)))), ((int)(((byte)(236)))));
             this.gridView_ProductOrder.Appearance.SelectedRow.Options.UseBackColor = true;
             this.gridView_ProductOrder.Appearance.SelectedRow.Options.UseFont = true;
             this.gridView_ProductOrder.Appearance.TopNewRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(146)))), ((int)(((byte)(180)))), ((int)(((byte)(167)))));
-            this.gridView_ProductOrder.Appearance.TopNewRow.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
+            this.gridView_ProductOrder.Appearance.TopNewRow.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.gridView_ProductOrder.Appearance.TopNewRow.ForeColor = System.Drawing.Color.White;
             this.gridView_ProductOrder.Appearance.TopNewRow.Options.UseBackColor = true;
             this.gridView_ProductOrder.Appearance.TopNewRow.Options.UseFont = true;
@@ -1888,7 +1886,7 @@ namespace MES.Order.UI.New
             this.gridView_ProductOrder.NewItemRowText = "點此新增";
             this.gridView_ProductOrder.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridView_ProductOrder.OptionsFilter.ShowInHeaderSearchTextMode = DevExpress.XtraGrid.Views.Grid.ShowInHeaderSearchTextMode.Tooltip;
-            this.gridView_ProductOrder.OptionsSelection.CheckBoxSelectorColumnWidth = 15;
+            this.gridView_ProductOrder.OptionsSelection.CheckBoxSelectorColumnWidth = 30;
             this.gridView_ProductOrder.OptionsSelection.CheckBoxSelectorField = "Selection";
             this.gridView_ProductOrder.OptionsSelection.MultiSelect = true;
             this.gridView_ProductOrder.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
@@ -1915,8 +1913,6 @@ namespace MES.Order.UI.New
             this.gridBand1.Columns.Add(this.colUpdateDate);
             this.gridBand1.Columns.Add(this.colSelection);
             this.gridBand1.ImageOptions.Alignment = System.Drawing.StringAlignment.Center;
-            this.gridBand1.ImageOptions.ImageUri.Uri = "business%20objects/bo_department";
-            this.gridBand1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("gridBand1.ImageOptions.SvgImage")));
             this.gridBand1.Name = "gridBand1";
             this.gridBand1.VisibleIndex = 0;
             this.gridBand1.Width = 150;
@@ -2438,13 +2434,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn4
             // 
-            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn4.AppearanceCell.Options.UseFont = true;
             this.gridColumn4.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn4.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn4.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold);
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold);
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn4.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2462,13 +2458,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn6
             // 
-            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn6.AppearanceCell.Options.UseFont = true;
             this.gridColumn6.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn6.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn6.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn6.AppearanceHeader.Options.UseFont = true;
             this.gridColumn6.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn6.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2486,13 +2482,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn7
             // 
-            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn7.AppearanceCell.Options.UseFont = true;
             this.gridColumn7.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn7.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn7.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn7.AppearanceHeader.Options.UseFont = true;
             this.gridColumn7.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn7.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2508,13 +2504,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn8
             // 
-            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceCell.Options.UseFont = true;
             this.gridColumn8.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn8.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn8.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceHeader.Options.UseFont = true;
             this.gridColumn8.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn8.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2532,13 +2528,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn9
             // 
-            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn9.AppearanceCell.Options.UseFont = true;
             this.gridColumn9.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn9.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn9.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn9.AppearanceHeader.Options.UseFont = true;
             this.gridColumn9.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn9.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2562,13 +2558,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn10
             // 
-            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn10.AppearanceCell.Options.UseFont = true;
             this.gridColumn10.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn10.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn10.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn10.AppearanceHeader.Options.UseFont = true;
             this.gridColumn10.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn10.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2588,13 +2584,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn11
             // 
-            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn11.AppearanceCell.Options.UseFont = true;
             this.gridColumn11.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn11.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.gridColumn11.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn11.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn11.AppearanceHeader.Options.UseFont = true;
             this.gridColumn11.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn11.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -2613,13 +2609,13 @@ namespace MES.Order.UI.New
             // 
             // gridColumn13
             // 
-            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn13.AppearanceCell.Options.UseFont = true;
             this.gridColumn13.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn13.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn13.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn13.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn13.AppearanceHeader.Options.UseFont = true;
             this.gridColumn13.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn13.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2636,22 +2632,22 @@ namespace MES.Order.UI.New
             // 
             // repositoryItemTextEdit1
             // 
-            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemTextEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemTextEdit1.AppearanceFocused.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemTextEdit1.AppearanceFocused.Options.UseFont = true;
             this.repositoryItemTextEdit1.AutoHeight = false;
             this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
             // 
             // gridColumn15
             // 
-            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceCell.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn15.AppearanceCell.Options.UseFont = true;
             this.gridColumn15.AppearanceCell.Options.UseTextOptions = true;
             this.gridColumn15.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn15.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.gridColumn15.AppearanceCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("微軟正黑體", 11F, System.Drawing.FontStyle.Bold);
+            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Microsoft JhengHei", 11F, System.Drawing.FontStyle.Bold);
             this.gridColumn15.AppearanceHeader.Options.UseFont = true;
             this.gridColumn15.AppearanceHeader.Options.UseTextOptions = true;
             this.gridColumn15.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -2668,9 +2664,9 @@ namespace MES.Order.UI.New
             // 
             // repositoryItemLookUpEdit1
             // 
-            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.Appearance.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemLookUpEdit1.Appearance.Options.UseFont = true;
-            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("微軟正黑體", 9.75F, System.Drawing.FontStyle.Bold);
+            this.repositoryItemLookUpEdit1.AppearanceDropDown.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold);
             this.repositoryItemLookUpEdit1.AppearanceDropDown.Options.UseFont = true;
             this.repositoryItemLookUpEdit1.AutoHeight = false;
             this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2755,7 +2751,7 @@ namespace MES.Order.UI.New
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LookAndFeel.SkinName = "DevExpress Style";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "OrderNew";
@@ -2847,7 +2843,8 @@ namespace MES.Order.UI.New
 
         }
 
-        #endregion
+
+    #endregion
         private DevExpress.XtraEditors.PictureEdit                         QueryMenu;
         private DevExpress.XtraBars.Alerter.AlertControl                   alertControl1;
         private System.Windows.Forms.SaveFileDialog                        saveFileDialog1;
@@ -3007,6 +3004,6 @@ namespace MES.Order.UI.New
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand3;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand4;
         private DevExpress.XtraEditors.Repository.RepositoryItemComboBox ProductType_ComboBox;
-        private CSYCheckedComboBoxEdit ColorSpecTextEdit;
+        private CSYLookUpEdit ColorSpecTextEdit;
     }
 }

@@ -42,5 +42,40 @@
   &lt;string /&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="DefaultLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)"> KK-PC </Value>
+    </Setting>
+    <Setting Name="KKPCDbContext" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;data source=KK-PC;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&lt;/ConnectionString&gt;
+  &lt;ProviderName /&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">data source=KK-PC;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework</Value>
+    </Setting>
+    <Setting Name="KKPCOLDDbContext" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt;data source=KK-PC-OLD\Order;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework      &lt;/ConnectionString&gt;
+  &lt;ProviderName /&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">data source=KK-PC-OLD\Order;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework      </Value>
+    </Setting>
+    <Setting Name="S03CSYDbContext" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt; data source=S03CSY\SQLEXPRESS;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&lt;/ConnectionString&gt;
+  &lt;ProviderName /&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)"> data source=S03CSY\SQLEXPRESS;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework</Value>
+    </Setting>
+    <Setting Name="SuYunDbContext" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString&gt; data source=SuYun\SQLEXPRESS;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&lt;/ConnectionString&gt;
+  &lt;ProviderName /&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)"> data source=SuYun\SQLEXPRESS;initial catalog=CoupleOrder;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

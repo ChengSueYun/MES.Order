@@ -209,12 +209,19 @@ namespace MES.Order.UI.New
 
         private void BindAddPanelControl()
         {
+
+            this.AreaKeybindingSource.DataSource         = Const.AllAreaView;
+            this.CustomerKeybindingSource.DataSource     = Const.AllCustomerView;
+            this.FactoryKeybindingSource.DataSource      = Const.AllFactoryView;
+            this.ProductKeybindingSource.DataSource      = Const.AllProductsView;
+            this.SizSpecTextEdit.Properties.DataSource   = GlobalCollection.SiezSpcCollection;
+            this.ColorSpecTextEdit.Properties.DataSource = GlobalCollection.ColorSpeCollection;
+
             this.AreaKeybindingSource.DataSource = Const.AllAreaView;
             this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
             this.FactoryKeybindingSource.DataSource = Const.AllFactoryView;
             this.ProductKeybindingSource.DataSource = Const.AllProductsView;
             this.SizSpecTextEdit.Properties.DataSource = GlobalCollection.SiezSpcCollection;
-            // this.ColorSpecTextEdit.Properties.Items.AddRange(new CheckedListBoxItem[]{new CheckedListBoxItem().});
             this.ProductType_ComboBox.Items.AddRange(GlobalCollection.ProductTypeCollection);
         }
 
@@ -416,6 +423,7 @@ namespace MES.Order.UI.New
 
         #endregion
 
+      
         #region Export
 
         private void barItem_Export_ItemClick(object sender, ItemClickEventArgs e)
@@ -435,5 +443,6 @@ namespace MES.Order.UI.New
         }
 
         #endregion
+
     }
 }
