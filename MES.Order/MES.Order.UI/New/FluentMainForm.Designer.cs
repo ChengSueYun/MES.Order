@@ -49,13 +49,13 @@
             // 
             this.Menu.AllowItemSelection = true;
             this.Menu.AnimationType = DevExpress.XtraBars.Navigation.AnimationType.Simple;
-            this.Menu.Appearance.Item.Default.Font = new System.Drawing.Font("微軟正黑體", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Menu.Appearance.Item.Default.Font = new System.Drawing.Font("Microsoft JhengHei", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Menu.Appearance.Item.Default.Options.UseFont = true;
-            this.Menu.Appearance.Item.Hovered.Font = new System.Drawing.Font("微軟正黑體", 27.75F);
+            this.Menu.Appearance.Item.Hovered.Font = new System.Drawing.Font("Microsoft JhengHei", 27.75F);
             this.Menu.Appearance.Item.Hovered.Options.UseFont = true;
-            this.Menu.Appearance.Item.Normal.Font = new System.Drawing.Font("微軟正黑體", 27.75F);
+            this.Menu.Appearance.Item.Normal.Font = new System.Drawing.Font("Microsoft JhengHei", 27.75F);
             this.Menu.Appearance.Item.Normal.Options.UseFont = true;
-            this.Menu.Appearance.Item.Pressed.Font = new System.Drawing.Font("微軟正黑體", 27.75F);
+            this.Menu.Appearance.Item.Pressed.Font = new System.Drawing.Font("Microsoft JhengHei", 27.75F);
             this.Menu.Appearance.Item.Pressed.Options.UseFont = true;
             this.Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.Menu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
@@ -69,7 +69,7 @@
             this.Menu.Location = new System.Drawing.Point(0, 31);
             this.Menu.Name = "Menu";
             this.Menu.ScrollBarMode = DevExpress.XtraBars.Navigation.ScrollBarMode.Touch;
-            this.Menu.Size = new System.Drawing.Size(260, 747);
+            this.Menu.Size = new System.Drawing.Size(174, 747);
             this.Menu.TabIndex = 1;
             this.Menu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             this.Menu.ElementClick += new DevExpress.XtraBars.Navigation.ElementClickEventHandler(this.Menu_ElementClick);
@@ -137,9 +137,9 @@
             // fluentDesignFormContainer1
             // 
             this.fluentDesignFormContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(260, 31);
+            this.fluentDesignFormContainer1.Location = new System.Drawing.Point(174, 31);
             this.fluentDesignFormContainer1.Name = "fluentDesignFormContainer1";
-            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(971, 747);
+            this.fluentDesignFormContainer1.Size = new System.Drawing.Size(1057, 747);
             this.fluentDesignFormContainer1.TabIndex = 0;
             // 
             // FluentMainForm
@@ -155,7 +155,7 @@
             this.Name = "FluentMainForm";
             this.NavigationControl = this.Menu;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FluentMainForm";
+            this.Text = "小夫妻揪愛買";
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();

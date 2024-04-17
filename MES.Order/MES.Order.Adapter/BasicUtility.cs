@@ -6,13 +6,8 @@ namespace MES.Order.Adapter
 {
     public static class BasicUtility
     {
-        private static string s_conn;
 
-        public static string Conn
-        {
-            get => s_conn ?? ConfigurationManager.ConnectionStrings ["DbContext"].ConnectionString;
-            set => s_conn = value;
-        }
+        public static string Conn { get; set; }
 
         private static IAreaInfoAdapter s_areaAdapter;
 

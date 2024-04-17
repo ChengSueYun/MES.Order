@@ -214,7 +214,7 @@ namespace MES.Order.UI.New
             this.FactoryKeybindingSource.DataSource      = Const.AllFactoryView;
             this.ProductKeybindingSource.DataSource      = Const.AllProductsView;
             this.SizSpecTextEdit.Properties.DataSource   = GlobalCollection.SiezSpcCollection;
-            // this.ColorSpecTextEdit.Properties.Items.AddRange(new CheckedListBoxItem[]{new CheckedListBoxItem().});
+            this.ColorSpecTextEdit.Properties.DataSource = GlobalCollection.ColorSpeCollection;
             this.ProductType_ComboBox.Items.AddRange(GlobalCollection.ProductTypeCollection);
         }
 
@@ -413,6 +413,8 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
+
+       
     }
 }
