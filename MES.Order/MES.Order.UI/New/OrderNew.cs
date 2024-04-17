@@ -107,6 +107,7 @@ namespace MES.Order.UI.New
                                                      x.Product == focusRow.Product, focusRow);
                         this.MessageTextBox.AppendText(
                             $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}");
+                      
                     }
                     else if (focusRow != null && !focusRow.Selection)
                     {
@@ -120,7 +121,7 @@ namespace MES.Order.UI.New
                         {
                             _FocusData.Remove(focusRow);
                             this.MessageTextBox.AppendText(
-                                $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已取消拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}");
+                                $@"<color=red>{DateTime.Now:yyyy-MM-dd hh:mm:ss}</color> 已取消拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}");
                         }
                     }
 
@@ -429,7 +430,7 @@ namespace MES.Order.UI.New
                     if (addOrUpdate)
                     {
                         this.MessageTextBox.AppendText(
-                            $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} {orderInfoViewModel.Customer}:{orderInfoViewModel.Product}狀態已改為:{orderInfoViewModel.Status}{Environment.NewLine}");
+                            $@"<color=red>{DateTime.Now:yyyy-MM-dd hh:mm:ss}</color> {orderInfoViewModel.Customer}:{orderInfoViewModel.Product}狀態已改為:{orderInfoViewModel.Status}{Environment.NewLine}");
                         var filterOrderInfo = new FilterOrderInfo
                         {
                             Area = orderInfoViewModel.Area,
