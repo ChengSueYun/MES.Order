@@ -8,6 +8,7 @@ using MES.Order.DAL.Mapper;
 using MES.Order.DAL.NewEntityFramework;
 using MES.Order.Infrastructure;
 using MES.Order.Infrastructure.NewViewModel;
+using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL.Repository
 {
@@ -118,7 +119,7 @@ namespace MES.Order.DAL.Repository
                     this.mDbContext.ProductsInfoes.AddOrUpdate(x => new {x.Factory, x.Product}, areaInfo);
                 }
 
-                if (await this.mDbContext.SaveChangesAsync() > 0)
+                if ( this.mDbContext.Save() > 0)
                 {
                     result = true;
                 }

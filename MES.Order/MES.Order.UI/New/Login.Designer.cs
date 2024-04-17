@@ -48,7 +48,7 @@ namespace MES.Order.UI.New
             // LoginTitle
             // 
             this.LoginTitle.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(69)))), ((int)(((byte)(123)))), ((int)(((byte)(157)))));
-            this.LoginTitle.Appearance.Font = new System.Drawing.Font("Sarasa Mono Slab TC Nerd Font", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginTitle.Appearance.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginTitle.Appearance.ForeColor = System.Drawing.Color.White;
             this.LoginTitle.Appearance.Options.UseBackColor = true;
             this.LoginTitle.Appearance.Options.UseFont = true;
@@ -57,12 +57,13 @@ namespace MES.Order.UI.New
             this.LoginTitle.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.LoginTitle.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.LoginTitle.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.LoginTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.LoginTitle.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.LoginTitle.Location = new System.Drawing.Point(8, 0);
+            this.LoginTitle.Location = new System.Drawing.Point(5, 5);
             this.LoginTitle.Margin = new System.Windows.Forms.Padding(0);
             this.LoginTitle.Name = "LoginTitle";
             this.LoginTitle.Padding = new System.Windows.Forms.Padding(5);
-            this.LoginTitle.Size = new System.Drawing.Size(242, 38);
+            this.LoginTitle.Size = new System.Drawing.Size(250, 38);
             this.LoginTitle.TabIndex = 61;
             this.LoginTitle.Text = "登入";
             this.LoginTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginTitle_MouseDown);
@@ -106,9 +107,9 @@ namespace MES.Order.UI.New
             this.OK.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(250)))));
             this.OK.FlatAppearance.BorderSize = 0;
             this.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OK.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.OK.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OK.ForeColor = System.Drawing.Color.White;
-            this.OK.Location = new System.Drawing.Point(77, 144);
+            this.OK.Location = new System.Drawing.Point(72, 122);
             this.OK.Name = "OK";
             this.OK.Size = new System.Drawing.Size(107, 38);
             this.OK.TabIndex = 71;
@@ -153,8 +154,10 @@ namespace MES.Order.UI.New
             this.cboLocationID.Location = new System.Drawing.Point(54, 80);
             this.cboLocationID.Name = "cboLocationID";
             this.cboLocationID.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(250)))));
+            this.cboLocationID.Properties.Appearance.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboLocationID.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.cboLocationID.Properties.Appearance.Options.UseBackColor = true;
+            this.cboLocationID.Properties.Appearance.Options.UseFont = true;
             this.cboLocationID.Properties.Appearance.Options.UseForeColor = true;
             this.cboLocationID.Properties.Appearance.Options.UseTextOptions = true;
             this.cboLocationID.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -183,14 +186,14 @@ namespace MES.Order.UI.New
             this.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(260, 209);
+            this.ClientSize = new System.Drawing.Size(260, 181);
             this.Controls.Add(this.cboLocationID);
             this.Controls.Add(this.OK);
             this.Controls.Add(this.csyCircleSvgImageBox1);
             this.Controls.Add(this.close);
             this.Controls.Add(this.LoginTitle);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Sarasa Mono TC Nerd Font", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IconOptions.Image = ((System.Drawing.Image)(resources.GetObject("Login.IconOptions.Image")));
             this.KeyPreview = true;

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MES.Order.DAL.ViewModel;
 using System.Threading.Tasks;
+using MES.Order.DAL.EntityFramework;
 
 namespace MES.Order.Adapter
 {
@@ -9,5 +10,7 @@ namespace MES.Order.Adapter
         List<KeyAndNameForCombo> GetArea();
 
         Task GetAreaAsync();
+
+        List<Areas> QueryAll();
     }
 }

@@ -45,16 +45,20 @@ namespace MES.Order.UI.New
             switch (this.cboLocationID.EditValue.ToString())
             {
                 case "KK-PC":
-                    BasicUtility.Conn = Properties.Settings.Default.KKPCDbContext;
+                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["KKPCDbContext"].ConnectionString;
+                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["KKPCProductsDbContext"].ConnectionString;
                     break;
                 case "KK-PC-OLD":
-                    BasicUtility.Conn = Properties.Settings.Default.KKPCOLDDbContext;
+                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["KKPCOLDDbContext"].ConnectionString;
+                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["KKPCOLDProductsDbContext"].ConnectionString;
                     break;
                 case "S03CSY":
-                    BasicUtility.Conn = Properties.Settings.Default.S03CSYDbContext;
+                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["S03CSYDbContext"].ConnectionString;
+                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["S03CSYProductsDbContext"].ConnectionString;
                     break;
                 case "SuYun":
-                    BasicUtility.Conn = Properties.Settings.Default.SuYunDbContext;
+                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["SuYunDbContext"].ConnectionString;
+                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["SuYunProductsDbContext"].ConnectionString;
                     break;
             }
         }

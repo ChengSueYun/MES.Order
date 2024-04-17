@@ -14,7 +14,7 @@ namespace MES.Order.Adapter
             {
                 if (this._customerPO == null)
                 {
-                    this._customerPO = new CustomerPO();
+                    this._customerPO = new CustomerPO(BasicOldUtlity.OldConn);
                 }
 
                 return this._customerPO;

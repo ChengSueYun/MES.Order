@@ -33,6 +33,11 @@ namespace MES.Order.Adapter.Implement
             return _repository.AddOrUpdate(FromUi);
         }
 
+        public Task<bool> AddOrUpdate(IEnumerable<CustomInfoViewModel> fromUi)
+        {
+            return _repository.AddOrUpdate(fromUi);
+        }
+
         /// <inheritdoc />
         public Task<bool> Delete(string pArea, string pCustom)
         {

@@ -59,14 +59,32 @@ namespace MES.Order.DAL.Repository
             try
             {
                 var result = new List<OrderInfoViewModel>();
-                var asQueryable = await this.mDbContext.OrderInfoes
+                var asQueryable = this.mDbContext.OrderInfoes
                     .Where(x => x.OrderDate >= _filter.OrderDateStart &&
-                                x.OrderDate <= _filter.OrderDateEnd)
-                    .ToListAsync();
-              
+                                x.OrderDate <= _filter.OrderDateEnd);
+                if (!string.IsNullOrEmpty(_filter.Area))
+                {
+                    asQueryable = asQueryable.Where(x => x.Area == _filter.Area);
+                }
+
+                if (!string.IsNullOrEmpty(_filter.Customer))
+                {
+                    asQueryable = asQueryable.Where(x => x.Customer == _filter.Customer);
+                }
+
+                if (!string.IsNullOrEmpty(_filter.Factory))
+                {
+                    asQueryable = asQueryable.Where(x => x.Factory == _filter.Factory);
+                }
+
+                if (!string.IsNullOrEmpty(_filter.Product))
+                {
+                    asQueryable = asQueryable.Where(x => x.Product == _filter.Product);
+                }
+
                 if (asQueryable.Any())
                 {
-                    DefaultMapper.Map(asQueryable, result);
+                    DefaultMapper.Map(asQueryable.AsNoTracking().ToList(), result);
                 }
 
                 return result;
@@ -144,11 +162,12 @@ namespace MES.Order.DAL.Repository
                 DefaultMapper.Map(fromUi, request);
                 foreach (var areaInfo in request)
                 {
-                    this.mDbContext.OrderInfoes.AddOrUpdate(x => new { x.Area, x.Customer, x.Factory, x.Product },
+                    this.mDbContext.OrderInfoes.AddOrUpdate(
+                        x => new { x.Area, x.Customer, x.Factory, x.Product, x.OrderDate },
                         areaInfo);
                 }
 
-                if (await this.mDbContext.SaveChangesAsync() > 0)
+                if (this.mDbContext.Save() > 0)
                 {
                     result = true;
                 }

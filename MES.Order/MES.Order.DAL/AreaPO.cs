@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using MES.Order.DAL.EntityFramework;
+using MES.Order.DAL.NewEntityFramework;
 using MES.Order.DAL.ViewModel;
 using MES.Order.Infrastructure;
 using KeyAndNameForCombo = MES.Order.DAL.ViewModel.KeyAndNameForCombo;
@@ -11,13 +12,14 @@ namespace MES.Order.DAL
 {
     public class AreaPO
     {
+        private string mConn = "";
         internal ProductsDbContext ProductsDbContext
         {
             get
             {
                 if (this._productsDbContext == null)
                 {
-                    this._productsDbContext = new ProductsDbContext();
+                    this._productsDbContext =  ProductsDbContext.Create(mConn);
                 }
 
                 return this._productsDbContext;
@@ -26,6 +28,11 @@ namespace MES.Order.DAL
         }
 
         private ProductsDbContext _productsDbContext;
+
+        public AreaPO(string conn)
+        {
+            mConn = conn;
+        }
 
         public List<KeyAndNameForCombo> GetArea()
         {
@@ -56,6 +63,14 @@ namespace MES.Order.DAL
             {
                 Const.AreaList.AddRange(dbUsecaseParameters);
             }
+        }
+
+        /// <summary>
+        /// Get Area Data List
+        /// </summary>
+        public List<Areas> QueryAll()
+        {
+            return this.ProductsDbContext.Areas.ToListAsync().Result;
         }
     }
 }

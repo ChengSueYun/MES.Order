@@ -30,7 +30,8 @@ namespace MES.Order.DAL.NewEntityFramework
         [StringLength(200)]
         public string Product { get; set; }
 
-        [Column(TypeName = "datetime")]
+        [Key]
+        [Column(TypeName = "datetime",Order = 4)]
         public DateTime OrderDate { get; set; }
 
         public int Count { get; set; }

@@ -17,25 +17,31 @@ namespace MES.Order.DAL
             {
                 if (this._productsDbContext == null)
                 {
-                    this._productsDbContext = new ProductsDbContext();
+                    this._productsDbContext = ProductsDbContext.Create(mConn);
                 }
 
                 return this._productsDbContext;
             }
+
             set => this._productsDbContext = value;
         }
 
         private ProductsDbContext _productsDbContext;
+        private readonly string mConn;
 
+        public ProductGroupIDPO(string conn)
+        {
+            mConn = conn;
+        }
         public List<KeyAndNameForCombo> QueryAllProductsGroupID()
         {
             var filter = this.ProductsDbContext.ProductGroupIDs.ToListAsync().Result;
             var result = (from a in filter
-                          select new KeyAndNameForCombo
-                          {
-                              Code             = a.ProductGroupID,
-                              LocalDescription = a.ProductGroupName
-                          }).Distinct().ToList();
+                select new KeyAndNameForCombo
+                {
+                    Code = a.ProductGroupID,
+                    LocalDescription = a.ProductGroupName
+                }).Distinct().ToList();
 
             return result;
         }
@@ -44,13 +50,18 @@ namespace MES.Order.DAL
         {
             var filter = await this.ProductsDbContext.ProductGroupIDs.Select(a => new KeyAndName
             {
-                Code             = a.ProductGroupID,
+                Code = a.ProductGroupID,
                 LocalDescription = a.ProductGroupName
             }).Distinct().ToListAsync();
             if (filter.Any())
             {
                 Const.ProductGroupIDList.AddRange(filter);
             }
+        }
+
+        public List<ProductsGroupID> QueryAll()
+        {
+            return this.ProductsDbContext.ProductGroupIDs.ToListAsync().Result;
         }
     }
 }

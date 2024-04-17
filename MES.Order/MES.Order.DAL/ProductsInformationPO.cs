@@ -18,7 +18,7 @@ namespace MES.Order.DAL
             {
                 if (this._productsDbContext == null)
                 {
-                    this._productsDbContext = new ProductsDbContext();
+                    this._productsDbContext = ProductsDbContext.Create(mConn);
                 }
 
                 return this._productsDbContext;
@@ -27,7 +27,12 @@ namespace MES.Order.DAL
         }
 
         private ProductsDbContext _productsDbContext;
+        private readonly string mConn;
 
+        public ProductsInformationPO(string conn)
+        {
+            mConn = conn;
+        }
         #region Delete
 
         public int DeleteProductsInfomations(List<ProductsInfomation> delProductsInfomations)

@@ -12,7 +12,99 @@ namespace MES.Order.Infrastructure.NewViewModel.Filter
     /// </summary>
     public class FilterOrderInfo : INotifyPropertyChanged
     {
+        private string mArea;
 
+        /// <summary>
+        /// 地區
+        /// </summary>
+        [Column(Order = 0)]
+        [StringLength(10)]
+        [Display(Name = "地區", Prompt = "請輸入地區")]
+        public string Area
+        {
+            get => this.mArea;
+
+            set
+            {
+                if (value == this.mArea) return;
+
+                this.mArea = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        private string mCustomer;
+
+        /// <summary>
+        /// 客戶
+        /// </summary>
+        [Column(Order = 1)]
+        [StringLength(40)]
+        [Display(Name = "客戶", Prompt = "請輸入客戶")]
+        public string Customer
+        {
+            get => this.mCustomer;
+
+            set
+            {
+                if (value == this.mCustomer)
+                {
+                    return;
+                }
+
+                this.mCustomer = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        private string mFactory;
+
+        /// <summary>
+        /// 廠商
+        /// </summary>
+        [Column(Order = 2)]
+        [StringLength(10)]
+        [Display(Name = "廠商", Prompt = "請輸入廠商")]
+        public string Factory
+        {
+            get => this.mFactory;
+
+            set
+            {
+                if (value == this.mFactory)
+                {
+                    return;
+                }
+
+                this.mFactory = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        private string mProduct;
+
+        /// <summary>
+        /// 產品
+        /// </summary>
+        
+        [Column(Order = 3)]
+        [StringLength(200)]
+        [Display(Name = "產品", Prompt = "請輸入產品")]
+        public string Product
+        {
+            get => this.mProduct;
+
+            set
+            {
+                if (value == this.mProduct)
+                {
+                    return;
+                }
+
+                this.mProduct = value;
+                this.OnPropertyChanged();
+            }
+        }
         private DateTime mOrderDateStart;
 
         /// <summary>

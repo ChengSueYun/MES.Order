@@ -15,7 +15,7 @@ namespace MES.Order.DAL
             {
                 if (this._productsDbContext == null)
                 {
-                    this._productsDbContext = new ProductsDbContext();
+                    this._productsDbContext = ProductsDbContext.Create(mConn);
                 }
 
                 return this._productsDbContext;
@@ -24,7 +24,12 @@ namespace MES.Order.DAL
         }
 
         private ProductsDbContext _productsDbContext;
+        private readonly string mConn;
 
+        public ProductsOrderPO(string conn)
+        {
+            mConn = conn;
+        }
         #region Query
 
         public List<ProductsOrder> QueryAllOrders(string Area,        string   ProductGroupID, string   CustomerName,
@@ -74,6 +79,11 @@ namespace MES.Order.DAL
                 result = result.Where(x => ProductName.Contains(x.ProductName));
 
             return result.ToListAsync().Result;
+        }
+
+        public List<ProductsOrder> QueryAll()
+        {
+            return this.productsDbContext.ProductsOrders.ToListAsync().Result;
         }
 
         #endregion

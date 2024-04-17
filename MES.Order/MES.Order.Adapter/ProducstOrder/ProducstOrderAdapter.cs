@@ -17,7 +17,7 @@ namespace MES.Order.Adapter
             {
                 if (this._productsOrderPo == null)
                 {
-                    this._productsOrderPo = new ProductsOrderPO();
+                    this._productsOrderPo = new ProductsOrderPO(BasicOldUtlity.OldConn);
                 }
 
                 return this._productsOrderPo;
@@ -39,6 +39,12 @@ namespace MES.Order.Adapter
         {
             return this.productsOrderPo.QueryAllOrders(Area, ProductGroupID, CustomerName, ProductName, orderDateTimeS,
                                                        orderDateTimeE);
+        }
+
+        public List<ProductsOrder> QueryAll()
+        {
+
+            return this.productsOrderPo.QueryAll();
         }
 
         public int SaveOrder(List<ProductsOrder> insertProductsOrders)

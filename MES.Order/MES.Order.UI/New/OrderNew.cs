@@ -164,6 +164,8 @@ namespace MES.Order.UI.New
 
         #region Property
 
+        List<OrderInfoViewModel> _orderInfoViewModels = new List<OrderInfoViewModel>();
+
         private static OrderInfoRequest _request;
 
         public static OrderInfoRequest _Request
@@ -209,12 +211,11 @@ namespace MES.Order.UI.New
 
         private void BindAddPanelControl()
         {
-
-            this.AreaKeybindingSource.DataSource         = Const.AllAreaView;
-            this.CustomerKeybindingSource.DataSource     = Const.AllCustomerView;
-            this.FactoryKeybindingSource.DataSource      = Const.AllFactoryView;
-            this.ProductKeybindingSource.DataSource      = Const.AllProductsView;
-            this.SizSpecTextEdit.Properties.DataSource   = GlobalCollection.SiezSpcCollection;
+            this.AreaKeybindingSource.DataSource = Const.AllAreaView;
+            this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
+            this.FactoryKeybindingSource.DataSource = Const.AllFactoryView;
+            this.ProductKeybindingSource.DataSource = Const.AllProductsView;
+            this.SizSpecTextEdit.Properties.DataSource = GlobalCollection.SiezSpcCollection;
             this.ColorSpecTextEdit.Properties.DataSource = GlobalCollection.ColorSpeCollection;
 
             this.AreaKeybindingSource.DataSource = Const.AllAreaView;
@@ -223,6 +224,7 @@ namespace MES.Order.UI.New
             this.ProductKeybindingSource.DataSource = Const.AllProductsView;
             this.SizSpecTextEdit.Properties.DataSource = GlobalCollection.SiezSpcCollection;
             this.ProductType_ComboBox.Items.AddRange(GlobalCollection.ProductTypeCollection);
+            this.Status_ComboBox.Items.AddRange(GlobalCollection.OrderStatusCollection);
         }
 
         #endregion
@@ -270,15 +272,8 @@ namespace MES.Order.UI.New
         {
             try
             {
-                var orderInfoViewModels = await BasicUtility.OrderInfoAdapter.Query(_filter);
-                foreach (var i in orderInfoViewModels)
-                {
-                    var productInfo = Const.AllProductsView.Find(x => x.Product == i.Product &&
-                                                                      x.Factory == i.Factory);
-                    i.ProductsInfo = productInfo;
-                }
-
-                this.orderInfoViewModelBindingSource.DataSource = orderInfoViewModels;
+                _orderInfoViewModels = await BasicUtility.OrderInfoAdapter.Query(_filter);
+                this.orderInfoViewModelBindingSource.DataSource = _orderInfoViewModels;
                 this.gridView_ProductOrder.BestFitColumns();
             }
             catch (Exception ex)
@@ -328,7 +323,7 @@ namespace MES.Order.UI.New
                 {
                     this.MessageTextBox.AppendText(
                         $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已新增{_Request.Customer}:{_Request.Product}{Environment.NewLine}");
-                 
+
                     this.btn_Query.PerformClick();
                 }
             }
@@ -370,7 +365,7 @@ namespace MES.Order.UI.New
             {
                 IfFocusData = true;
                 this.barItem_LockRow.Caption = @"解除鎖定列";
-                this.MessageTextBox.AppendText( $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 開始拉單狀態{Environment.NewLine}");
+                this.MessageTextBox.AppendText($@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 開始拉單狀態{Environment.NewLine}");
             }
 
             _FocusData = new List<OrderInfoViewModel>();
@@ -421,9 +416,45 @@ namespace MES.Order.UI.New
             }
         }
 
+        private async void Status_ComboBox_EditValueChanging(object sender, ChangingEventArgs e)
+        {
+            try
+            {
+                if (this.orderInfoViewModelBindingSource.Current is OrderInfoViewModel orderInfoViewModel)
+                {
+                    orderInfoViewModel.Status = e.NewValue.ToString();
+                    orderInfoViewModel.UpdateDate = DateTime.Now;
+                    orderInfoViewModel.SetDefaultValue();
+                    var addOrUpdate = await BasicUtility.OrderInfoAdapter.AddOrUpdate(orderInfoViewModel);
+                    if (addOrUpdate)
+                    {
+                        this.MessageTextBox.AppendText(
+                            $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} {orderInfoViewModel.Customer}:{orderInfoViewModel.Product}狀態已改為:{orderInfoViewModel.Status}{Environment.NewLine}");
+                        var filterOrderInfo = new FilterOrderInfo
+                        {
+                            Area = orderInfoViewModel.Area,
+                            Customer = orderInfoViewModel.Customer,
+                            Factory = orderInfoViewModel.Factory,
+                            Product = orderInfoViewModel.Product,
+                            OrderDateStart = orderInfoViewModel.OrderDate,
+                            OrderDateEnd = orderInfoViewModel.OrderDate
+                        };
+                        var result = (await BasicUtility.OrderInfoAdapter.Query(_filter)).FirstOrDefault();
+                        _orderInfoViewModels.AddOrReplace(x => x.Area == result?.Area &&
+                                                               x.Customer == result?.Customer &&
+                                                               x.Factory == result?.Factory &&
+                                                               x.Product == result?.Product, result);
+                        this.gridView_ProductOrder.RefreshData();
+                    }
+                }
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.ToString());
+            }
+        }
         #endregion
 
-      
         #region Export
 
         private void barItem_Export_ItemClick(object sender, ItemClickEventArgs e)
@@ -444,5 +475,6 @@ namespace MES.Order.UI.New
 
         #endregion
 
+       
     }
 }

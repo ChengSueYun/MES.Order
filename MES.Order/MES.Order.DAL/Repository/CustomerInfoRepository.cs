@@ -8,6 +8,7 @@ using MES.Order.DAL.Mapper;
 using MES.Order.DAL.NewEntityFramework;
 using MES.Order.Infrastructure;
 using MES.Order.Infrastructure.NewViewModel;
+using THS.Data.Entity.Extension;
 
 namespace MES.Order.DAL.Repository
 {
@@ -156,7 +157,30 @@ namespace MES.Order.DAL.Repository
                 throw new Exception(e.ToString());
             }
         }
+        public async Task<bool> AddOrUpdate(IEnumerable<CustomInfoViewModel> fromUi)
+        {
+            try
+            {
+                var result = false;
+                IEnumerable<CustomInfo> request = new List<CustomInfo>();
+                DefaultMapper.Map(fromUi, request);
+                foreach (var areaInfo in request)
+                {
+                    this.mDbContext.CustomInfoes.AddOrUpdate(x => new { x.Area, x.Customer }, areaInfo);
+                }
 
+                if ( this.mDbContext.Save() > 0)
+                {
+                    result = true;
+                }
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.ToString());
+            }
+        }
     #endregion
 
     #region Delete

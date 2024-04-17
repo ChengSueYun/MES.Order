@@ -18,14 +18,17 @@ namespace MES.Order.DAL
             {
                 if (this._productsDbContext == null)
                 {
-                    this._productsDbContext = new ProductsDbContext();
+                    this._productsDbContext = ProductsDbContext.Create(mConn);
                 }
 
                 return this._productsDbContext;
             }
             set => this._productsDbContext = value;
         }
-
+        public CustomerPO(string conn)
+        {
+            mConn = conn;
+        }
         internal DateTime Now
         {
             get
@@ -43,6 +46,7 @@ namespace MES.Order.DAL
         private DateTime? _now;
 
         private ProductsDbContext _productsDbContext;
+        private readonly string mConn;
 
         #region Delete
 

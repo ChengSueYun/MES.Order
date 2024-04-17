@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MES.Order.DAL;
+using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
 
 namespace MES.Order.Adapter
@@ -13,7 +14,7 @@ namespace MES.Order.Adapter
             {
                 if (this._areaPo == null)
                 {
-                    this._areaPo = new AreaPO();
+                    this._areaPo = new AreaPO(BasicOldUtlity.OldConn);
                 }
 
                 return this._areaPo;
@@ -31,6 +32,12 @@ namespace MES.Order.Adapter
         public async Task GetAreaAsync()
         {
             await this.areaPo.GetAreaAsync();
+        }
+
+        public List<Areas> QueryAll()
+        {
+            
+            return this.areaPo.QueryAll();
         }
     }
 }

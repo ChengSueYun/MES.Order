@@ -267,6 +267,12 @@
     <Compile Include="New\ProductNew.Designer.cs">
       <DependentUpon>ProductNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="New\TransferDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="New\TransferDataForm.Designer.cs">
+      <DependentUpon>TransferDataForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductInformation.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="New\ProductNew.resx">
       <DependentUpon>ProductNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="New\TransferDataForm.resx">
+      <DependentUpon>TransferDataForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductInformation.resx">
       <DependentUpon>ProductInformation.cs</DependentUpon>

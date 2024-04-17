@@ -9,6 +9,8 @@ namespace MES.Order.Adapter.Interface
     {
         Task<List<CustomInfoViewModel>> GetAll();
         Task<bool>                      AddOrUpdate(CustomInfoViewModel FromUi);
+
+        Task<bool> AddOrUpdate(IEnumerable<CustomInfoViewModel> fromUi);
         Task<bool>                      Delete(string                   pArea, string pCustom);
         Task<List<CustomInfoViewModel>> Get(string                      pArea, string pCustom);
 

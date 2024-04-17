@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using MES.Order.DAL;
+using MES.Order.DAL.EntityFramework;
 using MES.Order.DAL.ViewModel;
 
 namespace MES.Order.Adapter
@@ -13,7 +14,7 @@ namespace MES.Order.Adapter
             {
                 if (this._ProductGroupIDPO == null)
                 {
-                    this._ProductGroupIDPO = new ProductGroupIDPO();
+                    this._ProductGroupIDPO = new ProductGroupIDPO(BasicOldUtlity.OldConn);
                 }
 
                 return this._ProductGroupIDPO;
@@ -31,6 +32,11 @@ namespace MES.Order.Adapter
         public async Task GetProductGroupIdAsync()
         {
             await this.ProductGroupIDPO.GetProductGroupIdAsync();
+        }
+
+        public List<ProductsGroupID> QueryAll()
+        {
+            return this.ProductGroupIDPO.QueryAll();
         }
     }
 }

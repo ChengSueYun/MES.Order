@@ -14,7 +14,7 @@ namespace MES.Order.Adapter
             {
                 if (this._productsInformationPo == null)
                 {
-                    this._productsInformationPo = new ProductsInformationPO();
+                    this._productsInformationPo = new ProductsInformationPO(BasicOldUtlity.OldConn);
                 }
 
                 return this._productsInformationPo;

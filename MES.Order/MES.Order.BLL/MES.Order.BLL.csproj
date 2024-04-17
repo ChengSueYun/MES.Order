@@ -52,6 +52,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,10 +67,14 @@
   <ItemGroup>
     <Compile Include="CustomerUCO.cs" />
     <Compile Include="Extension.cs" />
+    <Compile Include="Mapper\DefaultMapper.cs" />
+    <Compile Include="Mapper\OldOrderProfile.cs" />
+    <Compile Include="Mapper\OrderProfile.cs" />
     <Compile Include="NewExtension.cs" />
     <Compile Include="ProductInformationUCO.cs" />
     <Compile Include="ProductsOrderUCO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransferDataUCO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MES.Order.Adapter\MES.Order.Adapter.csproj">
@@ -82,6 +89,9 @@
       <Project>{8D658BDC-80AB-4E05-B1A7-16ECBF073A55}</Project>
       <Name>MES.Order.Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

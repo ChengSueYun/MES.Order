@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Area\AreaAdapter.cs" />
+    <Compile Include="BasicOldUtlity.cs" />
     <Compile Include="BasicUtility.cs" />
     <Compile Include="Customer\CustomerAdapter.cs" />
     <Compile Include="Area\IAreaAdapter.cs" />
