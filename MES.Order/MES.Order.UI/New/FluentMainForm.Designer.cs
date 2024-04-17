@@ -155,11 +155,8 @@
             this.Name = "FluentMainForm";
             this.NavigationControl = this.Menu;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-<<<<<<< HEAD
             this.Text = "小夫妻揪愛買";
-=======
-            this.Text = "小夫妻團購系統";
->>>>>>> 2a9774489c31f47a36952ab6ca22132201ec6f14
+
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentFormDefaultManager1)).EndInit();
