@@ -21,10 +21,10 @@ namespace MES.Order.UI.New
 {
     public partial class OrderNew : XtraForm
     {
-    #region 新增客戶
+        #region 新增客戶
 
-        private void gridView_AddCustomer_EditFormHidden(object                  sender
-                                                       , EditFormHiddenEventArgs e)
+        private void gridView_AddCustomer_EditFormHidden(object sender
+            , EditFormHiddenEventArgs e)
         {
             try
             {
@@ -38,11 +38,11 @@ namespace MES.Order.UI.New
                         var addOrUpdate = BasicUtility.CustomerInfoAdapter.AddOrUpdate(request);
                         while (addOrUpdate.IsCompleted)
                         {
-                            Const.AllCustomerView                    = BasicUtility.CustomerInfoAdapter.GetAll().Result;
+                            Const.AllCustomerView = BasicUtility.CustomerInfoAdapter.GetAll().Result;
                             this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
                         }
 
-                        _Request.Area     = request.Area;
+                        _Request.Area = request.Area;
                         _Request.Customer = request.Customer;
                     }
                 }
@@ -53,9 +53,9 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
 
-    #region 新增產品
+        #region 新增產品
 
         private void gridView_AddProduct_EditFormHidden(object sender, EditFormHiddenEventArgs e)
         {
@@ -70,7 +70,7 @@ namespace MES.Order.UI.New
                         var addOrUpdate = BasicUtility.ProductsInfoAdapter.AddOrUpdate(request);
                         while (addOrUpdate.IsCompleted)
                         {
-                            Const.AllProductsView                   = BasicUtility.ProductsInfoAdapter.Get().Result;
+                            Const.AllProductsView = BasicUtility.ProductsInfoAdapter.Get().Result;
                             this.ProductKeybindingSource.DataSource = Const.AllProductsView;
                         }
 
@@ -85,12 +85,12 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
 
-    #region FocusEvent
+        #region FocusEvent
 
-        private void gridView_ProductOrder_SelectionChanged(object                    sender
-                                                          , SelectionChangedEventArgs e)
+        private void gridView_ProductOrder_SelectionChanged(object sender
+            , SelectionChangedEventArgs e)
         {
             try
             {
@@ -99,28 +99,28 @@ namespace MES.Order.UI.New
                     var focusRow = this.orderInfoViewModelBindingSource.Current as OrderInfoViewModel;
                     if (focusRow != null && focusRow.Selection)
                     {
-                        focusRow.Status     = GlobalCollection.OrderStatusCollection.LastOrDefault();
+                        focusRow.Status = GlobalCollection.OrderStatusCollection.LastOrDefault();
                         focusRow.UpdateDate = DateTime.Now;
-                        _FocusData.AddOrReplace(x => x.Area     == focusRow.Area     &&
+                        _FocusData.AddOrReplace(x => x.Area == focusRow.Area &&
                                                      x.Customer == focusRow.Customer &&
-                                                     x.Factory  == focusRow.Factory  &&
-                                                     x.Product  == focusRow.Product, focusRow);
-                        this.MessageTextBox.Text +=
-                            $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}";
+                                                     x.Factory == focusRow.Factory &&
+                                                     x.Product == focusRow.Product, focusRow);
+                        this.MessageTextBox.AppendText(
+                            $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}");
                     }
                     else if (focusRow != null && !focusRow.Selection)
                     {
-                        focusRow.Status     = string.Empty;
+                        focusRow.Status = string.Empty;
                         focusRow.UpdateDate = DateTime.Now;
-                        var exists = _FocusData.Exists(x => x.Area     == focusRow.Area     &&
+                        var exists = _FocusData.Exists(x => x.Area == focusRow.Area &&
                                                             x.Customer == focusRow.Customer &&
-                                                            x.Factory  == focusRow.Factory  &&
-                                                            x.Product  == focusRow.Product);
+                                                            x.Factory == focusRow.Factory &&
+                                                            x.Product == focusRow.Product);
                         if (exists)
                         {
                             _FocusData.Remove(focusRow);
-                            this.MessageTextBox.Text +=
-                                $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已取消拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}";
+                            this.MessageTextBox.AppendText(
+                                $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已取消拉單{focusRow.Area}-{focusRow.Customer}:{focusRow.Product}{Environment.NewLine}");
                         }
                     }
 
@@ -137,9 +137,9 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Infrastructure
+        #region Infrastructure
 
         public OrderNew()
         {
@@ -160,9 +160,9 @@ namespace MES.Order.UI.New
         {
         }
 
-    #endregion
+        #endregion
 
-    #region Property
+        #region Property
 
         private static OrderInfoRequest _request;
 
@@ -186,22 +186,22 @@ namespace MES.Order.UI.New
 
         private static bool IfFocusData;
 
-    #endregion
+        #endregion
 
-    #region Initial
+        #region Initial
 
         public void InitialControls()
         {
             this.orderInfoRequestBindingSource.AddNew();
             this.filterOrderInfoBindingSource.AddNew();
-            _filter  = this.filterOrderInfoBindingSource.Current as FilterOrderInfo;
+            _filter = this.filterOrderInfoBindingSource.Current as FilterOrderInfo;
             _Request = this.orderInfoRequestBindingSource.Current as OrderInfoRequest;
             _filter.SetDefaultValue();
             _Request.SetDefaultValue();
             if (_filter != null)
             {
                 _filter.OrderDateStart = DateTime.Today.AddDays(-7);
-                _filter.OrderDateEnd   = DateTime.Today;
+                _filter.OrderDateEnd = DateTime.Today;
             }
 
             this.CustomerTextEdit.Properties.TextEditStyle = TextEditStyles.Standard;
@@ -209,21 +209,30 @@ namespace MES.Order.UI.New
 
         private void BindAddPanelControl()
         {
+<<<<<<< HEAD
             this.AreaKeybindingSource.DataSource         = Const.AllAreaView;
             this.CustomerKeybindingSource.DataSource     = Const.AllCustomerView;
             this.FactoryKeybindingSource.DataSource      = Const.AllFactoryView;
             this.ProductKeybindingSource.DataSource      = Const.AllProductsView;
             this.SizSpecTextEdit.Properties.DataSource   = GlobalCollection.SiezSpcCollection;
             this.ColorSpecTextEdit.Properties.DataSource = GlobalCollection.ColorSpeCollection;
+=======
+            this.AreaKeybindingSource.DataSource = Const.AllAreaView;
+            this.CustomerKeybindingSource.DataSource = Const.AllCustomerView;
+            this.FactoryKeybindingSource.DataSource = Const.AllFactoryView;
+            this.ProductKeybindingSource.DataSource = Const.AllProductsView;
+            this.SizSpecTextEdit.Properties.DataSource = GlobalCollection.SiezSpcCollection;
+            // this.ColorSpecTextEdit.Properties.Items.AddRange(new CheckedListBoxItem[]{new CheckedListBoxItem().});
+>>>>>>> 2a9774489c31f47a36952ab6ca22132201ec6f14
             this.ProductType_ComboBox.Items.AddRange(GlobalCollection.ProductTypeCollection);
         }
 
-    #endregion
+        #endregion
 
-    #region Add Event
+        #region Add Event
 
-        private void CustomerTextEdit_EditValueChanging(object            sender
-                                                      , ChangingEventArgs e)
+        private void CustomerTextEdit_EditValueChanging(object sender
+            , ChangingEventArgs e)
         {
             try
             {
@@ -242,8 +251,8 @@ namespace MES.Order.UI.New
             }
         }
 
-        private void ProductTextEdit_EditValueChanging(object            sender
-                                                     , ChangingEventArgs e)
+        private void ProductTextEdit_EditValueChanging(object sender
+            , ChangingEventArgs e)
         {
             if (e.NewValue != null)
             {
@@ -255,9 +264,9 @@ namespace MES.Order.UI.New
             }
         }
 
-    #endregion
+        #endregion
 
-    #region Button
+        #region Button
 
         private async void button_Query_Click(object sender, EventArgs e)
         {
@@ -314,13 +323,14 @@ namespace MES.Order.UI.New
                 var productInfo = Const.AllProductsView.Find(x => x.Product == _Request.Product &&
                                                                   x.Factory == _Request.Factory);
                 _Request.ProductsInfo = productInfo;
-                _Request.OrderDate    = DateTime.Now;
+                _Request.OrderDate = DateTime.Now;
                 _Request.SetDefaultValue();
                 var addOrUpdate = await BasicUtility.OrderInfoAdapter.AddOrUpdate(_Request);
                 if (addOrUpdate)
                 {
-                    this.MessageTextBox.Text +=
-                        $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已新增{_Request.Customer}:{_Request.Product}{Environment.NewLine}";
+                    this.MessageTextBox.AppendText(
+                        $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已新增{_Request.Customer}:{_Request.Product}{Environment.NewLine}");
+                 
                     this.btn_Query.PerformClick();
                 }
             }
@@ -335,11 +345,11 @@ namespace MES.Order.UI.New
             try
             {
                 var deleteRequest = this.orderInfoViewModelBindingSource.Current as OrderInfoViewModel;
-                var delete        = await BasicUtility.OrderInfoAdapter.Delete(deleteRequest);
+                var delete = await BasicUtility.OrderInfoAdapter.Delete(deleteRequest);
                 if (delete)
                 {
-                    this.MessageTextBox.Text +=
-                        $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已刪除{deleteRequest.Customer}:{deleteRequest.Product}{Environment.NewLine}";
+                    this.MessageTextBox.AppendText(
+                        $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 已刪除{deleteRequest.Customer}:{deleteRequest.Product}{Environment.NewLine}");
                     this.btn_Query.PerformClick();
                 }
             }
@@ -353,16 +363,16 @@ namespace MES.Order.UI.New
         {
             if (IfFocusData)
             {
-                IfFocusData                  = false;
+                IfFocusData = false;
                 this.barItem_LockRow.Caption = @"鎖定列";
                 this.FocusbindingSource.Clear();
-                this.MessageTextBox.Text += $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 解除拉單狀態{Environment.NewLine}";
+                this.MessageTextBox.AppendText($@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 解除拉單狀態{Environment.NewLine}");
             }
             else
             {
-                IfFocusData                  =  true;
-                this.barItem_LockRow.Caption =  @"解除鎖定列";
-                this.MessageTextBox.Text     += $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 開始拉單狀態{Environment.NewLine}";
+                IfFocusData = true;
+                this.barItem_LockRow.Caption = @"解除鎖定列";
+                this.MessageTextBox.AppendText( $@"{DateTime.Now:yyyy-MM-dd hh:mm:ss} 開始拉單狀態{Environment.NewLine}");
             }
 
             _FocusData = new List<OrderInfoViewModel>();
@@ -373,32 +383,32 @@ namespace MES.Order.UI.New
             try
             {
                 var updateRequest = new List<OrderInfoViewModel>();
-                var pOrder        = this.orderInfoViewModelBindingSource.DataSource as List<OrderInfoViewModel>;
-                var checkedList   = pOrder.Where(x => x.Selection).ToList();
+                var pOrder = this.orderInfoViewModelBindingSource.DataSource as List<OrderInfoViewModel>;
+                var checkedList = pOrder.Where(x => x.Selection).ToList();
 
                 var args = new XtraInputBoxArgs
-                           {
-                               Caption = "批次更新是否取貨", Prompt = "請選擇其一選項", DefaultButtonIndex = 0
-                           };
+                {
+                    Caption = "批次更新是否取貨", Prompt = "請選擇其一選項", DefaultButtonIndex = 0
+                };
                 var editor = new ComboBoxEdit();
                 editor.Properties.Items.AddRange(GlobalCollection.OrderStatusCollection);
                 args.Editor = editor;
                 if (XtraInputBox.Show(args) is KeyAndNameForCombo result)
                 {
                     var resultCode = result.Code;
-                    var pStatus    = resultCode;
+                    var pStatus = resultCode;
 
                     foreach (var order in checkedList)
                     {
-                        order.Status     = pStatus;
+                        order.Status = pStatus;
                         order.UpdateDate = DateTime.Now;
                         order.SetDefaultValue();
                         updateRequest.Add(order);
                         BasicUtility.OrderInfoAdapter.AddOrUpdate(updateRequest);
-                        _FocusData.AddOrReplace(x => x.Area     == order.Area     &&
+                        _FocusData.AddOrReplace(x => x.Area == order.Area &&
                                                      x.Customer == order.Customer &&
-                                                     x.Factory  == order.Factory  &&
-                                                     x.Product  == order.Product, order);
+                                                     x.Factory == order.Factory &&
+                                                     x.Product == order.Product, order);
                         this.FocusbindingSource.DataSource = _FocusData;
                         this.gridView_Focus.RefreshData();
                         this.focusTabPage.Text = $@"拉單({_FocusData.Count})";
@@ -415,6 +425,28 @@ namespace MES.Order.UI.New
 
         #endregion
 
+<<<<<<< HEAD
        
+=======
+        #region Export
+
+        private void barItem_Export_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.pivotGrid_FocusOrder.ShowPrintPreview();
+        }
+
+        private void pivotGrid_FocusOrder_CustomCellValue(object sender,
+            DevExpress.XtraPivotGrid.PivotCellValueEventArgs e)
+        {
+            if (e.RowField != null && e.RowField.Caption == @"客戶" & e.DataField.Caption == @"數量")
+            {
+                e.Value = @"總金額:";
+
+                // e.Value = @"";
+            }
+        }
+
+        #endregion
+>>>>>>> 2a9774489c31f47a36952ab6ca22132201ec6f14
     }
 }
