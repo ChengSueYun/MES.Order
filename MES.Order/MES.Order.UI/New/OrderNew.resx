@@ -431,27 +431,6 @@
   <metadata name="FocusbindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>653, 81</value>
   </metadata>
-  <data name="barItem_UnlockRow.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        qAAAAKgBefSzxgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAANASURBVEhLtZJr
-        SFNhGMdXVAZ9jLIbdCHqQynYNndxjeWO287RXd3rpc153cWhdKMotXvkJY3SlqVGdEFJZ5h2ISuLDLqS
-        UkQ1gj6Ul6hcjvDSyKdz5uGQ4baM9YM/vOd9nv/7P+c8LysQErEhmZBZujUJ+R80yvweQmZ1yWKziySS
-        jNl0y7/BZltmyqU5N7Zvq3S333wNLS0vobm5G27fdsHRiqYRuTT7jTBSO59unzqy2JyTZaUNQ86mLsiz
-        nxpDup2jOvX24cz08rG62k5obHz4U47ldJGt08YdU4B6M6Tb2tfW9goyTWVjhMx2PzoaLY+O1s7F4yyl
-        ZJD3TN0DKCo4NSgRGw1stm4hn5NUSXl5vNRwfCUe5jvIHyJhamZFeeNo1fE7IMes/SzWvul0yQcht9Wb
-        s47B5eYusm52UeF8NjorWIdW8rnoIRVCt04OaSo5f64DDh10QgKed4XeZqC+JF6RN1RafAPIGQ0IeSl6
-        AVuPBBx0kwqh2/wjERk3VTvaxqodHUAo7G/p7QngMvtlq/kEVFVeA5k0m5oFSyBAi8mQ03wOqvA1+SOG
-        g1ZnZez95GzqBnX8lhFhlG4pXWLg8XRLJCLTMDmfZ0JuMnd8d9906nfFRKUsGn8OADnM5w31jyHX4gBC
-        nnud3p5A0GEGIoaXGpdrKfHs3NEESiJ/iMtFC+hS6FBglp48ey2kbTxM3aZLXG7iCn9aswbNom1/ByZK
-        xPS4uq/QrPpWaCFlJj4VZCk+TqbCTKwvLV7+XbFBI6XtwVFjmqfuW2KAd8UAXSkAnWv96+4qcNeEQXo8
-        7qLtwVFh2tfwTAnQ3wbwJI45bKQjwqc/A+ACCzbiRC9tD44vgDI/iGQOuucQ/lDL0KAK03s6q3mjoQn4
-        TTl61YDRsB+MxgOQpVO7mVqoAmoKYweRxuZJ0to8NQUbPEwtVAHvnWxAyrQBlGD6Sq2ZWqgCWo+IvIma
-        zT+0qk3e1nKRl6mFKmC3VTGA9LuA0h5yzdRCFUDdHHuq6gul/3KL/Kp92dQDkFz1qPfiUoCr4YHVOg+g
-        fgb0OOaASYm/oO3Bka5PjDTg+GezOu67RYMFFNVjIPDPYrE6grb/Bov1C1kyi/lLPAzRAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
   <metadata name="keyAndNameBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>611, 7</value>
   </metadata>

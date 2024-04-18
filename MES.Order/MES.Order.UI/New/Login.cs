@@ -42,25 +42,7 @@ namespace MES.Order.UI.New
             {
                 return;
             }
-            switch (this.cboLocationID.EditValue.ToString())
-            {
-                case "KK-PC":
-                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["KKPCDbContext"].ConnectionString;
-                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["KKPCProductsDbContext"].ConnectionString;
-                    break;
-                case "KK-PC-OLD":
-                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["KKPCOLDDbContext"].ConnectionString;
-                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["KKPCOLDProductsDbContext"].ConnectionString;
-                    break;
-                case "S03CSY":
-                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["S03CSYDbContext"].ConnectionString;
-                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["S03CSYProductsDbContext"].ConnectionString;
-                    break;
-                case "SuYun":
-                    BasicUtility.Conn = ConfigurationManager.ConnectionStrings["SuYunDbContext"].ConnectionString;
-                    BasicOldUtlity.OldConn=ConfigurationManager.ConnectionStrings["SuYunProductsDbContext"].ConnectionString;
-                    break;
-            }
+           
         }
 
     #endregion
@@ -108,7 +90,29 @@ namespace MES.Order.UI.New
                                                                   this.cboLocationID.EditValue.ToString();
                 UI_Utility.LocationName = this.cboLocationID.Text;
                 Properties.Settings.Default.Save();
-
+                switch (UI_Utility.LocationId)
+                {
+                    case "KK-PC":
+                        BasicUtility.Conn = ConfigurationManager.ConnectionStrings["KKPCDbContext"].ConnectionString;
+                        BasicOldUtlity.OldConn = ConfigurationManager.ConnectionStrings["KKPCProductsDbContext"]
+                                                                     .ConnectionString;
+                        break;
+                    case "KK-PC-OLD":
+                        BasicUtility.Conn = ConfigurationManager.ConnectionStrings["KKPCOLDDbContext"].ConnectionString;
+                        BasicOldUtlity.OldConn = ConfigurationManager.ConnectionStrings["KKPCOLDProductsDbContext"]
+                                                                     .ConnectionString;
+                        break;
+                    case "S03CSY":
+                        BasicUtility.Conn = ConfigurationManager.ConnectionStrings["S03CSYDbContext"].ConnectionString;
+                        BasicOldUtlity.OldConn = ConfigurationManager.ConnectionStrings["S03CSYProductsDbContext"]
+                                                                     .ConnectionString;
+                        break;
+                    case "SuYun":
+                        BasicUtility.Conn = ConfigurationManager.ConnectionStrings["SuYunDbContext"].ConnectionString;
+                        BasicOldUtlity.OldConn = ConfigurationManager.ConnectionStrings["SuYunProductsDbContext"]
+                                                                     .ConnectionString;
+                        break;
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -5,6 +5,7 @@ using MES.Order.DAL.Repository;
 using MES.Order.Infrastructure.NewViewModel;
 using MES.Order.Infrastructure.NewViewModel.Filter;
 using MES.Order.Infrastructure.NewViewModel.Request;
+using THS.Infrastructure.Page;
 
 namespace MES.Order.Adapter.Implement
 {
@@ -24,6 +25,12 @@ namespace MES.Order.Adapter.Implement
         Task<List<OrderInfoViewModel>> IOrderInfoAdapter.Query(FilterOrderInfo _filter)
         {
             return repo.Query(_filter);
+        }
+
+        /// <inheritdoc />
+        public Task<List<OrderInfoViewModel>> Query(FilterOrderInfo _filter, Paging paging)
+        {
+            return repo.Query(_filter, paging);
         }
 
         public Task<bool> AddOrUpdate(IEnumerable<OrderInfoRequest> fromUi)

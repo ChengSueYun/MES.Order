@@ -453,6 +453,8 @@
   <ItemGroup>
     <None Include="icon\下拉選單的箭頭.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\lookup&amp;reference.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

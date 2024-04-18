@@ -3,12 +3,14 @@ using MES.Order.Infrastructure.NewViewModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MES.Order.Infrastructure.NewViewModel.Request;
+using THS.Infrastructure.Page;
 
 namespace MES.Order.Adapter.Interface
 {
     public interface IOrderInfoAdapter
     {
         Task<List<OrderInfoViewModel>> Query(FilterOrderInfo _filter);
+        Task<List<OrderInfoViewModel>> Query(FilterOrderInfo _filter,Paging paging);
 
         Task<bool> AddOrUpdate(IEnumerable<OrderInfoRequest> fromUi);
 
