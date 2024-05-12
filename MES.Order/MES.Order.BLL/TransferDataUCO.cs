@@ -62,14 +62,14 @@ namespace MES.Order.BLL
                                                                                               , UpdateUser = ""
                                                                                             }).ToList();
             
-            // var b = BasicUtility.CustomerInfoAdapter.AddOrUpdate(customInfoViewModel).Result;
+           var b = BasicUtility.CustomerInfoAdapter.AddOrUpdate(customInfoViewModel).Result;
             List<FactoryInfoViewModel> factoryInfoViewModel = oldFactory.Select(x => new FactoryInfoViewModel
                                                                                             {
                                                                                                 Factory = x
                                                                                                     .ProductGroupName
                                                                                               , FactoryWebSit = ""
                                                                                             }).ToList();
-            // var result = BasicUtility.FactoryInfoAdapter.AddOrUpdate(factoryInfoViewModel).Result;
+           var result = BasicUtility.FactoryInfoAdapter.AddOrUpdate(factoryInfoViewModel).Result;
 
             List<ProductsInfoViewModel> productsInfoViewModel = oldProducts.GroupBy(
                  x => new { x.ProductGroupID, x.ProductName }
