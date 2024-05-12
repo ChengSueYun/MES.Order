@@ -41,34 +41,34 @@ namespace MES.Order.BLL
 
         private static void OldMapToNew()
         {
-            // List<AreaInfoViewModel> areaInfoViewModel =
-            //     oldArea.Select(areas => new AreaInfoViewModel() { Area = areas.AreaName }).ToList();
-            // var result1 = BasicUtility.AreaInfoAdapter.AddOrUpdateAsync(areaInfoViewModel).Result;
-            // List<CustomInfoViewModel> customInfoViewModel = oldCustomer.GroupBy(x => new { x.Address, x.CustomName }
-            //                                                                       , (arg1, customs) =>
-            //                                                                                 new CustomInfoViewModel
-            //                                                                                 {
-            //                                                                                     Area = arg1.Address
-            //                                                                                   , Customer =
-            //                                                                                         arg1.CustomName
-            //                                                                                   , FaceBookId   = ""
-            //                                                                                   , FaceBookLink = ""
-            //                                                                                   , Remark       = ""
-            //                                                                                   , CreateDate =
-            //                                                                                         DateTime.Today
-            //                                                                                   , CreateUser = "Transfer"
-            //                                                                                   , UpdateDate =
-            //                                                                                         DateTime.Today
-            //                                                                                   , UpdateUser = ""
-            //                                                                                 }).ToList();
-            //
+            List<AreaInfoViewModel> areaInfoViewModel =
+                oldArea.Select(areas => new AreaInfoViewModel() { Area = areas.AreaName }).ToList();
+            var result1 = BasicUtility.AreaInfoAdapter.AddOrUpdateAsync(areaInfoViewModel).Result;
+            List<CustomInfoViewModel> customInfoViewModel = oldCustomer.GroupBy(x => new { x.Address, x.CustomName }
+                                                                                  , (arg1, customs) =>
+                                                                                            new CustomInfoViewModel
+                                                                                            {
+                                                                                                Area = arg1.Address
+                                                                                              , Customer =
+                                                                                                    arg1.CustomName
+                                                                                              , FaceBookId   = ""
+                                                                                              , FaceBookLink = ""
+                                                                                              , Remark       = ""
+                                                                                              , CreateDate =
+                                                                                                    DateTime.Today
+                                                                                              , CreateUser = "Transfer"
+                                                                                              , UpdateDate =
+                                                                                                    DateTime.Today
+                                                                                              , UpdateUser = ""
+                                                                                            }).ToList();
+            
             // var b = BasicUtility.CustomerInfoAdapter.AddOrUpdate(customInfoViewModel).Result;
-            // List<FactoryInfoViewModel> factoryInfoViewModel = oldFactory.Select(x => new FactoryInfoViewModel
-            //                                                                                 {
-            //                                                                                     Factory = x
-            //                                                                                         .ProductGroupName
-            //                                                                                   , FactoryWebSit = ""
-            //                                                                                 }).ToList();
+            List<FactoryInfoViewModel> factoryInfoViewModel = oldFactory.Select(x => new FactoryInfoViewModel
+                                                                                            {
+                                                                                                Factory = x
+                                                                                                    .ProductGroupName
+                                                                                              , FactoryWebSit = ""
+                                                                                            }).ToList();
             // var result = BasicUtility.FactoryInfoAdapter.AddOrUpdate(factoryInfoViewModel).Result;
 
             List<ProductsInfoViewModel> productsInfoViewModel = oldProducts.GroupBy(
