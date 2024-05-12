@@ -42,3 +42,4 @@ MES.Order/MES.Order.UI/Properties/licenses.licx.bak
 /MES.Order/MES.Order.Infrastructure/obj/S03CSY/MES.Order.Infrastructure.csproj.CoreCompileInputs.cache
 /MES.Order/MES.Order.Infrastructure/obj/S03CSY/MES.Order.Infrastructure.dll
 /MES.Order/MES.Order.Infrastructure/obj/S03CSY/MES.Order.Infrastructure.pdb
+*.zip
